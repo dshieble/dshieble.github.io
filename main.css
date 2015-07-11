@@ -4,8 +4,8 @@ body {
 }
 
 div {
-    padding: 0.1%;
-    border-radius: 4px;
+  /* padding: 2px;
+    border-radius: 4px;*/
 }
 
 .facet_div_child {
