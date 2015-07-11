@@ -1,0 +1,532 @@
+{  
+   "rows":[  
+      {  
+         "highlighted":false,
+         "name":" Aqrabe",
+         "coordinates":[  
+            "32.997078",
+            "35.702465"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Baidarus",
+         "coordinates":[  
+            "32.123325",
+            "35.337372"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Beth Shearim",
+         "coordinates":[  
+            "33.081703",
+            "35.734001"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Bethennim",
+         "coordinates":[  
+            "32.601299",
+            "35.125015"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Birsama",
+         "coordinates":[  
+            "31.555220",
+            "35.125919"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Butmiyye",
+         "coordinates":[  
+            "31.255894",
+            "34.538239"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Cadasa (Tel Qedesh)",
+         "coordinates":[  
+            "32.946644",
+            "35.881844"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Caesarea",
+         "coordinates":[  
+            "33.105843",
+            "35.531666"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Carmiel",
+         "coordinates":[  
+            "32.501743",
+            "34.891003"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Dabbura",
+         "coordinates":[  
+            "32.907871",
+            "35.295773"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Dabiyye",
+         "coordinates":[  
+            "33.042324",
+            "35.659897"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Deir Mfadal",
+         "coordinates":[  
+            "33.006008",
+            "35.723919"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Ed-Dahshe",
+         "coordinates":[  
+            "32.933693",
+            "35.766266"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Ein Semsem",
+         "coordinates":[  
+            "33.012444",
+            "35.692921"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Ein Nashot",
+         "coordinates":[  
+            "33.029518",
+            "35.708000"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" el-Al",
+         "coordinates":[  
+            "33.024128",
+            "35.702618"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" El-&#39;Uyun",
+         "coordinates":[  
+            "31.094057",
+            "34.644180"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" El-Kursi",
+         "coordinates":[  
+            "31.843834",
+            "35.178501"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" El-Bireh",
+         "coordinates":[  
+            "32.798542",
+            "35.744061"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" El-Jib(?)",
+         "coordinates":[  
+            "32.989525",
+            "35.781597"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Elusa (Haluza)",
+         "coordinates":[  
+            "32.825970",
+            "35.648109"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Emmaus I",
+         "coordinates":[  
+            "32.717693",
+            "35.667843"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Evron",
+         "coordinates":[  
+            "31.834635",
+            "34.988354"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Fakhem",
+         "coordinates":[  
+            "32.989002",
+            "35.092571"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Farj",
+         "coordinates":[  
+            "32.967655",
+            "35.829590"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Fiq",
+         "coordinates":[  
+            "32.951420",
+            "35.830544"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Giv&#39;at Seled",
+         "coordinates":[  
+            "32.771667",
+            "35.701206"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hafar",
+         "coordinates":[  
+            "31.654144",
+            "34.925514"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Haifa",
+         "coordinates":[  
+            "33.087326",
+            "35.681553"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hammath Tiberias",
+         "coordinates":[  
+            "32.817543",
+            "34.986004"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hammatha",
+         "coordinates":[  
+            "32.763184",
+            "35.541080"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hermon Mons (Har Senaim)",
+         "coordinates":[  
+            "32.681664",
+            "35.658058"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hippos (Susita)",
+         "coordinates":[  
+            "33.384342",
+            "35.801388"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hizmeh(?)",
+         "coordinates":[  
+            "31.834805",
+            "35.263012"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Hizmeh",
+         "coordinates":[  
+            "32.771870",
+            "35.647842"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Ioppe (Jaffa)",
+         "coordinates":[  
+            "32.050419",
+            "34.744316"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Ioppe",
+         "coordinates":[  
+            "31.834805",
+            "35.263012"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Isawiyya",
+         "coordinates":[  
+            "32.050419",
+            "34.744316"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Jericho",
+         "coordinates":[  
+            "31.798738",
+            "35.241871"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Jerusalem(?)",
+         "coordinates":[  
+            "31.780706",
+            "35.220749"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Jerusalem",
+         "coordinates":[  
+            "31.852633",
+            "35.442642"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Jueizeh",
+         "coordinates":[  
+            "31.780706",
+            "35.220749"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Jurniyye",
+         "coordinates":[  
+            "33.032566",
+            "35.831120"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Kafr Nafakh",
+         "coordinates":[  
+            "32.753796",
+            "35.658424"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Kafr Harib",
+         "coordinates":[  
+            "32.807213",
+            "35.818855"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Kafr el-Ma",
+         "coordinates":[  
+            "32.892799",
+            "35.833340"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Khisfin",
+         "coordinates":[  
+            "33.060062",
+            "35.734943"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Khushniyye",
+         "coordinates":[  
+            "32.852295",
+            "35.819164"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Marisa",
+         "coordinates":[  
+            "32.996609",
+            "35.809464"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Mazra&#39;at Quneitra",
+         "coordinates":[  
+            "31.590942",
+            "34.894096"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Mumsiyye",
+         "coordinates":[  
+            "32.888611",
+            "35.765980"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Narran",
+         "coordinates":[  
+            "33.077652",
+            "35.830364"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Qiryat Tiv&#39;on",
+         "coordinates":[  
+            "33.029594",
+            "35.688732"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Quneitra",
+         "coordinates":[  
+            "32.718525",
+            "35.124912"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Rafid",
+         "coordinates":[  
+            "33.122780",
+            "35.821041"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Ramsaniyye",
+         "coordinates":[  
+            "32.952274",
+            "35.627350"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Rasm el-Khayakath",
+         "coordinates":[  
+            "33.020069",
+            "35.805344"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Rujm Zaki",
+         "coordinates":[  
+            "32.888596",
+            "35.769188"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Sepphoris",
+         "coordinates":[  
+            "32.807693",
+            "35.712086"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Squffiye",
+         "coordinates":[  
+            "32.745583",
+            "35.274265"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Sukeik",
+         "coordinates":[  
+            "32.800575",
+            "35.687489"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Tell &#39;Akasha",
+         "coordinates":[  
+            "33.168301",
+            "35.724873"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Tell et-Talaya",
+         "coordinates":[  
+            "33.095512",
+            "35.863701"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Tell el-Jukhadar",
+         "coordinates":[  
+            "33.039585",
+            "35.868637"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Umm al-Jimal",
+         "coordinates":[  
+            "32.982224",
+            "35.800808"
+         ]
+      },
+      {  
+         "highlighted":false,
+         "name":" Zoora",
+         "coordinates":[  
+            "32.592136",
+            "34.997204"
+         ]
+      }
+   ]
+}
