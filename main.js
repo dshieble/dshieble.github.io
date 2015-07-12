@@ -45,10 +45,10 @@ var religions = {};
 var facets = [types, languages, religions];
 var facet_names = ["Types", "Languages", "Religions"];
 
-var Json = "https://raw.githubusercontent.com/dshieble/ExternalFiles/master/coordinateJSON.json";
+var Json = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/coordinateJSON.json";
 
 
-var HTMLJson = "https://raw.githubusercontent.com/dshieble/ExternalFiles/master/inscriptionData.json";
+var HTMLJson = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/inscriptionData.json";
 //Circles and circle manager variables
 var circles = undefined;
 var maker = undefined;
