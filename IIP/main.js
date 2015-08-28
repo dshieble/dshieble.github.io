@@ -46,9 +46,8 @@ var facets = [types, languages, religions];
 var facet_names = ["Types", "Languages", "Religions"];
 
 var Json = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/coordinateJSON.json";
+var HTMLJson = "http://library.brown.edu/cds/projects/iip/api/?q=*%3A*&rows=1916&fl=inscription_id%2C+language%2C+city%2C+religion%2C+type&wt=json&indent=true";
 
-
-var HTMLJson = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/inscriptionData.json";
 //Circles and circle manager variables
 var circles = undefined;
 var maker = undefined;
