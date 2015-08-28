@@ -84,7 +84,7 @@ $.ajax({
     url: 'proxy.php',
     type: 'GET',
     data: {
-        address: 'http://www.google.com'
+        address: HTMLJson
     },
     success: function(response) {
         console.log(response)
