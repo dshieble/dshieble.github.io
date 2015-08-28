@@ -81,11 +81,9 @@ d3.json(Json, function(locations) {
 
 
 $.ajax({
-    url: 'proxy2.php',
-    type: 'POST',
-    data: {
-        address: HTMLJson
-    },
+   type: 'GET',
+   url:'proxy.php?url=http://anyDomain.com?someid=thispage',
+   dataType: "json",
     success: function(data) {
         console.log(data)
         data.response.docs.forEach(function(d,i) {
