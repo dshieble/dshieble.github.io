@@ -45,10 +45,14 @@ var religions = {};
 var facets = [types, languages, religions];
 var facet_names = ["Types", "Languages", "Religions"];
 
+//https://raw.githubusercontent.com/dshieble/ExternalFiles/master/inscriptionData.json
 var Json = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/coordinateJSON.json";
+var HTMLJson = "https://raw.githubusercontent.com/dshieble/ExternalFiles/master/inscriptionData.json";
 
 
-// var HTMLJson = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/inscriptionData.json";
+// "http://library.brown.edu/cds/projects/iip/api/?q=*%3A*&rows=1916&fl=inscription_id%2C+language%2C+city%2C+religion%2C+type&wt=json&indent=true";
+
+
 //Circles and circle manager variables
 var circles = undefined;
 var maker = undefined;
@@ -56,6 +60,10 @@ var maker = undefined;
 /*
     Load the JSON files
 */
+
+
+
+
 
 //basic location rows
 d3.json(Json, function(locations) {
@@ -71,79 +79,85 @@ d3.json(Json, function(locations) {
     });
 });
 
-d3.json(HTMLJson, function(L) {
-    L.response.docs.forEach(function(d,i) {
-        if (d.city == undefined) {
-            return;
-        } else {
-            simpName = simplify_string(d.city);
-        }
-        if (multiHash[simpName] != undefined) {
-            if (d.language == undefined || d.religion == undefined || d.type == undefined) {
+
+$.ajax({
+   type: 'GET',
+   url: HTMLJson,
+   dataType: "json",
+   success: function(data){
+        console.log(data)
+        data.response.docs.forEach(function(d,i) {
+            if (d.city == undefined) {
                 return;
             } else {
-                t = typeMap(d.type[0])
-                l = d.language[0];
-                r = d.religion[0];
-                if (multiHash[simpName][t] == undefined) {
-                    multiHash[simpName][t] = {};
-                }
-                if (multiHash[simpName][t][l] == undefined) {
-                    multiHash[simpName][t][l] = {};
-                }
-                if (multiHash[simpName][t][l][r] == undefined) {
-                    multiHash[simpName][t][l][r] = 0;
-                }
-                multiHash[simpName][t][l][r] ++;
-                if (types[t] == undefined) {
-                    types[t] = true;
-                }
-                if (languages[l] == undefined) {
-                    languages[l] = true;
-                }
-                if (religions[r] == undefined) {
-                    religions[r] = true;
+                simpName = simplify_string(d.city);
+            }
+            if (multiHash[simpName] != undefined) {
+                if (d.language == undefined || d.religion == undefined || d.type == undefined) {
+                    return;
+                } else {
+                    t = typeMap(d.type[0])
+                    l = d.language[0];
+                    r = d.religion[0];
+                    if (multiHash[simpName][t] == undefined) {
+                        multiHash[simpName][t] = {};
+                    }
+                    if (multiHash[simpName][t][l] == undefined) {
+                        multiHash[simpName][t][l] = {};
+                    }
+                    if (multiHash[simpName][t][l][r] == undefined) {
+                        multiHash[simpName][t][l][r] = 0;
+                    }
+                    multiHash[simpName][t][l][r] ++;
+                    if (types[t] == undefined) {
+                        types[t] = true;
+                    }
+                    if (languages[l] == undefined) {
+                        languages[l] = true;
+                    }
+                    if (religions[r] == undefined) {
+                        religions[r] = true;
+                    }
                 }
             }
-        }
-    });
-    maker = new circleManager();
-    //Circle size facets
-    for (var f = 0; f < facets.length; f++) {
-        string = "<div class=\"facet_div_child\"> " + facet_names[f] + "</br>";
-        if (f != 0) {//"types" category needs a special case
-            facet = facets[f];
-            for (var key in facet) {
-                if (facet.hasOwnProperty(key)) {
-                    string += "<label> <input type=\"checkbox\" id= \"" + key + "\" onclick=\"changeFacet(this.id, this.class)\" checked> " + getTitle(key) + " </label> </br>"
+        });
+        maker = new circleManager();
+        //Circle size facets
+        for (var f = 0; f < facets.length; f++) {
+            string = "<div class=\"facet_div_child\"> " + facet_names[f] + "</br>";
+            if (f != 0) {//"types" category needs a special case
+                facet = facets[f];
+                for (var key in facet) {
+                    if (facet.hasOwnProperty(key)) {
+                        string += "<label> <input type=\"checkbox\" id= \"" + key + "\" onclick=\"changeFacet(this.id, this.class)\" checked> " + getTitle(key) + " </label> </br>"
+                    }
                 }
+                facet_div.innerHTML += string + "</div> </br>"
+            } else {
+                string += "<label> <input type=\"checkbox\" id= \"Funerary\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Funerary/Memorial" + " </label> </br>";
+                string += "<label> <input type=\"checkbox\" id= \"Dedicatory\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Dedicatory" + " </label> </br>";
+                string += "<label> <input type=\"checkbox\" id= \"Invocation\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Invocation" + " </label> </br>";
+                string += "<label> <input type=\"checkbox\" id= \"Other\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Other" + " </label> </br>";
+                facet_div.innerHTML += string + "</div> </br>";
             }
-            facet_div.innerHTML += string + "</div> </br>"
-        } else {
-            string += "<label> <input type=\"checkbox\" id= \"Funerary\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Funerary/Memorial" + " </label> </br>";
-            string += "<label> <input type=\"checkbox\" id= \"Dedicatory\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Dedicatory" + " </label> </br>";
-            string += "<label> <input type=\"checkbox\" id= \"Invocation\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Invocation" + " </label> </br>";
-            string += "<label> <input type=\"checkbox\" id= \"Other\" onclick=\"changeFacet(this.id, this.class)\" checked> " + "Other" + " </label> </br>";
-            facet_div.innerHTML += string + "</div> </br>";
         }
-    }
-    //Map Type Face
-    string = "<div> Map Tiling </br>"
-    checked = "checked"; //only first radio is checked
-    for (var i = 0; i < tiles.length; i++) {
-        string += "<label> <input type=\"radio\" name = \"tiling\" onclick=\"changeMapFacet("+i+")\" "+ checked +" > " + getMapTypeName(i) + " </label> </br>";
-        checked = "";
-    }
-    map_type_div.innerHTML += string + "</div> </br>";
-    updateSizes();
-    for (var s in sizes) {
-        if (sizes.hasOwnProperty(s)) {
-            totalSizes[s] = sizes[s];
+        //Map Type Face
+        string = "<div> Map Tiling </br>"
+        checked = "checked"; //only first radio is checked
+        for (var i = 0; i < tiles.length; i++) {
+            string += "<label> <input type=\"radio\" name = \"tiling\" onclick=\"changeMapFacet("+i+")\" "+ checked +" > " + getMapTypeName(i) + " </label> </br>";
+            checked = "";
         }
-    }
-    writeSelected();
+        map_type_div.innerHTML += string + "</div> </br>";
+        updateSizes();
+        for (var s in sizes) {
+            if (sizes.hasOwnProperty(s)) {
+                totalSizes[s] = sizes[s];
+            }
+        }
+        writeSelected();
+   }
 });
-
 
 
 function changeFacet(id) {
