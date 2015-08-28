@@ -82,7 +82,7 @@ d3.json(Json, function(locations) {
 
 $.ajax({
     url: 'proxy2.php',
-    type: 'GET',
+    type: 'POST',
     data: {
         address: HTMLJson
     },
