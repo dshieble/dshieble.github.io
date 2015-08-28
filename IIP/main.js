@@ -47,8 +47,8 @@ var facet_names = ["Types", "Languages", "Religions"];
 
 //https://raw.githubusercontent.com/dshieble/ExternalFiles/master/inscriptionData.json
 var Json = "https://raw.githubusercontent.com/dshieble/External_Json_Files/master/coordinateJSON.json";
-var HTMLJson = "https://raw.githubusercontent.com/dshieble/ExternalFiles/master/inscriptionData.json";
-
+// var HTMLJson = "https://raw.githubusercontent.com/dshieble/ExternalFiles/master/inscriptionData.json";
+var HTMLJson = "http://library.brown.edu/cds/projects/iip/api/?q=*%3A*&rows=1916&fl=inscription_id%2C+language%2C+city%2C+religion%2C+type&wt=json&indent=true";
 
 // "http://library.brown.edu/cds/projects/iip/api/?q=*%3A*&rows=1916&fl=inscription_id%2C+language%2C+city%2C+religion%2C+type&wt=json&indent=true";
 
@@ -81,11 +81,13 @@ d3.json(Json, function(locations) {
 
 
 $.ajax({
-   type: 'GET',
-   url: HTMLJson,
-   dataType: "json",
-   success: function(data){
-        console.log(data)
+    url: 'proxy.php',
+    type: 'GET',
+    data: {
+        address: 'http://www.google.com'
+    },
+    success: function(response) {
+        console.log(response)
         data.response.docs.forEach(function(d,i) {
             if (d.city == undefined) {
                 return;
