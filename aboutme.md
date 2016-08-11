@@ -1,16 +1,9 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: The extra brief version
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hi, I'm Dan Shiebler. As a Data Scientist at TrueMotion, I research, design and implement machine learning algorithms that determine driver risk from smart phone sensor data.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
-
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+In my spare time I like to learn about math and programming, ride my bicycle, hike, and practice Brazilian Jiu Jitsu. 
