@@ -25,7 +25,7 @@ Some good resources for learning about generative models include:
 Unlike discriminative models, we can also use generative models to create synthetic data by directly sampling from the modelled probability distributions. I think that this is pretty damn awesome, and I’m going to prove it to you. But first, let’s talk about RBMs.
 
 ### The Restricted Boltzman Machine
-RBMs are awesome models, but if you have never encountered them before, they can be a little complex. I’m going to quickly review the important points below, but if you want understand them in more detail, the following resources may be helpful:
+RBMs are awesome models, but if you have never encountered them before, they can be a little complex. I’m going to quickly review the details below, but if you want understand them more thoroughly, the following resources may be helpful:
 
 * This article contains a good, very [visual description of RBMs](http://deeplearning4j.org/restrictedboltzmannmachine.html). Also includes a DL4J implementation.
 
@@ -69,16 +69,16 @@ Remember that an RBM describes a probability distribution. When we train an RBM,
 
 To do that, we use a very simple strategy:
 
-* Initialize the visible nodes with some vector x from our dataset  
-* Sample from the probability distribution by using Gibbs sampling
-* Look at the difference between the sample and x  
+* Initialize the visible nodes with some vector $$x$$ from our dataset  
+* Sample $$\tilde{x}$$ from the probability distribution by using Gibbs sampling
+* Look at the difference between the $$\tilde{x}$$ and $$x$$  
 * Move the weight matrix and bias vectors in a direction that minimizes this difference
 
-The equations are very simple:
+The equations are straightforward:
 
-$$W  = W + lr(h(x_{t})x_{t}^{T} - h(\tilde{x})\tilde{x})^{T}\\
-bh = bh + lr(h(x_{t}) - h(\tilde{x}))\\
-bv = bv + lr(x_t - \tilde{x})$$
+$$W  = W + lr(x^{T}h(x) - \tilde{x}^{T}h(\tilde{x}))\\
+bh = bh + lr(h(x) - h(\tilde{x}))\\
+bv = bv + lr(x - \tilde{x})$$
 
 
 
@@ -87,7 +87,7 @@ bv = bv + lr(x_t - \tilde{x})$$
 * $$lr$$ is the learning rate
 * $$h$$ is the function that takes in the values of the visible nodes and returns a sample of the hidden nodes (see step 1 of the Gibbs sampling algorithm above)
 
-This technique is known as Contrastive Divergence. If you want to learn more about CD, you can check out [this paper here](http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf).
+This technique is known as Contrastive Divergence. If you want to learn more about CD, you can check out [this excellent derivation](http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf).
 
 ## Implementation
 
