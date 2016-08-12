@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dan Shiebler</title>
+    <description>A place for me to share some of the things that I spend my time on.</description>
+    <link>http://dshieble.github.io</link>
+    <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>How to build an RBM in TensorFlow for making music</title>
+        <description>
+          
+          Generative models are awesome. TensorFlow is awesome. Music is awesome. In this post, we’re going to use TensorFlow to build a generative model that can create snippets of music. I’m going to assume that you have a pretty good understanding of neural networks and backpropagation and are at least a...
+        </description>
+        <pubDate>Mon, 10 Aug 2015 00:00:00 -0400</pubDate>
+        <link>http://dshieble.github.io/2015-08-10-musical-tensorflow-rbm/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2015-08-10-musical-tensorflow-rbm/</guid>
+      </item>
+    
+      <item>
+        <title>First post!</title>
+        <description>
+          
+          This is my first post, how exciting!
+
+        </description>
+        <pubDate>Sun, 04 Jan 2015 00:00:00 -0500</pubDate>
+        <link>http://dshieble.github.io/2015-01-04-first-post/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2015-01-04-first-post/</guid>
+      </item>
+    
+  </channel>
+</rss>
