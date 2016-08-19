@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Dan Shiebler</title>
+
+  <meta name="author" content="Dan Shiebler" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - A place for me to share some of the things that I spend my time on." href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="Dan Shiebler" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:url" content="http://dshieble.github.io/2016-08-18-2015-08-10-musical-tensorflow-part-one-the-rbm/" />
+  
+  
+  <meta property="og:image" content="http://dshieble.github.io/img/dan2.png" />
+  
+  
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+  <meta name="twitter:title" content="Dan Shiebler" />
+  <meta name="twitter:description" content="Generative models are awesome. TensorFlow is awesome. Music is awesome. In this post, we’re going to use TensorFlow to build a generative model that can create snippets of music. I’m going to assume that you have a pretty good understanding of neural networks and backpropagation and are at least a..." />
+  
+  <meta name="twitter:image" content="http://dshieble.github.io/img/dan2.png" />
+  
+  
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://dshieble.github.io ">
+	      <img class="avatar-img" src="/img/dan2.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<p>Generative models are awesome. TensorFlow is awesome. Music is awesome. In this post, we’re going to use TensorFlow to build a generative model that can create snippets of music.</p>
+
+<p>I’m going to assume that you have a pretty good understanding of neural networks and backpropagation and are at least a little bit familiar with TensorFlow. If you haven’t used TensorFlow before, the <a href="https://www.tensorflow.org/versions/r0.10/tutorials/index.html">tutorials</a> are a good place to start.</p>
+
+<h2 id="concepts">Concepts</h2>
+
+<h3 id="generative-models">Generative Models</h3>
+
+<p>Generative Models specify a probability distribution over a dataset of input vectors. For an unsupervised task, we form a model for <script type="math/tex">P(x)</script>, where <script type="math/tex">x</script> is an input vector. For a supervised task, we form a model for <script type="math/tex">P(x \vert y)</script>, where <script type="math/tex">y</script> is the label for <script type="math/tex">x</script>. Like discriminative models, most generative models can be used for classification tasks. To perform classification with a generative model, we leverage the fact that if we know <script type="math/tex">P(X \vert Y)</script> and <script type="math/tex">P(Y)</script>, we can use bayes rule to estimate <script type="math/tex">P(Y \vert X)</script>.</p>
+
+<p>Some good resources for learning about generative models include:</p>
+
+<ul>
+  <li>
+    <p>A nice and <a href="http://www.cedar.buffalo.edu/~srihari/CSE574/Discriminative-Generative.pdf">simple visual description</a> of machine learning and the difference between generative and discriminative models.</p>
+  </li>
+  <li>
+    <p>An <a href="http://cs229.stanford.edu/notes/cs229-notes2.pdf">excellent description</a> of some popular generative algorithms. My personal favorite resource. Honestly all of the notes for Andrew Ng’s class are solid gold.</p>
+  </li>
+  <li>
+    <p>A <a href="http://papers.nips.cc/paper/2020-on-discriminative-vs-generative-classifiers-a-comparison-of-logistic-regression-and-naive-bayes.pdf">heavily referenced paper</a> that compares linear discriminative and generative models. The moral of the story is that generative models tend to be better at classification when data is sparse, and discriminative classifiers are better when data is plentiful. Also written by Andrew Ng.</p>
+  </li>
+</ul>
+
+<p>Unlike discriminative models, we can also use generative models to create synthetic data by directly sampling from the modelled probability distributions. I think that this is pretty damn awesome, and I’m going to prove it to you. But first, let’s talk about RBMs.</p>
+
+<h3 id="the-restricted-boltzman-machine">The Restricted Boltzman Machine</h3>
+<p>RBMs are awesome models, but if you have never encountered them before, they can be a little complex. I’m going to quickly review the details below, but if you want understand them more thoroughly, the following resources may be helpful:</p>
+
+<ul>
+  <li>
+    <p>This article contains a good, very <a href="http://deeplearning4j.org/restrictedboltzmannmachine.html">visual description of RBMs</a>. Also includes a DL4J implementation.</p>
+  </li>
+  <li>
+    <p>This post is a relatively <a href="http://deeplearning.net/tutorial/rbm.html">in-depth description of RBMs</a>, starting from a description of Energy-Based models. Also includes an implementation in Theano.</p>
+  </li>
+  <li>
+    <p>Here is a pretty <a href="http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines/">intuitive description</a> of RBMs as binary factor analysis. This article also includes a description of the classic movie rating RBM example.</p>
+  </li>
+</ul>
+
+<h4 id="rbm-architecture">RBM Architecture</h4>
+<p>The RBM is a neural network with 2 layers, the visible layer and the hidden layer. Each visible node is connected to each hidden node (and vice versa), but there are no visible-visible or hidden-hidden connections (the RBM is a complete bipartite graph). Since there are only 2 layers, we can fully describe a trained RBM with 3 parameters:</p>
+
+<ul>
+  <li>The weight matrix <script type="math/tex">W</script>:
+    <ul>
+      <li><script type="math/tex">W</script> has size <script type="math/tex">n_{visible}\ x\ n_{hidden}</script>. <script type="math/tex">W_{ij}</script> is the weight of the connection between visible node <script type="math/tex">i</script> and hidden node <script type="math/tex">j</script>.</li>
+    </ul>
+  </li>
+  <li>The bias vector <script type="math/tex">bv</script>:
+    <ul>
+      <li><script type="math/tex">bv</script> is a vector with <script type="math/tex">n_{visible}</script> elements. Element <script type="math/tex">i</script> is the bias for the <script type="math/tex">i^{th}</script> visible node.</li>
+    </ul>
+  </li>
+  <li>The bias vector bh:
+    <ul>
+      <li><script type="math/tex">bh</script> is a vector with n_hidden elements. Element <script type="math/tex">j</script> is the bias for the <script type="math/tex">j^{th}</script> hidden node.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><script type="math/tex">n_{visible}</script> is the number of features in the input vectors. <script type="math/tex">n_{hidden}</script> is the size of the hidden layer.</p>
+
+<p><img src="/img/RBM.png" alt="In reality RBM is fully connected" /></p>
+
+<p>In this image we remove most of the edges for clarity.</p>
+
+<h4 id="rbm-sampling">RBM Sampling</h4>
+<p>Unlike most of the neural networks that you’ve probably seen before, RBMs are generative models that directly model the probability distribution of data and can be used for data augmentation and reconstruction. To sample from an RBM, we perform an algorithm known as Gibbs sampling. Essentially, this algorithm works like this:</p>
+
+<ul>
+  <li>
+    <p>Initialize the visible nodes. You can initialize them randomly, or you can set them equal to an input example.</p>
+  </li>
+  <li>
+    <p>Repeat the following process for <script type="math/tex">k</script> steps, or until convergence:</p>
+    <ol>
+      <li>Propagate the values of the visible nodes forward, and then sample the new values of the hidden nodes.
+        <ul>
+          <li>That is, randomly set the values of each <script type="math/tex">h_i</script> to be <script type="math/tex">1</script> with probability <script type="math/tex">\sigma (W^{T}v + bh)_i</script>.</li>
+        </ul>
+      </li>
+      <li>Propagate the values of the hidden nodes back to the visible nodes, and sample the new values of the visible nodes.
+        <ul>
+          <li>That is, randomly set the values of each <script type="math/tex">v_i</script> to be 1 with probability <script type="math/tex">\sigma (Wh + bv)_i</script>.</li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+</ul>
+
+<p>At the end of the algorithm, the visible nodes will store the value of the sample.</p>
+
+<h4 id="rbm-training">RBM Training</h4>
+<p>Remember that an RBM describes a probability distribution. When we train an RBM, our goal is to find the values for its parameters that maximize the likelihood of our data being drawn from that distribution.</p>
+
+<p>To do that, we use a very simple strategy:</p>
+
+<ul>
+  <li>Initialize the visible nodes with some vector <script type="math/tex">x</script> from our dataset</li>
+  <li>Sample <script type="math/tex">\tilde{x}</script> from the probability distribution by using Gibbs sampling</li>
+  <li>Look at the difference between the <script type="math/tex">\tilde{x}</script> and <script type="math/tex">x</script></li>
+  <li>Move the weight matrix and bias vectors in a direction that minimizes this difference</li>
+</ul>
+
+<p>The equations are straightforward:</p>
+
+<script type="math/tex; mode=display">W  = W + lr(x^{T}h(x) - \tilde{x}^{T}h(\tilde{x}))\\
+bh = bh + lr(h(x) - h(\tilde{x}))\\
+bv = bv + lr(x - \tilde{x})</script>
+
+<ul>
+  <li><script type="math/tex">x_t</script> is the inital vector</li>
+  <li><script type="math/tex">\tilde{x}</script> is the sample of x drawn from the probability distribution</li>
+  <li><script type="math/tex">lr</script> is the learning rate</li>
+  <li><script type="math/tex">h</script> is the function that takes in the values of the visible nodes and returns a sample of the hidden nodes (see step 1 of the Gibbs sampling algorithm above)</li>
+</ul>
+
+<p>This technique is known as Contrastive Divergence. If you want to learn more about CD, you can check out <a href="http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf">this excellent derivation</a>.</p>
+
+<h2 id="implementation">Implementation</h2>
+
+<h3 id="data">Data</h3>
+<p>In this tutorial we are going to use our RBM to generate short sequences of music. Our training data will be around a hundred midi files of popular songs. Midi is a format that directly encodes musical notes - you can think of midi files as sheet music for computers. You can play midi files or convert them to mp3 by using a tool such as GarageBand. Midi files encode events that a synthesizer would need to know about, such as Note-on, Note-off, Tempo changes, etc. For our purposes, we are interested in getting the following information from our midi files:</p>
+
+<ul>
+  <li>Which note is played</li>
+  <li>When the note is pressed</li>
+  <li>When the note is released</li>
+</ul>
+
+<p>We can encode each song with a binary matrix with the following structure:</p>
+
+<p><img src="/img/Matrix.png" alt="The left half encodes note on events, and the right half encodes note off events" /></p>
+
+<p>The first n columns (where n is the number of notes that we want to represent) encode note-on events. The next n columns represent note-off events. So if element <script type="math/tex">M_{ij}</script> is 1 (where <script type="math/tex">% <![CDATA[
+j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <script type="math/tex">j</script> is played. If element <script type="math/tex">M_{i (n+j)}</script> is 1, then at timestep <script type="math/tex">i</script>, note <script type="math/tex">j</script> is released.</p>
+
+<p>In the above encoding, each timestep is a single training example. If we reshape the matrix to concatenate multiple rows together, then we can represent multiple timesteps in a single data vector.</p>
+
+<p>Converting midi files to and from these binary matrices is relatively simple, but there are a number of annoying edge cases. All of the code for reading and writing midi files is in the <a href="https://github.com/dshieble/Musical_Matrices/blob/master/midi_manipulation.py">midi_manipulation.py</a>  file, which is heavily based on <a href="https://github.com/hexahedria/biaxial-rnn-music-composition">Daniel Johnson’s midi manipulation code</a>. Midi files aren’t really the point of this post, but if you want to know more, the following libraries are pretty useful:</p>
+
+<ul>
+  <li><a href="https://github.com/vishnubob/python-midi">python-midi</a> contains fundamental tools for reading and writing midi files in python</li>
+  <li><a href="http://web.mit.edu/music21/">music21</a> is a more advanced (and complicated) midi library</li>
+</ul>
+
+<h3 id="code">Code</h3>
+
+<p>Now let’s get coding! In order for the code below to work, you need to put it in a directory with the following files:</p>
+
+<ul>
+  <li><a href="https://github.com/dshieble/Musical_Matrices/blob/master/midi_manipulation.py">midi_manipulation.py</a></li>
+  <li><a href="https://github.com/dshieble/Musical_Matrices/tree/master/Pop_Music_Midi">Pop_Music_Midi</a></li>
+</ul>
+
+<p>For your convenience, all of the code is in <a href="https://github.com/dshieble/Music_RBM">this repository</a>. Just follow the instructions in the README.md.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">msgpack</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.python.ops</span> <span class="kn">import</span> <span class="n">control_flow_ops</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="c">###################################################</span>
+<span class="c"># In order for this code to work, you need to place this file in the same </span>
+<span class="c"># directory as the midi_manipulation.py file and the Pop_Music_Midi directory</span>
+
+<span class="kn">import</span> <span class="nn">midi_manipulation</span>
+
+<span class="k">def</span> <span class="nf">get_songs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'{}/*.mid*'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="n">songs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">midi_manipulation</span><span class="o">.</span><span class="n">midiToNoteStateMatrix</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">song</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="n">songs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">song</span><span class="p">)</span>
+        <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">e</span>           
+    <span class="k">return</span> <span class="n">songs</span>
+
+<span class="n">songs</span> <span class="o">=</span> <span class="n">get_songs</span><span class="p">(</span><span class="s">'Pop_Music_Midi'</span><span class="p">)</span> <span class="c">#These songs have already been converted from midi to msgpack</span>
+<span class="k">print</span> <span class="s">"{} songs processed"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">songs</span><span class="p">))</span>
+<span class="c">###################################################</span>
+
+<span class="c">### HyperParameters</span>
+<span class="c"># First, let's take a look at the hyperparameters of our model:</span>
+
+<span class="n">lowest_note</span> <span class="o">=</span> <span class="mi">24</span> <span class="c">#the index of the lowest note on the piano roll</span>
+<span class="n">highest_note</span> <span class="o">=</span> <span class="mi">102</span> <span class="c">#the index of the highest note on the piano roll</span>
+<span class="n">note_range</span> <span class="o">=</span> <span class="n">highest_note</span><span class="o">-</span><span class="n">lowest_note</span> <span class="c">#the note range</span>
+
+<span class="n">num_timesteps</span>  <span class="o">=</span> <span class="mi">15</span> <span class="c">#This is the number of timesteps that we will create at a time</span>
+<span class="n">n_visible</span>      <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">note_range</span><span class="o">*</span><span class="n">num_timesteps</span> <span class="c">#This is the size of the visible layer. </span>
+<span class="n">n_hidden</span>       <span class="o">=</span> <span class="mi">50</span> <span class="c">#This is the size of the hidden layer</span>
+
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">200</span> <span class="c">#The number of training epochs that we are going to run. For each epoch we go through the entire data set.</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span> <span class="c">#The number of training examples that we are going to send through the RBM at a time. </span>
+<span class="n">lr</span>         <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="c">#The learning rate of our model</span>
+
+<span class="c">### Variables:</span>
+<span class="c"># Next, let's look at the variables we're going to use:</span>
+
+<span class="n">x</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">"x"</span><span class="p">)</span> <span class="c">#The placeholder variable that holds our data</span>
+<span class="n">W</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_visible</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s">"W"</span><span class="p">)</span> <span class="c">#The weight matrix that stores the edge weights</span>
+<span class="n">bh</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">],</span>  <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"bh"</span><span class="p">))</span> <span class="c">#The bias vector for the hidden layer</span>
+<span class="n">bv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">],</span>  <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"bv"</span><span class="p">))</span> <span class="c">#The bias vector for the visible layer</span>
+
+
+<span class="c">#### Helper functions. </span>
+
+<span class="c">#This function lets us easily sample from a vector of probabilities</span>
+<span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="n">probs</span><span class="p">):</span>
+    <span class="c">#Takes in a vector of probabilities, and returns a random vector of 0s and 1s sampled from the input vector</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">probs</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">probs</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c">#This function runs the gibbs chain. We will call this function in two places:</span>
+<span class="c">#    - When we define the training update step</span>
+<span class="c">#    - When we sample our music segments from the trained RBM</span>
+<span class="k">def</span> <span class="nf">gibbs_sample</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="c">#Runs a k-step gibbs chain to sample from the probability distribution of the RBM defined by W, bh, bv</span>
+    <span class="k">def</span> <span class="nf">gibbs_step</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">xk</span><span class="p">):</span>
+        <span class="c">#Runs a single gibbs step. The visible values are initialized to xk</span>
+        <span class="n">hk</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">xk</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> <span class="c">#Propagate the visible values to sample the hidden values</span>
+        <span class="n">xk</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hk</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">W</span><span class="p">))</span> <span class="o">+</span> <span class="n">bv</span><span class="p">))</span> <span class="c">#Propagate the hidden values to sample the visible values</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">xk</span>
+
+    <span class="c">#Run gibbs steps for k iterations</span>
+    <span class="n">ct</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c">#counter</span>
+    <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">x_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">control_flow_ops</span><span class="o">.</span><span class="n">While</span><span class="p">(</span><span class="k">lambda</span> <span class="n">count</span><span class="p">,</span> <span class="n">num_iter</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">num_iter</span><span class="p">,</span>
+                                         <span class="n">gibbs_step</span><span class="p">,</span> <span class="p">[</span><span class="n">ct</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">x</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="c">#This is not strictly necessary in this implementation, but if you want to adapt this code to use one of TensorFlow's</span>
+    <span class="c">#optimizers, you need this in order to stop tensorflow from propagating gradients back through the gibbs step</span>
+    <span class="n">x_sample</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stop_gradient</span><span class="p">(</span><span class="n">x_sample</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">x_sample</span>
+
+<span class="c">### Training Update Code</span>
+<span class="c"># Now we implement the contrastive divergence algorithm. First, we get the samples of x and h from the probability distribution</span>
+<span class="c">#The sample of x</span>
+<span class="n">x_sample</span> <span class="o">=</span> <span class="n">gibbs_sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+<span class="c">#The sample of the hidden nodes, starting from the visible state of x</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> 
+<span class="c">#The sample of the hidden nodes, starting from the visible state of x_sample</span>
+<span class="n">h_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_sample</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> 
+
+<span class="c">#Next, we update the values of W, bh, and bv, based on the difference between the samples that we drew and the original values</span>
+<span class="n">size_bt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">W_adder</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">h</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x_sample</span><span class="p">),</span> <span class="n">h_sample</span><span class="p">)))</span>
+<span class="n">bv_adder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_sample</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<span class="n">bh_adder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h_sample</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<span class="c">#When we do sess.run(updt), TensorFlow will run all 3 update steps</span>
+<span class="n">updt</span> <span class="o">=</span> <span class="p">[</span><span class="n">W</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">W_adder</span><span class="p">),</span> <span class="n">bv</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">bv_adder</span><span class="p">),</span> <span class="n">bh</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">bh_adder</span><span class="p">)]</span>
+
+
+<span class="c">### Run the graph!</span>
+<span class="c"># Now it's time to start a session and run the graph! </span>
+
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="c">#First, we train the model</span>
+    <span class="c">#initialize the variables of the model</span>
+    <span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+    <span class="c">#Run through all of the training data num_epochs times</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">songs</span><span class="p">:</span>
+            <span class="c">#The songs are stored in a time x notes format. The size of each song is timesteps_in_song x 2*note_range</span>
+            <span class="c">#Here we reshape the songs so that each training example is a vector with num_timesteps x 2*note_range elements</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">song</span><span class="p">)</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">song</span><span class="p">[:</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">num_timesteps</span><span class="p">)</span><span class="o">*</span><span class="n">num_timesteps</span><span class="p">]</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">song</span><span class="p">,</span> <span class="p">[</span><span class="n">song</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">num_timesteps</span><span class="p">,</span> <span class="n">song</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">num_timesteps</span><span class="p">])</span>
+            <span class="c">#Train the RBM on batch_size examples at a time</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">song</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span> 
+                <span class="n">tr_x</span> <span class="o">=</span> <span class="n">song</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">]</span>
+                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">updt</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">tr_x</span><span class="p">})</span>
+
+    <span class="c">#Now the model is fully trained, so let's make some music! </span>
+    <span class="c">#Run a gibbs chain where the visible nodes are initialized to 0</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">gibbs_sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nb">eval</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">sess</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">))})</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">,:]):</span>
+            <span class="k">continue</span>
+        <span class="c">#Here we reshape the vector to be time x notes, and then save the vector as a midi file</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="p">(</span><span class="n">num_timesteps</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">note_range</span><span class="p">))</span>
+        <span class="n">midi_manipulation</span><span class="o">.</span><span class="n">noteStateMatrixToMidi</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="s">"generated_chord_{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h3 id="music-samples">Music Samples</h3>
+
+<p>By altering the <code class="highlighter-rouge">num_timesteps</code> variable in the above code, we can make sequences of music of different lengths. Since each additional timestep increases the dimensionality of the vectors we are inputting to the model, we are limited to sequences of only a few seconds. In my next post, I’ll show how we can adapt this model to generate longer sequences of music.</p>
+
+<h4 id="timesteps">15 timesteps</h4>
+<audio src="/audio/15_1.mp3" controls="" preload=""></audio>
+<audio src="/audio/15_2.mp3" controls="" preload=""></audio>
+
+<h4 id="timesteps-1">10 timesteps</h4>
+<audio src="/audio/10_1.mp3" controls="" preload=""></audio>
+<audio src="/audio/10_2.mp3" controls="" preload=""></audio>
+<audio src="/audio/10_3.mp3" controls="" preload=""></audio>
+<audio src="/audio/10_4.mp3" controls="" preload=""></audio>
+<audio src="/audio/10_5.mp3" controls="" preload=""></audio>
+
+<h4 id="timesteps-2">5 timesteps</h4>
+<audio src="/audio/5_1.mp3" controls="" preload=""></audio>
+<audio src="/audio/5_2.mp3" controls="" preload=""></audio>
+<audio src="/audio/5_3.mp3" controls="" preload=""></audio>
+
+<h2 id="wrap-up">Wrap Up</h2>
+<p>I hoped you enjoyed this post about RBMs in TensorFlow! RBMs have a plethora of applications that are more useful than generating short sequences of music, but their real power comes when we build them into more complex models. For example, we can form Deep Belief Networks by stacking RBMs into multiple layers. Training a DBN is simple - we greedily train each RBM, and pass the mean activations of each trained RBM as input to the next layer. Unlike RBMs, DBNs can take advantage of deep learning to learn hierarchical features of the data.</p>
+
+<p>In the next post, we’re going to talk about a different model that builds on the RBM - the RNN-RBM. This model is a sequence of RBMs, where the parameters of each RBM is determined by an Recurrent Neural Network. This architecture can model temporal dependencies extremely well, and we will use the model to generate much longer, more complex, and better-sounding musical pieces.</p>
+
+
+      </article>
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2016-08-18-2015-08-10-musical-tensorflow-part-one-the-rbm/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2016-08-18-2015-08-10-musical-tensorflow-part-one-the-rbm/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        
+        <li class="next">
+          <a href="/2016-08-18-2015-08-17-musical-tensorflow-part-two-the-rnn-rbm/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/dshieble" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+          <li>
+            <a href="mailto:danshiebler@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/in/dan-shiebler-10219b42#Dan Shiebler" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Dan Shiebler
+		  &nbsp;&bull;&nbsp;
+		  2016
+
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
