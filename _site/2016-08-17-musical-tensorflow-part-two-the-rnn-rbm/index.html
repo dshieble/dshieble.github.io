@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Musical TensorFlow, Part 2 - How to build an RNN-RBM in TensorFlow for making longer musical compositions</title>
+  <title>Musical TensorFlow, Part 2 - How to build an RNN-RBM for longer musical compositions in TensorFlow</title>
 
   <meta name="author" content="Dan Shiebler" />
   
@@ -47,10 +47,10 @@
   
 
   <!-- Facebook OpenGraph tags -->
-  <meta property="og:title" content="Musical TensorFlow, Part 2 - How to build an RNN-RBM in TensorFlow for making longer musical compositions" />
+  <meta property="og:title" content="Musical TensorFlow, Part 2 - How to build an RNN-RBM for longer musical compositions in TensorFlow" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2015-08-17-musical-tensorflow-part-two-the-rnn-rbm/" />
+  <meta property="og:url" content="http://dshieble.github.io/2016-08-17-musical-tensorflow-part-two-the-rnn-rbm/" />
   
   
   <meta property="og:image" content="http://dshieble.github.io/img/dan2.png" />
@@ -60,7 +60,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@" />
   <meta name="twitter:creator" content="@" />
-  <meta name="twitter:title" content="Musical TensorFlow, Part 2 - How to build an RNN-RBM in TensorFlow for making longer musical compositions" />
+  <meta name="twitter:title" content="Musical TensorFlow, Part 2 - How to build an RNN-RBM for longer musical compositions in TensorFlow" />
   <meta name="twitter:description" content="Welcome to part 2 of the Musical TensorFlow series! In the last post, we built an RBM in TensorFlow for making short pieces of music. Today, we’re going to learn how to compose longer and more complex musical pieces with a more involved model: the RNN-RBM. To warm you up,..." />
   
   <meta name="twitter:image" content="http://dshieble.github.io/img/dan2.png" />
@@ -130,11 +130,11 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Musical TensorFlow, Part 2 - How to build an RNN-RBM in TensorFlow for making longer musical compositions</h1>
+          <h1>Musical TensorFlow, Part 2 - How to build an RNN-RBM for longer musical compositions in TensorFlow</h1>
 		  
 		  
 		  
-		  <span class="post-meta">Posted on August 17, 2015</span>
+		  <span class="post-meta">Posted on August 17, 2016</span>
 		  
         </div>
       </div>
@@ -162,9 +162,9 @@
 
 </script>
 
-<p>Welcome to part 2 of the Musical TensorFlow series! In <a href="http://danshiebler.com/2015-08-10-musical-tensorflow-rbm/">the last post</a>, we built an RBM in TensorFlow for making short pieces of music. Today, we’re going to learn how to compose longer and more complex musical pieces with a more involved model: the RNN-RBM.</p>
+<p>Welcome to part 2 of the Musical TensorFlow series! In <a href="http://danshiebler.com/2016-08-10-musical-tensorflow-part-one-the-rbm">the last post</a>, we built an RBM in TensorFlow for making short pieces of music. Today, we’re going to learn how to compose longer and more complex musical pieces with a more involved model: the RNN-RBM.</p>
 
-<p>To warm you up, here’s are some examples of music that this network created:</p>
+<p>To warm you up, here’s an example of music that this network created:</p>
 
 <audio src="/audio/9.mp3" controls="" preload=""></audio>
 
@@ -180,23 +180,29 @@
 
 <h3 id="the-rnn-rbm">The RNN-RBM</h3>
 
-<p>The RNN-RBM was introduced in <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription (Boulanger-Lewandowski 2012)</a>. We can think of this powerful model as a series of Restricted Boltzmann Machines whose parameters are determined by an RNN. As we saw in the last post, each RBM in the sequence is capable of modeling a complex and high dimensional probability distribution. Since the RNN conditions each distribution on those of the previous time steps, the network can model the way that the notes change over the course of the song.</p>
+<p>The RNN-RBM was introduced in <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription (Boulanger-Lewandowski 2012)</a>. Like the RBM, the RNN-RBM is an unsupervised generative model. This means that the objective of the algorithm is to directly model the probability distribution of an unlabeled data set (in this case, music).</p>
 
-<p>Like the RBM, the RNN-RBM is an unsupervised generative model. This means that the objective of the algorithm is to directly model the probability distribution of an unlabeled data set (in this case, music). If you have worked mainly with supervised discriminative algorithms in the past, this may seem like a pretty weird concept. But the RNN-RBM is awesome! After all, you’ve got one model (the RNN) literally learning how to build another model (the RBM). That’s pretty sweet.</p>
+<p>We can think of the RNN-RBM as a series of Restricted Boltzmann Machines whose parameters are determined by an RNN. As a reminder, the RBM is a neural network with 2 layers, the visible layer and the hidden layer. Each visible node is connected to each hidden node (and vice versa), but there are no visible-visible or hidden-hidden connections. The parameters of the RBM are the weight matrix <script type="math/tex">W</script> and the bias vectors <script type="math/tex">bh</script> and <script type="math/tex">bv</script>.</p>
 
-<blockquote>
-  <p>One caveat: The RNN-RBM that I will describe below is not exactly identical to the one described in <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>. I’ve modified the model slightly to produce what I believe to be more pleasant music. All of my changes are superficial however, and the basic architecture of the model remains the same.</p>
-</blockquote>
+<p>The RBM:</p>
+
+<p><img src="/img/RBM.png" alt="A diagram of an RBM. In reality the RBM is fully connected" /></p>
+
+<p>We saw in the last post that an RBM is capable of modeling a complex and high dimensional probability distribution from which we can generate musical notes. In the RNN-RBM, the RNN hidden units communicate information about the chord being played or the mood of the song to the RBMs. This information conditions the RBM probability distributions, so that the network can model the way that notes change over the course of a song.</p>
 
 <h3 id="model-architecture">Model Architecture</h3>
 
-<p>The architecture of the RNN-RBM is not tremendously complicated. Each RNN hidden unit is paired with an RBM. RNN hidden unit <script type="math/tex">u_t</script> takes input from data vector <script type="math/tex">v_t</script> (the note or notes at time t) as well as from hidden unit <script type="math/tex">u_{t-1}</script>. The outputs of hidden unit <script type="math/tex">u_t</script> are the parameters of <script type="math/tex">RBM_{t+1}</script>, which takes as input data vector <script type="math/tex">v_{t+1}</script>.</p>
+<blockquote>
+  <p>One caveat: The RNN-RBM that I will describe below is not exactly identical to the one described in <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>. I’ve modified the model slightly to produce what I believe to be more pleasant music. All of my changes are superficial however, and the basic architecture of the model remains the same.</p>
 
-<p>Just like in any model with hidden units, the value of hidden unit <script type="math/tex">u_t</script> encodes something about the current “state” of the sequence. For example, this could be information about the chord that is being played or the current mood of the song.</p>
+  <p>Also, for the rest of this post we will use <script type="math/tex">u</script> to represent the RNN hidden units, <script type="math/tex">h</script> to represent the RBM hidden units and <script type="math/tex">v</script> to represent the visible units (data).</p>
+</blockquote>
+
+<p>The architecture of the RNN-RBM is not tremendously complicated. Each RNN hidden unit is paired with an RBM. RNN hidden unit <script type="math/tex">u_t</script> takes input from data vector <script type="math/tex">v_t</script> (the note or notes at time t) as well as from RNN hidden unit <script type="math/tex">u_{t-1}</script>. The outputs of hidden unit <script type="math/tex">u_t</script> are the parameters of <script type="math/tex">RBM_{t+1}</script>, which takes as input data vector <script type="math/tex">v_{t+1}</script>.</p>
 
 <p><img src="/img/rnnrbm_color.png" alt="The parameters of each RBM are determined by the output of the RNN" /></p>
 
-<p>In <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>, all of the RBMs share the same weight matrix, and only the hidden and visible bias vectors are determined by the outputs of <script type="math/tex">u_t</script>. With this convention, the role of the RBM weight matrix is to specify a consistent prior on all of the RBM distributions (the general structure of music), and the role of the bias vectors is to communicate temporal information (the current state of the song).</p>
+<p>All of the RBMs share the same weight matrix, and only the hidden and visible bias vectors are determined by the outputs of <script type="math/tex">u_t</script>. With this convention, the role of the RBM weight matrix is to specify a consistent prior on all of the RBM distributions (the general structure of music), and the role of the bias vectors is to communicate temporal information (the current state of the song).</p>
 
 <h3 id="model-parameters">Model Parameters</h3>
 
@@ -221,13 +227,13 @@
 
 <h3 id="training">Training</h3>
 <blockquote>
-  <p>Note: Before training the RNN-RBM, it is helpful to initialize <script type="math/tex">W</script>, <script type="math/tex">bh</script>, and <script type="math/tex">bv</script> by training an RBM on the dataset, according to the procedure specified in the <a href="http://danshiebler.com/2015-08-10-musical-tensorflow-rbm/">previous post</a>.</p>
+  <p>Note: Before training the RNN-RBM, it is helpful to initialize <script type="math/tex">W</script>, <script type="math/tex">bh</script>, and <script type="math/tex">bv</script> by training an RBM on the dataset, according to the procedure specified in the <a href="http://danshiebler.com/2016-08-10-musical-tensorflow-part-one-the-rbm/">previous post</a>.</p>
 </blockquote>
 
 <p>To train the RNN-RBM, we repeat the following procedure:</p>
 
 <ol>
-  <li>Use the RNN-to-RBM weight and bias matrices and the state of RNN hidden unit <script type="math/tex">u_{t-1}</script> to determine the bias vectors <script type="math/tex">b_{v}^{t}</script> and <script type="math/tex">b_{h}^{t}</script> for <script type="math/tex">RBM_t</script>.
+  <li>In the first step we communicate the RNN’s knowledge about the current state of the song to the RBM. We use the RNN-to-RBM weight and bias matrices and the state of RNN hidden unit <script type="math/tex">u_{t-1}</script> to determine the bias vectors <script type="math/tex">b_{v}^{t}</script> and <script type="math/tex">b_{h}^{t}</script> for <script type="math/tex">RBM_t</script>.
     <ul>
       <li>
         <script type="math/tex; mode=display">b_{h}^{t} = b_{h} + u_{t-1}W_{uh}</script>
@@ -237,13 +243,13 @@
       </li>
     </ul>
   </li>
-  <li>Initialize <script type="math/tex">RBM_t</script> with <script type="math/tex">v_{t}</script> and perform a single iteration of <a href="http://stats.stackexchange.com/questions/10213/can-someone-explain-gibbs-sampling-in-very-simple-words">Gibbs Sampling</a> to sample <script type="math/tex">v_{t}^{*}</script> from <script type="math/tex">RBM_t</script>. See the previous post for a good description of Gibbs sampling.
+  <li>In the second step we create a few musical notes with the RBM. We initialize <script type="math/tex">RBM_t</script> with <script type="math/tex">v_{t}</script> and perform a single iteration of <a href="http://stats.stackexchange.com/questions/10213/can-someone-explain-gibbs-sampling-in-very-simple-words">Gibbs Sampling</a> to sample <script type="math/tex">v_{t}^{*}</script> from <script type="math/tex">RBM_t</script>. As a reminder, Gibbs sampling is a procedure for drawing a sample from the probability distribution specified by an RBM. You can see the previous post for a more thorough description of Gibbs sampling.
     <ul>
       <li><script type="math/tex">h_i \backsim \sigma (W^{T}v_t + b_{h}^{t})_i</script>.</li>
       <li><script type="math/tex">v_{t_{i}}^{*} \backsim \sigma (Wh + b_{v}^{t})_i</script>.</li>
     </ul>
   </li>
-  <li>Compute the <a href="http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf">contrastive divergence</a> estimation of the negative log likelihood of <script type="math/tex">v_t</script> with respect to <script type="math/tex">RBM_t</script>. Then, backpropagate this loss through the network to compute the gradients of the network parameters and update the network weights and biases. In practice, TensorFlow will handle the backpropagation and update steps.
+  <li>In the third step we compare the notes that we generated with the actual notes in the song at time <script type="math/tex">t</script>. To do this we compute the <a href="http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf">contrastive divergence</a> estimation of the negative log likelihood of <script type="math/tex">v_t</script> with respect to <script type="math/tex">RBM_t</script>. Then, we backpropagate this loss through the network to compute the gradients of the network parameters and update the network weights and biases. In practice, TensorFlow will handle the backpropagation and update steps.
     <ul>
       <li>We compute this loss function by taking the difference between the free energies of <script type="math/tex">v_t</script> and <script type="math/tex">v_{t}^{*}</script>.
         <ul>
@@ -254,7 +260,7 @@
       </li>
     </ul>
   </li>
-  <li>Use <script type="math/tex">v_t</script>, the state of RNN hidden unit <script type="math/tex">u_{t-1}</script> and the weight and bias matrices of the RNN to determine the state of RNN hidden unit <script type="math/tex">u_{t}</script>. In the below equation, we can substitute <script type="math/tex">\sigma</script> for other non-linearities, such as <script type="math/tex">tanh</script>.
+  <li>In the fourth step we use the new information to update the RNN’s internal representation of the state of the song. We use <script type="math/tex">v_t</script>, the state of RNN hidden unit <script type="math/tex">u_{t-1}</script> and the weight and bias matrices of the RNN to determine the state of RNN hidden unit <script type="math/tex">u_{t}</script>. In the below equation, we can substitute <script type="math/tex">\sigma</script> for other non-linearities, such as <script type="math/tex">tanh</script>.
     <ul>
       <li>
         <script type="math/tex; mode=display">u_{t} = \sigma(b_{u} + v_{t}W_{vu} + u_{t-1}W_{uu})</script>
@@ -268,17 +274,32 @@
 <p>To use the trained network to generate a sequence, we initialize an empty <code class="highlighter-rouge">generated_music</code> array and repeat the same steps as above, with some simple changes. We replace steps 2 and 3 with:</p>
 
 <ul>
-  <li>Initialize the visible state of <script type="math/tex">RBM_t</script> with <script type="math/tex">v_{t-1}^{*}</script> (or zeros if <script type="math/tex">t</script> is 0) and perform <script type="math/tex">k</script> steps of Gibbs Sampling to generate <script type="math/tex">v_{t}^{*}</script></li>
+  <li>Initialize the visible state of <script type="math/tex">RBM_t</script> (with <script type="math/tex">v_{t-1}^{*}</script> or zeros) and perform <script type="math/tex">k</script> steps of Gibbs Sampling to generate <script type="math/tex">v_{t}^{*}</script></li>
   <li>Add <script type="math/tex">v_{t}^{*}</script> to the <code class="highlighter-rouge">generated_music</code> array</li>
 </ul>
 
 <p>We also replace the <script type="math/tex">v_{t}</script> in the equation in step 4 with <script type="math/tex">v_{t}^{*}</script>.</p>
 
-<h3 id="data">Data</h3>
-<p>The data format is identical to the data format in the <a href="http://danshiebler.com/2015-08-10-musical-tensorflow-rbm/">previous post</a>. In <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>, each RBM only generates one timestep, but I’ve found that allowing each RBM to generate 5 or more timesteps actually produces more interesting music. You can see the specifics in the code below.</p>
+<h3 id="data-and-music">Data and Music</h3>
+<p>The data format is identical to the data format in the <a href="http://danshiebler.com/2016-08-10-musical-tensorflow-part-one-the-rbm">previous post</a> - that is, midi piano rolls. Below are some piano rolls of human-generated and RNN-RBM generated songs:</p>
 
-<h3 id="music">Music</h3>
-<p>Before we get to the code, I thought I’d share some examples of the music this network can create. These examples were all produced by training the network on a small dataset of pop music midi files.</p>
+<p>A folk song from the Nottingham database:</p>
+
+<p><img src="/img/Nottingham_Piano_Roll.png" alt="An example of a piano roll from the Nottingham database" /></p>
+
+<p>A portion of the song “Fix You” by Coldplay.</p>
+
+<p><img src="/img/Pop_Music_Piano_Roll.png" alt="An example of a piano roll of the song Fix You" /></p>
+
+<p>An RNN-RBM song:</p>
+
+<p><img src="/img/RNN_RBM_Piano_Roll.png" alt="An example of a piano roll from the RNN-RBM" /></p>
+
+<p>Another RNN-RBM song:</p>
+
+<p><img src="/img/RNN_RBM_Piano_Roll_2.png" alt="An example of a piano roll from the RNN-RBM" /></p>
+
+<p>Here is some music that was produced by training the RNN-RBM on a small dataset of pop music midi files.</p>
 
 <audio src="/audio/14.mp3" controls="" preload=""></audio>
 <audio src="/audio/13.mp3" controls="" preload=""></audio>
@@ -291,6 +312,8 @@
 <audio src="/audio/6.mp3" controls="" preload=""></audio>
 <audio src="/audio/5.mp3" controls="" preload=""></audio>
 <audio src="/audio/15.mp3" controls="" preload=""></audio>
+
+<p>In <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>, each RBM only generates one timestep, but I’ve found that allowing each RBM to generate 5 or more timesteps actually produces more interesting music. You can see the specifics in the code below.</p>
 
 <h3 id="code">Code</h3>
 <p>All of the RNN-RBM code is in <a href="https://github.com/dshieble/Music_RNN_RBM">this directory</a>. If you’re not interested in going through the code and just want to make music, you can follow the instructions in the README.md.</p>
@@ -306,10 +329,11 @@
 </ul>
 
 <h3 id="extensions">Extensions</h3>
+<p>The basic RNN-RBM can generate music that sounds nice, but it struggles to produce anything with temporal structure beyond a few chords. This motivates some extensions to the model to better capture temporal dependencies. For example, the authors implement <a href="http://www.icml-2011.org/papers/532_icmlpaper.pdf">Hessian-Free optimization</a>, an algorithm for efficiently performing 2nd order optimization. Another tool that is very useful for representing long term dependencies is the <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">LSTM</a> cell. It’s reasonable to suspect that converting the RNN cells to LSTM cells would improve the model’s ability to represent longer term patterns in the song or sequence, such as in <a href="http://www.ijcai.org/Proceedings/15/Papers/582.pdf">this paper</a> by Lyu et al.</p>
 
-<p>It’s not too difficult to think of possible extensions to the RNN-RBM architecture. The authors utilize <a href="http://www.icml-2011.org/papers/532_icmlpaper.pdf">Hessian-Free optimization</a> to help train the RNN to better recognize long term dependencies. Another tool that is very useful for representing long term dependencies is <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">LSTM</a>. It’s reasonable to suspect that converting the RNN cells to LSTM cells would improve the model’s ability to represent longer term patterns in the sequence.</p>
+<p>Another way to increase the modelling power of the algorithm is to replace the RBM with a different model. The authors of <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a> replace the RBM with a neural autoregressive distribution estimator (<a href="http://homepages.inf.ed.ac.uk/imurray2/pub/11nade/nade.pdf">NADE</a>), which is a similar algorithm that models the data with a tractable distribution. Since the NADE is tractable, it doesn’t suffer from the gradient-approximation errors that contrastive divergence introduces. You can see <a href="http://www-etud.iro.umontreal.ca/~boulanni/icml2012">here</a> that the music generated by the RNN-NADE shows more local structure than the music generated by the RNN-RBM.</p>
 
-<p>Another way to increase the modelling power of the network is to replace the RBMs with a more complex model. For example, a <a href="https://www.cs.toronto.edu/~hinton/nipstutorial/nipstut3.pdf">Deep Belief Network</a> is an unsupervised neural network architecture formed from multiple RBMs stacked on top of each other. Unlike RBMs, DBNs can take advantage of their multiple layers to form hierarchical representations of data. In <a href="http://www.academia.edu/16196335/Modeling_Temporal_Dependencies_in_Data_Using_a_DBN-LSTM">this paper</a> the authors build a DBN-LSTM, where the RNN cells are replaced with LSTM cells and the RBMs are replaced with DBNs.</p>
+<p>We can also replace the RBM with a <a href="https://www.cs.toronto.edu/~hinton/nipstutorial/nipstut3.pdf">Deep Belief Network</a>, which is an unsupervised neural network architecture formed from multiple RBMs stacked on top of one another. Unlike RBMs, DBNs can take advantage of their multiple layers to form hierarchical representations of data. In this later <a href="http://www.academia.edu/16196335/Modeling_Temporal_Dependencies_in_Data_Using_a_DBN-LSTM">paper</a> from Vohra et al, the authors combine DBNs and LSTMs to model high dimensional temporal sequences and generate music that shows more complexity than the music generated by an RNN-RBM.</p>
 
 <h3 id="extensions-1">Extensions</h3>
 
@@ -338,7 +362,7 @@
         <div class="blog-tags">
           Tags:
           
-            RNN, RBM, TensorFlow, Python, Music, Neural-Network
+            RNN, RBM, TensorFlow, Python, Music, Composition, Neural-Network
           
         </div>
       
@@ -356,7 +380,7 @@
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2015-08-17-musical-tensorflow-part-two-the-rnn-rbm/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2016-08-17-musical-tensorflow-part-two-the-rnn-rbm/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -367,7 +391,7 @@
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2015-08-17-musical-tensorflow-part-two-the-rnn-rbm/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2016-08-17-musical-tensorflow-part-two-the-rnn-rbm/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -380,10 +404,10 @@
 
       <ul class="pager blog-pager">
         
-        
-        <li class="next">
-          <a href="/2016-08-10-musical-tensorflow-part-one-the-rbm/" data-toggle="tooltip" data-placement="top" title="Musical TensorFlow, Part 1 - How to build an RBM in TensorFlow for making music">Next Post &rarr;</a>
+        <li class="previous">
+          <a href="/2016-08-10-musical-tensorflow-part-one-the-rbm/" data-toggle="tooltip" data-placement="top" title="Musical TensorFlow, Part 1 - How to build an RBM in TensorFlow for making music">&larr; Previous Post</a>
         </li>
+        
         
       </ul>
 
