@@ -289,6 +289,6 @@ By altering the `num_timesteps` variable in the above code, we can make sequence
 ## Wrap Up
 I hoped you enjoyed this post about RBMs in TensorFlow! RBMs have a plethora of applications that are more useful than generating short sequences of music, but their real power comes when we build them into more complex models. For example, we can form Deep Belief Networks by stacking RBMs into multiple layers. Training a DBN is simple - we greedily train each RBM, and pass the mean activations of each trained RBM as input to the next layer. Unlike RBMs, DBNs can take advantage of deep learning to learn hierarchical features of the data.
 
-In the next post, we’re going to talk about a different model that builds on the RBM - the RNN-RBM. This model is a sequence of RBMs, where the parameters of each RBM is determined by an Recurrent Neural Network. This architecture can model temporal dependencies extremely well, and we will use the model to generate much longer, more complex, and better-sounding musical pieces. 
+In the next post, we’re going to talk about a different model that builds on the RBM - the RNN-RBM. This model is a sequence of RBMs, where the parameters of each RBM is determined by an Recurrent Neural Network. This architecture can model temporal dependencies, and we will use the model to generate much longer, more complex, and better-sounding musical pieces. 
 
 
