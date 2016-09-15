@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Parallel Progress Bar - An easy to use wrapper for concurrent.futures and tqdm
+title: Parallel Progress Bar - An easy way to run parallel jobs in python
 tags: [Python, Parallel, Concurrent, Futures, Progress, Bar, tqdm]
 ---
-<script>
+<script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -14,11 +14,11 @@ tags: [Python, Parallel, Concurrent, Futures, Progress, Bar, tqdm]
 
 </script>
 
-In this post. I'm also going to share a super easy-to-use method that you can use to turn any list comprehension into a high performance parallel job with a progress bar. 
+In this post I'm going to share a simple method that will turn any list comprehension into a high performance parallel job with a progress bar. 
 
 ### tqdm
 
-If you are a python programmer who hasn't worked with tqdm before, I'm about to change your life. With just 6 additional characters of code, tqdm adds a helpful and non-obstrusive progress bar to any python iterator. Try this code:
+If you are a python programmer who hasn't worked with tqdm before, I'm about to change your life. With just 6 characters, tqdm adds a helpful and non-obstrusive progress bar to any python iterator. Try this:
 
 ```python
 	from tqdm import tqdm
@@ -36,7 +36,7 @@ You can download tqdm [here](https://github.com/noamraph/tqdm).
 
 [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html) is python's standard module for asyncronous tasks. It gives you access to executor classes that you can use to manage threads and processes. If you're not familiar with concurrent.futures, you can find a pretty good tutorial [here](http://masnun.com/2016/03/29/python-a-quick-introduction-to-the-concurrent-futures-module.html). 
 
-### The Method
+### Putting them together
 
 ```python
 from tqdm import tqdm

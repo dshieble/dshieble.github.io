@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Parallel Progress Bar - An easy to use wrapper for concurrent.futures and tqdm</title>
+  <title>Parallel Progress Bar - An easy way to run parallel jobs in python</title>
 
   <meta name="author" content="Dan Shiebler" />
   
@@ -47,7 +47,7 @@
   
 
   <!-- Facebook OpenGraph tags -->
-  <meta property="og:title" content="Parallel Progress Bar - An easy to use wrapper for concurrent.futures and tqdm" />
+  <meta property="og:title" content="Parallel Progress Bar - An easy way to run parallel jobs in python" />
   <meta property="og:type" content="website" />
   
   <meta property="og:url" content="http://dshieble.github.io/2016-09-14-parallel-progress-bar/" />
@@ -60,8 +60,8 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@" />
   <meta name="twitter:creator" content="@" />
-  <meta name="twitter:title" content="Parallel Progress Bar - An easy to use wrapper for concurrent.futures and tqdm" />
-  <meta name="twitter:description" content="In this post. I’m also going to share a super easy-to-use method that you can use to turn any list comprehension into a high performance parallel job with a progress bar. tqdm If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life...." />
+  <meta name="twitter:title" content="Parallel Progress Bar - An easy way to run parallel jobs in python" />
+  <meta name="twitter:description" content="In this post I’m going to share a simple method that will turn any list comprehension into a high performance parallel job with a progress bar. tqdm If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life. With just 6 characters, tqdm..." />
   
   <meta name="twitter:image" content="http://dshieble.github.io/img/dan2.png" />
   
@@ -130,7 +130,7 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Parallel Progress Bar - An easy to use wrapper for concurrent.futures and tqdm</h1>
+          <h1>Parallel Progress Bar - An easy way to run parallel jobs in python</h1>
 		  
 		  
 		  
@@ -151,7 +151,7 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
       <article role="main" class="blog-post">
-        <script>
+        <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -162,11 +162,11 @@
 
 </script>
 
-<p>In this post. I’m also going to share a super easy-to-use method that you can use to turn any list comprehension into a high performance parallel job with a progress bar.</p>
+<p>In this post I’m going to share a simple method that will turn any list comprehension into a high performance parallel job with a progress bar.</p>
 
 <h3 id="tqdm">tqdm</h3>
 
-<p>If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life. With just 6 additional characters of code, tqdm adds a helpful and non-obstrusive progress bar to any python iterator. Try this code:</p>
+<p>If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life. With just 6 characters, tqdm adds a helpful and non-obstrusive progress bar to any python iterator. Try this:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>	<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
@@ -184,7 +184,7 @@
 
 <p><a href="https://docs.python.org/3/library/concurrent.futures.html">concurrent.futures</a> is python’s standard module for asyncronous tasks. It gives you access to executor classes that you can use to manage threads and processes. If you’re not familiar with concurrent.futures, you can find a pretty good tutorial <a href="http://masnun.com/2016/03/29/python-a-quick-introduction-to-the-concurrent-futures-module.html">here</a>.</p>
 
-<h3 id="the-method">The Method</h3>
+<h3 id="putting-them-together">Putting them together</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
