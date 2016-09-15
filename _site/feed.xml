@@ -7,6 +7,17 @@
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Parallel Progress Bar - An easy to use wrapper for concurrent.futures and tqdm</title>
+        <description>
+          
+          In this post. I’m also going to share a super easy-to-use method that you can use to turn any list comprehension into a high performance parallel job with a progress bar. tqdm If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life....
+        </description>
+        <pubDate>Wed, 14 Sep 2016 00:00:00 -0400</pubDate>
+        <link>http://dshieble.github.io/2016-09-14-parallel-progress-bar/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2016-09-14-parallel-progress-bar/</guid>
+      </item>
+    
+      <item>
         <title>Musical TensorFlow, Part 2 - How to build an RNN-RBM for longer musical compositions in TensorFlow</title>
         <description>
           
