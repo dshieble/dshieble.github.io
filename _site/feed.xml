@@ -7,6 +7,17 @@
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Computation Theory Part 1 - The Halting Problem</title>
+        <description>
+          
+          When you think about the most important fields of mathematics for a data scientist to know, you’ll almost certainly name calculus, probability/statistics, and linear algebra. These fields form the underpinnings of the most popular data analysis, signal processing and machine learning techniques. But in my experience, I’ve found that there...
+        </description>
+        <pubDate>Sat, 15 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://dshieble.github.io/2016-10-15-halting-problem/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2016-10-15-halting-problem/</guid>
+      </item>
+    
+      <item>
         <title>Parallel Progress Bar - An easy way to run parallel jobs in python</title>
         <description>
           
