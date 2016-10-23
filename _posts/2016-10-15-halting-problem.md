@@ -18,11 +18,11 @@ When you think about the most important fields of mathematics for a data scienti
 
 As a data scientist, I write a lot of pretty complex programs. It can be challenging to reason about their behavior. I've found that having learned the basic tenants of the theory of computation has dramatically improved my ability to reason about the code that I write.
 
-The study of the theory of computation involves reading and writing a lot of proofs about problems and programs. Now it's definitely possible for someone to write excellent code their entire life and never write a single proof. But I think that this is a shame. Proofs and code are actually very similar, and they complement and support each other. When you turn an idea into a program or a proof, you need to take a malleable and ambiguous concept in your mind and shape it into a concrete object. In doing so, you develop an extremely thorough understanding of the problem. I think that the exercise of reading and writing proofs has made me a stronger programmer.
+The study of the theory of computation involves reading and writing a lot of proofs about problems and programs. Now it's definitely possible for someone to write excellent code their entire life and never write a single proof. But I think that this is a shame. When you attempt to prove that an algorithm will work in all cases, you often discover bugs and flaws that would have been much more difficult to find later. In addition, proofs and code are actually very similar, and they complement and support one another. When you turn an idea into a program or a proof, you need to take a malleable and ambiguous concept in your mind and shape it into a concrete object. In doing so, you develop an extremely thorough understanding of the problem. I think that the exercise of reading and writing proofs has made me a stronger programmer. 
 
 ### Decidability
 
-[Decidability](https://en.wikipedia.org/wiki/Decidability_(logic)) is a fancy word, but it expresses a pretty simple idea: if a problem is decidable, then we can write a computer program to solve it. More exactly, say that we have a decision problem $$D$$ (a yes/no question on some set of inputs). If $$D$$ is a decidable problem, there exists some algorithm $$A$$ such that $$A(x)$$ always produces the answer to $$D$$ for input $$x$$. 
+[Decidability](https://en.wikipedia.org/wiki/Decidability_(logic)) is a fancy word, but it expresses a pretty simple idea: if a problem is decidable, then we can write a computer program to solve it. More precisely, say that we have a decision problem $$D$$ (a yes/no question on some set of inputs). If $$D$$ is a decidable problem, there exists some algorithm $$A$$ such that $$A(x)$$ always produces the answer to $$D$$ for input $$x$$. 
 
 This may seem like a pretty "out there" concept. After all, you've probably never been writing code and run into an undecidable problem. But as it turns out, some of the most important problems in computer science are undecidable. 
 
@@ -53,7 +53,7 @@ def does_halt(computer_program, input_to_program):
     #code code code
 ```
 
-Let's say mischevious friend sees our `does_halt` program, and he decides to write a program to trick it. 
+Let's say mischievous friend sees our `does_halt` program, and he decides to write a program to trick it. 
 
 ```python
 def friend_program(f):
@@ -77,6 +77,8 @@ Now what happens when we run `friend_program(friend_program)`? There are two cas
 1. `friend_program(friend_program)` will halt. Then `does_halt(friend_program, friend_program)` will return `True`. However, because of line 7 in `friend_program`, then `friend_program(friend_program)` will run forever. So this is a contradiction. 
 
 2. `friend_program(friend_program)` will run forever. Then `does_halt(friend_program, friend_program)` will return `False`. However, because of line 10 in `friend_program`, then `friend_program(friend_program)` will terminate. So this is a contradiction. 
+
+Because we reach a contradiction no matter how we assume `friend_program(friend_program)` will behave, `does_halt` cannot exist and the halting problem is undecidable.
 
 ### Why does the halting problem matter?
 
