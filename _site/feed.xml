@@ -2,9 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dan Shiebler</title>
-    <description>My thoughts on math and code</description>
+    <description>My musings on math and code</description>
     <link>http://dshieble.github.io</link>
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Computation Theory Part 2 - Complexity Classes and NP Completeness</title>
+        <description>
+          
+          Welcome to part 2 of the Computation Theory series! In the last post, we discussed decidability and the halting problem. In this post we will talk about complexity classes. Time Complexity If you’re not used to reasoning about algorithms and their complexity, there is an enormous amount of great material...
+        </description>
+        <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
+        <link>http://dshieble.github.io/2016-11-19-np-complete/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2016-11-19-np-complete/</guid>
+      </item>
     
       <item>
         <title>Computation Theory Part 1 - The Halting Problem</title>

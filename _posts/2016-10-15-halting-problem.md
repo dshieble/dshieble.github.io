@@ -92,4 +92,4 @@ As it happens, the halting problem "reduces" to a lot of problems. This stack ex
 
 If you liked this post, then you'll probably love [this book](http://www.cin.ufpe.br/~jjss/Introcuction%20to%20Theory%20of%20computation%20by%20Micheal%20Sipser%20Ist%20Ed..pdf). It's an excellent resource that's packed with examples and manages to effectively break down and explain some mind-bogglingly complex topics. 
 
-Also, stay tuned! I'll have some more posts about computation theory coming soon. 
+Also, stay tuned! Part 2 is coming soon!
