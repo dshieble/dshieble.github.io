@@ -7,6 +7,17 @@
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>An Introduction to Algebraic Groups for CS People</title>
+        <description>
+          
+          One of my favorite classes in college was Abstract Algebra. It was my first non-CS non-elementary math class, and I took it because I knew I didn’t want to graduate without having broadened my mathematical horizons beyond CS. As it turned out, Abstract Algebra felt pretty familiar. Many of the...
+        </description>
+        <pubDate>Mon, 02 Jan 2017 00:00:00 -0500</pubDate>
+        <link>http://dshieble.github.io/2017-01-02-group-theory/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2017-01-02-group-theory/</guid>
+      </item>
+    
+      <item>
         <title>Computation Theory Part 2 - Complexity Classes and NP Completeness</title>
         <description>
           

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>An Introduction to Algebraic Groups for CS People</title>
+
+  <meta name="author" content="Dan Shiebler" />
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    
+      
+  
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+    
+  
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+    
+  
+  
+
+  
+
+  <!-- Facebook OpenGraph tags -->
+  <meta property="og:title" content="An Introduction to Algebraic Groups for CS People" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:url" content="http://dshieble.github.io/2017-01-02-group-theory/" />
+  
+  
+  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  
+  
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+  <meta name="twitter:title" content="An Introduction to Algebraic Groups for CS People" />
+  <meta name="twitter:description" content="One of my favorite classes in college was Abstract Algebra. It was my first non-CS non-elementary math class, and I took it because I knew I didn’t want to graduate without having broadened my mathematical horizons beyond CS. As it turned out, Abstract Algebra felt pretty familiar. Many of the..." />
+  
+  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  
+  
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://dshieble.github.io ">
+	      <img class="avatar-img" src="/img/DanGood.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>An Introduction to Algebraic Groups for CS People</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on January 2, 2017</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<p>One of my favorite classes in college was Abstract Algebra. It was my first non-CS non-elementary math class, and I took it because I knew I didn’t want to graduate without having broadened my mathematical horizons beyond CS.</p>
+
+<p>As it turned out, Abstract Algebra felt pretty familiar. Many of the constructs we form and play with in Algebra underlie many CS fields, such as crytography and graph theory. There is also a lot of overlap between the tools used in Algebra and CS, such as homo/isomorphisms.</p>
+
+<h3 id="mathematical-structures">Mathematical Structures</h3>
+
+<p>Many mathematical fields share a common theme - define some structures (often types of sets) then prove things about them. In Computation Theory, the structures are automata and languages. In Calculus/Real Analysis, the structures are continuous, differentiable, riemann-integrable, etc real valued functions of real variables. In Abstract Algebra, the structures are groups, rings and fields.</p>
+
+<p>There are some similarities between mathematical structures and the classes of object-oriented programming. Often we study general structures that must obey some axiom, and then define “subclasses” of those structures that obey additional axioms. For example, rings are subclasses of groups - they satisfy all of the same axioms, but they add an additional operation and some additional structure.</p>
+
+<p>Why do we spend the effort developing and proving theorums about general mathematical structures? For the same reason that we define classes and subclasses rather than build each object seperately - to minimize redundancy and reduce complexity. When we’ve proven a theorum about a particular structure, then that theorum applies to everything with that structure. If we define a new structure as a special case of a parent structure, then all of the work that we’ve done to understand the parent structure applies to the child structure as well.</p>
+
+<p>Consider writing a program in Java where you define a method that accepts a “foo.” Then you can write that function with the certainty that anything passed in will have access to all of foo’s methods. When we write a proof about groups it’s the same idea - regardless of the inner workings of the infinite different groups, we know that as long as we build the proof on the group axioms it will hold for all groups.</p>
+
+<h3 id="the-group">The Group</h3>
+
+<p>The most basic structure in Abstract Algebra is the group. A group is a set, which we will denote by <script type="math/tex">G</script>, combined with a “group operation,” which we will denote by <script type="math/tex">*</script>, that satisfies the following axioms:</p>
+
+<ul>
+  <li>For all <script type="math/tex">a,b</script> in <script type="math/tex">G</script>, <script type="math/tex">a*b</script> is also an element in <script type="math/tex">G</script> (<script type="math/tex">G</script> is closed under <script type="math/tex">*</script>)</li>
+  <li>For all <script type="math/tex">a,b,c</script> in <script type="math/tex">G</script>, <script type="math/tex">(a*b)*c = a*(b*c)</script> (<script type="math/tex">*</script> is associative)</li>
+  <li>There is an identity element <script type="math/tex">1</script> in <script type="math/tex">G</script> such that <script type="math/tex">a*1 = 1*a = a</script></li>
+  <li>For all <script type="math/tex">a</script> in <script type="math/tex">G</script>, there is a <script type="math/tex">b</script> in <script type="math/tex">G</script> such that <script type="math/tex">a*b = b*a = 1</script> (every element in <script type="math/tex">G</script> has an inverse)</li>
+</ul>
+
+<p>Note that this definition does not require that <script type="math/tex">*</script> be commutative, that is, for many groups <script type="math/tex">a*b \neq b*a</script>. Groups where <script type="math/tex">*</script> is commutative are called “abelian” groups.</p>
+
+<h3 id="examples-of-groups">Examples of Groups</h3>
+
+<p>Groups are everywhere in mathematics, and you’ve probably worked with many groups in the past without realizing it.</p>
+
+<h4 id="example-1-integers-and-addition">Example 1: Integers and Addition</h4>
+
+<p>The integers (<script type="math/tex">G</script>) and the addition operation (lets use <script type="math/tex">+</script> rather than <script type="math/tex">*</script> for clarity) form a group. Let’s prove it.</p>
+
+<ul>
+  <li>The sum of two integers is an integer, so <script type="math/tex">G</script> is closed under <script type="math/tex">+</script>.</li>
+  <li>Addition is associative</li>
+  <li>For any integer, <script type="math/tex">a</script>, <script type="math/tex">a + 0 = 0 + a = a</script>, so <script type="math/tex">0</script> is the identity element.</li>
+  <li>For any integer, <script type="math/tex">a</script>, <script type="math/tex">a + -a = 0</script>.</li>
+</ul>
+
+<p>Note that the integers and the multiplication operation don’t form a group, since the multiplicative inverses of integers are usually not integers (they are rational numbers). However…</p>
+
+<h4 id="example-2-integers-and-multiplication-modulo-p">Example 2: Integers and Multiplication modulo <script type="math/tex">P</script></h4>
+
+<blockquote>
+  <p>If you haven’t encountered modular arithmetic before, there is a great introduction <a href="https://www.artofproblemsolving.com/wiki/index.php/Modular_arithmetic/Introduction">here</a>. As a refresher, <script type="math/tex">x</script> <script type="math/tex">mod</script> <script type="math/tex">n</script> is the remainder of <script type="math/tex">x/n</script>.</p>
+</blockquote>
+
+<p>Some of the astute readers might now be asking “what about modular arithmetic? Do the integers and multiplication modulo <script type="math/tex">n</script> form a group?” This is a great question, and the answer is “sometimes.”</p>
+
+<p>Let’s consider the integers <script type="math/tex">1...n-1</script> and the operation multiplication modulo <script type="math/tex">n</script>. For two integers <script type="math/tex">a, b</script>, <script type="math/tex">a*b</script> <script type="math/tex">mod</script> <script type="math/tex">n</script> must be less than <script type="math/tex">n</script>. Since <script type="math/tex">a*b</script> <script type="math/tex">mod</script> <script type="math/tex">n</script> is only <script type="math/tex">0</script> when <script type="math/tex">a*b</script> is divisible by <script type="math/tex">n</script>, then as long as <script type="math/tex">n</script> is prime, <script type="math/tex">a*b</script> <script type="math/tex">mod</script> <script type="math/tex">n</script> will be in <script type="math/tex">1...n-1</script>.</p>
+
+<p>That proves the closure condition (condition 1). For the other 3 conditions:</p>
+
+<ul>
+  <li>Multiplication is associative</li>
+  <li>For any integer, <script type="math/tex">a</script>, <script type="math/tex">a * 1 = 1 * a = a</script>, so <script type="math/tex">1</script> is the identity element.</li>
+  <li>The proof of the existence of multiplicative inverses is a little complicated and relies on Bezel’s Theorum, you can find it <a href="http://math.stackexchange.com/questions/780189/proof-that-the-multiplicative-group-of-integers-modulo-n-is-a-group">here</a>.</li>
+</ul>
+
+<p>Therefore the set of integers <script type="math/tex">1...n-1</script> and the multiplication modulo <script type="math/tex">n</script> operation form a group if <script type="math/tex">n</script> is prime.</p>
+
+<h4 id="example-3-rotations-of-a-square-and-cyclic-groups">Example 3: Rotations of a square (and cyclic groups)</h4>
+
+<p>Let’s step away from numbers for a moment. The “rotational symmetries” of a polygon are the different mappings of the polygon to itself by rotation. Consider some triangle <script type="math/tex">ABC</script>. We can enumerate the rotational symmetries of <script type="math/tex">ABC</script> by sequentially rotating <script type="math/tex">ABC</script> by <script type="math/tex">120</script> degrees. Lets denote “no rotation” of <script type="math/tex">ABC</script> as <script type="math/tex">r^0</script> or <script type="math/tex">1</script>, and <script type="math/tex">n</script> rotations of <script type="math/tex">ABC</script> as <script type="math/tex">r^n</script>.</p>
+
+<p>This is <script type="math/tex">1</script>:
+<img src="/img/triangle.png" alt="Not rotated" /></p>
+
+<p>This is <script type="math/tex">r</script>:
+<img src="/img/triangle2.png" alt="Rotated once" /></p>
+
+<p>This is <script type="math/tex">r^2</script>
+<img src="/img/triangle3.png" alt="Rotated twice" /></p>
+
+<p>Note that <script type="math/tex">r^3 = r</script>. Now, lets prove that the set of rotational symmetries of <script type="math/tex">ABC</script> along with the rotation operation forms a group.</p>
+
+<ul>
+  <li>If we rotate <script type="math/tex">ABC</script> <script type="math/tex">a</script> times, and then rotate it <script type="math/tex">b</script> times, this is the same as rotating <script type="math/tex">ABC</script> <script type="math/tex">a+b</script> times, so <script type="math/tex">r^a * r^b = r^{a+b}</script>, and the closure condition holds.</li>
+  <li>Since the order of rotations doesn’t matter, the associativity condition holds.</li>
+  <li>Since the “no rotation” element does not change the orientation of <script type="math/tex">ABC</script>, then <script type="math/tex">1</script> is the identity element.</li>
+  <li>Since we can always rotate any rotational symmetry of <script type="math/tex">ABC</script> back to the original orientation, (i.e. <script type="math/tex">r*r^{2} = 1</script> and <script type="math/tex">r^{2}*r = 1</script>), each element has an inverse.</li>
+</ul>
+
+<p>Notice that the proof above applies to more than just <script type="math/tex">ABC</script> - it applies to any regular polygon.</p>
+
+<h3 id="other-resources">Other resources</h3>
+
+<p>If you’ve enjoyed learning about groups and you want to learn more about them and other algebraic structures, I recommend <a href="http://abstract.ups.edu/download/aata-20100827.pdf">Dummit and Foote</a>. This textbook is extremely readable and contains an extraordinary number of worked examples and well-fleshed-out proofs.</p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Abstract, Algebra, CS, Theory, Group, Programming
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2017-01-02-group-theory/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2017-01-02-group-theory/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2016-11-19-np-complete/" data-toggle="tooltip" data-placement="top" title="Computation Theory Part 2 - Complexity Classes and NP Completeness">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/dshieble" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+          <li>
+            <a href="mailto:danshiebler@gmail.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://linkedin.com/in/dan-shiebler-10219b42#Dan Shiebler" title="LinkedIn">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Dan Shiebler
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
