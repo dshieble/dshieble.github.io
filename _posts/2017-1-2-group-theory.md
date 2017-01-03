@@ -92,7 +92,7 @@ Note that $$r^3 = r$$. Now, lets prove that the set of rotational symmetries of 
 
 Notice that the proof above applies to more than just $$ABC$$ - it applies to any regular polygon.
 
-### Other resources
+### Other Resources
 
 If you've enjoyed learning about groups and you want to learn more about them and other algebraic structures, I recommend [Dummit and Foote](http://abstract.ups.edu/download/aata-20100827.pdf). This textbook is extremely readable and contains an extraordinary number of worked examples and well-fleshed-out proofs.
 
