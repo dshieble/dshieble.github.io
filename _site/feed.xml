@@ -7,6 +7,17 @@
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Exploring Assumptions with Monty Hall and Blue Eyed Islanders</title>
+        <description>
+          
+          Let’s talk for a second about making assumptions. Each time you form an opinion on something, you don’t re-examine each of the beliefs that contributed to that opinion. For example, when you order food at a restaurant, you pick the foods that you think will taste good. You don’t spend...
+        </description>
+        <pubDate>Sun, 12 Feb 2017 00:00:00 -0500</pubDate>
+        <link>http://dshieble.github.io/2017-02-12-monty-hall/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2017-02-12-monty-hall/</guid>
+      </item>
+    
+      <item>
         <title>An Introduction to Algebraic Groups for CS People</title>
         <description>
           
