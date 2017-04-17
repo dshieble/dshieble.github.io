@@ -16,7 +16,10 @@ tags: [Math, Probability, Paradox, Monty Hall, Blue Eyed Islanders]
 
 Deep neural networks are some of the most powerful learning algorithms that have ever been developed. Unfortunately, they are also some of the most complex. The hierarchical non-linear transformations that neural networks apply to data can be nearly impossible to understand. This problem is exacerbated by the non-determinism of neural network training regimes. Very often small changes in the hyperparameters of a network can dramatically affect the network's ability to learn. 
 
-In order to combat this problem, deep learning researchers use a wide array of tools and techniques for monitoring a neural network's learning process. Even just visualizing a histogram of each layer's weight matrix and gradient (during training) can help researchers spot problems. 
+In order to combat this problem, deep learning researchers use a wide array of tools and techniques for monitoring a neural network's learning process. Even just visualizing a histogram of each layer's weight matrix or gradient can help researchers spot problems. 
+
+![Picture of tensorboard](/img/tensorboard.png)
+
 
 After training a network, it's often helpful for researchers to try to understand how it forms predictions. For example, in [this paper](https://www.cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf) researchers use a technique for visualizing how each layer in a convolutional neural network processes an input image by essentially reversing the hierarchical image encoding process.
 
@@ -36,7 +39,7 @@ If the model generates the correct prediction for the first image and the incorr
 
 Layerwise Relevance Propagation (LRP) is a technique for determining which features in a particular input vector contribute most strongly to a neural network's output. The technique was originally described in [this paper](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140).
 
-The goal of LRP is to define some quantity R over the input vector such that we can express the network output as the sum of the input relevances:
+The goal of LRP is to define some relevance measure R over the input vector such that we can express the network output as the sum of the values of R:
 
 ![relevance sum equation](/img/relevance_sum.png)
 
@@ -48,7 +51,7 @@ At each layer, the total relevance value is preserved, and the final propagation
 
 ![picture with relevance pointing at the final layer, then moving back to the first layer](/img/relevance_propagation.png)
 
-When we perform the propagation procedure, we need to determine how to map the relevance back from some neuron $$n$$ at layer $$k$$ to the set of neurons $$n_i$$ at layer $$k-1$$ who feed into neuron $$n$$. That is, we need to define a vector valued function that takes in the relevance $$R$$ at neuron $$n$$, the activation $$x$$ of neuron $$n$$, the activations $$x_i$$ of the neurons $$n_i$$ at layer $$k-1$$, and the weight matrix $$w$$ that connects the neurons $$n_i$$ to $$n$$, and outputs the relevance of each neuron $$n_i$$. Ideally this function will assign higher weights to neurons that had a larger role in influencing the value of $$n$$. The original LRP paper defines a set of constraints from which we can derive a number of different relevance propagation functions, but in this post I'm going to focus on the deep taylor approximation function. 
+When we perform the propagation procedure, we need to determine how to map the relevance back from some neuron $$n$$ at layer $$k$$ to the set of neurons $$n_i$$ at layer $$k-1$$ who feed into neuron $$n$$. That is, we need to define a vector valued function that takes in the relevance $$R$$ at neuron $$n$$, the activation $$x$$ of neuron $$n$$, the activations $$x_i$$ of the neurons $$n_i$$ at layer $$k-1$$, and the weight matrix $$w$$ that connects the neurons $$n_i$$ to $$n$$, and outputs the relevance of each neuron $$n_i$$. Ideally this function will assign higher weights to neurons that had a larger role in influencing the value of $$n$$. The original LRP paper defines a set of constraints from which we can derive a number of different relevance propagation functions, but in this post I'm going to focus on the deep taylor decomposition. 
 
 ## Deep Taylor Decomposition
 
@@ -67,6 +70,8 @@ Root points of the forward propagation function are located at the local decisio
 
 ![taylor decomposition outline](/img/taylor_decomposition_outline.png)
 
+## Some N
+
 ## LRP Results
 
 LRP can produce some really helpful and nice-looking visualizations of how a neural network interprets an image.
@@ -80,8 +85,6 @@ LRP can produce some really helpful and nice-looking visualizations of how a neu
 ![ETIE_LRP](/img/TIE_LRP.png)
 
 I implemented a simple TensorFlow-based LRP [here](https://github.com/dshieble/Tensorflow_Deep_Taylor_LRP). If you're interested in using it in your research, feel free to send me an email at danshiebler@gmail.com.
-
-
 
 ## Conclusion and Further Reading
 

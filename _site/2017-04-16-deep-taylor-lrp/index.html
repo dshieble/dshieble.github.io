@@ -164,7 +164,9 @@
 
 <p>Deep neural networks are some of the most powerful learning algorithms that have ever been developed. Unfortunately, they are also some of the most complex. The hierarchical non-linear transformations that neural networks apply to data can be nearly impossible to understand. This problem is exacerbated by the non-determinism of neural network training regimes. Very often small changes in the hyperparameters of a network can dramatically affect the network’s ability to learn.</p>
 
-<p>In order to combat this problem, deep learning researchers use a wide array of tools and techniques for monitoring a neural network’s learning process. Even just visualizing a histogram of each layer’s weight matrix and gradient (during training) can help researchers spot problems.</p>
+<p>In order to combat this problem, deep learning researchers use a wide array of tools and techniques for monitoring a neural network’s learning process. Even just visualizing a histogram of each layer’s weight matrix or gradient can help researchers spot problems.</p>
+
+<p><img src="/img/tensorboard.png" alt="Picture of tensorboard" /></p>
 
 <p>After training a network, it’s often helpful for researchers to try to understand how it forms predictions. For example, in <a href="https://www.cs.nyu.edu/~fergus/papers/zeilerECCV2014.pdf">this paper</a> researchers use a technique for visualizing how each layer in a convolutional neural network processes an input image by essentially reversing the hierarchical image encoding process.</p>
 
@@ -183,7 +185,7 @@
 
 <p>Layerwise Relevance Propagation (LRP) is a technique for determining which features in a particular input vector contribute most strongly to a neural network’s output. The technique was originally described in <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0130140">this paper</a>.</p>
 
-<p>The goal of LRP is to define some quantity R over the input vector such that we can express the network output as the sum of the input relevances:</p>
+<p>The goal of LRP is to define some relevance measure R over the input vector such that we can express the network output as the sum of the values of R:</p>
 
 <p><img src="/img/relevance_sum.png" alt="relevance sum equation" /></p>
 
@@ -195,7 +197,7 @@
 
 <p><img src="/img/relevance_propagation.png" alt="picture with relevance pointing at the final layer, then moving back to the first layer" /></p>
 
-<p>When we perform the propagation procedure, we need to determine how to map the relevance back from some neuron <script type="math/tex">n</script> at layer <script type="math/tex">k</script> to the set of neurons <script type="math/tex">n_i</script> at layer <script type="math/tex">k-1</script> who feed into neuron <script type="math/tex">n</script>. That is, we need to define a vector valued function that takes in the relevance <script type="math/tex">R</script> at neuron <script type="math/tex">n</script>, the activation <script type="math/tex">x</script> of neuron <script type="math/tex">n</script>, the activations <script type="math/tex">x_i</script> of the neurons <script type="math/tex">n_i</script> at layer <script type="math/tex">k-1</script>, and the weight matrix <script type="math/tex">w</script> that connects the neurons <script type="math/tex">n_i</script> to <script type="math/tex">n</script>, and outputs the relevance of each neuron <script type="math/tex">n_i</script>. Ideally this function will assign higher weights to neurons that had a larger role in influencing the value of <script type="math/tex">n</script>. The original LRP paper defines a set of constraints from which we can derive a number of different relevance propagation functions, but in this post I’m going to focus on the deep taylor approximation function.</p>
+<p>When we perform the propagation procedure, we need to determine how to map the relevance back from some neuron <script type="math/tex">n</script> at layer <script type="math/tex">k</script> to the set of neurons <script type="math/tex">n_i</script> at layer <script type="math/tex">k-1</script> who feed into neuron <script type="math/tex">n</script>. That is, we need to define a vector valued function that takes in the relevance <script type="math/tex">R</script> at neuron <script type="math/tex">n</script>, the activation <script type="math/tex">x</script> of neuron <script type="math/tex">n</script>, the activations <script type="math/tex">x_i</script> of the neurons <script type="math/tex">n_i</script> at layer <script type="math/tex">k-1</script>, and the weight matrix <script type="math/tex">w</script> that connects the neurons <script type="math/tex">n_i</script> to <script type="math/tex">n</script>, and outputs the relevance of each neuron <script type="math/tex">n_i</script>. Ideally this function will assign higher weights to neurons that had a larger role in influencing the value of <script type="math/tex">n</script>. The original LRP paper defines a set of constraints from which we can derive a number of different relevance propagation functions, but in this post I’m going to focus on the deep taylor decomposition.</p>
 
 <h2 id="deep-taylor-decomposition">Deep Taylor Decomposition</h2>
 
@@ -212,6 +214,8 @@
 <p>Root points of the forward propagation function are located at the local decision boundary, so the gradients along that boundary point give us the most information about how the function separates the input by class.</p>
 
 <p><img src="/img/taylor_decomposition_outline.png" alt="taylor decomposition outline" /></p>
+
+<h2 id="some-n">Some N</h2>
 
 <h2 id="lrp-results">LRP Results</h2>
 
