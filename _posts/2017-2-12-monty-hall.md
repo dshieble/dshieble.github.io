@@ -89,16 +89,42 @@ If we continue this logic all the way up to 100 islanders, we see that all 100 i
 
 ![Induction!](/img/induction.png)
 
+People often have 2 questions about this solution:
+
+- What quantifiable piece of knowledge does the guru provide?
+- Why do the islanders need to wait until the 100th day to leave the island?
+
+To quantify the information that the guru provides, we need to look closely at exactly what the islanders know before the guru speaks. Let's think about the case where there are 2 blue eyed islanders. Both islanders already know that there is at least one blue eyed islander. But until the guru speaks, each of the blue eyed islanders may think that the other was not aware of the presence of a blue eyed islander. 
+
+When there are 3 blue eyed islanders, we get even more meta. Each of the blue eyed islanders knows that there is at least one blue eyed islander. And each of the blue eyed islanders knows that each of the other blue eyed islanders knows that there is at least one blue eyed islander. However, no blue eyed islander knows that each of the other blue eyed islanders know that each of the other blue eyed islanders know that there is at least one blue eyed islander. For example, blue eyed islander #1 does not know that #2 knows that #3 knows that there is at least one blue eyed islander. 
+
+At each recursive step where blue eyed islander n is reasoning about blue eyed islander n-1's knowledge, islander n reasons that islander n-1 is not aware of his own blue eyes. Therefore, the number of blue eyed islanders effectively decreases at each level of meta-knowledge. When the guru speaks, each islander learns that each other islander knows that each other islander knows that each other islander knows that...(repeated n times)...there is at least one blue eyed islander. 
+
+So why don't the blue eyed islanders leave immediately? Why wait for 100 days to pass? The answer is that no blue eyed islander has learned enough to infer his/her own eye color. All he/she's learned about is the other blue eyed islanders' knowledge. On each of the next 98 nights, each blue eyed islander will learn a little bit more about every other blue eyed islander's knowledge, and on the 99th night the blue eyed islanders will be able to deduce their own eye colors. 
+
+To illustrate this, lets consider the case with 4 blue-eyed islanders. After the announcement, #1 learns that #2 knows that #3 knows that #4 knows that there is at least one blue eyed islander. 
+
+After the first night, when nobody leaves, #1 learns that #2 knows that #3 knows that there are at least 2 blue eyed islanders.
+
+After the second night, when nobody leaves, #1 learns that #2 knows that there are at least 3 blue eyed islanders. 
+
+After the third night, when nobody leaves, #1 learns that there are at least 4 blue eyed islanders. 
+
+Therefore on day 4 every blue eyed islander leaves. 
+
+In the 100 person case, we can say that after seeing nobody leave the island on day n, #1 knows that #2 knows that...(repeated 100-n times)...#(100-n) knows that there are at least n+1 blue eyed islanders.
+
 If you're interested in further discussion about this solution, check out [this thread](http://puzzling.stackexchange.com/questions/236/in-the-100-blue-eyes-problem-why-is-the-oracle-necessary
 ).
 
 
 #### Why it's Hard
 
-This problem is hard because of how obvious the guru's statement seems. Most people would assume that a statement that by itself doesn't contain any new information would be unhelpful. It's incredibly hard to get past this mental block and think about how the behavior of the other islanders in the context of the statement could provide information. 
+This problem is hard because of how obvious the guru's statement seems. Most people would assume that a statement that by itself doesn't contain any new information would be unhelpful. It's incredibly hard to get past this mental block and think about how the knowledge and behavior of the other islanders in the context of the statement could provide information. 
 
 Part of this, I think, is because we can't help but imagine ourself as a blue eyed islander listening to the guru's announcement, looking at 99 other blue eyed islanders and thinking "well duh." Try as we might, we are not perfect logicians, and it's hard to think like one. It's even harder to reason based on the assumption that other people will act like perfect logicians, given our extensive experience with people's consistently irrational behavior.
 
+> Thank you to Paul Martin and Eric Sporkin for ideas and feedback.
 
 
 
