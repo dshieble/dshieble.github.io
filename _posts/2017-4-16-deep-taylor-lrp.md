@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Understanding Neural Networks with Layerwise Relevance Propagation and Deep Taylor Series
-tags: [Math, Probability, Paradox, Monty Hall, Blue Eyed Islanders]
+tags: [Tensorflow, Layerwise, Relevance, Propagation, Deep, Taylor, Series, Visualization]
 ---
 <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

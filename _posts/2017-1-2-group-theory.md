@@ -24,7 +24,7 @@ Many mathematical fields share a common theme - define some structures (often ty
 
 There are some similarities between mathematical structures and the classes of object-oriented programming. Often we study general structures that must obey some axiom, and then define "subclasses" of those structures that obey additional axioms. For example, rings are subclasses of groups - they satisfy all of the same axioms, but they add an additional operation and some additional structure.
 
-Why do we spend the effort developing and proving theorums about general mathematical structures? For the same reason that we define classes and subclasses rather than build each object seperately - to minimize redundancy and reduce complexity. When we've proven a theorum about a particular structure, then that theorum applies to everything with that structure. If we define a new structure as a special case of a parent structure, then all of the work that we've done to understand the parent structure applies to the child structure as well. 
+Why do we spend the effort developing and proving theorems about general mathematical structures? For the same reason that we define classes and subclasses rather than build each object seperately - to minimize redundancy and reduce complexity. When we've proven a theorem about a particular structure, then that theorem applies to everything with that structure. If we define a new structure as a special case of a parent structure, then all of the work that we've done to understand the parent structure applies to the child structure as well. 
 
 Consider writing a program in Java where you define a method that accepts a "foo." Then you can write that function with the certainty that anything passed in will have access to all of foo's methods. When we write a proof about groups it's the same idea - regardless of the inner workings of the infinite different groups, we know that as long as we build the proof on the group axioms it will hold for all groups. 
 
@@ -66,7 +66,7 @@ That proves the closure condition (condition 1). For the other 3 conditions:
 
   - Multiplication is associative
   - For any integer, $$a$$, $$a * 1 = 1 * a = a$$, so $$1$$ is the identity element.
-  - The proof of the existence of multiplicative inverses is a little complicated and relies on Bezel's Theorum, you can find it [here](http://math.stackexchange.com/questions/780189/proof-that-the-multiplicative-group-of-integers-modulo-n-is-a-group).
+  - The proof of the existence of multiplicative inverses is a little complicated and relies on Bezel's theorem, you can find it [here](http://math.stackexchange.com/questions/780189/proof-that-the-multiplicative-group-of-integers-modulo-n-is-a-group).
 
 Therefore the set of integers $$1...n-1$$ and the multiplication modulo $$n$$ operation form a group if $$n$$ is prime.
 
