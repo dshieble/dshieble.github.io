@@ -14,7 +14,7 @@ tags: [Math, Probability, Paradox, Monty Hall, Blue Eyed Islanders]
 
 </script>
 
-Let's talk for a second about making assumptions. Each time you form an opinion on something, you don't re-examine each of the beliefs that contributed to that opinion. For example, when you order food at a restaurant, you pick the foods that you think will taste good. You don't spend hours questioning the structure of your palate or why you find hunger unpleasant. Generally, this works well for us. The unconscious assumptions we make stand, and our final decision is a good one. However, when our assumptions fail we can find ourselves in situations where we are highly confident in our decision, yet completely wrong. 
+Let's talk about making assumptions. Each time you form an opinion on something, you don't re-examine each of the beliefs that contributed to that opinion. For example, when you order food at a restaurant, you pick the foods that you think will taste good. You don't spend hours questioning the structure of your palate or why you find hunger unpleasant. Generally, this works well for us. The unconscious assumptions we make stand, and our final decision is a good one. However, when our assumptions fail we can find ourselves in situations where we are highly confident in our decision, yet completely wrong. 
 
 There are a number of popular mathy brainteasers that illustrate how easy it is to get led astray by assumptions. I'm going to talk about 2 of them today: The Monty Hall Problem and The Blue Eyed Islanders Problem. 
 
