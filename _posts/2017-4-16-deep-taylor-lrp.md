@@ -70,8 +70,6 @@ Root points of the forward propagation function are located at the local decisio
 
 ![taylor decomposition outline](/img/taylor_decomposition_outline.png)
 
-## Some N
-
 ## LRP Results
 
 LRP can produce some really helpful and nice-looking visualizations of how a neural network interprets an image.

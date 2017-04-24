@@ -32,10 +32,10 @@ Some good resources for learning about generative models include:
 
 * A [heavily referenced paper](http://papers.nips.cc/paper/2020-on-discriminative-vs-generative-classifiers-a-comparison-of-logistic-regression-and-naive-bayes.pdf) that compares linear discriminative and generative models. The moral of the story is that generative models tend to be better at classification when data is sparse, and discriminative classifiers are better when data is plentiful. Also written by Andrew Ng.
 
-Unlike discriminative models, we can also use generative models to create synthetic data by directly sampling from the modelled probability distributions. I think that this is pretty damn awesome, and I’m going to prove it to you. But first, let’s talk about RBMs.
+Unlike discriminative models, we can also use generative models to create synthetic data by directly sampling from the modelled probability distributions. I think that this is pretty sweet, and I’m going to prove it to you. But first, let’s talk about RBMs.
 
 ### The Restricted Boltzman Machine
-RBMs are awesome models, but if you have never encountered them before, they can be a little complex. I’m going to quickly review the details below, but if you want understand them more thoroughly, the following resources may be helpful:
+If you have never encountered RBMs before, they can be a little complex. I’m going to quickly review the details below, but if you want understand them more thoroughly, the following resources may be helpful:
 
 * This article contains a good, very [visual description of RBMs](http://deeplearning4j.org/restrictedboltzmannmachine.html). Also includes a DL4J implementation.
 
