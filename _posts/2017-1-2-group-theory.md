@@ -94,7 +94,7 @@ Notice that the proof above applies to more than just $$ABC$$ - it applies to an
 
 ### Other Resources
 
-If you've enjoyed learning about groups and you want to learn more about them and other algebraic structures, I recommend [Dummit and Foote](http://abstract.ups.edu/download/aata-20100827.pdf). This textbook is extremely readable and contains an extraordinary number of worked examples and well-fleshed-out proofs.
+If you've enjoyed learning about groups and you want to learn more about them and other algebraic structures, I recommend [Dummit and Foote](https://www.amazon.com/Abstract-Algebra-3rd-David-Dummit/dp/0471433349). This textbook is extremely readable and contains an extraordinary number of worked examples and well-fleshed-out proofs.
 
 
 
