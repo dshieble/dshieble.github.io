@@ -7,6 +7,17 @@
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>R^2 and R, the relationship between correlation and the coefficient of determination.</title>
+        <description>
+          
+          There are 2 closely related quantities in statistics - correlation (often referred to as ) and the coefficient of determination (often referred to as ). Today we’ll explore the nature of the relationship between and , go over some common use cases for each statistic and address some misconceptions. Correlation...
+        </description>
+        <pubDate>Sun, 25 Jun 2017 00:00:00 -0400</pubDate>
+        <link>http://dshieble.github.io/2017-06-25-metrics/</link>
+        <guid isPermaLink="true">http://dshieble.github.io/2017-06-25-metrics/</guid>
+      </item>
+    
+      <item>
         <title>Understanding Neural Networks with Layerwise Relevance Propagation and Deep Taylor Series</title>
         <description>
           
@@ -21,7 +32,7 @@
         <title>Exploring Assumptions with Monty Hall and Blue Eyed Islanders</title>
         <description>
           
-          Let’s talk for a second about making assumptions. Each time you form an opinion on something, you don’t re-examine each of the beliefs that contributed to that opinion. For example, when you order food at a restaurant, you pick the foods that you think will taste good. You don’t spend...
+          Let’s talk about making assumptions. Each time you form an opinion on something, you don’t re-examine each of the beliefs that contributed to that opinion. For example, when you order food at a restaurant, you pick the foods that you think will taste good. You don’t spend hours questioning the...
         </description>
         <pubDate>Sun, 12 Feb 2017 00:00:00 -0500</pubDate>
         <link>http://dshieble.github.io/2017-02-12-monty-hall/</link>
