@@ -24,6 +24,8 @@ description: My musings on math and code
 # List of links in the navigation bar
 navbar-links:
   About Me: "aboutme"
+  Invited Talks: "Invited Talks"
+
   # Resources:
   #   - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
   #   - Learn markdown: "http://www.markdowntutorial.com/"

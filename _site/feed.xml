@@ -7,7 +7,7 @@
     <atom:link href="http://dshieble.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>R^2 and R, the relationship between correlation and the coefficient of determination.</title>
+        <title>R and R^2, the relationship between correlation and the coefficient of determination.</title>
         <description>
           
           There are 2 closely related quantities in statistics - correlation (often referred to as ) and the coefficient of determination (often referred to as ). Today we’ll explore the nature of the relationship between and , go over some common use cases for each statistic and address some misconceptions. Correlation...
