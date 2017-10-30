@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Lying With Data
-tags: [Statistics, Deception, Lying, Probability, p-value]
+title: Don't trust statistics too much
+tags: [Statistics, Lying, Probability, p-value, Misuse, Trust]
 ---
 <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
