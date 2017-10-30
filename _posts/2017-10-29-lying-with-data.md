@@ -20,6 +20,9 @@ There’s a famous scene in the HBO show “The Wire” where the unscrupulous D
 
 “Gentlemen, the word from on high is that the felony rates district by district will decline by five percent before the end of the year. We are dealing in certainties. You WILL decrease the UCR felonies by the end of the year”
 
+![Rawls](/img/rawls.png)
+
+
 The Baltimore Police Department in the Wire engages in “stat juking,” or making small modifications to reports to create an artificial decrease in the crime rate. For example, aggravated assaults can be downgraded to assaults, and robberies can be downgraded to larcenies. This kind of statistical manipulation is not limited to police departments. People and organizations throughout the world utilize statistics improperly to prove their point, either through direct manipulation or unintentional misuse. 
 
 For example, the effectiveness of gun control policies as a tool for reducing gun violence has been debated at length over the past 50 years, and both sides of the debate believe extremely strongly that they are “on the side of the facts.” Gun control programs have been established in various forms in various countries with various cultures throughout the world. However, there is no true metric of “gun control success.” A blog writer with essentially any opinion about gun control will be able to find a study that supports his or her opinion. For example, a pro-gun control writer might find (this)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3828709/] paper, which shows a strong relationship between gun ownership and firearm homicide rates by state, but does little to control for confounding factors. A pro-gun rights writer might instead choose to cite the increase in homicides in the wake of a firearms control act in the UK as “proof” that gun control actually creates more gun victims (pictured below). In both cases, the writer and their followers feel validated by the “facts” that support them. 
