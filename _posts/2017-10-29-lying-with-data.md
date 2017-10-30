@@ -46,10 +46,17 @@ First, most academic studies have a significant portion of the work performed by
 
 Often researcher use the "$$p$$ value" of a test as a way to measure its significance. The logic is simple - say we are looking for a difference between two groups. If the difference is large enough so that the probability that it occurred by chance is less than (the arbitrarily chosen threshold of) $$5\%$$, i we say that $$p < 0.05$$ and the effect is "significant." However, there is a subtlety to these kinds of tests that is easy to overlook. Let’s say that you’re a grad student researcher and you’re examining the results of a 5 year study where you had tens of thousands of people drink coffee every morning, and tens of thousands people abstain in order to understand the effects of daily coffee consumption on mental well being. First, you examine the rates of anxiety between the coffee drinkers and non-coffee drinkers, and you find no strong relationship. Next, you look at the rates of depression, and you once again find no relationship. Faced with the panic of needing to report to your professor that his or her expensive 5 year study was worthless, you begin to stratify the population and look for rarer disorders. Eventually, you find that there is "significant" $$(p < 0.05)$$ increase in the rates of schizophrenia for low income non coffee drinkers in your population. Your professor is happy and you publish the results.
 
-But is this result really significant? Let’s look at the math. Let’s say that you run twenty unrelated studies and get twenty $$p$$ values. If none of the studies were actually significant, then on average one of them will produce a $$p$$ value less than $$0.05$$. Similarly, if you look at the same study in enough independent ways, then you have decent chance of finding something “significant,” even if no effect actually exists (add footnote here about uncorrelated). This is often referred to as the “multiple testing hypotheses” problem, and is best illustrated by Randall Munroe below:
+But is this result really significant? Let’s look at the math. Let’s say that you run twenty unrelated studies and get twenty $$p$$ values. If none of the studies were actually significant, then on average one of them will produce a $$p$$ value less than $$0.05$$. Similarly, if you look at the same study in enough independent ways, then you have decent chance of finding something “significant,” even if no effect actually exists [^footnote]. This is often referred to as the “multiple testing hypotheses” problem, and is best illustrated by Randall Munroe below:
 
 ![Green Jelly beans](/img/significant.png)
 
 ### Conclusion
 
 Statistics is a fickle beast. In the face of uncertainty, it appears to be our best source of truth. When used incorrectly, it can lend legitimacy to fallacious opinions and arguments. The fact is, a statistic is just that - a statistic. It is often more open to interpretation than it appears.
+
+
+[^footnote]: In reality, if you look at the same study in 20 ways, each "look" is going to be pretty correlated with the other "looks," so it's not quite as bad as running 20 different studies.
+
+
+
+
