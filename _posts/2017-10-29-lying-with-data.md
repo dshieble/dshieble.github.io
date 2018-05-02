@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Don't trust statistics too much
-tags: [Statistics, Lying, Probability, p-value, Misuse, Trust]
+title: Don't trust data too much
+tags: [Data, Statistics, Lying, Probability, p-value, Misuse, Trust]
 ---
 <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -23,7 +23,7 @@ There’s a famous scene in the HBO show "The Wire" where the unscrupulous Deput
 ![Rawls](/img/rawls.png)
 
 
-The Baltimore Police Department in the Wire engages in "stat juking," or making small modifications to reports to create an artificial decrease in the crime rate. For example, aggravated assaults can be downgraded to assaults, and robberies can be downgraded to larcenies. This kind of statistical manipulation is not limited to police departments. People and organizations throughout the world utilize statistics improperly to prove their point, either through direct manipulation or unintentional misuse. 
+The Baltimore Police Department in the Wire engages in "stat juking," or making small modifications to reports to create an artificial decrease in the crime rate. For example, aggravated assaults can be downgraded to assaults, and robberies can be downgraded to larcenies. This kind of statistical manipulation is not limited to police departments. People and organizations throughout the world utilize data improperly to prove their point, either through direct manipulation or unintentional misuse. 
 
 For example, the effectiveness of gun control policies as a tool for reducing gun violence has been debated at length over the past 50 years, and both sides of the debate believe extremely strongly that they are "on the side of the facts." Gun control programs have been established in various forms in various countries with various cultures throughout the world. However, there is no true metric of “gun control success.” A blog writer with essentially any opinion about gun control will be able to find a study that supports his or her opinion. For example, a pro-gun control writer might find [this](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3828709/) paper, which shows a strong relationship between gun ownership and firearm homicide rates by state, but does little to control for confounding factors. A pro-gun rights writer might instead choose to cite the increase in homicides in the wake of a firearms control act in the UK as "proof" that gun control actually creates more gun victims (pictured below). In both cases, the writer and their followers feel validated by the "facts" that support them. 
 
@@ -38,7 +38,7 @@ From year 2000 to year 2013, the inflation-adjusted median wage in the US increa
 
 This is an example of a well known but often misunderstood statistical phenomenon known as Simpson’s Paradox. Since the dawn of statistics, people have used Simpson’s Paradox to reframe experimental results and observations in a way that supports their agendas. An activist rallying about increases in the cost of living may choose to cite the fact that wages for every subgroup have gone down. A conservative speaking out against government wage regulations may instead choose to cite the overall increase in wages. Neither one tells the full story, but both can benefit from the side that they choose to share. 
 
-### Multiple Testing (and Green Jelly Beans)
+### Multiple Testing
 
 Studies performed by academic institutions and published in journals often command a great deal of trust. The papers must be peer reviewed, and the people who produce them seem to have little financial motive to falsify the results. But it’s worth taking a closer look at the process by which these results are produced.
 
@@ -52,7 +52,7 @@ But is this result really significant? Let’s look at the math. Let’s say tha
 
 ### Conclusion
 
-Statistics is a fickle beast. In the face of uncertainty, it appears to be our best source of truth. When used incorrectly, it can lend legitimacy to fallacious opinions and arguments. The fact is, a statistic is just that - a statistic. It is often more open to interpretation than it appears.
+Data and Statistics are fickle beasts. In the face of uncertainty, they appear to be our best source of truth. But when used incorrectly, they can lend legitimacy to fallacious opinions and arguments. The fact is, analyzing and understanding data generally requires significant context and follow up investigation. By itself, a data point or even a statistic is rarely particular useful or informative.  
 
 
 [^footnote]: In reality, if you look at the same study in 20 ways, each "look" is going to be pretty correlated with the other "looks," so it's not quite as bad as running 20 different studies.

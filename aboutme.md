@@ -13,6 +13,6 @@ subtitle: The extra brief version
   ga('send', 'pageview');
 
 </script>
-Hi, I'm Dan Shiebler. I work as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. We determine driver risk from smart phone sensor data. Every day I get to research, design and implement machine learning algorithms. That's pretty awesome. 
+Hi, I'm Dan Shiebler. I work as a Machine Learning Engineer at Twitter Cortex in New York. Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. I love thinking about math and programming.
 
-In my spare time I like to learn about math and programming, ride my bicycle, hike, practice Brazilian Jiu Jitsu, and travel.
+In my spare time I like to read fantasies and histories, ride my bicycle, hike, practice Brazilian Jiu Jitsu, and travel.
