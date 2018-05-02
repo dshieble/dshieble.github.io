@@ -41,8 +41,8 @@ This will produce "word embeddings" for each word in our vocabulary such that th
  
 ![W2V](/img/w2v2.png)
 
-*Word vectors embed words with similar meanings and usages closer to each other in the embedding vector space.*
-
+<!-- *Word vectors embed words with similar meanings and usages closer to each other in the embedding vector space.*
+ -->
 ## Representing Bi-Partite Graphs
 
 Now consider the case where we instead want to represent the affinities between a group of entities of type 1 and a group of entities of type 2. For example, we may want to represent the rating a user would give to a movie or the likelihood that a user would click on an advertisement.
@@ -52,8 +52,8 @@ We can represent these relationships with a bi-partite graph $$B$$ where the two
  
 ![W2V](/img/MovieRecs.png)
 
-*A bipartite graph representing the ratings that users give to movies.*
-
+<!-- *A bipartite graph representing the ratings that users give to movies.*
+ -->
 
 We can use a modified adjacency matrix $$A_{B}$$ to represent $$B$$. Say we have $$N$$ entities of type $$E_1$$ and $$M$$ entities of type $$E_2$$. Then define $$A_{B}$$ to be the $$NxM$$ matrix such that entry $$i,j$$ of $$A_{B}$$ is equal to the weight of the connection between entity $$i$$ of type $$E_1$$ and entity $$j$$ of type $$E_2$$. We can use a technique similar to those described above to represent $$B$$ with two matrices of low dimensional entity vectors.
 
