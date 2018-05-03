@@ -37,7 +37,7 @@ In some cases, the continuous graph might be quite dense. Consider the case wher
 likely impossible to store in memory and factorize directly. We could instead apply an algorithm like the following to symmetrically factorize it:
 
 * Randomly initialize the $$nxd$$ matrices $$W$$
-* For each tuple $$w_i,w_j,k$$ where $$x$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$\|x - W_{i}^{T}W_{j}\|$$. 
+* For each tuple $$w_i,w_j,x$$ where $$x$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$\|x - W_{i}^{T}W_{j}\|$$. 
 
 This will produce "word embeddings" for each word in our vocabulary such that the dot product between any two word's embeddings is indicative of the frequency with which the words appear in a sentence. Note that if we use an additional matrix to represent word context and modify the loss function a bit, we get the skigram algorithm from [Mikolov's word2vec.](https://arxiv.org/pdf/1310.4546.pdf) In the image below, we demonstrate how similar words appear closer to each other in the word vector space:
  
