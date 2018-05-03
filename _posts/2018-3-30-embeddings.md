@@ -27,34 +27,25 @@ One common way of storing $$G$$ is an adjacency matrix - i.e. an $$NxN$$ matrix 
 
 ![The Social Graph](/img/social-graph-300.jpg)
 
-<!-- *The Social Graph*
- -->
 Now consider the case where the relationship between entities is no longer binary, for example, the relationship between two movies might be their number of shared actors. In this case $$G$$ becomes a graph with weighted edges, $$A_{ij}$$ is $$w$$ if an edge with weight $$w$$ exists between nodes $$N_{i}, N_{j}$$ and $$0$$ otherwise, and the dot product $$V_{i}V_{j}^{T}$$ is as close as possible to $$w$$. 
 
 In some cases, the continuous graph might be quite dense. Consider the case where our entities are the words in the English language and the relationship between words is the frequency with which they appear together in a sentence, perhaps normalized by their individual frequencies (PMI). In this case $$A$$ is a large, dense matrix that's 
 likely impossible to store in memory and factorize directly. We could instead apply an algorithm like the following to symmetrically factorize it:
 
-* Randomly initialize the $$nxd$$ matrices $$W$$ 
-
+* Randomly initialize the $$nxd$$ matrices $$W$$
 * For each tuple $$w_i,w_j,k$$ where $$k$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$||k - W_{i}^{T}W_{j}||$$. 
 
 This will produce "word embeddings" for each word in our vocabulary such that the dot product between any two word's embeddings is indicative of the frequency with which the words appear in a sentence. Note that if we use an additional matrix to represent word context and modify the loss function a bit, we get the skigram algorithm from [Mikolov's word2vec algorithm.](https://arxiv.org/pdf/1310.4546.pdf).
  
 ![W2V](/img/w2v2.png)
 
-<!-- *Word vectors embed words with similar meanings and usages closer to each other in the embedding vector space.*
- -->
 ## Representing Bi-Partite Graphs
 
 Now consider the case where we instead want to represent the affinities between a group of entities of type 1 and a group of entities of type 2. For example, we may want to represent the rating a user would give to a movie or the likelihood that a user would click on an advertisement.
 
 We can represent these relationships with a bi-partite graph $$B$$ where the two disjoint sets of nodes correspond to the two types of entities. You can see an example for users and movies below:
 
- 
-![W2V](/img/MovieRecs.png)
-
-<!-- *A bipartite graph representing the ratings that users give to movies.*
- -->
+![MovieRecs](/img/MovieRecs.png)
 
 We can use a modified adjacency matrix $$A_{B}$$ to represent $$B$$. Say we have $$N$$ entities of type $$E_1$$ and $$M$$ entities of type $$E_2$$. Then define $$A_{B}$$ to be the $$NxM$$ matrix such that entry $$i,j$$ of $$A_{B}$$ is equal to the weight of the connection between entity $$i$$ of type $$E_1$$ and entity $$j$$ of type $$E_2$$. We can use a technique similar to those described above to represent $$B$$ with two matrices of low dimensional entity vectors.
 
