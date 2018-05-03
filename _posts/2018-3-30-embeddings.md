@@ -59,7 +59,7 @@ Note that each row $$U_i^{*}$$ of $$U^{*}$$ corresponds to entity $$i$$ of type 
 
 ## Conclusion
 
-We can represent most entity relationships with graphs. However, large sparse graphs are difficult to store and query. Furthermore, node-edge relationships are difficult to utilize as features for machine learning algorithms. Matrix factorization approaches can efficiently model and represent the entities of these graphs with low dimensional vectors.
+We can represent most entity relationships with graphs. However, large sparse graphs are difficult to store and query. Furthermore, node-edge relationships are difficult to utilize as features for machine learning algorithms. Matrix factorization approaches can efficiently model and represent the nodes of these graphs with low dimensional vectors.
 
 [^footnote]: http://www.iflscience.com/technology/how-much-data-does-the-world-generate-every-minute/
 
