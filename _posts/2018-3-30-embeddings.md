@@ -30,14 +30,14 @@ One common way of storing $$G$$ is an adjacency matrix - i.e. an $$NxN$$ matrix 
 Now consider the case where the relationship between entities is no longer binary, for example, the relationship between two movies might be their number of shared actors. In this case:
 
 * $$G$$ becomes a graph with weighted edges
-* $$A_{ij}$$ is $$w$$ if an edge with weight $$w$$ exists between nodes $$N_{i}, N_{j}$$ and $$0$$ otherwise
-* The dot product $$V_{i}V_{j}^{T}$$ is as close as possible to $$w$$. 
+* $$A_{ij}$$ is $$x$$ if an edge with weight $$x$$ exists between nodes $$N_{i}, N_{j}$$ and $$0$$ otherwise
+* The dot product $$V_{i}V_{j}^{T}$$ is as close as possible to $$x$$. 
 
 In some cases, the continuous graph might be quite dense. Consider the case where our entities are the words in the English language and the relationship between words is the frequency with which they appear together in a sentence, perhaps normalized by their individual frequencies (PMI). In this case $$A$$ is a large, dense matrix that's 
 likely impossible to store in memory and factorize directly. We could instead apply an algorithm like the following to symmetrically factorize it:
 
 * Randomly initialize the $$nxd$$ matrices $$W$$
-* For each tuple $$w_i,w_j,k$$ where $$k$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$\|k - W_{i}^{T}W_{j}\|$$. 
+* For each tuple $$w_i,w_j,k$$ where $$x$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$\|x - W_{i}^{T}W_{j}\|$$. 
 
 This will produce "word embeddings" for each word in our vocabulary such that the dot product between any two word's embeddings is indicative of the frequency with which the words appear in a sentence. Note that if we use an additional matrix to represent word context and modify the loss function a bit, we get the skigram algorithm from [Mikolov's word2vec algorithm.](https://arxiv.org/pdf/1310.4546.pdf).
  
