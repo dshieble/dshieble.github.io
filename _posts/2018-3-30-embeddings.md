@@ -18,14 +18,14 @@ A solid laptop computer in 2018 has about 1TB (1000GB) of disk space, and the ca
 
 In order to effectively harness and interpret this data, researchers and organizations have relied heavily on algorithms like neural networks that work best on low dimensional dense data. In this article I will describe one technique for reducing large high dimensional sparse data to small low dimensional dense data that is compatible with machine learning algorithms like neural networks. 
 
-
 ## Representing Graphs
 
 Say we have a set of entities (words, people, movies, etc) and we want to represent some notion of similarity between them. For simplicity's sake, let's say that we are interested in a binary relation, such as "these two people are friends", or "these two movies have a shared co-star". We can represent these entities and this relation in an unweighted graph $$G$$ in which we represent each entity with a node and the relation with the edges between the nodes.
 
 One common way of storing $$G$$ is an adjacency matrix - i.e. an $$NxN$$ matrix $$A$$, where $$N$$ is the number of nodes and entry $$A_{ij}$$ is $$1$$ if an edge exists between nodes $$N_{i}, N_{j}$$ and $$0$$ otherwise. However, since this matrix has $$N^2$$ elements, it can be prohibitive to store and manipulate for very large graphs. One way to avoid this is to instead use a low-rank symmetric matrix factorization algorithm to form the $$NxD$$ matrix $$V$$, where $$VV^{T}$$ is an approximation of $$A$$. Intuitively, we are assiging to each node $$N_i$$ in $$G$$ a $$D$$ dimensional vector $$V_i$$ such that for any two nodes $$N_i, N_j$$ in $$G$$, the dot product $$V_{i}V_{j}^{T}$$ is indicative of the likelihood that an edge exists between $$N_{i}$$ and $$N_{j}$$. This can allow us to represent our entities and their relationships in much less space. Furthermore, the low dimensional entity representations are often easier to use in Machine Learning tasks than the sparse high dimensional graph representations.
 
-![The Social Graph](/img/social-graph.png)
+<!-- ![The Social Graph](/img/social-graph.png)
+ -->![Rawls](/img/rawls.png)
 
 
 <!-- 
