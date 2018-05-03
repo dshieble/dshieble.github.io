@@ -37,7 +37,7 @@ In some cases, the continuous graph might be quite dense. Consider the case wher
 likely impossible to store in memory and factorize directly. We could instead apply an algorithm like the following to symmetrically factorize it:
 
 * Randomly initialize the $$nxd$$ matrices $$W$$
-* For each tuple $$w_i,w_j,k$$ where $$k$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$\|\|k - W_{i}^{T}W_{j}\|\|$$. 
+* For each tuple $$w_i,w_j,k$$ where $$k$$ is the number of times that $$w_i$$ and $$w_j$$ appear in a sentence, take a gradient descent step towards minimizing the loss $$\|k - W_{i}^{T}W_{j}\|$$. 
 
 This will produce "word embeddings" for each word in our vocabulary such that the dot product between any two word's embeddings is indicative of the frequency with which the words appear in a sentence. Note that if we use an additional matrix to represent word context and modify the loss function a bit, we get the skigram algorithm from [Mikolov's word2vec algorithm.](https://arxiv.org/pdf/1310.4546.pdf).
  
@@ -56,7 +56,7 @@ We can represent these relationships with a bi-partite graph $$B$$ where the two
 
 We can use a modified adjacency matrix $$A_{B}$$ to represent $$B$$. Say we have $$N$$ entities of type $$E_1$$ and $$M$$ entities of type $$E_2$$. Then define $$A_{B}$$ to be the $$NxM$$ matrix such that entry $$i,j$$ of $$A_{B}$$ is equal to the weight of the connection between entity $$i$$ of type $$E_1$$ and entity $$j$$ of type $$E_2$$. We can use a technique similar to those described above to represent $$B$$ with two matrices of low dimensional entity vectors.
 
-If we take the reduced SVD of $$A_{B}$$ with dimension $$D$$, we get the orthogonal $$NxD$$ matrix $$U$$, the orthogonal $$MxD$$ matrix $$V$$ and the diagonal $$DxD$$ matrix $$S$$ such that $$\|\|A_B - USV{T}\|\|$$ is minimized. We can "absorb" $$S$$ into $$U$$ and $$V$$ to form $$U^{*}=US^{1/2}$$ and $$V^{*}=VS^{1/2}$$ such that $$\|\|A_B - U^{*}V^{T*}\|\|$$ is still minimized.
+If we take the reduced SVD of $$A_{B}$$ with dimension $$D$$, we get the orthogonal $$NxD$$ matrix $$U$$, the orthogonal $$MxD$$ matrix $$V$$ and the diagonal $$DxD$$ matrix $$S$$ such that $$\|A_B - USV{T}\|$$ is minimized. We can "absorb" $$S$$ into $$U$$ and $$V$$ to form $$U^{*}=US^{1/2}$$ and $$V^{*}=VS^{1/2}$$ such that $$\|A_B - U^{*}V^{T*}\|$$ is still minimized.
 
 Note that each row $$U_i^{*}$$ of $$U^{*}$$ corresponds to entity $$i$$ of type $$E_1$$ and each row $$V_j^{*}$$ of $$V^{*}$$ corresponds to entity $$j$$ of type $$E_2$$ such that the affinity between entity $$i$$ and entity $$j$$ is correlated to $$U_i^{*}V_j^{*}$$. Note that this is equivalent to constructing a linear regression model for each entity $$j$$ of type $$E_2$$ and projecting each entity $$i$$ into a space such that the outputs of each $$j$$'s linear regression model on $$i$$'s projection is an estimate of the affinity between entity $$i$$ and entity $$j$$. We refer to this as a "co-embedding" between the entity types $$E_1$$ and $$E_2$$. 
 
