@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Publications
-subtitle: A Selection of Publications and Patents I've Co-Authored
+subtitle: A Selection of Papers and Patents I've Co-Authored
 ---
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -13,6 +13,7 @@ subtitle: A Selection of Publications and Patents I've Co-Authored
   ga('send', 'pageview');
 
 </script>
+
 
 ### Papers
 
@@ -31,8 +32,18 @@ Learning what and where to attend with humans in the loop. Linsley, D., Shiebler
 Beta Shift and Decision Conflict. Shiebler, D. Brown University Neuroscience Sc.B Honors Thesis (2015)
 
 
-### Published Abstracts
+### Patents
 
+[Systems and Methods for Detecting and Assessing Distracted Drivers](https://patents.google.com/patent/US20170105098A1/en). Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. (U.S. 2017/0105098 A1)
+
+[Systems and Methods for Scoring Driver Trips](https://patents.google.com/patent/US20170349182A1/en) Cordova, B., Finegold, R., Shiebler, D., & Cecala, S. (U.S. 2017/0349182 A1)
+
+[Systems and Methods for Sensor-Based Vehicle Crash Prediction, Detection and Reconstruction](https://patents.google.com/patent/US20170210323A1/en). Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 2017/0210323 A1)
+
+[Systems and Methods for Detecting Airbag Deployment Resulting From a Vehicle Crash](https://patents.google.com/patent/US20180126938A1/en) Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 2018/0126938 A1)
+
+
+### Conference Abstracts
 
 Capturing Lingual Shifts in Word Embeddings with CCA. Kamani, M., Shiebler, D., Tayal, A., Verma, S., & Belli, L.  WeCNLP (2018)
 
@@ -43,14 +54,3 @@ FastTweets: Measuring Embedding Quality for Highly Variable Text Data. Rabhi, S.
 [Large-scale discovery of visual features for object recognition](https://docs.lib.purdue.edu/modvis/2017/session02/4/). Linsley, D., Eberhardt, S., Shiebler, D., & Serre, T. Computational and Mathematical Models in Vision (2017)
 
 [More Feedback, Less Depth: Approximating Human Vision with Deep Networks](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxtbGluaTIwMTZuaXBzfGd4OjUwYjk3YzdmMjdlNGVlM2E). Eberhardt, S., Cader, J., Linsley, D., Barhomi, Y., Shiebler, D., & Serre, T. NIPS Workshop on Representation Learning in Artificial and Biological Neural Networks (2016)
-
-
-### Patents
-
-[Systems and Methods for Detecting and Assessing Distracted Drivers](https://patents.google.com/patent/US20170105098A1/en). Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. (U.S. 2017/0105098 A1)
-
-[Systems and Methods for Scoring Driver Trips](https://patents.google.com/patent/US20170349182A1/en) Cordova, B., Finegold, R., Shiebler, D., & Cecala, S. (U.S. 2017/0349182 A1)
-
-[Systems and Methods for Sensor-Based Vehicle Crash Prediction, Detection and Reconstruction](https://patents.google.com/patent/US20170210323A1/en). Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 2017/0210323 A1)
-
-[Systems and Methods for Detecting Airbag Deployment Resulting From a Vehicle Crash](https://patents.google.com/patent/US20180126938A1/en) Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 2018/0126938 A1)
