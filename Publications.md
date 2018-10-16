@@ -47,10 +47,10 @@ FastTweets: Measuring Embedding Quality for Highly Variable Text Data. Rabhi, S.
 
 ### Patents
 
-Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. Systems and Methods for Detecting and Assessing Distracted Drivers (U.S. 2017/0105098 A1, [link](https://patents.google.com/patent/US20170105098A1/en))
+Systems and Methods for Detecting and Assessing Distracted Drivers](https://patents.google.com/patent/US20170105098A1/en). Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. (U.S. 2017/0105098 A1)
 
-Cordova, B., Finegold, R., Shiebler, D., & Cecala, S. Systems and Methods for Scoring Driver Trips (U.S. 2017/0349182 A1, [link](https://patents.google.com/patent/US20170349182A1/en))
+[Systems and Methods for Scoring Driver Trips](https://patents.google.com/patent/US20170349182A1/en) Cordova, B., Finegold, R., Shiebler, D., & Cecala, S. (U.S. 2017/0349182 A1)
 
-Cordova, B., Vaisman, E., &  Shiebler, D. Systems and Methods for Sensor-Based Vehicle Crash Prediction, Detection and Reconstruction (U.S. 2017/0210323 A1, [link](https://patents.google.com/patent/US20170210323A1/en))
+[Systems and Methods for Sensor-Based Vehicle Crash Prediction, Detection and Reconstruction](https://patents.google.com/patent/US20170210323A1/en). Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 2017/0210323 A1)
 
-Cordova, B., Vaisman, E., &  Shiebler, D. Systems and Methods for Detecting Airbag Deployment Resulting From a Vehicle Crash (U.S. 2018/0126938 A1, [link](https://patents.google.com/patent/US20180126938A1/en))
+[Systems and Methods for Detecting Airbag Deployment Resulting From a Vehicle Crash](https://patents.google.com/patent/US20180126938A1/en) Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 2018/0126938 A1)
