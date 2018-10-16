@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Invited Talks
-subtitle: Some talks that I've given at conferences and other places
+subtitle: Some Talks that I've Given at Conferences and Other Places
 ---
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
