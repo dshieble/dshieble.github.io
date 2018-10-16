@@ -13,6 +13,6 @@ subtitle: The extra brief version
   ga('send', 'pageview');
 
 </script>
-Hi, I'm Dan Shiebler. I work as a Machine Learning Engineer at Twitter Cortex in New York. Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) is usually somewhat up-to-date. 
+Hi, I'm Dan Shiebler. I'm a Senior Machine Learning Engineer at Twitter Cortex in New York. Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) is usually somewhat up-to-date. 
 
 In my spare time I like to read, play guitar terribly, ride my bicycle, hike, practice Brazilian Jiu Jitsu, and travel.

@@ -15,18 +15,19 @@ subtitle: Some talks that I've given at conferences and other places
 </script>
 
 
-The Machine Intelligence Summit 2016 (NYC):
+Bigger Problems than Big Data (DSGO (2018), MWC Americas (2018)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DIPY-RhgeTA" frameborder="0" allowfullscreen></iframe>
+Real World Data Science Strategy (ODSC East (2018), DSGO (2017), Global Big Data Conference (2017))
 
-The Deep Learning Summit 2017 Conference (Boston):
+In the Lab: AI and Machine Learning for Media Industry (Variety Innovate Summit (2017))
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3Focs88C-so" frameborder="0" allowfullscreen></iframe>
+Changing Human Behavior Through a Driving App (Super Data Science, (2017, [link](https://soundcloud.com/superdatascience/sds-059-changing-human-behaviour-through-a-driving-app)))
 
-The Open Data Science Conference East 2017 (Boston):
+Making Deep Learning Work on Messy Sensor Data (MIT Lincoln Lab (2017), Deep Learning Summit Boston (2017, [link](https://www.youtube.com/watch?v=3Focs88C-so)))
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1QuqOIFsaj4?list=PLB2SCq-tZtVkquR6O15BtcOdfZotXV5y_" frameborder="0" allowfullscreen></iframe>
+The Power and Pains of Sensor Data (ODSC East (2017, [link](https://www.youtube.com/watch?list=PLB2SCq-tZtVkquR6O15BtcOdfZotXV5y_&v=1QuqOIFsaj4)))
 
-The Super Data Science Podcast in Spring 2017:
+Machine Intelligence for Driver Safety (Machine Intelligence Summit New York (2016, [link](https://www.youtube.com/watch?v=DIPY-RhgeTA)))
 
-<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/327047808&amp;color=ff5500"></iframe>
+
+

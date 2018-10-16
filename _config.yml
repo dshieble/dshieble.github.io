@@ -23,6 +23,7 @@ description: My musings on math and code
 
 # List of links in the navigation bar
 navbar-links:
+  Publications: "Publications"
   Invited Talks: "Invited Talks"
   About Me: "aboutme"
 
