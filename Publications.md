@@ -38,7 +38,7 @@ Capturing Lingual Shifts in Word Embeddings with CCA. Kamani, M., Shiebler, D., 
 
 FastTweets: Measuring Embedding Quality for Highly Variable Text Data. Rabhi, S., Green, C., Verma, S., Shiebler, D., & Belli, L. WeCNLP (2018)
 
-[A Data-Driven Approach to Learning 3D Shape](https://jov.arvojournals.org/article.aspx?articleid=2651288). Eberhardt, S., Shiebler, D., Linsley, D., & Serre, T. Journal of Vision. (2017, [link])
+[A Data-Driven Approach to Learning 3D Shape](https://jov.arvojournals.org/article.aspx?articleid=2651288). Eberhardt, S., Shiebler, D., Linsley, D., & Serre, T. Journal of Vision. (2017)
 
 [Large-scale discovery of visual features for object recognition](https://docs.lib.purdue.edu/modvis/2017/session02/4/). Linsley, D., Eberhardt, S., Shiebler, D., & Serre, T. Computational and Mathematical Models in Vision (2017)
 
