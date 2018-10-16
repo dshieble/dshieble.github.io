@@ -47,7 +47,7 @@ FastTweets: Measuring Embedding Quality for Highly Variable Text Data. Rabhi, S.
 
 ### Patents
 
-Systems and Methods for Detecting and Assessing Distracted Drivers](https://patents.google.com/patent/US20170105098A1/en). Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. (U.S. 2017/0105098 A1)
+[Systems and Methods for Detecting and Assessing Distracted Drivers](https://patents.google.com/patent/US20170105098A1/en). Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. (U.S. 2017/0105098 A1)
 
 [Systems and Methods for Scoring Driver Trips](https://patents.google.com/patent/US20170349182A1/en) Cordova, B., Finegold, R., Shiebler, D., & Cecala, S. (U.S. 2017/0349182 A1)
 
