@@ -16,7 +16,7 @@ tags: [Category Theory, Functional Programming, Mathematics, Solutions]
 
 I recently worked through Bartosz Milewski's excellent free book "Category Theory for Programmers." The book is available online [here](https://unglueit-files.s3.amazonaws.com/ebf/e90890f0a6ea420c9825657d6f3a851d.pdf) and [here](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/).
 
-I had an awesome time reading the book and learning about Category Theory and I figured I'd post my solutions to the book problems online to make it easier for other people to have a similar experience. You can find my solutions below: 
+I had an awesome time reading the book and learning about Category Theory so I figured I'd post my solutions to the book problems online to make it easier for other people to have a similar experience. You can find my solutions below: 
 
 
 # Section 1
