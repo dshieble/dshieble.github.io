@@ -30,7 +30,7 @@ Consider writing a program in Java where you define a method that accepts a "foo
 
 ### The Group
 
-The most basic structure in Abstract Algebra is the group. A group is a set, which we will denote by $$G$$, combined with a "group operation," which we will denote by $$*$$, that satisfies the following axioms:
+One basic structure in Abstract Algebra is the group. A group is a set, which we will denote by $$G$$, combined with a "group operation," which we will denote by $$*$$, that satisfies the following axioms:
 
   - For all $$a,b$$ in $$G$$, $$a*b$$ is also an element in $$G$$ ($$G$$ is closed under $$*$$)
   - For all $$a,b,c$$ in $$G$$, $$(a*b)*c = a*(b*c)$$ ($$*$$ is associative)
