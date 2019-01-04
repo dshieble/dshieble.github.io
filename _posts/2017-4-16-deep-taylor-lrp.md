@@ -55,7 +55,7 @@ When we perform the propagation procedure, we need to determine how to map the r
 
 ## Deep Taylor Decomposition
 
-Let's consider the scalar valued forward propagation function that maps from the layer $$k-1$$ activations $$x_i$$ to node $$n$$'s activation $$x$$. The $$ith$$ partial derivative of this function measures the strength of the relationship between $$n_i$$'s activation $$x_i$$ and $$n$$'s activation $$x$$. So if we can decompose this function in terms of its partial derivatives, we can use that decomposition to approximate the relevance propagation function. Luckily, we can do exactly this with a Taylor Series. 
+Let's consider the scalar valued forward propagation function that maps from the layer $$k-1$$ activations $$x_i$$ to node $$n$$'s activation $$x$$. The $$i^{th}$$ partial derivative of this function measures the strength of the relationship between $$n_i$$'s activation $$x_i$$ and $$n$$'s activation $$x$$. So if we can decompose this function in terms of its partial derivatives, we can use that decomposition to approximate the relevance propagation function. Luckily, we can do exactly this with a Taylor Series. 
 
 
 Remember that we can use a Taylor series to approximate the value of a function $$f$$ near a point $$x_0$$ with:

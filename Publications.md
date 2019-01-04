@@ -17,9 +17,9 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 ### Papers
 
-[A Correlation Maximization Approach for Cross Domain Co-Embeddings](https://arxiv.org/abs/1809.03497). Shiebler, D. In submission to AAAI (2018)
+[Learning what and where to attend with humans in the loop](https://openreview.net/forum?id=BJgLg3R9KQ). Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T. ICLR (2018)
 
-Learning what and where to attend with humans in the loop. Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T. In submission to ICLR (2018)
+[A Correlation Maximization Approach for Cross Domain Co-Embeddings](https://arxiv.org/abs/1809.03497). Shiebler, D. arVix (2018)
 
 [Global-and-local attention networks for visual recognition](https://arxiv.org/abs/1805.08819). Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T.  Computational Cognitive Neuroscience (2018)
 
