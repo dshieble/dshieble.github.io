@@ -15,3 +15,5 @@ subtitle: Blog Posts I've Written on Other Sites
 </script>
 
 [Embeddings@Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html), Twitter Engineering Blog, 2018
+[Meeting the Dialogue Challenge
+](https://golem.ph.utexas.edu/category/2019/06/meeting_the_dialogue_challenge.html#more), The n-Category Café, 2019
