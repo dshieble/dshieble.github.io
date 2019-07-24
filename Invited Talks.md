@@ -14,6 +14,7 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 </script>
 
+AI Maturity in Industry (EGG NYC 2019)
 
 Bigger Problems than Big Data (DSGO 2018, MWC Americas 2018)
 
