@@ -13,7 +13,7 @@ subtitle: The Extra Brief Version
   ga('send', 'pageview');
 
 </script>
-Hi, I'm Dan Shiebler. I'm a Senior Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html) in New York. I'm also completing a (mostly remote) PhD at the University of Oxford. My research focuses on applications of Category Theory to Machine Learning.
+Hi, I'm Dan Shiebler. I'm a Senior Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html) in New York. I'm also a (mostly remote) PhD student at the University of Oxford. My research focuses on applications of Category Theory to Machine Learning.
 
 Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) is usually somewhat up-to-date. 
 
