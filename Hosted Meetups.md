@@ -14,7 +14,7 @@ subtitle: Meetups I have Hosted
 
 </script>
 
-[Reducing the Maintenance Cost of Production Machine Learning Systems](https://www.meetup.com/Analytics-Data-Science-by-Dataiku-NY/events/263866392/), October 2019
+[Reducing the Maintenance Cost of Production Machine Learning Systems](https://technicaldebtinmlmeetup.splashthat.com/), October 2019
 
 [Life after Deployment: Maintaining Models in Production](https://www.meetup.com/Analytics-Data-Science-by-Dataiku-NY/events/263866392/), August 2019
 
