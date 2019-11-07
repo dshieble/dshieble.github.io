@@ -24,9 +24,9 @@ description: My musings on math and code
 # List of links in the navigation bar
 navbar-links:
   Publications: "Publications"
-  Invited Talks: "Invited Talks"
+  Talks: "Talks"
   Other Posts: "Other Posts"
-
+  Hosted Meetups: "Hosted Meetups"
   About Me: "aboutme"
 
   # Resources:
