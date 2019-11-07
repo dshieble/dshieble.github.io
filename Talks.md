@@ -14,7 +14,7 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 </script>
 
-### Industry
+### Invited Industry Talks
 
 AI Maturity in Industry (EGG NYC 2019)
 
@@ -33,7 +33,7 @@ The Power and Pains of Sensor Data ([ODSC East 2017](https://www.youtube.com/wat
 Machine Intelligence for Driver Safety ([Machine Intelligence Summit New York 2016](https://www.youtube.com/watch?v=DIPY-RhgeTA))
 
 
-### Academic
+### Academic Talks
 
 Incremental Monoidal Categories ([Category Theory Octoberfest 2019](https://ct-octoberfest.github.io/), [NYC Category Theory Seminar](http://www.sci.brooklyn.cuny.edu/~noson/CTseminar.html))
 
