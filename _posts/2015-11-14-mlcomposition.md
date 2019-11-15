@@ -64,7 +64,7 @@ End-to-End training is probably both the most complex and most studied form of i
 
 In end-to-end training, we train $$T_1$$ and $$T_2$$ at the same time from a set of samples $$(x,z) \in X \times Z$$. We never explicitly construct the datasets $$D_1$$ or $$D_2$$. In general, we need our Machine Learning models to have a special structure in order to employ this strategy. For example, the [Backprop as functor](https://arxiv.org/pdf/1711.10455.pdf) paper defines the notions of request and update functions to characterize this. Because of the chain rule, we can define these functions and employ end-to-end training whenever our models are parameteric and differentiable.
 
-Naturally, the clearest example of end-to-end training is neural networks, which we train with [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation), which is a special case of reverse-mode [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation).
+Naturally, the clearest example of end-to-end training is the composition of layers in a neural network, which we train with [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation), which is a special case of reverse-mode [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation).
 
 
 ### Meta-Learning
