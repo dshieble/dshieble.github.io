@@ -14,7 +14,7 @@ tags: [Machine Learning, Neural Networks, Category Theory, Composition]
 
 </script>
 
-As researchers apply Machine Learning to more and more complex tasks, there is more and more interest in how we can build more powerful algorithms by combining multiple simpler models. In this post we will explore some of these techniques. Of course, there are many more strategies for model composition that we will not discuss here. We will use a little bit of language from Category Theory, but not much.
+As researchers apply Machine Learning to increasing complex tasks, there is mounting interest in the question of how we can build more powerful algorithms by combining multiple simpler models. In this post we will explore some of these techniques. Of course, there are many more strategies for model composition that we will not discuss here. We will use a little bit of language from Category Theory, but not much.
 
 In the following discussion we will use the following notation and terminology: Machine Learning models are functions of the form $$D \rightarrow (X \rightarrow Y)$$ where $$D$$ is a dataset and $$(X \rightarrow Y)$$ is a function that maps samples in $$X$$ to samples in $$Y$$. The dataset $$D$$ may contain pairs of samples $$(x,y) \in X \times Y$$ (supervised learning), just samples $$x \in X$$ (unsupervised learning) or anything else. We will focus mainly on supervised and unsupervised learning, but there are many more examples of composition in reinforcement learning and beyond. 
 
