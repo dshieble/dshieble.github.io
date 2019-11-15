@@ -68,7 +68,7 @@ Naturally, the clearest example of end-to-end training is neural networks, which
 
 
 ### Meta-Learning
-In meta-learning, or learning to learn, the training or "update" function for one machine learning model is defined by another machine learning model. If we assume that we are working with parameteric and differentiable models, like in [this paper](https://arxiv.org/pdf/1606.04474.pdf), we can define a notion of composition where the composition of model $A$ with model $B$ is a model with an inference function equivalent to that of $A$ and training/update functions defined based on $B$'s inference and training functions. This is described in more detail [here.](https://pdfhost.io/v/5XoCJuIz3_Categorical_Metalearning_2pdf.pdf)
+In meta-learning, or learning to learn, the training or "update" function for one machine learning model is defined by another machine learning model. If we assume that we are working with parameteric and differentiable models, like in [this paper](https://arxiv.org/pdf/1606.04474.pdf), we can define a notion of composition where the composition of model $$A$$ with model $$B$$ is a model with an inference function equivalent to that of $$A$$ and training/update functions defined based on $$B$$'s inference and training functions. This is described in more detail [here.](https://pdfhost.io/v/5XoCJuIz3_Categorical_Metalearning_2pdf.pdf)
 
 ### Conclusion
 This is just a small sampling of techniques for building more complex models from simple components. Machine Learning is growing rapidly, and there are many more strategies for model composition that we will not discuss here. Thanks for reading!
