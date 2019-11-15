@@ -19,7 +19,7 @@ As researchers apply Machine Learning to more and more complex tasks, there is m
 In the following discussion we will use the following notation and terminology: Machine Learning models are functions of the form $$D \rightarrow (X \rightarrow Y)$$ where $$D$$ is a dataset and $$(X \rightarrow Y)$$ is a function that maps samples in $$X$$ to samples in $$Y$$. The dataset $$D$$ may contain pairs of samples $$(x,y) \in X \times Y$$ (supervised learning), just samples $$x \in X$$ (unsupervised learning) or anything else. We will focus mainly on supervised and unsupervised learning, but there are many more examples of composition in reinforcement learning and beyond. 
 
 ### Side-by-Side Composition
-The simplest and cleanest way to combine Machine Learning models is to just place them "side-by-side". There are a few ways to do this:
+The most general way to combine Machine Learning models is to just place them "side-by-side". There are a few ways to do this:
 
 #### Product
 Given models of the forms $$T_1: D_1 \rightarrow (X_1 \rightarrow Y_1), T_2: D_2 \rightarrow (X_2 \rightarrow Y_2)$$ we can attach them in parallel to get a model $$h: D_1 \times D_2 \rightarrow (X_1 \times X_2 \rightarrow Y_1 \times Y_2)$$. At both training and inference time, the composite model just independently executes the component models. We can think of this sort of composition as just zooming out our perspective to see the two separate and noninteracting models as part of the same whole. In [Backprop as Functor](https://arxiv.org/pdf/1711.10455.pdf) the authors define this sort of composition to be the tensor product in their category $$Learn$$. 
