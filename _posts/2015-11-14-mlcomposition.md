@@ -22,12 +22,12 @@ In the following discussion we will use the following notation and terminology: 
 The most general way to combine Machine Learning models is to just place them "side-by-side". There are a few ways to do this:
 
 #### Product
-Given models of the forms $$T_1: D_1 \rightarrow (X_1 \rightarrow Y_1), T_2: D_2 \rightarrow (X_2 \rightarrow Y_2)$$ we can attach them in parallel to get a model $$h: D_1 \times D_2 \rightarrow (X_1 \times X_2 \rightarrow Y_1 \times Y_2)$$. At both training and inference time, the composite model just independently executes the component models. We can think of this sort of composition as just zooming out our perspective to see the two separate and noninteracting models as part of the same whole. In [Backprop as Functor](https://arxiv.org/pdf/1711.10455.pdf) the authors define this sort of composition to be the tensor product in their category $$Learn$$. 
+Given models of the forms $$T_1: D_1 \rightarrow (X_1 \rightarrow Y_1), T_2: D_2 \rightarrow (X_2 \rightarrow Y_2)$$ we can attach them in parallel to get a model $$h: D_1 \times D_2 \rightarrow (X_1 \times X_2 \rightarrow Y_1 \times Y_2)$$. At both training and inference time, the composite model independently executes the component models. We can think of this sort of composition as zooming out our perspective to see the two separate and noninteracting models as part of the same whole. In [Backprop as Functor](https://arxiv.org/pdf/1711.10455.pdf) the authors define this sort of composition to be the monoidal product in their category $$Learn$$. 
 
 For example, say we have a software system that contains two modules: one for training a linear regression on driving records to predict insurance premiums and one for training a decision tree on credit history to predict mortgage approvals. We can think of this system as containing a single module that trains a linear regression $$\times$$ decision tree on pairs of driving records and credit history to predict pairs of insurance premiums and credit history.
 
 
-### Ensemble
+#### Ensemble
 Given a set of Machine Learning models that accept the same input, there are a number of side-by-side composition strategies, called [ensemble methods](http://web.engr.oregonstate.edu/~tgd/publications/mcs-ensembles.pdf) that involve running each model on the same input and then applying some kind of aggregation function to their output. For example, if the models in our set all produce outputs in the same space, we could simply train them independently and average their outputs. The models in an ensemble are generally trained in concert, perhaps on different slices of the same dataset. 
 
 
