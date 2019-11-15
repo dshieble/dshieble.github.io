@@ -47,8 +47,8 @@ Some examples of this include:
 A similar but slightly more complex form of input-output composition is the class of supervised learned feature transformations. In this case $$D_1$$ is a dataset of samples from $$(x,z) \in X \times Z$$ and $$T_1: D_1 \rightarrow (X \rightarrow Y)$$ is a machine learning algorithm that transforms samples from $$X$$ into a form $$Y$$ that may be more convenient for a model that aims to generate predictions in $$Z$$ to consume. Just like in unsupervised feature tranformations, the learning processes of $$T_1$$ and $$T_2$$ proceed sequentially and we construct $$D_2$$ from $$T_1$$ and a dataset of samples $$(x,z) \in X \times Z$$. 
 
 Some simple examples of this include:
-* **[Feature Selection](https://scikit-learn.org/stable/modules/feature_selection.html)**: In this case $$T_1$$ transforms $$X$$ by removing features that are not useful for predicting $$Z$$
-- **[Supervised Discretization](http://ai.stanford.edu/~ronnyk/disc2.pdf)**: In this case $$T_1$$ learns to represent the samples from $$X$$ as vectors of one-hot encoded bins, where the bins are chosen based on the relationship between the distributions of the components of $$X$$ and $$Z$$
+* **[Feature Selection](https://scikit-learn.org/stable/modules/feature_selection.html)**: $$T_1$$ transforms $$X$$ by removing features that are not useful for predicting $$Z$$
+- **[Supervised Discretization](http://ai.stanford.edu/~ronnyk/disc2.pdf)**: $$T_1$$ learns to represent the samples from $$X$$ as vectors of one-hot encoded bins, where the bins are chosen based on the relationship between the distributions of the components of $$X$$ and $$Z$$
 
 A more complex example of a supervised feature transformation is the vertical composition of decision trees. If we have two sets of decision rules from which we can build decision trees, we can combine them to form a composite decision tree that first applies all of the rules in the first group and then applies all of the rules in the second group.
 <!--
@@ -62,7 +62,7 @@ If we do this we can think of the first decision tree as projecting the features
 #### End-to-End Training
 End-to-End training is probably both the most complex and most studied form of input-output composition of Machine Learning models. [This paper](https://arxiv.org/abs/1907.08292) and [this paper](https://arxiv.org/pdf/1711.10455.pdf) and [this paper](https://arxiv.org/pdf/1804.00746.pdf) all build categories on top of this kind of composition.
 
-In end-to-end training, we train $$T_1$$ and $$T_2$$ at the same time from a set of samples $$(x,z) \in X \times Z$$. We never explicitly construct the datasets $$D_1$$ or $$D_2$$. In general, we need our Machine Learning models to have a special structure in order to employ this strategy. For example, the [Backprop as functor](https://arxiv.org/pdf/1711.10455.pdf) paper defines the notions of request and update functions to characterize this. Because of the chain rule, we can define these functions and employ end-to-end training whenever we are working with parameteric differentiable models.
+In end-to-end training, we train $$T_1$$ and $$T_2$$ at the same time from a set of samples $$(x,z) \in X \times Z$$. We never explicitly construct the datasets $$D_1$$ or $$D_2$$. In general, we need our Machine Learning models to have a special structure in order to employ this strategy. For example, the [Backprop as functor](https://arxiv.org/pdf/1711.10455.pdf) paper defines the notions of request and update functions to characterize this. Because of the chain rule, we can define these functions and employ end-to-end training whenever our models are parameteric and differentiable.
 
 Naturally, the clearest example of end-to-end training is neural networks, which we train with [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation), which is a special case of reverse-mode [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation).
 
