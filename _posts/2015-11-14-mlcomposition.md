@@ -38,9 +38,9 @@ Another way to combine Machine Learning models is to use the output of one model
 The most straightforward form of input-output composition is the class of unsupervised learned feature transformations. In this case $$D_1$$ is a dataset of samples from $$X$$ and $$T_1: D_1 \rightarrow (X \rightarrow Y)$$ is an unsupervised machine learning algorithm. In unsupervised feature tranformations the learning processes of $$T_1$$ and $$T_2$$ proceed sequentially: $$T_2$$ is trained on the output of $$T_1$$, and this training does not begin until $$T_1$$ is fully trained. There are no assumptions on the structure of $$T_2$$, and the dataset $$D_2$$ is a set of samples $$(y,z) \in Y \times Z$$ that we create from the trained version of $$T_1$$ and a dataset of samples $$(x,z) \in X \times Z$$.
 
 Some examples of this include:
-- **[Standardization](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler)**: In this case $$T_1$$ learns the means/variances of each component of $$X$$ and transforms samples from $$X$$ by rescaling them to be zero-norm and unit variance.
-- **[PCA](https://scikit-learn.org/stable/modules/decomposition.html#pca)**: In this case $$T_1$$ learns a linear projection from $$X$$ to a subspace $$Y$$ 
-- **[GMM](https://scikit-learn.org/stable/modules/mixture.html#mixture)**: In this case $$T_1$$ learns a mapping from $$X$$ to the space $$Y$$ of vectors of posterior probabilities for each mixture component
+- **[Standardization](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler)**: $$T_1$$ learns the means/variances of each component of $$X$$ and transforms samples from $$X$$ by rescaling them to be zero-norm and unit variance.
+- **[PCA](https://scikit-learn.org/stable/modules/decomposition.html#pca)**: $$T_1$$ learns a linear projection from $$X$$ to a subspace $$Y$$ 
+- **[GMM](https://scikit-learn.org/stable/modules/mixture.html#mixture)**: $$T_1$$ learns a mapping from $$X$$ to the space $$Y$$ of vectors of posterior probabilities for each mixture component
 
 
 #### Supervised Feature Transformations
