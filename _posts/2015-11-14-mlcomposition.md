@@ -14,7 +14,7 @@ tags: [Machine Learning, Neural Networks, Category Theory, Composition]
 
 </script>
 
-As researchers apply Machine Learning to increasingly complex tasks, there is mounting interest in strategies for combining multiple simple models into more powerful algorithms. In this post we will explore some of these techniques. Of course, there are many more strategies for model composition that we will not discuss here. We will use a little bit of language from Category Theory, but not much.
+As researchers apply Machine Learning to increasingly complex tasks, there is mounting interest in strategies for combining multiple simple models into more powerful algorithms. In this post we will explore some of these techniques. We will use a little bit of language from Category Theory, but not much.
 
 In the following discussion we will use the following notation and terminology: Machine Learning models are functions of the form $$D \rightarrow (X \rightarrow Y)$$ where $$D$$ is a dataset and $$(X \rightarrow Y)$$ is a function that maps samples in $$X$$ to samples in $$Y$$. The dataset $$D$$ may contain pairs of samples $$(x,y) \in X \times Y$$ (supervised learning), just samples $$x \in X$$ (unsupervised learning) or anything else. This is of course a very limited perspective on Machine Learning models, and this post will focus mainly on supervised and unsupervised learning, but there are many more examples of composition in reinforcement learning and beyond. 
 
@@ -60,7 +60,7 @@ If we do this we can think of the first decision tree as projecting the features
 
 
 #### End-to-End Training
-End-to-End training is probably both the most complex and most studied form of input-output composition of Machine Learning models. [https://arxiv.org/abs/1907.08292](This paper) and [https://arxiv.org/pdf/1711.10455.pdf](this paper) and [https://arxiv.org/pdf/1804.00746.pdf](this paper) all build categories on top of this kind of composition.
+End-to-End training is probably both the most complex and most studied form of input-output composition of Machine Learning models. [This paper](https://arxiv.org/abs/1907.08292) and [this paper](https://arxiv.org/pdf/1711.10455.pdf) and [this paper](https://arxiv.org/pdf/1804.00746.pdf) all build categories on top of this kind of composition.
 
 In end-to-end training, we train $$T_1$$ and $$T_2$$ at the same time from a set of samples $$(x,z) \in X \times Z$$. We never explicitly construct the datasets $$D_1$$ or $$D_2$$. In general, we need our Machine Learning models to have a special structure in order to employ this strategy. For example, the [Backprop as functor](https://arxiv.org/pdf/1711.10455.pdf) paper defines the notions of request and update functions to characterize this. Because of the chain rule, we can define these functions and employ end-to-end training whenever we are working with parameteric differentiable models.
 
@@ -69,6 +69,9 @@ Naturally, the clearest example of end-to-end training is neural networks, which
 
 ### Meta-Learning
 In meta-learning, or learning to learn, the training or "update" function for one machine learning model is defined by another machine learning model. If we assume that we are working with parameteric and differentiable models, like in [this paper](https://arxiv.org/pdf/1606.04474.pdf), we can define a notion of composition where the composition of model $A$ with model $B$ is a model with an inference function equivalent to that of $A$ and training/update functions defined based on $B$'s inference and training functions. This is described in more detail [here.](https://pdfhost.io/v/5XoCJuIz3_Categorical_Metalearning_2pdf.pdf)
+
+### Conclusion
+This is just a small sampling of techniques for building more complex models from simple components. Machine Learning is growing rapidly, and there are many more strategies for model composition that we will not discuss here. Thanks for reading!
 
 
 <!-- That is, a meta-learner is of the form $$T: D \rightarrow (D \rightarrow (X \rightarrow Y))$$
