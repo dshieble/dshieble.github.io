@@ -1153,28 +1153,6 @@ index (tabulate f) n = // definition of tabulate
   f n
 ```
 
-##### p14.6 The functor: `Pair a = Pair a a` is representable. Can you guess the type that represents it? Implement `tabulate` and `index`.
-*Solution*
-This type is represented by the unit type (). The implementation is below
-```haskell
-data Pair a = Pair a a
-
-instance Representable Pair where
-  type Rep Pair = ()
-  tabulate f = Pair (f ()) (f ())
-  index (Pair x1 x2) unit = x1
-
-unitToString :: () -> String
-unitToString x = "this is a string"
-
-stringPair :: Pair String
-stringPair = tabulate unitToString
-
-myString :: String
-myString = index stringPair ()
-myStringTrue = myString == "this is a string"
-```
-
 # Section 15: The Yoneda Lemma
 
 ##### p15.1 Show that the two functions `phi` and `psi` that form the Yoneda isomorphism in Haskell are inverses of each other.
