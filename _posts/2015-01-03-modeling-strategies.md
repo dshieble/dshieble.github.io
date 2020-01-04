@@ -24,7 +24,7 @@ If we make the assumption that there exists some value of $$v \in \mathbb{R}^p$$
 * There is "label noise", or some input values $$x$$ such that for distinct $$y_1,y_2$$ there is a nonzero probability that either $$(x,y_1)$$ or $$(x,y_2)$$ will be drawn from $$\mathcal{D}$$. Alternatively, we can say that for any fixed $$x$$ the "true" value of $$y$$ is a nondegenerate probability distribution.
 * The true function $$f'$$ that determines $$y$$ from $$x$$ cannot be expressed as $$f(v, x)$$ and we choose to model $$f'(x) - f(v, x)$$ with a probability distribution.
 
-Now let's assume that we are in one of these scenarios. We will need to model the output vector $$y$$ probabilistically in order to find the best value of $$v$$. However, we have the freedom to determine whether we want to model $$v$$ and/or $$x$$ probabilistically as well. 
+Now let's assume that we are in one or both of these scenarios. We will need to model the output vector $$y$$ probabilistically in order to find the best value of $$v$$. However, we have the freedom to determine whether we want to model $$v$$ and/or $$x$$ probabilistically as well. 
 <!-- We can characterize Machine Learning models based on whether they also model . -->
 
 
