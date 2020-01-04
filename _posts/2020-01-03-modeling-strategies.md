@@ -1,7 +1,7 @@
 ---
 layout: post
-title: What are you modeling? Discriminative or Generative? Frequentist or Bayesian?
-tags: [Machine Learning, Discriminative, Generative, Frequentist, Bayesian]
+title: What are you modeling?
+tags: [Machine Learning, Probability, Discriminative, Generative, Frequentist, Bayesian]
 ---
 <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
