@@ -22,7 +22,7 @@ In a supervised learning task, we begin by defining a function $$f: \mathbb{R}^p
 
 If we make the assumption that there exists some value of $$v \in \mathbb{R}^p$$ such that $$f(v,x_i) = y_i$$ for any sample drawn from $$\mathcal{D}$$, then there is no need to model $$v$$, $$x$$, or $$y$$ probabilistically and we can treat this problem as search or function optimization. However, this scenario is uncommon. More frequently, one or both of the following two scenarios are the case:
 * There is "label noise", or some input values $$x$$ such that for distinct $$y_1,y_2$$ there is a nonzero probability that either $$(x,y_1)$$ or $$(x,y_2)$$ will be drawn from $$\mathcal{D}$$. Alternatively, we can say that there is no true non-random function that determines $$y$$ from $$x$$.
-* The true function $$f'$$ that determines $$y$$ from $$x$$ cannot be expressed as $$f(v, x)$$ and we choose to model $$f'(x) - f(v, x)$$ with a label noise distribution.
+* The true function $$f'$$ that determines $$y$$ from $$x$$ cannot be expressed as $$f(v, x)$$ and we choose to model $$f'(x) - f(v, x)$$ with a probability distribution.
 
 Now let's assume that we are in one of these scenarios. We will need to model the output vector $$y$$ probabilistically in order to find the best value of $$v$$. However, we have the freedom to determine whether we want to model $$v$$ and/or $$x$$ probabilistically as well. 
 <!-- We can characterize Machine Learning models based on whether they also model . -->
