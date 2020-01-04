@@ -71,7 +71,7 @@ The following diagram, similar to the one [here](https://lingpipe-blog.com/2013/
 
 
 
-
+<!-- 
 
 
 
@@ -100,4 +100,4 @@ it's a common misconception that only bayesian algorithms are probabilistic and 
 
 Why would we prefer generative to discriminative? frequentist to bayesian? 
 
-Popular techniques (MCMC vs )
+Popular techniques (MCMC vs ) -->
