@@ -49,10 +49,10 @@ The fact that bayesian algorithms assume that the "true" value of $$v$$ is drawn
 
 The following diagram, similar to the one [here](https://lingpipe-blog.com/2013/04/12/generative-vs-discriminative-bayesian-vs-frequentist/), lays out these characterizations.
 
-|                | Frequentist     | Bayesian                              |
-|----------------|-----------------|---------------------------------------|
-| Discriminative | p(y ; x, v) | p(z, v ; x) = p(z \| v ; x) * p(v) |
-| Generative     | p(y, x ; v) | p(z, x, v) = p(z, x \| v) * p(v)   |
+|                    | Frequentist     | Bayesian                              |
+|--------------------|-----------------|---------------------------------------|
+| **Discriminative** | p(y ; x, v) | p(z, v ; x) = p(z \| v ; x) * p(v) |
+| **Generative**     | p(y, x ; v) | p(z, x, v) = p(z, x \| v) * p(v)   |
 
 
 
