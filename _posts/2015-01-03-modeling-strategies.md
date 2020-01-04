@@ -32,7 +32,7 @@ Now let's assume that we are in one of these scenarios. We will need to model th
 
 
 ## Generative vs Discriminative
-The key distinction between a *discriminative* and a *generative* machine learning algorithm is whether it models $$x$$ probabilistically. A discriminative supervised machine learning algorithm assumes that $$x$$ is fixed and learns the conditional distribution $$P(y ; x)$$. A generative supervised machine learning algorithm probabilistically models $$x$$ and learns the joint distribution $$P(x, y)$$. We can use the distribution that a generative algorithm learns to make predictions of $$y$$ from a fixed $$x$$ with Bayes Rule. 
+The key distinction between a *discriminative* and a *generative* machine learning algorithm is whether it models $$x$$ probabilistically. A discriminative supervised machine learning algorithm assumes that $$x$$ is fixed and learns the conditional distribution $$P(y ; x)$$ (in frequentist notation, terms to the right of the semicolon are considered fixed and are not modeled probabilistically). A generative supervised machine learning algorithm probabilistically models $$x$$ and learns the joint distribution $$P(x, y)$$. We can use the distribution that a generative algorithm learns to make predictions of $$y$$ from a fixed $$x$$ with Bayes Rule. 
 
 Since generative algorithms model the joint distribution, we can use them to draw samples from this distribution. This can be useful for developing a better understanding of the data. However, for the task of predicting $$y$$ from $$x$$, discriminative models are likely perform best unless there is a very small amount of data. In [this paper](http://ai.stanford.edu/~ang/papers/nips01-discriminativegenerative.pdf) the authors conclude that:
 > (a) The generative model does indeed have a higher asymptotic error (as the number of training examples become large) than the discriminative model, but (b) The generative model may also approach its asymptotic error much faster than the discriminative model – possibly with a number of training examples that is only logarithmic, rather than linear, in the number of parameters.
@@ -47,7 +47,7 @@ The fact that bayesian algorithms assume that the "true" value of $$v$$ is drawn
 
 ## Summary
 
-The following diagram, similar to the one [here](https://lingpipe-blog.com/2013/04/12/generative-vs-discriminative-bayesian-vs-frequentist/), lays out these characterizations. Note that terms to the right of the semicolon are not modeled probabilistically:
+The following diagram, similar to the one [here](https://lingpipe-blog.com/2013/04/12/generative-vs-discriminative-bayesian-vs-frequentist/), lays out these characterizations.
 
 |                | Frequentist     | Bayesian                              |
 |----------------|-----------------|---------------------------------------|
