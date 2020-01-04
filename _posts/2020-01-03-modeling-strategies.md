@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Discriminative or Generative? Frequentist or Bayesian?
+title: What are you modeling? Discriminative or Generative? Frequentist or Bayesian?
 tags: [Machine Learning, Discriminative, Generative, Frequentist, Bayesian]
 ---
 <script> 
@@ -14,9 +14,9 @@ tags: [Machine Learning, Discriminative, Generative, Frequentist, Bayesian]
 
 </script>
 
-There are a preponderance of ways to characterize Machine Learning algorithms. This is a direct consequence of the rich history, broad applicability and interdisciplinary nature of the field.
+There are a preponderance of ways to characterize Machine Learning algorithms. This is a direct consequence of the rich history, broad applicability and interdisciplinary nature of the field. In this post, we will explore the differences between discriminative vs generative and frequentist vs bayesian algorithms.
 
-One of the clearest ways to characterize Machine Learning models is based on the structure of the data and the feedback that the model receives. For example, supervised learning, unsupervised learning, semi-supervised learning and reinforcement learning all interpret data and receive feedback differently. For the purpose of simplicity, we will focus exclusively on supervised learning in this post. 
+One of the clearest ways to characterize Machine Learning models is based on the structure of the data and the feedback that the model receives. For example, supervised learning, unsupervised learning, semi-supervised learning and reinforcement learning all interpret data and receive feedback differently. For the purpose of simplicity, we will focus exclusively on supervised learning in this post.
  
 In a supervised learning task, we begin by defining a function $$f: \mathbb{R}^p \times \mathbb{R}^n \rightarrow \mathbb{R}^m$$ that accepts a parameter vector $$v \in \mathbb{R}^p$$ and an input vector $$x \in \mathbb{R}^n$$ and returns an output vector $$y \in \mathbb{R}^m$$. Given a set of labeled examples $$S = \{(x_1, y_1), (x_2, y_2), ...\}$$ where each example is from some distribution $$\mathcal{D}$$ over $$\mathbb{R}^n \times \mathbb{R}^m$$, we aim to determine a parameter value $$v \in \mathbb{R}^p$$ such that $$f(v, x_i)$$ is a good approximation for $$y_i$$ for all $$(x_i, y_i)$$.
 
