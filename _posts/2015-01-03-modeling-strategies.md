@@ -26,7 +26,8 @@ However, this scenario is uncommon. More frequently, one or both of the followin
 * There is "label noise", or some input values $$x$$ such that for distinct $$y_1,y_2$$ there is a nonzero probability that either $$(x,y_1)$$ or $$(x,y_2)$$ will be drawn from $$\mathcal{D}$$. Alternatively, we can say that there is no true non-random function that determines $$y$$ from $$x$$.
 * The true function $$f'$$ that determines $$y_i$$ from $$x_i$$ cannot be expressed as $$f(v, x)$$ and we choose to model $$f'(x) - f(v, x)$$ with a label noise distribution.
 
-In both of these scenarios, we need to model the output vector $$y$$ probabilistically in order to find the best value of $$v$$. We can then characterize Machine Learning models based on whether they also model $$v$$ and $$x$$ probabilistically.
+Now let's assume that we are in one of these scenarios. We will need to model the output vector $$y$$ probabilistically in order to find the best value of $$v$$. However, we have the freedom to determine whether we want to model $$v$$ and/or $$x$$ probabilistically as well. 
+<!-- We can characterize Machine Learning models based on whether they also model . -->
 
 
 
@@ -50,8 +51,8 @@ The following diagram, similar to the one [here](https://lingpipe-blog.com/2013/
 
 |                | Frequentist     | Bayesian                              |
 |----------------|-----------------|---------------------------------------|
-| Discriminative | $$p(y ; x, v)$$ | $$p(z, v ; x) = p(z | v ; x) * p(v)$$ |
-| Generative     | $$p(y, x ; v)$$ | $$p(z, x, v) = p(z, x | v) * p(v)$$   |
+| Discriminative | p(y ; x, v) | p(z, v ; x) = p(z | v ; x) * p(v) |
+| Generative     | p(y, x ; v) | p(z, x, v) = p(z, x | v) * p(v)   |
 
 
 
