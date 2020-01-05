@@ -14,7 +14,7 @@ tags: [Machine Learning, Probability, Discriminative, Generative, Frequentist, B
 
 </script>
 
-There are a preponderance of ways to characterize Machine Learning algorithms. This is a direct consequence of the rich history, broad applicability and interdisciplinary nature of the field. In this post, we will explore how discriminative, generative, frequentist and bayesian algorithms make different decisions about what variables to model probabilistically.
+There are a preponderance of ways to characterize Machine Learning algorithms. This is a direct consequence of the rich history, broad applicability and interdisciplinary nature of the field. In this post, we will explore how we can characterize discriminative/generative and frequentist/bayesian algorithms based on what variables they choose to model probabilistically.
 
 One of the clearest ways to characterize Machine Learning models is based on the structure of the data and the feedback that the model receives. For example, supervised learning, unsupervised learning, semi-supervised learning and reinforcement learning all interpret data and receive feedback differently. For the purpose of simplicity, we will focus exclusively on supervised learning in this post.
  
