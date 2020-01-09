@@ -16,6 +16,8 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 ### Invited Industry Talks
 
+Life after Production, a Tale of Technical Debt ([Banana Data Podcast, 2019](https://www.buzzsprout.com/300035/2082846))
+
 AI Maturity in Industry (EGG NYC 2019)
 
 Bigger Problems than Big Data (DSGO 2018, MWC Americas 2018)

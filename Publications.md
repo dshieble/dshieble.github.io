@@ -17,6 +17,8 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 ### Papers
 
+[Incremental Monoidal Grammars](https://arxiv.org/abs/2001.02296). Shiebler, D., Toumi, A., Sadrzadeh, M. SYCO (2019)
+
 [Learning what and where to attend with humans in the loop](https://openreview.net/forum?id=BJgLg3R9KQ). Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T. ICLR (2018)
 
 [A Correlation Maximization Approach for Cross Domain Co-Embeddings](https://arxiv.org/abs/1809.03497). Shiebler, D. arVix (2018)
