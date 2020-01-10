@@ -27,7 +27,7 @@ Let's start with a few simple definitions. In the following we will assume we ar
 
 A **real-valued stochastic process** $$X$$ is a random variable valued function such that $$X_t$$ is a real-valued random variable, or a measurable function from $$[0,1]$$ to $$\mathbb{R}$$. We can think of $$t$$ as representing time, but this does not need to be the case.
 
-A **stationary** random process is a stochastic process whose unconditional joint probability distribution does not change when shifted in $$t$$. That is, for any $$$\tau \in \mathbb{R}$$ and $$t_1, ..., t_n \in \mathbb{R}$$ we have that the joint distributions of the sets of random variables $$(X_{t_1}, ..., X_{t_n})$$ and $$(X_{t_1 + \tau}, ..., X_{t_n + \tau})$$ are the same. 
+A real-valued stochastic process is **stationary** when its unconditional joint probability distribution does not change when shifted in $$t$$. That is, for any $$$\tau \in \mathbb{R}$$ and $$t_1, ..., t_n \in \mathbb{R}$$ we have that the joint distributions of the sets of random variables $$(X_{t_1}, ..., X_{t_n})$$ and $$(X_{t_1 + \tau}, ..., X_{t_n + \tau})$$ are the same. 
 
 White noise is often defined as a stationary stochastic process where the mean of all $$X_t$$ is $$0$$, the variance of all $$X_t$$ is $$\sigma^2$$, and for all $$\tau$$ we have that $$E[X(t)]E[X(t+\tau)]$$ is $$\sigma^2$$ when $$\tau=0$$ and $$0$$ otherwise.
 
