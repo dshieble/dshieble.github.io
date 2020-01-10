@@ -19,7 +19,7 @@ tags: [White Noise, Probability, Random Variables, Stochastic Process]
  -->
 I recently went off on a tangent trying to figure out how white noise works, and I found that there is a lot of strangeness to it that may not be apparent at a first glance.
 
-TLDR: We can't just define white noise as an $$\mathbb{R}$$-indexed collection of uncorrelated standard normal random variables because such a collection does not exist. 
+**TLDR**: We can't just define white noise as an $$\mathbb{R}$$-indexed collection of uncorrelated standard normal random variables because such a collection does not exist.
 
 ## The Problem With White Noise
 
