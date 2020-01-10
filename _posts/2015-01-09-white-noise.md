@@ -17,16 +17,14 @@ tags: [White Noise, Probability, Random Variables, Stochastic Process]
 
 <!-- Useful book: http://ft-sipil.unila.ac.id/dbooks/AN%20INTRODUCTION%20TO%20STOCHASTIC%20DIFFERENTIAL%20EQUATIONS%20VERSION%201.2.pdf
  -->
-I recently went off on a tangent trying to figure out how [white noise](https://en.wikipedia.org/wiki/White_noise) works, and I found that there is a lot of strangeness to it that may not be apparent at a first glance.
-
-**TLDR**: We can't just define a continuous-time white noise process as an $$\mathbb{R}$$-indexed collection of uncorrelated normal random variables because such a collection does not exist.
-
-The content in this post is primarily from:
+I recently went off on a tangent trying to figure out how [white noise](https://en.wikipedia.org/wiki/White_noise) works, and I found that there is a lot of strangeness to it that may not be apparent at a first glance. The content in this post is primarily from:
 
 - [This stackexchange answer](https://math.stackexchange.com/questions/1549807/showing-that-there-do-not-exist-uncountably-many-independent-non-constant-rando)
 - [This stackexchange answer](https://math.stackexchange.com/questions/134193/what-is-meant-by-a-continuous-time-white-noise-process)
 - [These lecture notes](http://ft-sipil.unila.ac.id/dbooks/AN%20INTRODUCTION%20TO%20STOCHASTIC%20DIFFERENTIAL%20EQUATIONS%20VERSION%201.2.pdf)
 - [This book](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118150443)
+
+**TLDR**: We can't just define a continuous-time white noise process as an $$\mathbb{R}$$-indexed collection of uncorrelated normal random variables because such a collection does not exist.
 
 ## The Problem With White Noise
 
