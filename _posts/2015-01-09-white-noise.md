@@ -25,7 +25,7 @@ I recently went off on a tangent trying to figure out how [white noise](https://
 
 Let's start with a few simple definitions. In the following we will assume we are working over the well-behaved probability space $$\mathcal{P} = ([0,1], \mathcal{B}, \mu)$$, where $$\mu$$ is the Lebesgue measure on the Borel $$\sigma$$-algebra $$\mathcal{B}$$. 
 
-A **real-valued stochastic process** $$X$$ is a random-variable valued function such that $$X_t$$ is a real-valued random variable, or a measurable function from $$\mathcal{P}$$ to $$\mathbb{R}$$. We can think of $$t$$ as representing time, but this does not need to be the case.
+A **real-valued stochastic process** $$X$$ is a random variable valued function such that $$X_t$$ is a real-valued random variable, or a measurable function from $$\mathcal{P}$$ to $$\mathbb{R}$$. We can think of $$t$$ as representing time, but this does not need to be the case.
 
 A **stationary** random process is a stochastic process whose unconditional joint probability distribution does not change when shifted in $$t$$. That is, for any $$$\tau \in \mathbb{R}$$ and $$t_1, ..., t_n \in \mathbb{R}$$ we have that the joint distributions of the sets of random variables $$(X_{t_1}, ..., X_{t_n})$$ and $$(X_{t_1 + \tau}, ..., X_{t_n + \tau})$$ are the same. 
 
@@ -37,7 +37,7 @@ However, such a collection can not exist! To see this, let's define the collecti
 
 ## Working around the Problem
 
-To resolve this, we need to use some pretty beefy mathematical machinery. Basically, while we can't define white noise to be a random variable-valued function over $$t$$, we can define it as a random variable-valued generalized function
+To resolve this, we need to use some pretty beefy mathematical machinery. Basically, while we can't define white noise to be a random variable valued function over $$t$$, we can define it as a random variable valued generalized function
 
 To start, let's define a *Brownian Motion Process* $$\mathcal{B}$$ to be a stochastic process that satisfies:
 
@@ -54,7 +54,7 @@ We can view any continuous function as a generalized function. For example, if w
 
 $$(\mathcal{B}, \psi) = \int_{0, \infty} \mathcal{B}(t) \psi(t) dt$$
 
-Note that $$(\mathcal{B}, \psi)$$ is itself a random variable that maps $$\omega \in [0,1]$$ to $$\mathbb{R}$$. Now we define the derivative of the generalized function $$F$$ to be the generalized function $$F'$$ such that $$(F', f) = -(F, f')$$. Therefore, the derivative of the generalized function corresponding to Brownian motion is the following random variable-valued generalized function, which we can think of as a more formal definition of white noise:
+Note that $$(\mathcal{B}, \psi)$$ is itself a random variable that maps $$\omega \in [0,1]$$ to $$\mathbb{R}$$. Now we define the derivative of the generalized function $$F$$ to be the generalized function $$F'$$ such that $$(F', f) = -(F, f')$$. Therefore, the derivative of the generalized function corresponding to Brownian motion is the following random variable valued generalized function, which we can think of as a more formal definition of white noise:
 
 $$(\mathcal{B}', \psi) = -(\mathcal{B}, \psi') = -\int_{0, \infty} \mathcal{B}(t) \psi'(t) dt$$
 
