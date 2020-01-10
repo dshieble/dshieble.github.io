@@ -29,7 +29,7 @@ A **real-valued stochastic process** $$X$$ is a random variable valued function 
 
 A real-valued stochastic process is **stationary** when its unconditional joint probability distribution does not change when shifted in $$t$$. That is, for any $$\tau \in \mathbb{R}$$ and $$t_1, ..., t_n \in \mathbb{R}$$ we have that the joint distributions of the sets of random variables $$(X_{t_1}, ..., X_{t_n})$$ and $$(X_{t_1 + \tau}, ..., X_{t_n + \tau})$$ are the same. 
 
-White noise is often defined as a stationary real-valued stochastic process where all $$X_t = \mathcal{N}(0,1)$$ and for all $$\tau$$ we have that $$E[X(t)]E[X(t+\tau)]$$ is $$\sigma^2$$ when $$\tau=0$$ and $$0$$ otherwise. For simplicity we will assume $$\sigma=1$$. That is, for all $$t_1,t_2$$, the random variables $$X_{t_1}$$ and $$X_{t_2}$$ are uncorrelated standard normal random variables.
+**White noise** is often defined as a stationary real-valued stochastic process where all $$X_t = \mathcal{N}(0,1)$$ and for all $$\tau$$ we have that $$E[X(t)]E[X(t+\tau)]$$ is $$\sigma^2$$ when $$\tau=0$$ and $$0$$ otherwise. For simplicity we will assume $$\sigma=1$$. That is, for all $$t_1,t_2$$, the random variables $$X_{t_1}$$ and $$X_{t_2}$$ are uncorrelated standard normal random variables.
 
 However, such a collection can not exist! To see this, let's define the collection of random variables $$Y_t = X_t * 1_{\|X_t\| \leq 1}$$. Then we have that $$Y_t$$ is square integrable, and therefore in $$L^2([0,1], \mu)$$. However, $$L^2([0,1], \mu)$$ is separable, and can therefore only countain countably many mutually orthogonal elements. This implies that not all $$X_t$$ can be mutually orthogonal.
 
