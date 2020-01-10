@@ -50,7 +50,7 @@ In order to resolve this, we need to switch from talking about functions to talk
 
 We can view any continuous function as a generalized function. For example, if we write the application of the generalized function corresponding to Brownian motion to the test function $$\psi$$ as $$(\mathcal{B}, \psi)$$ then we have:
 
-$$(\mathcal{B}, \psi) = \int_{0, \infty} \mathcal{B}(t) \psi(t) dt$$
+$$(\mathcal{B}, \psi) = \int_{0}^{\infty} \mathcal{B}(t) \psi(t) dt$$
 
 Note that $$(\mathcal{B}, \psi)$$ is itself a random variable that maps $$\omega \in [0,1]$$ to $$\mathbb{R}$$. Now we define the derivative of the generalized function $$F$$ to be the generalized function $$F'$$ such that $$(F', f) = -(F, f')$$. Therefore, the derivative of the generalized function corresponding to Brownian motion is the following random variable valued generalized function, which we can think of as a more formal definition of white noise:
 
