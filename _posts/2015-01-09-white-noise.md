@@ -19,7 +19,7 @@ tags: [White Noise, Probability, Random Variables, Stochastic Process]
  -->
 I recently went off on a tangent trying to figure out how white noise works, and I found that there is a lot of strangeness to it that may not be apparent at a first glance.
 
-TLDR: We can't just define white noise as an $$\mathbb{R}-indexed$$ collection of uncorrelated standard normal random variables because such a collection does not exist. 
+TLDR: We can't just define white noise as an $$\mathbb{R}$$-indexed collection of uncorrelated standard normal random variables because such a collection does not exist. 
 
 ## The Problem With White Noise
 
@@ -27,21 +27,15 @@ Let's start with a few simple definitions. In the following we will assume we ar
 
 A **stationary** random process is a stochastic process whose unconditional joint probability distribution does not change when shifted in $$t$$. That is, for any $$$\tau \in \mathbb{R}$$ and $$t_1, ..., t_n \in \mathbb{R}$$ we have that the joint distributions of the sets of random variables $$(X_{t_1}, ..., X_{t_n})$$ and $$(X_{t_1 + \tau}, ..., X_{t_n + \tau})$$ are the same. 
 
-White noise is often defined as a stationary stochastic process where the mean of all $$X_t$$ is $$0$$, the variance of all $$X_t$$ is $$\sigma^2$$, and for all $$\tau$$ we have that:
-\begin{align*}
-E[X(t)]E[X(t+\tau)] = \begin{cases} 
-          \sigma^2, \tau=0 \\
-          0, \tau \neq 0 \\
-\end{cases}
-\end{align*}
+White noise is often defined as a stationary stochastic process where the mean of all $$X_t$$ is $$0$$, the variance of all $$X_t$$ is $$\sigma^2$$, and for all $$\tau$$ we have that $$E[X(t)]E[X(t+\tau)]$$ is $$\sigma^2$$ when $$\tau=0$$ and $$0$$ otherwise.
 
-That is, for all $$t_1,t_2$$, the random variables $$X_{t_1}$$ and $$X_{t_2}$$ are uncorrelated. Some authors strengthen this definition to say that the random variables $$X_{t_1}$$ and $$X_{t_2}$$ are independent. For simplicity, we will assume that $$X_{t} = \mathcal{N}(0,1)$$, and that our white noise process is then a $$\mathbb{R}-indexed$$ collection of uncorrelated standard normal random variables.
+That is, for all $$t_1,t_2$$, the random variables $$X_{t_1}$$ and $$X_{t_2}$$ are uncorrelated. Some authors strengthen this definition to say that the random variables $$X_{t_1}$$ and $$X_{t_2}$$ are independent. For simplicity, we will assume that $$X_{t} = \mathcal{N}(0,1)$$, and that our white noise process is then a $$\mathbb{R}$$-indexed collection of uncorrelated standard normal random variables.
 
-However, such a collection can not exist! To see this, let's define the collection of random variables $$Y_t = X_t * 1_{|X_t| \leq 1}$$. Then we have that $$Y_t$$ is square integrable, and therefore in $$L^2([0,1], \mu)$$. However, $$L^2([0,1], \mu)$$ is separable, and can therefore only countain countably many mutually orthogonal elements. This implies that not all $$X_t$$ can be mutually orthogonal.
+However, such a collection can not exist! To see this, let's define the collection of random variables $$Y_t = X_t * 1_{\|X_t\| \leq 1}$$. Then we have that $$Y_t$$ is square integrable, and therefore in $$L^2([0,1], \mu)$$. However, $$L^2([0,1], \mu)$$ is separable, and can therefore only countain countably many mutually orthogonal elements. This implies that not all $$X_t$$ can be mutually orthogonal.
 
 ## Working around the Problem
 
-To resolve this, we need to use some pretty beefy mathematical machinery. Basically, while we can't define white noise to be a random-variable-valued function over $$t$$, we can define it as a random-variable-valued generalized function
+To resolve this, we need to use some pretty beefy mathematical machinery. Basically, while we can't define white noise to be a random variable-valued function over $$t$$, we can define it as a random variable-valued generalized function
 
 To start, let's define a *Brownian Motion Process* $$\mathcal{B}$$ to be a stochastic process that satisfies:
 
