@@ -21,6 +21,13 @@ I recently went off on a tangent trying to figure out how [white noise](https://
 
 **TLDR**: We can't just define a continuous-time white noise process as an $$\mathbb{R}$$-indexed collection of uncorrelated normal random variables because such a collection does not exist.
 
+The content in this post is primarily from:
+
+- [This stackexchange answer](https://math.stackexchange.com/questions/1549807/showing-that-there-do-not-exist-uncountably-many-independent-non-constant-rando)
+- [This stackexchange answer](https://math.stackexchange.com/questions/134193/what-is-meant-by-a-continuous-time-white-noise-process)
+- [These lecture notes](http://ft-sipil.unila.ac.id/dbooks/AN%20INTRODUCTION%20TO%20STOCHASTIC%20DIFFERENTIAL%20EQUATIONS%20VERSION%201.2.pdf)
+- [This book](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118150443)
+
 ## The Problem With White Noise
 
 Let's start with a few simple definitions. In the following we will assume we are working over the well-behaved probability space $$\mathcal{P} = ([0,1], \mathcal{B}, \mu)$$, where $$\mu$$ is the Lebesgue measure on the Borel $$\sigma$$-algebra $$\mathcal{B}$$. 
@@ -52,20 +59,9 @@ We can view any continuous function as a generalized function. For example, if w
 
 $$(\mathcal{B}, \psi) = \int_{0}^{\infty} \mathcal{B}(t) \psi(t) dt$$
 
-Note that $$(\mathcal{B}, \psi)$$ is itself a random variable that maps $$\omega \in [0,1]$$ to $$\mathbb{R}$$. Now we define the derivative of the generalized function $$F$$ to be the generalized function $$F'$$ such that $$(F', f) = -(F, f')$$. Therefore, the derivative of the generalized function corresponding to Brownian motion is the following random variable valued generalized function, which we can think of as a more formal definition of white noise:
+Note that $$(\mathcal{B}, \psi)$$ is itself a random variable that maps $$\omega \in [0,1]$$ to $$\mathbb{R}$$. Now we define the derivative of the generalized function $$F$$ to be the generalized function $$F'$$ such that $$(F', f) = -(F, f')$$. Therefore, the derivative of the generalized function corresponding to Brownian motion is the following random variable valued generalized function, which we can think of as a more formal definition of continuous-time white noise:
 
 $$(\mathcal{B}', \psi) = -(\mathcal{B}, \psi') = -\int_{0}^{\infty} \mathcal{B}(t) \psi'(t) dt$$
-
-## References
-
-The content in this post is primarily from:
-
-- [This stackexchange answer](https://math.stackexchange.com/questions/1549807/showing-that-there-do-not-exist-uncountably-many-independent-non-constant-rando)
-- [This stackexchange answer](https://math.stackexchange.com/questions/134193/what-is-meant-by-a-continuous-time-white-noise-process)
-- [These lecture notes](http://ft-sipil.unila.ac.id/dbooks/AN%20INTRODUCTION%20TO%20STOCHASTIC%20DIFFERENTIAL%20EQUATIONS%20VERSION%201.2.pdf)
-- [This book](https://onlinelibrary.wiley.com/doi/book/10.1002/9781118150443)
-
-
 
 
 
