@@ -23,7 +23,9 @@ I recently went off on a tangent trying to figure out how [white noise](https://
 
 ## The Problem With White Noise
 
-Let's start with a few simple definitions. In the following we will assume we are working over the well-behaved probability space $$\mathcal{P} = ([0,1], \mathcal{B}, \mu)$$, where $$\mu$$ is the Lebesgue measure on the Borel $$\sigma$$-algebra $$\mathcal{B}$$. Now, a **real-valued stochastic process** $$X$$ is a random-variable valued function such that $$X_t$$ is a real-valued random variable, or a measurable function from $$\mathcal{P}$$ to $$\mathbb{R}$$. We can think of $$t$$ as representing time, but this does not need to be the case.
+Let's start with a few simple definitions. In the following we will assume we are working over the well-behaved probability space $$\mathcal{P} = ([0,1], \mathcal{B}, \mu)$$, where $$\mu$$ is the Lebesgue measure on the Borel $$\sigma$$-algebra $$\mathcal{B}$$. 
+
+A **real-valued stochastic process** $$X$$ is a random-variable valued function such that $$X_t$$ is a real-valued random variable, or a measurable function from $$\mathcal{P}$$ to $$\mathbb{R}$$. We can think of $$t$$ as representing time, but this does not need to be the case.
 
 A **stationary** random process is a stochastic process whose unconditional joint probability distribution does not change when shifted in $$t$$. That is, for any $$$\tau \in \mathbb{R}$$ and $$t_1, ..., t_n \in \mathbb{R}$$ we have that the joint distributions of the sets of random variables $$(X_{t_1}, ..., X_{t_n})$$ and $$(X_{t_1 + \tau}, ..., X_{t_n + \tau})$$ are the same. 
 
