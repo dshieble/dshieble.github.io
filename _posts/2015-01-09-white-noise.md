@@ -17,7 +17,7 @@ tags: [White Noise, Probability, Random Variables, Stochastic Process]
 
 <!-- Useful book: http://ft-sipil.unila.ac.id/dbooks/AN%20INTRODUCTION%20TO%20STOCHASTIC%20DIFFERENTIAL%20EQUATIONS%20VERSION%201.2.pdf
  -->
-I recently went off on a tangent trying to figure out how white noise works, and I found that there is a lot of strangeness to it that may not be apparent at a first glance.
+I recently went off on a tangent trying to figure out how [white noise](https://en.wikipedia.org/wiki/White_noise) works, and I found that there is a lot of strangeness to it that may not be apparent at a first glance.
 
 **TLDR**: We can't just define white noise as an $$\mathbb{R}$$-indexed collection of uncorrelated standard normal random variables because such a collection does not exist.
 
@@ -55,8 +55,6 @@ $$(\mathcal{B}, \psi) = \int_{0, \infty} \mathcal{B}(t) \psi(t) dt$$
 Note that $$(\mathcal{B}, \psi)$$ is itself a random variable that maps $$\omega \in [0,1]$$ to $$\mathbb{R}$$. Now we define the derivative of the generalized function $$F$$ to be the generalized function $$F'$$ such that $$(F', f) = -(F, f')$$. Therefore, the derivative of the generalized function corresponding to Brownian motion is the following random variable-valued generalized function, which we can think of as a more formal definition of white noise:
 
 $$(\mathcal{B}', \psi) = -(\mathcal{B}, \psi') = -\int_{0, \infty} \mathcal{B}(t) \psi'(t) dt$$
-
-
 
 ## References
 
