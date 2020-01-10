@@ -41,7 +41,7 @@ To start, let's define the *Brownian Motion Process* $$\mathcal{B}$$ to be a sto
 
 - $$\mathcal{B}_0 = 0$$
 - If $$0 < t_1 < t_2 < ... < t_n$$ then the random variables $$\mathcal{B}_{t_k} - \mathcal{B}_{t_{k-1}}$$ for $$k=1,2,...n$$ are independent. 
-- For each $$t$$ and $$\tau >= 0$$ the random variable $$\mathcal{B}_{t+\tau} - \mathcal{B}_t$$ is normally distributed with mean $$0$$ and variance $$\tau$$
+- For each $$t$$ and $$\tau >= 0$$ the random variable $$\mathcal{B}_{t+\tau} - \mathcal{B}_t$$ is normally distributed with mean $$0$$ and variance $$\tau$$.
 - For almost all $$\omega \in [0,1]$$, the function $$\mathcal{B}_t(\omega)$$ is everywhere continuous in $$t$$. 
 
 It turns out that the formal derivative in $$t$$ of $$\mathcal{B}$$ is the white noise process. It isn't too hard to see why this should be the case: by the conditions above, the random variables formed from the increments in Brownian motion are independent and normally distributed. The differentiation process just continuous-ifies this. This suggests that we could reasonably hand-wave white noise to be the derivative in $$t$$ of the Brownian motion process. Of course, things are more complex than this. In fact, for almost every $$\omega \in [0,1]$$ the function $$\mathcal{B}_t(\omega)$$ is nowhere continuous in $$t$$. 
