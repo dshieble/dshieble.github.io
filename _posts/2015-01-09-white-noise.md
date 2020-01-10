@@ -37,7 +37,7 @@ However, such a collection cannot exist! To see this, let's define the collectio
 
 To resolve this, we need to use some pretty beefy mathematical machinery. Basically, while we can't define continuous-time white noise to be a random variable valued function over $$t$$, we can define it as a random variable valued generalized function.
 
-To start, let's define a *Brownian Motion Process* $$\mathcal{B}$$ to be a stochastic process that satisfies:
+To start, let's define the *Brownian Motion Process* $$\mathcal{B}$$ to be a stochastic process that satisfies:
 
 - $$\mathcal{B}_0 = 0$$
 - If $$0 < t_1 < t_2 < ... < t_n$$ then the random variables $$\mathcal{B}_{t_k} - \mathcal{B}_{t_{k-1}}$$ for $$k=1,2,...n$$ are independent. 
