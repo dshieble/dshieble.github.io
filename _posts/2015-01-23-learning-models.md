@@ -87,7 +87,7 @@ Another broad subcategory of supervised learning is **regression**. In a regress
 
 Like with classification, there are many ways to formulate regression problems based on applying different assumptions to $$\mathcal{D}$$. One of the simplest strategies is to formulate it as the following optimization problem: For some set of functions $$\mathcal{F}$$ and some "loss function" $$L$$, find the function $$f \in \mathcal{F}$$ that minimizes the function $$E_{(X,y) \sim \mathcal{D}}[L(f(X), y)]$$. Let's note that if we set our loss function $$L(a,b) = (a-b)^2$$ and make the assumption that there exists some target function $$f$$ such that $$f(X) = E_{(X,y) \sim \mathcal{D}}[y \| X]$$, then this is equivalent to minimizing $$E_{(X,y) \sim \mathcal{D}}[(f(X) - f'(X_i))^2]$$.
 
-Of course, in order to minimize $$E_{(X,y) \sim \mathcal{D}}[L(f(X), y)]$$ with classical optimization techniques, we will first need to approximate it. Given an example oracle $$EX(\mathcal{D})$$ from which we can draw $$N$$ samples $$(X_i, y_i) \sim \mathcal{D}$$, we can approximate this expectation with the expression $$\frac{1}{N}\Sum_{i=1}^{N} L(f(X_i), y_i)$$. The quality of this estimate will depend on the size of $$N$$, the complexity of $$\mathcal{D}$$ and the [expressiveness](https://en.wikipedia.org/wiki/Rademacher_complexity) of the set from which we are selecting $$f$$. Depending on the set $$\mathcal{F}$$ and the size of $$N$$, there are a wide range of techniques that we can use to find the $$f$$ that minimizes (or nearly minimizes) this estimate, including closed form optimization, gradient descent, and the method of Lagrange multipliers.
+Of course, in order to minimize $$E_{(X,y) \sim \mathcal{D}}[L(f(X), y)]$$ with classical optimization techniques, we will first need to approximate it. Given an example oracle $$EX(\mathcal{D})$$ from which we can draw $$N$$ samples $$(X_i, y_i) \sim \mathcal{D}$$, we can approximate this expectation with the expression $$\frac{1}{N}\sum_{i=1}^{N} L(f(X_i), y_i)$$. The quality of this estimate will depend on the size of $$N$$, the complexity of $$\mathcal{D}$$ and the [expressiveness](https://en.wikipedia.org/wiki/Rademacher_complexity) of the set from which we are selecting $$f$$. Depending on the set $$\mathcal{F}$$ and the size of $$N$$, there are a wide range of techniques that we can use to find the $$f$$ that minimizes (or nearly minimizes) this estimate, including closed form optimization, gradient descent, and the method of Lagrange multipliers.
 
 
 ## Resources
@@ -109,12 +109,10 @@ Most of the content in this post is from [An Introduction to Computational Learn
 
  aim to find a function $$f$$ that minimizes .
 
-This suggests that given $$N$$ samples $$(X_i, y_i) \sim \mathcal{D}$$, we can simply aim to find a function $$f$$ that minimizes $$\frac{1}{N}\Sum_{i=1}^{N} L(f(X_i), y_i)$$.
 
 There is of course great nuance to this, and the more complex that we assume $$\mathcal{D}$$ is or allow $$f$$ to be, the more samples we would need to 
 
 
-$$\frac{1}{N}\Sum_{i=1}^{N} L(f(X_i), )$$
 
 
 
