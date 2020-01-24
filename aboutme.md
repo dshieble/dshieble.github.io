@@ -15,6 +15,6 @@ subtitle: The Extra Brief Version
 </script>
 Hi, I'm Dan Shiebler. I'm a Senior Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html) in New York. I'm also a (remote) PhD student at the University of Oxford. My research focuses on applications of Category Theory to Machine Learning.
 
-Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) is usually somewhat up-to-date. 
+Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. I've also spent some time doing Computational Vision research with the [Serre Lab](http://serre-lab.clps.brown.edu/) and Neurosurgery research with the [Asaad Lab](https://www.brown.edu/Research/asaad/). My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) is usually somewhat up-to-date. 
 
 In my spare time I like to read fantasy novels and non-fiction, play guitar terribly, ride my bicycle, hike, and travel.
