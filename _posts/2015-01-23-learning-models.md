@@ -27,8 +27,9 @@ Of course, there are many kinds of concepts, and even more ways to discover and 
 
 * A simple concept class for the case that $$\mathbf{X} = \{0,1\}^n$$ is the class of conjunctions, expressed as vectors in $$\{0,1\}^n$$. The prediction of the conjunction $$c \in \{0,1\}^n$$ on the vector $$x \in \{0,1\}^n$$ is
 <!-- $$1$$ if $$\sum_{i=1}^n c_i*x_i = \sum_{i=1}^n c_i$$ and $$0$$ otherwise. -->
-$$\begin{cases}1 & \sum_{i=1}^n c_i*x_i = \sum_{i=1}^n c_i \\ 0 & \text{else} \end{cases}$$
-* A simple concept class for the case that $$\mathbf{X} = \mathbb{R}^n$$ is the class of linear halfspaces, expressed as tuples $$(w \in \mathbb{R}^n, w_0\in\mathbb{R})$$ such that $$\|w\| = 1$$. The prediction of a linear halfspace on the vector $$x \in \mathbb{R}^n$$ is $$1$$ if $$w_0 + \sum_{i=1}^n w_i*x_i >= 0$$ and $$0$$ otherwise.
+$$\begin{cases} 1 & \sum_{i=1}^n c_i*x_i = \sum_{i=1}^n c_i \\ 0 & \text{else} \end{cases}$$
+* A simple concept class for the case that $$\mathbf{X} = \mathbb{R}^n$$ is the class of linear halfspaces, expressed as tuples $$(w \in \mathbb{R}^n, w_0\in\mathbb{R})$$ such that $$\|w\| = 1$$. The prediction of a linear halfspace on the vector $$x \in \mathbb{R}^n$$ is
+$$\begin{cases} 1 & w_0 + \sum_{i=1}^n w_i*x_i >= 0 \\ 0 & \text{else} \end{cases}$$
 
 One natural objective is to find the concept in the class with the minimum error relative to the distribution $$\mathcal{D}$$. However, this is usually too hard, and can be impossible in many cases (such as when the concept class is uncountably infinite). Instead, we will characterize the problem as one of finding a concept $$c \in \mathcal{C}$$ that has error less than $$\text{opt} + \epsilon$$, where $$\text{opt}$$ is the minimum error relative to the distribution $$\mathcal{D}$$ of any concept $$c \in \mathcal{C}$$ and $$\epsilon$$ is a parameter to the algorithm. In order to find this concept, we will allow our search algorithm access to one or both of the following kinds of oracles:
 
