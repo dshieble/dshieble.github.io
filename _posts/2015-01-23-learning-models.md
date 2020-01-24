@@ -48,7 +48,7 @@ It's worth noting that in both Agnostic Learning and Distribution-specific Agnos
 
 
 ### PAC Learning
-For example, one significant simplification we can make is to assume that for some concept class $$\mathcal{C}$$, there exists some truth concept $$c$$ such that $$Pr_{(X,y) \sim \mathcal{D}}(c(X) != y) = 0$$. This is the **PAC**, or "Probably Approximately Correct" framework. We refer to a concept class as being **PAC-learnable** if for any truth concept $$c$$ in that class and any associated distribution $$\mathcal{D}$$, with probability $$1-\delta$$ we can use an example oracle $$EX(\mathcal{D})$$ to efficiently find a concept $$c'$$ such that $$Pr_{(X,y) \sim \mathcal{D}}(c'(X) != y) < \epsilon$$. There are a number of variations of PAC learning, which we will go through below.
+For example, one significant simplification we can make is to assume that for some concept class $$\mathcal{C}$$, there exists some truth concept $$c \in \mathcal{C}$$ such that $$Pr_{(X,y) \sim \mathcal{D}}(c(X) != y) = 0$$. This is the **PAC**, or "Probably Approximately Correct" framework. We refer to a concept class as being **PAC-learnable** if for any truth concept $$c$$ in that class and any associated distribution $$\mathcal{D}$$, with probability $$1-\delta$$ we can use an example oracle $$EX(\mathcal{D})$$ to efficiently find a concept $$c'$$ such that $$Pr_{(X,y) \sim \mathcal{D}}(c'(X) != y) < \epsilon$$. There are a number of variations of PAC learning, which we will go through below.
 
 
 #### Proper vs Improper PAC Learning
