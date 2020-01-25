@@ -14,7 +14,7 @@ tags: [Learning, Complexity, Generalization, VC Dimension, Vapnik, Chervonenkis,
 
 </script>
 
-In a typical supervised learning setting, we are given access to a dataset of samples $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$ which we assume are drawn from a distribution $$\mathcal{D}$$ over $$c$$. For simplicity, we will assume that $$\mathbf{X}$$ is either $$\{0,1\}^n$$ or $$\mathbb{R}^n$$ and that $$\textbf{y}$$ is either the space $$\{0,1\}$$ or $$\mathbb{R}$$.
+In a typical supervised learning setting, we are given access to a dataset of samples $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$ which we assume are drawn from a distribution $$\mathcal{D}$$ over $$c$$s. For simplicity, we will assume that $$\mathbf{X}$$ is either $$\{0,1\}^n$$ or $$\mathbb{R}^n$$ and that $$\textbf{y}$$ is either the space $$\{0,1\}$$ or $$\mathbb{R}$$.
 
 Given a set of functions $$\mathcal{G}$$ that map from $$\textbf{X}$$ to $$\textbf{y}$$ and a loss function $$L$$, the goal of supervised learning to find some $$g \in \mathcal{G}$$ that minimizes $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. For classification (when $$\textbf{y} = \{0,1\}$$), we commonly choose $$L$$ to be the zero-one loss $$L(a,b) = \begin{cases} 1 & a=b \\ 0 & \text{else} \end{cases}$$. For regression (when $$\textbf{y} = \mathbb{R}$$), we often choose $$L$$ to be the squared error $$L(a,b) = (a-b)^2$$. Note that we could use the absolute error $$\vert a-b \vert$$ instead of $$(a-b)^2$$, but squared error is differentiable everywhere and has a few other nice properties. 
 
@@ -56,7 +56,7 @@ $$RAD_n(\mathcal{G}) = E_{X_1, X_2, ..., X_n \sim \mathcal{D}_X} E_{\sigma_1, \s
 
 Unsurprisingly, the larger the Rademacher complexity of a function class $$\mathcal{G}$$, the greater the difference between $$\frac{1}{n}\sum_{i=1}^{n} g(X_i)$$ and $$E_{X \sim \mathcal{D}_X}[g(X)]$$.
 
-If we compute the Rademacher complexity of the function class $$\mathcal{G}^L = \{(X,y) \rightarrow L(g(X), y) \vert g \in \mathcal{G}}$$ from the Rademacher complexity of $$\mathcal{G}$$, we can use this property to bound the divergence between $$min_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g \in \mathcal{G}$$. Let's note that by [Talagrand's lemma](http://proceedings.mlr.press/v32/mohri14-supp.pdf) the Rademacher complexity of $$\mathcal{G}^L$$ depends on $$L$$ as well as $$\mathcal{G}$$, and can be significantly larger than $$\mathcal{G}$$ for faster growing loss functions (e.g. $$L(a,b) = (a-b)^k$$ for large $$k$$).
+If we compute the Rademacher complexity of the function class $$\mathcal{G}^L = \{(X,y) \rightarrow L(g(X), y) \vert g \in \mathcal{G}\}$$ from the Rademacher complexity of $$\mathcal{G}$$, we can use this property to bound the divergence between $$min_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g \in \mathcal{G}$$. Let's note that by [Talagrand's lemma](http://proceedings.mlr.press/v32/mohri14-supp.pdf) the Rademacher complexity of $$\mathcal{G}^L$$ depends on $$L$$ as well as $$\mathcal{G}$$, and can be significantly larger than $$\mathcal{G}$$ for faster growing loss functions (e.g. $$L(a,b) = (a-b)^k$$ for large $$k$$).
 
 
 ## VC Dimension
