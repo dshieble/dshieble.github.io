@@ -56,7 +56,7 @@ $$RAD_n(\mathcal{G}) = E_{X_1, X_2, ..., X_n \sim \mathcal{D}_X} E_{\sigma_1, \s
 
 Unsurprisingly, the larger the Rademacher complexity of a function class $$\mathcal{G}$$, the greater the difference between $$\frac{1}{n}\sum_{i=1}^{n} g(X_i)$$ and $$E_{X \sim \mathcal{D}_X}[g(X)]$$.
 
-If we compute the Rademacher complexity of the function class $$\mathcal{G}^L = \{(X,y) \rightarrow L(g(X), y) | g \in \mathcal{G}}$$ from the Rademacher complexity of $$\mathcal{G}$$, we can use this property to bound the divergence between $$min_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g \in \mathcal{G}$$. Let's note that by [Talagrand's lemma](http://proceedings.mlr.press/v32/mohri14-supp.pdf) the Rademacher complexity of $$\mathcal{G}^L$$ depends on $$L$$ as well as $$\mathcal{G}$$, and can be significantly larger than $$\mathcal{G}$$ for faster growing loss functions (e.g. $$L(a,b) = (a-b)^k$$ for large $$k$$).
+If we compute the Rademacher complexity of the function class $$\mathcal{G}^L = \{(X,y) \rightarrow L(g(X), y) \vert g \in \mathcal{G}}$$ from the Rademacher complexity of $$\mathcal{G}$$, we can use this property to bound the divergence between $$min_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g \in \mathcal{G}$$. Let's note that by [Talagrand's lemma](http://proceedings.mlr.press/v32/mohri14-supp.pdf) the Rademacher complexity of $$\mathcal{G}^L$$ depends on $$L$$ as well as $$\mathcal{G}$$, and can be significantly larger than $$\mathcal{G}$$ for faster growing loss functions (e.g. $$L(a,b) = (a-b)^k$$ for large $$k$$).
 
 
 ## VC Dimension
