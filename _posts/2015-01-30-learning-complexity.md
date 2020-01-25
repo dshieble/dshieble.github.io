@@ -16,23 +16,23 @@ tags: [Learning, Complexity, Generalization, VC Dimension, Vapnik, Chervonenkis,
 
 In a typical supervised learning setting, we are given access to a dataset of samples $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$ which we assume are drawn from a distribution $$\mathcal{D}$$ over $c. For simplicity, we will assume that $$\mathbf{X}$$ is either $$\{0,1\}^n$$ or $$\mathbb{R}^n$$ and that $$\textbf{y}$$ is either the space $$\{0,1\}$$ or $$\mathbb{R}$$.
 
-Given a set of functions $$\mathbb{G}$$ that map from $\textbf{X}$$ to $$\textbf{y}$$ and a loss function $$L$$, the goal of supervised learning to find some $$g \in \mathbb{G}$$ that minimizes $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. For classification (when $$\textbf{y} = \{0,1\}$$), we commonly choose $$L$$ to be the zero-one loss $$L(a,b) = \begin{cases} 1 & a=b \\ 0 & \text{else} \end{cases}$$. For regression (when $$\textbf{y} = \mathbb{R}$$), we often choose $$L$$ to be the squared error $$L(a,b) = (a-b)^2$$. Note that we could use the absolute error $$\vert a-b \vert$$ instead of $$(a-b)^2$$, but squared error is differentiable everywhere and has a few other nice properties. 
+Given a set of functions $$\mathcal{G}$$ that map from $$\textbf{X}$$ to $$\textbf{y}$$ and a loss function $$L$$, the goal of supervised learning to find some $$g \in \mathcal{G}$$ that minimizes $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. For classification (when $$\textbf{y} = \{0,1\}$$), we commonly choose $$L$$ to be the zero-one loss $$L(a,b) = \begin{cases} 1 & a=b \\ 0 & \text{else} \end{cases}$$. For regression (when $$\textbf{y} = \mathbb{R}$$), we often choose $$L$$ to be the squared error $$L(a,b) = (a-b)^2$$. Note that we could use the absolute error $$\vert a-b \vert$$ instead of $$(a-b)^2$$, but squared error is differentiable everywhere and has a few other nice properties. 
 
 One significant challenge with this objective is that we generally cannot compute or optimize this expectation directly. Instead, we need to use the dataset $$S$$ to estimate it. For example, we can use $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ as an estimate of $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. The quality of this estimate is dependent on a few factors:
 
 * The number of samples $$n$$
 * The choice of loss function $$L$$. In this blog post we will primarily stick to the zero-one and squared error losses defined above.
 * The structure of the distribution $$\mathcal{D}$$
-* The expressiveness of the function space $$\mathbb{G}$$
+* The expressiveness of the function space $$\mathcal{G}$$
 
-First, let's consider the scenario when we fix an element $$g \in \mathbb{G}$$ and treat $$L(g(X), y)$$ as a random variable on samples $$(X,y) \sim \mathcal{D}$$. Since the $$(X_i,y_i)$$ are drawn independently, we can treat $$(L(g(X_1), y_1), L(g(X_2), y_2), ..., L(g(X_n), y_n))$$ as a sequence of i.i.d random variables, and we can therefore apply the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) to bound the degree to which we expect $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ to diverge from $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. We refer to this kind of bound as a **generalization bound**.
+First, let's consider the scenario when we fix an element $$g \in \mathcal{G}$$ and treat $$L(g(X), y)$$ as a random variable on samples $$(X,y) \sim \mathcal{D}$$. Since the $$(X_i,y_i)$$ are drawn independently, we can treat $$(L(g(X_1), y_1), L(g(X_2), y_2), ..., L(g(X_n), y_n))$$ as a sequence of i.i.d random variables, and we can therefore apply the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) to bound the degree to which we expect $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ to diverge from $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. We refer to this kind of bound as a **generalization bound**.
 
 In this case the magnitude of this divergence is determine by the variance of the random variable $$L(g(X), y)$$. In addition to the number of samples $$n$$, this variance is typically determined by the variance of $$(X,y)$$ itself, as well as the degree to which $$\mathcal{D}$$ defines high-weight regions over $$\textbf{X} \times \textbf{y}$$ that both agree with $$g$$ and do not agree with $$g$$. 
 
-Of course, in practice we do not fix $$g \in \mathbb{G}$$ across different distributions $$\mathcal{D}$$. Instead, we use some sort of optimization procedure to select $$g$$ based on the samples $$S$$ that we have drawn from $$\mathcal{D}$$. In this situation we will need to formulate generalization bounds that depend on $$\mathbb{G}$$ directly.
+Of course, in practice we do not fix $$g \in \mathcal{G}$$ across different distributions $$\mathcal{D}$$. Instead, we use some sort of optimization procedure to select $$g$$ based on the samples $$S$$ that we have drawn from $$\mathcal{D}$$. In this situation we will need to formulate generalization bounds that depend on $$\mathcal{G}$$ directly.
 
 
-<!-- Furthermore, we typically have little information about $$\mathcal{D}$$ outside of these samples. For this reason it is convenient to work with generalization bounds that depend on $$\mathbb{G}$$ instead of the joint distribution over $$\mathcal{D}$$.
+<!-- Furthermore, we typically have little information about $$\mathcal{D}$$ outside of these samples. For this reason it is convenient to work with generalization bounds that depend on $$\mathcal{G}$$ instead of the joint distribution over $$\mathcal{D}$$.
  -->
 
 
@@ -194,7 +194,7 @@ For example, consider a data distribution
 One of the most popular
 
 
-it becomes more convenient to reason about generalization... from the persepective of $$\mathbb{G}$$ itself....
+it becomes more convenient to reason about generalization... from the persepective of $$\mathcal{G}$$ itself....
 
 
 
