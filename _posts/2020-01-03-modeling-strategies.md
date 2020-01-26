@@ -49,8 +49,8 @@ The following diagram, similar to the one [here](https://lingpipe-blog.com/2013/
 
 |                    | Frequentist     | Bayesian                              |
 |--------------------|-----------------|---------------------------------------|
-| **Discriminative** | $$p(y ; x, v)$$ | $$p(z, v ; x) = p(z \| v ; x) * p(v)$$ |
-| **Generative**     | $$p(y, x ; v)$$ | $$p(z, x, v) = p(z, x \| v) * p(v)$$   |
+| **Discriminative** | $$p(y ; x, v)$$ | $$p(y, v ; x) = p(y \| v ; x) * p(v)$$ |
+| **Generative**     | $$p(y, x ; v)$$ | $$p(y, x, v) = p(y, x \| v) * p(v)$$   |
 
 
 
