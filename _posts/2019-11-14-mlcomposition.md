@@ -38,8 +38,8 @@ Another way to combine Machine Learning models is to use the output of one model
 The most straightforward form of input-output composition is the class of unsupervised learned feature transformations. In this case $$D_1$$ is a dataset of samples from $$X$$ and $$T_1: D_1 \rightarrow (X \rightarrow Y)$$ is an unsupervised Machine Learning algorithm. In unsupervised feature transformations the learning processes of $$T_1$$ and $$T_2$$ proceed sequentially: $$T_2$$ is trained on the output of $$T_1$$, and this training does not begin until $$T_1$$ is fully trained. Once $$T_1$$ is fully trained, we use it and $$D_1$$ to create the dataset $$D_2$$ of samples in $$Y \times Z$$ that we use to train $$T_2$$.
 
 Some examples of this include:
-- **[Standardization](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler)**: $$T_1$$ learns the means/variances of each component of $$X$$ and transforms samples from $$X$$ by rescaling them to be zero-norm and unit variance.
 - **[PCA](https://scikit-learn.org/stable/modules/decomposition.html#pca)**: $$T_1$$ learns a linear projection from $$X$$ to a subspace $$Y$$.
+- **[Standardization](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler)**: $$T_1$$ learns the means/variances of each component of $$X$$ and transforms samples from $$X$$ by rescaling them to be zero-norm and unit variance.
 - **[GMM](https://scikit-learn.org/stable/modules/mixture.html#mixture)**: $$T_1$$ learns a mapping from $$X$$ to the space $$Y$$ of vectors of posterior probabilities for each mixture component.
 
 
