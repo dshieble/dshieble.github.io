@@ -56,7 +56,7 @@ Intuitively, we can see that for this "worst case" distribution, a larger and mo
 
 We can make this rigorous. The **Rademacher Complexity** of a function class $$\mathcal{G}$$ over a distribution $$\mathcal{D}_X$$ measures the degree to which the outputs of a function $$g \in \mathcal{G}$$ on $$X_1, X_2, ..., X_n \sim \mathcal{D}_X$$ can correlate with a sequence of i.i.d random variables $$\sigma_1, \sigma_2, ..., \sigma_n$$ that are uniformly distributed on $$[-1,1]$$ (i.e. Rademacher random variables). That is:
 
-$$RAD_n(\mathcal{G}) = sup_{g \in \mathcal{G}} E_{X_1, X_2, ..., X_n \sim \mathcal{D}_X} E_{\sigma_1, \sigma_2,..., \sigma_n} \frac{1}{n}\sum_{i=1}^{n} sigma_i g(X_i)$$
+$$RAD_n(\mathcal{G}) = sup_{g \in \mathcal{G}} E_{X_1, X_2, ..., X_n \sim \mathcal{D}_X} E_{\sigma_1, \sigma_2,..., \sigma_n} \frac{1}{n}\sum_{i=1}^{n} \sigma_i g(X_i)$$
 
 Unsurprisingly, the larger the Rademacher complexity of a function class $$\mathcal{G}$$, the greater the difference between $$\frac{1}{n}\sum_{i=1}^{n} g(X_i)$$ and $$E_{X \sim \mathcal{D}_X}[g(X)]$$.
 
