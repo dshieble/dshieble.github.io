@@ -38,7 +38,7 @@ Of course, in practice we do not fix $$g \in \mathcal{G}$$ across different dist
  -->
 
 
-## Rademacher Complexity
+## Polynomial Example
 
 Let's start by considering a simple regression example. Say that both $$\mathbf{X}$$ and $$\mathbf{y}$$ are $$\mathbb{R}$$ and that $$\mathcal{D}$$ is a completely uniform distribution over the interval $$[0,R] \times [0,R]$$ such that there is no relationship between $$\mathbf{X}$$ and $$\mathbf{y}$$. Obviously, we would expect that for any function $$g$$, $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ will be consistently well above $$0$$ and will increase with $$R$$.
 
@@ -51,6 +51,8 @@ Now say that we instead define $$\mathbb{P}$$ to be the class of polynomials. Si
 ![Polynomial fit to scatterplot](/img/bad_poly_scatterplot.png)
 
 Intuitively, we can see that for this "worst case" distribution, a larger and more complex function class will exhibit a greater difference between $$min_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$. The reason for this is that for any particular realization of "noise" $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$, a larger and more complex function class has a higher probability of containing some function $$g$$ that can "fit" that noise.
+
+## Rademacher Complexity
 
 We can make this rigorous. The **Rademacher Complexity** of a function class $$\mathcal{G}$$ over a distribution $$\mathcal{D}_X$$ measures the degree to which the outputs of a function $$g \in \mathcal{G}$$ on $$X_1, X_2, ..., X_n \sim \mathcal{D}_X$$ can correlate with a sequence of i.i.d random variables $$\sigma_1, \sigma_2, ..., \sigma_n$$ that are uniformly distributed on $$[-1,1]$$ (i.e. Rademacher random variables). That is:
 
