@@ -50,7 +50,7 @@ Now say that we instead define $$\mathcal{P}$$ to be the class of polynomials. S
 
 ![Polynomial fit to scatterplot](/img/bad_poly_scatterplot.png)
 
-Intuitively, we can see that for this "worst case" distribution, a larger and more complex function class will exhibit a greater difference between $$min_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$. The reason for this is that for any particular realization of "noise" $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$, a larger and more complex function class has a higher probability of containing some function $$g$$ that can "fit" that noise.
+Intuitively, we can see that for this "worst case" distribution, a larger and more complex function class will exhibit a greater difference between $$inf_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$. The reason for this is that for any particular realization of "noise" $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$, a larger and more complex function class has a higher probability of containing some function $$g$$ that can "fit" that noise.
 
 ## Rademacher Complexity
 
