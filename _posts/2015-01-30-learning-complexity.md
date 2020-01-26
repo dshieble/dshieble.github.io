@@ -42,11 +42,11 @@ Of course, in practice we do not fix $$g \in \mathcal{G}$$ across different dist
 
 Let's start by considering a simple regression example. Say that both $$\mathbf{X}$$ and $$\mathbf{y}$$ are $$\mathbb{R}$$ and that $$\mathcal{D}$$ is a completely uniform distribution over the interval $$[0,R] \times [0,R]$$ such that there is no relationship between $$\mathbf{X}$$ and $$\mathbf{y}$$. Obviously, we would expect that for any function $$g$$, $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ will be consistently well above $$0$$ and will increase with $$R$$.
 
-Now let's say that $$\mathbb{L}$$ is the class of linear functions such that we can express any $$g\in\mathbb{L}$$ as $$g(x) = a*x + b$$. If $$n=2$$, we can always draw a line that connects the two points and have $$L(g(X_1), y_1) + L(g(X_2), y_2) = 0$$. However, for large $$n$$, it is likely that no line will come close to connecting the points, and for any $$g \in \mathbb{L}$$ the quantity $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ will be close to $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. 
+Now let's say that $$\mathcal{L}$$ is the class of linear functions such that we can express any $$g\in\mathcal{L}$$ as $$g(x) = a*x + b$$. If $$n=2$$, we can always draw a line that connects the two points and have $$L(g(X_1), y_1) + L(g(X_2), y_2) = 0$$. However, for large $$n$$, it is likely that no line will come close to connecting the points, and for any $$g \in \mathcal{L}$$ the quantity $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ will be close to $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. 
 
 ![Linear fit to scatterplot](/img/bad_line_scatterplot.png)
 
-Now say that we instead define $$\mathbb{P}$$ to be the class of polynomials. Since for any set of $$n+1$$ points in the plane with distinct $$X$$ and $$y$$ values there always exists a degree $$n$$ polynomial that passes through those points, there will always exist some $$g \in \mathbb{P}$$ such that $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ will be $$0$$.
+Now say that we instead define $$\mathcal{P}$$ to be the class of polynomials. Since for any set of $$n+1$$ points in the plane with distinct $$X$$ and $$y$$ values there always exists a degree $$n$$ polynomial that passes through those points, there will always exist some $$g \in \mathcal{P}$$ such that $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ will be $$0$$.
 
 ![Polynomial fit to scatterplot](/img/bad_poly_scatterplot.png)
 
