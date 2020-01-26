@@ -73,7 +73,7 @@ $$g_{a,b}(X) = \begin{cases} 1 & a<=X<=b \\ 0 & \text{else} \end{cases}$$
 
 Intuitively, if the VC dimension of $$\mathcal{G}$$ is very large, then even when $$n$$ is large it is possible for a learning algorithm to find a $$g \in \mathcal{G}$$ that has a very low sample loss $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ even when $$\mathbf{X}$$ and $$\mathbf{y}$$ are independent over $$\mathcal{D}$$. That is, it is possible for $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ and $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ to be very different.
 
-One important aspect of VC dimension is that $$\mathcal{G}$$ only needs to be able to shatter one set of size $$d$$ in order to have a VC dimension of $$d$$. This is a consequence of the "worst case" focus of VC dimension. In order to make claims that are distribution-agnostic, we need to focus on how a learning algorithm for $$\mathcal{G}$$ would behave even when the distribution $$\mathcal{D}$$ is chosen adversarially. 
+One important aspect of VC dimension is that $$\mathcal{G}$$ only needs to be able to shatter one set of size $$d$$ in order to have a VC dimension of $$d$$. This is a consequence of the "worst case" focus of VC dimension. In order to make claims that are distribution-agnostic, we need to focus on how a learning algorithm for $$\mathcal{G}$$ performs even when the distribution $$\mathcal{D}$$ is chosen adversarially. 
 
 As a consequence of this, there are many function classes that have very high or even infinite VC dimension, but have more managable Rademacher Complexity if we make even mild assumptions about $$\mathcal{D}_X$$ (see the k-split interval classifiers in [this paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.79.2681&rep=rep1&type=pdf) for an example). 
 
