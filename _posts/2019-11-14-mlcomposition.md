@@ -44,7 +44,7 @@ Some examples of this include:
 
 
 #### Supervised Feature Transformations
-A similar but slightly more complex form of input-output composition is the class of supervised learned feature transformations. In this case $$D_1$$ is a dataset of samples from $$X \times Z$$ and $$T_1: D_1 \rightarrow (X \rightarrow Y)$$ is a Machine Learning algorithm that transforms samples from $$X$$ into a form $$Y$$ that may be more convenient for a model that aims to generate predictions in $$Z$$ to consume. Just like in unsupervised feature tranformations, the learning processes of $$T_1$$ and $$T_2$$ proceed sequentially and we use $$T_1$$ and $$D_1$$ to create the dataset $$D_2$$ of samples in $$Y \times Z$$ that we use to train $$T_2$$.
+A similar but slightly more complex form of input-output composition is the class of supervised learned feature transformations. In this case $$D_1$$ is a dataset of samples from $$X \times Z$$ and $$T_1: D_1 \rightarrow (X \rightarrow Y)$$ is a Machine Learning algorithm that transforms samples from $$X$$ into a form $$Y$$ that may be more convenient for a model that aims to generate predictions in $$Z$$ to consume. Just like in unsupervised feature tranformations, the learning processes of $$T_1$$ and $$T_2$$ proceed sequentially and we use the trained version of $$T_1$$ and the dataset $$D_1$$ to create the dataset $$D_2$$ of samples in $$Y \times Z$$ that we use to train $$T_2$$.
 
 
 Some simple examples of this include:
@@ -66,7 +66,7 @@ End-to-End training is probably both the most complex and most studied form of i
 
 In both unsupervised and supervised feature transformations, the training process for $$T_2$$ does not begin until $$T_1$$ is fully trained. In contrast, in end-to-end training, we train $$T_1$$ and $$T_2$$ at the same time from a set of samples in $$X \times Z$$. We never explicitly construct the datasets $$D_1$$ or $$D_2$$. In general, we need our Machine Learning models to have a special structure in order to employ this strategy. For example, the [Backprop as functor](https://arxiv.org/pdf/1711.10455.pdf) paper defines the notions of request and update functions to characterize this. Because of the chain rule, we can define these functions and employ end-to-end training whenever our models are parameteric and differentiable.
 
-Naturally, the clearest example of end-to-end training is the composition of layers in a neural network, which we train with [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation).
+The clearest example of end-to-end training is the composition of layers in a neural network, which we train with [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation).
 <!-- , which is a special case of reverse-mode [Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation). -->
 
 
