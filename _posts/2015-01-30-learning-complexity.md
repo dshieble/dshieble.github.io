@@ -50,7 +50,7 @@ Now say that we instead define $$\mathcal{P}$$ to be the class of polynomials. S
 
 ![Polynomial fit to scatterplot](/img/bad_poly_scatterplot.png)
 
-Intuitively, we can see that for this "worst case" distribution, a larger and more complex function class will exhibit a greater difference between $$inf_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$. The reason for this is that for any particular realization of "noise" $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$, a larger and more complex function class has a higher probability of containing some function $$g$$ that can "fit" that noise.
+Intuitively, we can see that for this "worst case" distribution, a larger and more complex function class will exhibit a greater difference between the minimum value of $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ for some $$g \in \mathcal{G}$$ and the value of $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$. The reason for this is that for any particular realization of "noise" $$S = (X_1, y_1), (X_2, y_2), ..., (X_n, y_n)$$, a larger and more complex function class has a higher probability of containing some function $$g$$ that can "fit" that noise.
 
 ## Rademacher Complexity
 
@@ -58,7 +58,8 @@ We can make this rigorous. The **Rademacher Complexity** of a function class $$\
 
 $$RAD_n(\mathcal{G}) = sup_{g \in \mathcal{G}} E_{X_1, X_2, ..., X_n \sim \mathcal{D}_X} E_{\sigma_1, \sigma_2,..., \sigma_n} \frac{1}{n}\sum_{i=1}^{n} \sigma_i g(X_i)$$
 
-Unsurprisingly, the larger the Rademacher complexity of a function class $$\mathcal{G}$$, the greater the difference between $$inf_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$.
+Unsurprisingly, the larger the Rademacher complexity of a function class $$\mathcal{G}$$, the greater the difference between the minimum value of $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ for some $$g \in \mathcal{G}$$ and the value of $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g$$.
+
 
 If we compute the Rademacher complexity of the function class $$\mathcal{G}^L = \{(X,y) \rightarrow L(g(X), y\  \vert\  g \in \mathcal{G}\}$$ from the Rademacher complexity of $$\mathcal{G}$$, we can use this property to bound the divergence between $$inf_{g \in \mathcal{G}} \frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ and $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ for this same $$g \in \mathcal{G}$$. Let's note that by [Talagrand's lemma](http://proceedings.mlr.press/v32/mohri14-supp.pdf) the Rademacher complexity of $$\mathcal{G}^L$$ depends on $$L$$ as well as $$\mathcal{G}$$, and can be significantly larger than $$\mathcal{G}$$ for faster growing loss functions (e.g. $$L(a,b) = (a-b)^k$$ for large $$k$$).
 
