@@ -42,7 +42,7 @@ Of course, in practice we do not fix $$g \in \mathcal{G}$$ across different dist
 
 Let's start by considering a simple regression example. Say that both $$\mathbf{X}$$ and $$\mathbf{y}$$ are $$\mathbb{R}$$ and that $$\mathcal{D}$$ is a completely uniform distribution over the interval $$[0,R] \times [0,R]$$ such that there is no relationship between $$\mathbf{X}$$ and $$\mathbf{y}$$. Obviously, we would expect that for any function $$g$$, $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$ will be consistently well above $$0$$ and will increase with $$R$$.
 
-Now let's say that $$\mathbb{L}$$ is the class of linear functions such that we can express any $$g\in\mathbb{L}$$ as $$g(x) = a*x + b$$. If $$n=2$$, we can always draw a line that connects the two points and have $$L(g(X_1), y_1) + L(g(X_2), y_2) = 0$$. However, for large $$n$$, no line will come close to connecting the points, and for any $$g \in \mathbb{L}$$ the quantity $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ will be close to $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. 
+Now let's say that $$\mathbb{L}$$ is the class of linear functions such that we can express any $$g\in\mathbb{L}$$ as $$g(x) = a*x + b$$. If $$n=2$$, we can always draw a line that connects the two points and have $$L(g(X_1), y_1) + L(g(X_2), y_2) = 0$$. However, for large $$n$$, it is likely that no line will come close to connecting the points, and for any $$g \in \mathbb{L}$$ the quantity $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ will be close to $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. 
 
 ![Linear fit to scatterplot](/img/bad_line_scatterplot.png)
 
