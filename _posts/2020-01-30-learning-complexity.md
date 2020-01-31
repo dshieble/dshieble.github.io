@@ -63,7 +63,7 @@ Unsurprisingly, the larger the Rademacher complexity of a function class $$\math
 
 ## VC Dimension
 
-One of the major downsides of Rademacher complexity is that it is distribution dependent. That is, the Rademacher complexity of a function class $$\mathcal{G}$$ is defined with respect to the marginal distribution $$\mathcal{D}_X$$ over $$\textbf{X}$$. However, in practice we may not have access to this distribution, and it could be useful to reason about how the function class $$\mathcal{G}$$ will behave over the worst case distribution.
+One of the major downsides of Rademacher complexity is that it is distribution-dependent. That is, the Rademacher complexity of a function class $$\mathcal{G}$$ is defined with respect to the marginal distribution $$\mathcal{D}_X$$ over $$\textbf{X}$$. However, in practice we may not have access to this distribution, and it could be useful to reason about how the function class $$\mathcal{G}$$ will behave over the worst case distribution.
 
 One tool for doing this is **VC Dimension**, or Vapnik-Chervonenkis Dimension. Unlike Rademacher Complexity, VC Dimension is only defined for classification. That is, we can only compute the VC dimension of function classes that map into $$\{0, 1\}$$. Both the Rademacher Complexity and VC dimension of a function class measure the expressiveness of the class, or the degree to which the "best" function in the class can generate outputs that are consistent with somewhat arbitrary (input, output) pairs. However, unlike Rademacher Complexity, VC dimension measures this expressiveness explicitly rather than probabilistically.
 
