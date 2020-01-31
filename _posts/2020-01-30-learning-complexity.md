@@ -23,7 +23,7 @@ $$L(a,b) = \begin{cases} 0 & a=b \\ 1 & \text{else} \end{cases}$$
 One significant challenge with this objective is that we generally cannot compute or optimize this expectation directly. Instead, we need to use the dataset $$S$$ to estimate it. For example, we can use $$\frac{1}{n}\sum_{i=1}^{n} L(g(X_i), y_i)$$ as an estimate of $$E_{(X,y) \sim \mathcal{D}}[L(g(X), y)]$$. The quality of this estimate is dependent on a few factors:
 
 * The number of samples $$n$$
-* The choice of loss function $$L$$. In this blog post we will primarily stick to the zero-one and squared error losses defined above.
+* The choice of loss function $$L$$. In this blog post we will primarily stick to the zero-one and squared error losses defined above
 * The structure of the distribution $$\mathcal{D}$$
 * The expressiveness of the function space $$\mathcal{G}$$
 
