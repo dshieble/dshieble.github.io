@@ -30,7 +30,7 @@ We can attach them in parallel to get a model:
 
 $$h: D_1 \times D_2 \rightarrow (X_1 \times X_2 \rightarrow Y_1 \times Y_2)$$
 
-At both training and inference time, the composite model independently executes the component models. We can think of this sort of composition as zooming out our perspective to see the two separate and noninteracting models as part of the same whole. In [Backprop as Functor](https://arxiv.org/pdf/1711.10455.pdf) the authors define this sort of composition to be the monoidal product in their category $$Learn$$. 
+At both training and inference time the composite model independently executes the component models. We can think of this sort of composition as zooming out our perspective to see the two separate and noninteracting models as part of the same whole. In [Backprop as Functor](https://arxiv.org/pdf/1711.10455.pdf) the authors define this sort of composition to be the monoidal product in their category $$Learn$$. 
 
 For example, say we have a software system that contains two modules: one for training a linear regression on driving records to predict insurance premiums and one for training a decision tree on credit history to predict mortgage approvals. We can think of this system as containing a single module that trains a linear regression $$\times$$ decision tree on pairs of driving records and credit history to predict pairs of insurance premiums and credit history.
 
