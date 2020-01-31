@@ -19,7 +19,7 @@ As researchers apply Machine Learning to increasingly complex tasks, there is mo
 In the following discussion we will use the following notation and terminology: Machine Learning models are functions of the form $$D \rightarrow (X \rightarrow Y)$$ where $$D$$ is a dataset and $$(X \rightarrow Y)$$ is a function that maps samples in the space $$X$$ to samples in the space $$Y$$. The dataset $$D$$ may contain pairs of samples $$(x,y) \in X \times Y$$ (supervised learning), just samples $$x \in X$$ (unsupervised learning) or anything else. This is of course a very limited perspective on Machine Learning models. Although this post will focus mainly on supervised and unsupervised learning, there are many more examples of composition in reinforcement learning and beyond. 
 
 ### Side-by-Side Composition
-The most general way to combine Machine Learning models is to just place them "side-by-side". There are a few ways to do this:
+The most general way to combine Machine Learning models is just to place them "side-by-side". There are a few ways to do this:
 
 #### Product
 Given models of the forms $$T_1: D_1 \rightarrow (X_1 \rightarrow Y_1), T_2: D_2 \rightarrow (X_2 \rightarrow Y_2)$$ we can attach them in parallel to get a model $$h: D_1 \times D_2 \rightarrow (X_1 \times X_2 \rightarrow Y_1 \times Y_2)$$. At both training and inference time, the composite model independently executes the component models. We can think of this sort of composition as zooming out our perspective to see the two separate and noninteracting models as part of the same whole. In [Backprop as Functor](https://arxiv.org/pdf/1711.10455.pdf) the authors define this sort of composition to be the monoidal product in their category $$Learn$$. 
@@ -32,7 +32,11 @@ Given a set of Machine Learning models that accept the same input, there are a n
 
 
 ### Input-Output Composition
-Another way to combine Machine Learning models is to use the output of one model as the input to another. That is, say we have two models $$T_1: D_1 \rightarrow (X \rightarrow Y), T_2: D_2 \rightarrow (Y \rightarrow Z)$$ that we combine into a model $$h: D_3 \rightarrow (X \rightarrow Z)$$. At inference time, $$h$$ operates on some $$x \in X$$ by first running the trained version of $$T_1$$ to get a $$y \in Y$$ and then running the trained version of $$T_2$$ on $$y$$ to get the output $$z \in Z$$. Within this framework, there are a number of ways that we can train $$T_1$$ and $$T_2$$:
+Another way to combine Machine Learning models is to use the output of one model as the input to another. That is, say we have two models:
+
+$$T_1: D_1 \rightarrow (X \rightarrow Y), T_2: D_2 \rightarrow (Y \rightarrow Z)$$
+
+that we combine into a model $$h: D_3 \rightarrow (X \rightarrow Z)$$. At inference time, $$h$$ operates on some $$x \in X$$ by first running the trained version of $$T_1$$ to get a $$y \in Y$$ and then running the trained version of $$T_2$$ on $$y$$ to get the output $$z \in Z$$. Within this framework, there are a number of ways that we can train $$T_1$$ and $$T_2$$:
 
 #### Unsupervised Feature Transformations
 The most straightforward form of input-output composition is the class of unsupervised learned feature transformations. In this case $$D_1$$ is a dataset of samples from $$X$$ and $$T_1: D_1 \rightarrow (X \rightarrow Y)$$ is an unsupervised Machine Learning algorithm. In unsupervised feature transformations the learning processes of $$T_1$$ and $$T_2$$ proceed sequentially: $$T_2$$ is trained on the output of $$T_1$$, and this training does not begin until $$T_1$$ is fully trained. Once $$T_1$$ is fully trained we use it and $$D_1$$ to create the dataset $$D_2$$ of samples in $$Y \times Z$$ that we use to train $$T_2$$.
@@ -74,7 +78,7 @@ The clearest example of end-to-end training is the composition of layers in a ne
 In meta-learning, or learning to learn, the training or "update" function for one Machine Learning model is defined by another Machine Learning model. In certain cases, like those described in [this paper](https://arxiv.org/pdf/1606.04474.pdf), we can define a notion of composition where $$T_1 \circ T_2$$ is a model with an inference function equivalent to that of $$T_1$$ and a training function defined based on $$T_2$$'s inference and training functions. This is described in more detail for the parametric and differentiable case [here.](https://pdfhost.io/v/EKIVakrfK_Categorical_Metalearningpdf.pdf)
 
 ### Conclusion
-This is just a small sample of techniques for building complex models from simple components. Machine Learning is growing rapidly, and there are many more strategies for model composition that we will not discuss here.
+This is just a small sample of techniques for building complex models from simple components. Machine Learning is growing rapidly, and there are many more strategies for model composition than are addressed here.
 
 
 <!-- That is, a meta-learner is of the form $$T: D \rightarrow (D \rightarrow (X \rightarrow Y))$$
