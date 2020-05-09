@@ -41,15 +41,17 @@ In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'
 Because PCA operates over the fully connected graph, all pairwise relationships between data vectors (i.e. elements of $$X^T X$$) are considered equally important, and the optimization objective is framed in terms of reconstructing the exact distances between points.
 
 ## Laplacian Eigenmaps
-In contrast, in Laplacian Eigenmaps we form a different graph based on a nonlinear transformation of our data, and we represent this graph with the Laplacian matrix.
+In contrast, in Laplacian Eigenmaps we form a different graph based on a nonlinear transformation of our data, and we represent this graph with its Laplacian matrix.
 
-We begin by choosing a number $$k$$ and building a graph such that there is a unit-weight edge connecting vertex $$v_i$$ and $$v_j$$ if $$v_i$$ is one of the kth nearest neighbors of $$v_j$$ or vice-versa (in some implementations of Laplacian Eigenmaps, the weight of this edge is inversely proportional to the distance between the data vectors corresponding to $$v_i$$ and $$v_j$$). 
+We begin by choosing a number $$k$$ and building a graph such that there is a unit-weight edge connecting the vertices $$v_i$$ and $$v_j$$ if $$v_i$$ is one of the kth nearest neighbors of $$v_j$$ or vice-versa. In some implementations of Laplacian Eigenmaps, the weight of this edge is defined to be inversely proportional to the distance between the data vectors corresponding to $$v_i$$ and $$v_j$$.
 
-Now for some $$d' < d$$ our objective is then to construct the $$n \times d'$$ matrix $$X'$$ such that the following quantity is minimized subject to a few constraints around orthogonality and embedding normalization. Note that $$x'_i$$ is the ith row of $$X'$$ and that $$i \sim j$$ if there is an edge between $$v_i$$ and $$v_j$$:
+Now for some $$d' < d$$ our objective is then to construct the $$n \times d'$$ matrix $$X'$$ such that the following quantity is minimized subject to a few constraints around orthogonality and embedding normalization.
 
 $$
 \sum_{i,j \|\ i \sim j} (x'_i - x'_j)^2
 $$
+
+Note that $$x'_i$$ is the ith row of $$X'$$ and that $$i \sim j$$ if there is an edge between $$v_i$$ and $$v_j$$:
 
 In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n \times n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. Then we define the jth element of the ith data point's embedding to be $$v_{j_i}$$, or the ith element of the eigenvector corresponding to the jth smallest eigenvalue.
 
