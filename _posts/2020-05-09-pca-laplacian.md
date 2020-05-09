@@ -48,7 +48,7 @@ We begin by choosing a number $$k$$ and building a graph such that there is a un
 Now for some $$d' < d$$ our objective is then to construct the $$n \times d'$$ matrix $$X'$$ such that the following quantity is minimized subject to a few constraints around orthogonality and embedding normalization.
 
 $$
-\sum_{i,j \|\ i \sim j} (x'_i - x'_j)^2
+\sum_{i,j \ | \ i \sim j} (x'_i - x'_j)^2
 $$
 
 Note that $$x'_i$$ is the ith row of $$X'$$ and that $$i \sim j$$ if there is an edge between $$v_i$$ and $$v_j$$:
