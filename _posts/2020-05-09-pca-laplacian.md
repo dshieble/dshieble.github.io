@@ -66,7 +66,7 @@ Unlike PCA, the Laplacian Eigenmaps algorithm does not try to preserve exact pai
 
 ##### Matrix
 * *PCA*: The adjacency matrix
-* *Laplacian Eigenmaps**: The Laplacian matrix
+* *Laplacian Eigenmaps*: The Laplacian matrix
 
 ##### Eigenvectors
 * *PCA*: The eigenvectors corresponding to the $$d'$$ largest eigenvalues
