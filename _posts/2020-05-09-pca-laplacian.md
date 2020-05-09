@@ -36,9 +36,9 @@ In PCA, we form a fully connected graph such that the edge between each pair of 
 
 $$\sum_{i,j} (X'^T X' - X^T X)_{ij}^2$$
 
-In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ largest eigenvalues $$\lambda$$ of the $$n \times n$$ matrix $$X^T X$$. In practice we implement this with SVD rather than explicitly form the matrix $$X^T X$$. We then define $$X'_{i,j}$$ to be $$v_{j_i}*\lambda_{j}^{1/2}$$. That is, the jth element of the ith data point's embedding is the product of the ith element of the jth eigenvector and the square root of the jth eigenvalue. 
+In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ largest eigenvalues $$\lambda$$ of the $$n \times n$$ matrix $$X^T X$$. In practice we implement this with SVD rather than explicitly form the matrix $$X^T X$$. We then define $$X'_{i,j}$$ to be $$v_{j_i}*\lambda_{j}^{1/2}$$. That is, the jth element of the ith data point's embedding is the product of the square root of the jth largest eigenvalue and the ith element of the corresponding eigenvector.
 
-Because PCA operates over the fully connected graph, all pairwise relationship between data vectors (i.e. elements of $$X^T X$$) are considered equally important, and the optimization objective is framed in terms of reconstructing the exact distances between points.
+Because PCA operates over the fully connected graph, all pairwise relationships between data vectors (i.e. elements of $$X^T X$$) are considered equally important, and the optimization objective is framed in terms of reconstructing the exact distances between points.
 
 ## Laplacian Eigenmaps
 In contrast, in Laplacian Eigenmaps we form a different graph based on a nonlinear transformation of our data, and then compute the generalized eigenvectors of the Laplacian matrix of this graph. 
@@ -51,7 +51,7 @@ $$
 \sum_{i,j \|\ i \sim j} (x'_i - x'_j)^2
 $$
 
-In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n \times n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. Then we define the jth element of the ith data point's embedding to be $$v_{j_i}$$, or the ith element of the jth smallest eigenvector.
+In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n \times n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. Then we define the jth element of the ith data point's embedding to be $$v_{j_i}$$, or the ith element of the eigenvector corresponding to the jth smallest eigenvalue.
 
 Unlike PCA, the Laplacian Eigenmaps algorithm does not try to preserve exact pairwise distances, or even relative pairwise distances between far away points. The algorithm exclusively focuses on mapping the embeddings corresponding to nearest neighbors as close together as possible.
 
