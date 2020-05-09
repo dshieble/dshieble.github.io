@@ -41,7 +41,7 @@ In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'
 Because PCA operates over the fully connected graph, all pairwise relationships between data vectors (i.e. elements of $$X^T X$$) are considered equally important, and the optimization objective is framed in terms of reconstructing the exact distances between points.
 
 ## Laplacian Eigenmaps
-In contrast, in Laplacian Eigenmaps we form a different graph based on a nonlinear transformation of our data, and then compute the generalized eigenvectors of the Laplacian matrix of this graph. 
+In contrast, in Laplacian Eigenmaps we form a different graph based on a nonlinear transformation of our data, and we represent this graph with the Laplacian matrix.
 
 We begin by choosing a number $$k$$ and building a graph such that there is a unit-weight edge connecting vertex $$v_i$$ and $$v_j$$ if $$v_i$$ is one of the kth nearest neighbors of $$v_j$$ or vice-versa (in some implementations of Laplacian Eigenmaps, the weight of this edge is inversely proportional to the distance between the data vectors corresponding to $$v_i$$ and $$v_j$$). 
 
