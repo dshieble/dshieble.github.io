@@ -61,16 +61,16 @@ Unlike PCA, the Laplacian Eigenmaps algorithm does not try to preserve exact pai
 ## Summary
 
 ##### Graph
-* **PCA**: Fully connected graph where weights of the graph are determined by the dot product between data points
-* **Laplacian Eigenmaps**: Graph where an edge only exists between $$v_i$$ and $$v_j$$ if $$v_i$$ is one of the kth nearest neighbors of $$v_j$$ or vice-versa
+* *PCA*: Fully connected graph where weights of the graph are determined by the dot product between data points
+* *Laplacian Eigenmaps*: Graph where an edge only exists between $$v_i$$ and $$v_j$$ if $$v_i$$ is one of the kth nearest neighbors of $$v_j$$ or vice-versa
 
 ##### Matrix
-* **PCA**: The adjacency matrix
-* **Laplacian Eigenmaps**: The Laplacian matrix
+* *PCA*: The adjacency matrix
+* *Laplacian Eigenmaps**: The Laplacian matrix
 
 ##### Eigenvectors
-* **PCA**: The eigenvectors corresponding to the $$d'$$ largest eigenvalues
-* **Laplacian Eigenmaps**: The eigenvectors corresponding to the $$d'$$ smallest eigenvalues
+* *PCA*: The eigenvectors corresponding to the $$d'$$ largest eigenvalues
+* *Laplacian Eigenmaps*: The eigenvectors corresponding to the $$d'$$ smallest eigenvalues
 
 
 
