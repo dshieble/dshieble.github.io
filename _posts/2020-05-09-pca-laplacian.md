@@ -32,11 +32,11 @@ In the following exposition, we will assume we have $$n$$ data points and $$d$$ 
 
 
 ## PCA
-In PCA, we form a fully connected grqph such that the edge between each pair of vertices has weight equal to the dot product of the corresponding data vectors. We represent this graph with the adjacency matrix, $$X^T X$$. For some $$d' < d$$ our objective is then to construct the $$n \times d'$$ matrix $$X'$$ such that the following quantity is minimized.
+In PCA, we form a fully connected graph such that the edge between each pair of vertices has weight equal to the dot product of the corresponding data vectors. We represent this graph with the adjacency matrix, $$X^T X$$. For some $$d' < d$$ our objective is then to construct the $$n \times d'$$ matrix $$X'$$ such that the following quantity is minimized.
 
 $$\sum_{i,j} (X'^T X' - X^T X)_{ij}^2$$
 
-In order to do this, we implicitly compute the eigenvectors $$v$$ corresponding to the $$d'$$ largest eigenvalues $$\lambda$$ of the $$n \times n$$ matrix $$X^T X$$ and define the jth element of the ith data point's embedding to be $$v_{j_i}*\lambda_{j}^{1/2}$$. That is, the product of the ith element of the jth eigenvector and the square root of the jth eigenvalue. In practice we implement this with SVD rather than explicitly form the matrix $$X^T X$$ 
+In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ largest eigenvalues $$\lambda$$ of the $$n \times n$$ matrix $$X^T X$$. In practice we implement this with SVD rather than explicitly form the matrix $$X^T X$$. We then define the jth element of the ith data point's embedding to be $$v_{j_i}*\lambda_{j}^{1/2}$$. That is, the product of the ith element of the jth eigenvector and the square root of the jth eigenvalue. 
 
 Because PCA operates over the fully connected graph, all pairwise relationship between data vectors (i.e. elements of $$X^T X$$) are considered equally important, and the optimization objective is framed in terms of reconstructing the exact distances between points.
 
