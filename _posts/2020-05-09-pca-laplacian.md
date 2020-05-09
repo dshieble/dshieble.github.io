@@ -53,7 +53,7 @@ $$
 
 Note that $$x'_i$$ is the ith row of $$X'$$ and that $$i \sim j$$ if there is an edge between $$v_i$$ and $$v_j$$:
 
-In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n \times n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. Then we define the jth element of the ith data point's embedding to be $$v_{j_i}$$, or the ith element of the eigenvector corresponding to the jth smallest eigenvalue.
+In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n \times n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. We then define $$X'_{i,j}$$ to be $$v_{j_i}$$. That is, the jth element of the ith data point's embedding is the ith element of the eigenvector corresponding to the jth smallest eigenvalue.
 
 Unlike PCA, the Laplacian Eigenmaps algorithm does not try to preserve exact pairwise distances, or even relative pairwise distances between far away points. The algorithm exclusively focuses on mapping the embeddings corresponding to nearest neighbors as close together as possible.
 
