@@ -51,7 +51,7 @@ $$
 \sum_{i,j \|\ i \sim j} (x'_i - x'_j)^2
 $$
 
-In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n x n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. Then we define the jth element of the ith data point's embedding to be $$v_{{j}_i}$$, or the ith element of the jth smallest eigenvector.
+In order to do this, we compute the eigenvectors $$v$$ corresponding to the $$d'$$ smallest eigenvalues for the generalized eigenproblem $$Ly = \lambda Dy$$, where $$D$$ is the $$n x n$$ diagonal matrix where the ith diagonal entry is the degree of $$v_i$$. Note that this is equivalent to computing the eigenvectors of the matrix $$D^{-1}L$$. Then we define the jth element of the ith data point's embedding to be $$v_{j_i}$$, or the ith element of the jth smallest eigenvector.
 
 Unlike PCA, the Laplacian Eigenmaps algorithm does not try to preserve exact pairwise distances, or even relative pairwise distances between far away points. The algorithm exclusively focuses on mapping the embeddings corresponding to nearest neighbors as close together as possible.
 
