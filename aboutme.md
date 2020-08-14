@@ -13,7 +13,7 @@ subtitle: The Extra Brief Version
   ga('send', 'pageview');
 
 </script>
-Hi, I'm Dan Shiebler. I'm a Senior Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html) in New York. My work focuses on developing systems and models to improve the performance and efficiency of Machine Learning at Twitter. I Tweet [@dshieble](https://twitter.com/dshieble).
+Hi, I'm Dan Shiebler. I'm a Staff Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html) in New York. My work focuses on developing systems and models to improve the performance and efficiency of Machine Learning at Twitter. I Tweet [@dshieble](https://twitter.com/dshieble).
 
 I'm also a (remote) PhD student at the University of Oxford. My research focuses on applications of Category Theory to Machine Learning. I am jointly advised by [Jeremy Gibbons](https://www.cs.ox.ac.uk/people/jeremy.gibbons/) and [Cezar Ionescu](https://www.th-deg.de/en/Cezar-Ionescu-Fakult%C3%A4t%20Angewandte%20Informatik-Professoren/-innen-1975).
 
