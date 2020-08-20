@@ -17,6 +17,16 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 ### Papers
 
+
+[Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Applied Category Theory (2020)
+
+[Tuning Word2vec for Large Scale Recommendation Systems](https://recsys.acm.org/recsys20/accepted-contributions/#content-tab-1-4-tab). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
+
+[Lessons Learned Addressing Dataset Bias in Model-Based
+Candidate Generation at Twitter](https://irsworkshop.github.io/2020/publications/paper_2_%20Virani_Twitter.pdf). Virani, A., Baxter, Jay., Shiebler, Dan., Gautier, Philip., Verma, S., Xia, Y., Sharma, A., Binnani, S., Chen, L., Yu, C. KDD Workshop on Industrial Recommendation Systems (2020)
+
+[Developments in AI and Machine Learning for Neuroimaging](https://link.springer.com/chapter/10.1007/978-3-030-50402-1_18). O’Sullivan, S., Jean-Quartier, F., Jean-Quartier, C., Holzinger, A., Shiebler, D., Moon, Pradip., Angione, Claudio. Artificial Intelligence and Machine Learning for Digital Pathology - LNCS 12090 (2020)
+
 [Incremental Monoidal Grammars](https://arxiv.org/abs/2001.02296). Shiebler, D., Toumi, A., Sadrzadeh, M. SYCO (2019)
 
 [Learning what and where to attend with humans in the loop](https://openreview.net/forum?id=BJgLg3R9KQ). Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T. ICLR (2018)
@@ -27,7 +37,7 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 [Fighting Redundancy and Model Decay with Embeddings](https://arxiv.org/abs/1809.07703). Shiebler, D., Belli, L., Baxter, J., Xiong, H., & Tayal, A.  KDD Workshop on Common Model Infrastructure (2018)
 
-[Making Machine Learning Easy with Embeddings](https://www.sysml.cc/doc/115.pdf). Shiebler, D., & Tayal, A. SysML (2018)
+[Making Machine Learning Easy with Embeddings](https://mlsys.org/Conferences/doc/2018/115.pdf). Shiebler, D., & Tayal, A. MLSys, formally SysML (2018)
 
 [A Dichotomy of Visual Relations](https://www2.securecms.com/CCNeuro/docs-0/5928ea9668ed3f69508a256a.pdf). Kim, J., Ricci, M., Shiebler, D., & Serre, T. Computational Cognitive Neuroscience (2017)
 
@@ -46,6 +56,8 @@ Beta Shift and Decision Conflict. Shiebler, D. Brown University Neuroscience Sc.
 
 
 ### Conference Abstracts
+
+A Coalgebraic 2-Categorical Model for Dynamic Syntax. Shiebler, D., Toumi, A., Sadrzadeh, M. Dynamic Syntax (2020)
 
 Capturing Lingual Shifts in Word Embeddings with CCA. Kamani, M., Shiebler, D., Tayal, A., Verma, S., & Belli, L.  WeCNLP (2018)
 
