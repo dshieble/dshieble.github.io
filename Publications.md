@@ -20,7 +20,7 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 [Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Applied Category Theory (2020)
 
-[Tuning Word2vec for Large Scale Recommendation Systems](https://recsys.acm.org/recsys20/accepted-contributions/#content-tab-1-4-tab). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
+[Tuning Word2vec for Large Scale Recommendation Systems](https://dl.acm.org/doi/abs/10.1145/3383313.3418486). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
 
 [Lessons Learned Addressing Dataset Bias in Model-Based
 Candidate Generation at Twitter](https://irsworkshop.github.io/2020/publications/paper_2_%20Virani_Twitter.pdf). Virani, A., Baxter, J., Shiebler, D., Gautier, P., Verma, S., Xia, Y., Sharma, A., Binnani, S., Chen, L., Yu, C. KDD Workshop on Industrial Recommendation Systems (2020)
