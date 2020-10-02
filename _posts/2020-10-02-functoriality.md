@@ -55,7 +55,7 @@ To give a concrete example, [Carlsson and Memoli](https://arxiv.org/abs/1011.527
 ## Conclusion
 
 
-In order to build a rigorous framework for reasoning about the relationships between the components of a Machine Learning system, we will need powerful tools for understanding the key transformations in the system. By studying the underlying compositional and functorial structure in Machine Learning systems we will be able to improve upon them. 
+In order to build a rigorous framework for reasoning about the relationships between the components of a Machine Learning system, we will need powerful tools for understanding the key transformations in the system. By studying the underlying compositional and functorial structure in Machine Learning systems we may be able to improve upon them. 
 
 
 
