@@ -50,4 +50,12 @@ A **Functor** is a "map between categories that preserves identity morphisms and
 
 To give a concrete example, [Carlsson and Memoli](https://arxiv.org/abs/1011.5270) investigate the categories over which certain clustering algorithms are functorial. They demonstrate how certain algorithms are more brittle than others and can lose their functoriality when we change the set of morphisms in the source category.
 
-In order to build a rigorous framework for reasoning about the relationships between the components of a Machine Learning system, we will need powerful tools for understanding the key transformations in the system. Functoriality is one such tool.
+
+
+## Conclusion
+
+
+In order to build a rigorous framework for reasoning about the relationships between the components of a Machine Learning system, we will need powerful tools for understanding the key transformations in the system. By studying the underlying compositional and functorial structure in Machine Learning systems we will be able to improve upon them. 
+
+
+
