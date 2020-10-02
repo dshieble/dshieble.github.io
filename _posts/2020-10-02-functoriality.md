@@ -42,7 +42,7 @@ Today, the construction of most non-trivial Machine Learning systems is largely 
 ## Functoriality
 
 
-A **Functor** is a map between categories that preserves identity morphisms and morphism composition. Underlying this straightforward definition is a powerful concept: the functoriality of a transformation is a blueprint for its structure, expressed in terms of the invariants it preserves. If a given transformation is functorial over some pair of categories, then the transformation preserves the structure represented in those categories' morphisms. One way to develop a deeper understanding of a particular transformation or class of transformations is to identify the most interesting settings under which it is functorial. Once we have done this we can derive extensions or alternate versions of this transformation that preserve this functoriality, as well as modifications that break it.
+A **Functor** is a "map between categories that preserves identity morphisms and morphism composition". Underlying this technical definition is a powerful concept: the functoriality of a transformation is a blueprint for its structure, expressed in terms of the invariants it preserves. If a given transformation is functorial over some pair of categories, then the transformation preserves the structure represented in those categories' morphisms. One way to develop a deeper understanding of a particular transformation or class of transformations is to identify the most interesting settings under which it is functorial. Once we have done this we can derive extensions or alternate versions of this transformation that preserve this functoriality, as well as modifications that break it.
 
 We can summarize this in the following recipe:
 
