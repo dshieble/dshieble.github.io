@@ -42,14 +42,12 @@ Today, the construction of most non-trivial Machine Learning systems is largely 
 ## Functoriality
 
 
-A **Functor** is a "map between categories that preserves identity morphisms and morphism composition". Underlying this technical definition is a powerful concept: the functoriality of a transformation is a blueprint for its structure, expressed in terms of the invariants it preserves. If a given transformation is functorial over some pair of categories, then the transformation preserves the structure represented in those categories' morphisms. One way to develop a deeper understanding of a particular transformation or class of transformations is to identify the most interesting settings under which it is functorial. Once we have done this we can derive extensions or alternate versions of this transformation that preserve this functoriality, as well as modifications that break it.
-
-We can summarize this in the following recipe:
+A **Functor** is a "map between categories that preserves identity morphisms and morphism composition". Underlying this technical definition is a powerful concept: the functoriality of a transformation is a blueprint for its structure, expressed in terms of the invariants it preserves. If a given transformation is functorial over some pair of categories, then the transformation preserves the structure represented in those categories. One way to develop a deeper understanding of a particular transformation or class of transformations is to identify the most interesting settings under which it is functorial. Once we have done this we can derive extensions or alternate versions of this transformation that preserve this functoriality, as well as modifications that break it. We summarize this with the following recipe:
 
 * Identify a transformation of interest.
 * Find the most interesting categories over which this transformation is functorial.
 * Figure out what interesting extensions we can make to the transformation such that it remains functorial.
 
-To give a concrete example, [Culbertson et al](https://arxiv.org/abs/1011.5270) investigate the categories over which certain clustering algorithms are functorial. They demonstrate how certain algorithms are more brittle than others and can lose their functoriality when we change the set of morphisms in the source category. Once they fix a source and target category, they build a framework for generating functors between them, thereby deriving a novel family of clustering algorithms.
+To give a concrete example, [Carlsson and Memoli](https://arxiv.org/abs/1011.5270) investigate the categories over which certain clustering algorithms are functorial. They demonstrate how certain algorithms are more brittle than others and can lose their functoriality when we change the set of morphisms in the source category.
 
-In order to build a rigorous framework for reasoning about the relationships between the components of a Machine Learning system, we will need powerful tools for understanding the key transformations in the system.
+In order to build a rigorous framework for reasoning about the relationships between the components of a Machine Learning system, we will need powerful tools for understanding the key transformations in the system. Functoriality is one such tool.
