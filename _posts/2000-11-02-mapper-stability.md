@@ -43,9 +43,9 @@ We focus on the following structural invariants of Mapper graphs:
 
 We explore how stable these graph invariants are when we run Mapper with AgglomerativeClustering. We use the $$k$$-nearest neighbor filter function, and we run this algorithm with a variety of $$k$$ and resolution values over the following real-world datasets:
 
-* **Fashion-MNIST** This dataset includes $$70,000$$ unique $$28 \times 28$$ images of clothing that fall into $$9$$ classes. To simplify the dataset and reduce the distance between points in the same class we apply the supervised UMAP algorithm to reduce the dimensionality from $$784$$ to $$50$$.
+* **Fashion-MNIST**: This dataset includes $$70,000$$ unique $$28 \times 28$$ images of clothing that fall into $$9$$ classes. To simplify the dataset and reduce the distance between points in the same class we apply the supervised UMAP algorithm to reduce the dimensionality from $$784$$ to $$50$$.
 
-* **Word Vectors from Wikipedia+Gigaword 5** This dataset contains $$400,000$$ unique $$50$$ dimensional gloVe embeddings of words.
+* **Word Vectors from Wikipedia+Gigaword 5**: This dataset contains $$400,000$$ unique $$50$$ dimensional gloVe embeddings of words.
 
 We compute the stability of these graph invariants via the bootstrap procedure. For each dataset, we choose an $$n$$-element sample (with replacement) from the dataset, run Mapper over this sample to build an undirected graph $$G \in \mathcal{G}$$, and then compute each invariant. We repeat this process $$100$$ times for each value of $$n$$ and assess the relationship between $$n$$ and the distribution of the random variable $$g \circ M \circ \Gamma_{f}: \mathbb{R}^{n \times m} \rightarrow \mathbb{R}$$. We pay particular attention to the relationship between $$n$$ and each graph invariant's **coefficient of variation**, or the ratio of its empirical mean and standard deviation.
 
