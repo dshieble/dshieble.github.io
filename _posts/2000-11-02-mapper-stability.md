@@ -47,7 +47,7 @@ We explore how stable these graph invariants are when we run Mapper with Agglome
 
 * **Word Vectors from Wikipedia+Gigaword 5**: This dataset contains $$400,000$$ unique $$50$$ dimensional gloVe embeddings of words.
 
-We compute the stability of these graph invariants via the bootstrap procedure. For each dataset, we choose an $$n$$-element sample (with replacement) from the dataset, run Mapper over this sample to build an undirected graph $$G \in \mathcal{G}$$, and then compute each invariant. We repeat this process $$100$$ times for each value of $$n$$ and assess the relationship between $$n$$ and the distribution of the random variable $$g \circ M \circ \Gamma_{f}: \mathbb{R}^{n \times m} \rightarrow \mathbb{R}$$. We pay particular attention to the relationship between $$n$$ and each graph invariant's **coefficient of variation**, or the ratio of its empirical mean and standard deviation.
+We compute the stability of these graph invariants via the bootstrap procedure. For each dataset, we choose an $$n$$-element sample (with replacement) from the dataset, run Mapper over this sample to build an undirected graph $$G \in \mathcal{G}$$, and then compute each invariant. We repeat this process $$100$$ times for each value of $$n$$ and assess the relationship between $$n$$ and each graph invariant's **coefficient of variation**, or the ratio of its empirical mean and standard deviation.
 
 
 
