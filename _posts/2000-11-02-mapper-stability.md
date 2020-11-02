@@ -36,9 +36,9 @@ One challenge with using Mapper in practice is that the algorithm may generate s
 We focus on the following structural invariants of Mapper graphs:
 
 * **Number of Connected Components**: If we view $$G \in \mathcal{G}$$ as a simplicial complex, its number of connected components is equivalent to the $$0^{th}$$ Betti number of the complex. 
-* **Cardinality of Cycle Basis** The cardinality of the cycle basis of $$G \in \mathcal{G}$$ is the minimum size of a set of cycles that span the cycle space of $$G$$. If we view $$G$$ as a simplicial complex, the cardinality of the cycle basis is equivalent to the $$1^{st}$$ Betti number of the complex. 
-* **Graph Density** The density of an undirected graph $$G \in \mathcal{G}$$ with $$k$$ nodes and $$h$$ edges is $$\frac{2h}{k(k-1)}$$. As $$n$$ increases, we would expect both $$k$$ and $$h$$ to increase as well, and the density will track the relative rates of increase. 
-* **Estrada Index** The Estrada index of an undirected graph $$G \in \mathcal{G}$$ whose adjacency matrix has eigenvalues $$\lambda_1, \lambda_2, ..., \lambda_n$$ is $$\sum_{i=1}^n e^{\lambda_i}$$. The Estrada index measures the centrality of $$G$$, or the degree to which each node in $$G$$ participates in the subgraphs of $$G$$.
+* **Cardinality of Cycle Basis**: The cardinality of the cycle basis of $$G \in \mathcal{G}$$ is the minimum size of a set of cycles that span the cycle space of $$G$$. If we view $$G$$ as a simplicial complex, the cardinality of the cycle basis is equivalent to the $$1^{st}$$ Betti number of the complex. 
+* **Graph Density**: The density of an undirected graph $$G \in \mathcal{G}$$ with $$k$$ nodes and $$h$$ edges is $$\frac{2h}{k(k-1)}$$. As $$n$$ increases, we would expect both $$k$$ and $$h$$ to increase as well, and the density will track the relative rates of increase. 
+* **Estrada Index**: The Estrada index of an undirected graph $$G \in \mathcal{G}$$ whose adjacency matrix has eigenvalues $$\lambda_1, \lambda_2, ..., \lambda_n$$ is $$\sum_{i=1}^n e^{\lambda_i}$$. The Estrada index measures the centrality of $$G$$, or the degree to which each node in $$G$$ participates in the subgraphs of $$G$$.
 
 
 We explore how stable these graph invariants are when we run Mapper with AgglomerativeClustering. We use the $$k$$-nearest neighbor filter function, and we run this algorithm with a variety of $$k$$ and resolution values over the following real-world datasets:
