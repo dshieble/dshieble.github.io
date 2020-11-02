@@ -18,6 +18,8 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 ### Papers
 
 
+[Functorial Clustering via Simplicial Complexes](https://openreview.net/pdf?id=ZkDLcXCP5sV). Shiebler, D. NeurIPS Workshop on Topological Data Analysis (2020)
+
 [Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Applied Category Theory (2020)
 
 [Tuning Word2vec for Large Scale Recommendation Systems](https://dl.acm.org/doi/abs/10.1145/3383313.3418486). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
