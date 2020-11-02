@@ -141,12 +141,11 @@ In this post we explore the relationship between the sample size and the stabili
 
 
 
-
 ## Citations
 
-* xiao2017/online
-* pennington2014glove
-* mcinnes2018umap
-* estrada2005subgraph
-* singh2007topological
+* [singh2007topological]()
+* [Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms](https://arxiv.org/abs/1708.07747)
+* [GloVe: Global Vectors for Word Representation](http://www.aclweb.org/anthology/D14-1162)
+* [UMAP: Uniform manifold approximation and projection for dimension reduction](https://arxiv.org/abs/1802.03426)
+* [Subgraph centrality in complex networks](https://arxiv.org/abs/cond-mat/0504730)
 
