@@ -14,7 +14,6 @@ tags: [Mapper, TDA, Topological Data Analaysis, Machine Learning]
 
 </script>
 
-
 ## Introduction
 
 The Mapper algorithm is a useful tool for identifying patterns in a large dataset by generating a graph summary. We can describe the Mapper algorithm as constructing a discrete approximation of the **Reeb graph**: 
@@ -28,11 +27,7 @@ Now suppose we have a set of points $$X \subset \mathbf{X}$$ that we assume have
 * For each interval $$I \in \mathcal{C}$$, apply a clustering algorithm (such as K-Means or Agglomerative Clustering) to form a partition of $$f_{X}^{-1}(I) \subseteq X$$. Note that the clusters across each $$f_{X}^{-1}(I)$$ form an overlapping cover of $$X$$.
 * Create an $$n$$-simplex for each collection of $$n$$ clusters in this overlapping cover that have non-empty intersection. This creates a simplicial complex. We refer to the $$1$$-skeleton of this complex as the Mapper graph.
 
-One challenge with using Mapper in practice is that the algorithm may generate substantially different graphs for different datasets drawn from the same distribution. In order to use Mapper to make confident conclusions about a data-generating distribution, it is important to have a strong intuition about the algorithm's stability under resampling. In this post we perform a case study to explore the empirical convergence properties of Mapper. We build bootstrap samples of different sizes from two real-world datasets, [Fashion-MNIST](https://arxiv.org/abs/1708.07747) and [Wikipedia+Gigaword 5](http://www.aclweb.org/anthology/D14-1162), sand construct Mapper graphs from these samples. We then explore the relationship between the sample size and the distributions of structural invariants of these Mapper graphs.
-
-
-
-
+One challenge with using Mapper in practice is that the algorithm may generate substantially different graphs for different datasets drawn from the same distribution. In order to use Mapper to make confident conclusions about a data-generating distribution, it is important to have a strong intuition about the algorithm's stability under resampling. In this post we perform a case study to explore the empirical convergence properties of Mapper. We build bootstrap samples of different sizes from two real-world datasets, [Fashion-MNIST](https://arxiv.org/abs/1708.07747) and [Wikipedia+Gigaword 5](http://www.aclweb.org/anthology/D14-1162), sand construct Mapper graphs from these samples. We then explore the relationship between the sample size and the distributions of structural invariants of these Mapper graphs. The code for these experiments is hosted [here](https://github.com/dshieble/MapperExperiments).
 
 
 
@@ -46,7 +41,7 @@ In this post we explore the empirical convergence properties of Mapper by using 
 * **Estrada Index** The Estrada index of an undirected graph $$G \in \mathcal{G}$$ whose adjacency matrix has eigenvalues $$\lambda_1, \lambda_2, ..., \lambda_n$$ is $$\sum_{i=1}^n e^{\lambda_i}$$. The Estrada index measures the centrality of $$G$$, or the degree to which each node in $$G$$ participates in the subgraphs of $$G$$.
 
 
-We explore how stable these graph invariants are when we run the KeplerMapper implementation of Mapper with AgglomerativeClustering We use the $$k$$-nearest neighbor filter function, and we run this algorithm with a variety of $$k$$ and resolution values over the following real-world datasets:
+We explore how stable these graph invariants are when we run Mapper with AgglomerativeClustering. We use the $$k$$-nearest neighbor filter function, and we run this algorithm with a variety of $$k$$ and resolution values over the following real-world datasets:
 
 * **Fashion-MNIST** This dataset includes $$70,000$$ unique $$28 \times 28$$ images of clothing that fall into $$9$$ classes. To simplify the dataset and reduce the distance between points in the same class we apply the supervised UMAP algorithm to reduce the dimensionality from $$784$$ to $$50$$.
 
