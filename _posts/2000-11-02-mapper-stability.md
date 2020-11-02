@@ -33,7 +33,7 @@ One challenge with using Mapper in practice is that the algorithm may generate s
 
 ## Experiments
 
-In this post we explore the empirical convergence properties of Mapper by using the bootstrap to assess the stability of the following structural invariants of Mapper graphs:
+We focus on the following structural invariants of Mapper graphs:
 
 * **Number of Connected Components**: If we view $$G \in \mathcal{G}$$ as a simplicial complex, its number of connected components is equivalent to the $$0^{th}$$ Betti number of the complex. 
 * **Cardinality of Cycle Basis** The cardinality of the cycle basis of $$G \in \mathcal{G}$$ is the minimum size of a set of cycles that span the cycle space of $$G$$. If we view $$G$$ as a simplicial complex, the cardinality of the cycle basis is equivalent to the $$1^{st}$$ Betti number of the complex. 
