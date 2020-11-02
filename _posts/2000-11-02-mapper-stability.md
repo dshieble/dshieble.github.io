@@ -23,7 +23,6 @@ The Mapper algorithm is a useful tool for identifying patterns in a large datase
 Now suppose we have a set of points $$X \subset \mathbf{X}$$ that we assume have been drawn according to some probability measure $$\mu_{\mathbf{X}}$$ over $$\mathbf{X}$$. Suppose also that we have a computable function $$f_{X}: X \rightarrow \mathbb{R}$$ that approximates $$f: \mathbf{X} \rightarrow \mathbb{R}$$. The function $$f_{X}$$ may depend on the exact sample $$X$$ from $$\mathbf{X}$$. For example, if $$f(x)$$ is the probability density at $$x$$, then $$f_{X}$$ could be a density estimator such as the distance from a point in $$X$$ to its $$k$$-nearest neighbor in $$X$$. The **Mapper** algorithm  uses $$(X, d_{\mathbf{X}})$$ and $$f_{X}$$ to construct an approximation of the Reeb graph $$R_{f}(\mathbf{X})$$:
 
 * Select a collection $$\mathcal{C}$$ of open intervals of length $$r$$ that cover $$f_{X}(X)$$ such that the intersection of any three intervals in $$\mathcal{C}$$ is empty and the overlap between any two consecutive intervals is a fixed constant.
-* Select a non-overlapping clustering algorithm $$F$$ that maps a finite metric space to a partition of that space.  
 * For each interval $$I \in \mathcal{C}$$, apply a clustering algorithm (such as K-Means or Agglomerative Clustering) to form a partition of $$f_{X}^{-1}(I) \subseteq X$$. Note that the clusters across each $$f_{X}^{-1}(I)$$ form an overlapping cover of $$X$$.
 * Create an $$n$$-simplex for each collection of $$n$$ clusters in this overlapping cover that have non-empty intersection. This creates a simplicial complex. We refer to the $$1$$-skeleton of this complex as the Mapper graph.
 
@@ -136,7 +135,7 @@ In this post we explore the relationship between the sample size and the stabili
 
 
 
-## Citations
+## References
 
 * [Topological Methods for the Analysis of High Dimensional Data Sets and 3D Object Recognition](https://research.math.osu.edu/tgda/mapperPBG.pdf)
 * [Fashion-MNIST: a Novel Image Dataset for Benchmarking Machine Learning Algorithms](https://arxiv.org/abs/1708.07747)
