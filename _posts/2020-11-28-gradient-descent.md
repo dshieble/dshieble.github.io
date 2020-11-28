@@ -23,6 +23,8 @@ The gradient of $$f$$ is a vector which points in the direction of maximum incre
 
 $$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
+Under certain assumptions about $$f$$, if $$\alpha$$ is small enough then $$f(x_{t+1})$$ is guaranteed to be less than $$f(x_t)$$ and this procedure is guaranteed to produce a minima of $$f$$.
+
 
 #### Gradient Descent as Euler's Method
 There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation by choosing a starting point $$x_0$$ and iteratively applying the following approximation for a step size $$\alpha$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$:
