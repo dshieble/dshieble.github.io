@@ -23,7 +23,7 @@ The gradient of $$f$$ is a vector which points in the direction of maximum incre
 
 $$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
-Under certain assumptions about $$f$$, if $$\alpha$$ is small enough then $$f(x_{t+1})$$ is guaranteed to be less than $$f(x_t)$$ and this procedure is guaranteed to produce a minima of $$f$$.
+If $$\nabla f$$ if Lipschitz continuous and $$\alpha$$ is small enough then $$f(x_{t+1})$$ is guaranteed to be less than $$f(x_t)$$.
 
 
 #### Gradient Descent as Euler's Method
