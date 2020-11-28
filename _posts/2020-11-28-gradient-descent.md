@@ -35,7 +35,7 @@ Now say $$g(x) = -\nabla f(x)$$. Applying Euler's method to this equation yields
 
 $$x_{t+\alpha} = x_{t} - \alpha * \nabla f(x_t)$$
 
-Which is exactly the update step for gradient descent! Note that this differential equation reaches a steady state ($$\frac{dx}{dt}=0$$) at $$x_s$$ such that $$\nabla f(x_s) = 0$$. By definition, this must be an extrema of $$f$$.
+Which is exactly the update step for gradient descent! Note that this differential equation reaches a steady state at $$x_s$$ such that $$\nabla f(x_s) = 0$$. By definition, this must be an extrema of $$f$$.
 
 
 
