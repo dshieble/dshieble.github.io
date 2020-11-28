@@ -23,9 +23,11 @@ The gradient of $$f$$ is a vector which points in the direction of maximum incre
 
 $$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
-There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation iteratively by choosing a starting point $$x_0$$ and iteratively approximating $$x_{t+\alpha} = x_t + \alpha * \frac{dx}{dt} = x_t + \alpha * g(x_t)$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$. 
+There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation iteratively by choosing a starting point $$x_0$$ and iteratively applying the following approximation for a step size $\alpha$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$
 
-Now consider the differential equation $$\frac{dx}{dt} = -\nabla f(x)$$. Note that applying Euler's method to this equation yields:
+$$x_{t+\alpha} \simeq x_t + \alpha * \frac{dx}{dt} \simeq x_t + \alpha * g(x_t)$$
+
+Now say $$g(x) = -\nabla f(x)$$. Note that applying Euler's method to this equation yields:
 
 $$x_{t+\alpha} = x_{t} - \alpha * \nabla f(x_t)$$
 
