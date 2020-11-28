@@ -23,7 +23,7 @@ The gradient of $$f$$ is a vector which points in the direction of maximum incre
 
 $$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
-There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation iteratively by choosing a starting point $$x_0$$ and iteratively applying the following approximation for a step size $\alpha$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$
+There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation by choosing a starting point $$x_0$$ and iteratively applying the following approximation for a step size $$\alpha$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$
 
 $$x_{t+\alpha} \simeq x_t + \alpha * \frac{dx}{dt} \simeq x_t + \alpha * g(x_t)$$
 
@@ -38,7 +38,6 @@ Which is exactly the update step for gradient descent! Note that this differenti
 ## References
 
 * [Gradient descent and fast artificial time integration](https://www.cs.ubc.ca/~ascher/papers/adhs.pdf)
-* [Hessian Free Optimization](https://andrew.gibiansky.com/blog/machine-learning/hessian-free-optimization/)
 * [Convex Optimization](https://cims.nyu.edu/~cfgranda/pages/OBDA_fall17/notes/convex_optimization.pdf)
 
 
