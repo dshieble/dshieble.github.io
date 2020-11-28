@@ -27,7 +27,7 @@ There is another perspective from which we can derive the gradient descent proce
 
 Now consider the differential equation $$\frac{dx}{dt} = -\nabla f(x)$$. The steady state of this differential equation (when $$\frac{dx}{dt}=0$$) is at $$x_s$$ such that $$\nabla f(x_s) = 0$$, which must be an extrema of $$f$$. Note that applying Euler's method to this equation yields:
 
-$$(x_{t+\alpha} = x_{t} - \alpha * \nabla f(x_t)$$
+$$x_{t+\alpha} = x_{t} - \alpha * \nabla f(x_t)$$
 
 Which is exactly the update step for gradient descent!
 
