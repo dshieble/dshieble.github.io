@@ -19,15 +19,15 @@ Gradient descent is a technique for iteratively minimizing a convex function $$f
 
 $$lim_{p \rightarrow 0} \frac{f(x+p) - f(x) - \nabla f(x)^{T}p}{\|p\|} = 0$$
 
-The gradient of $$f$$ is a vector which points in the direction of maximum increase of $$f$$. As a corollary, the negative gradient $$- \nabla f(x)$$ points in the direction of maximum decrease of $$f$$. Intuitively, the gradient descent procedure minimizes $$f$$ by repeatedly taking steps in this direction of maximum decrease. Formally we pick a starting point $$x_0$$ and a learning rate $$\alpha$$ and iterate the following procedure:
+The gradient of $$f$$ is a vector which points in the direction of maximum increase of $$f$$. As a corollary, the negative gradient $$- \nabla f(x)$$ points in the direction of maximum decrease of $$f$$. Intuitively, the gradient descent procedure minimizes $$f$$ by repeatedly taking steps in this direction of maximum decrease. Formally we pick a starting point $$x_0$$ and a step size $$\alpha$$ and iterate the following procedure:
 
-$$x_{i+1} = x_i - \alpha * \nabla f(x)$$
+$$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
 There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation iteratively by choosing a starting point $$x_0$$ and iteratively approximating $$x_{t+\alpha} = x_t + \alpha * \frac{dx}{dt} = x_t + \alpha * g(x)$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$. 
 
-Now consider the differential equation $$\frac{dx}{dt} = -\nabla f(x)$$. The steady state of this differential equation (when $$\frac{dx}{dt}=0$$) is when $$\nabla f(x) = 0$$, which must be an extrema of $$f$$. Note that applying Euler's method to this equation yields:
+Now consider the differential equation $$\frac{dx}{dt} = -\nabla f(x)$$. The steady state of this differential equation (when $$\frac{dx}{dt}=0$$) is at $$x_s$$ such that $$\nabla f(x_s) = 0$$, which must be an extrema of $$f$$. Note that applying Euler's method to this equation yields:
 
-$$(x_{t+\alpha} = x_{t} - \alpha * \nabla f(x)$$
+$$(x_{t+\alpha} = x_{t} - \alpha * \nabla f(x_t)$$
 
 Which is exactly the update step for gradient descent!
 
