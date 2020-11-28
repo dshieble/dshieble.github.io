@@ -27,7 +27,7 @@ There is another perspective from which we can derive the gradient descent proce
 
 $$x_{t+\alpha} \simeq x_t + \alpha * \frac{dx}{dt} \simeq x_t + \alpha * g(x_t)$$
 
-Now say $$g(x) = -\nabla f(x)$$. Note that applying Euler's method to this equation yields:
+Now say $$g(x) = -\nabla f(x)$$. Applying Euler's method to this equation yields:
 
 $$x_{t+\alpha} = x_{t} - \alpha * \nabla f(x_t)$$
 
