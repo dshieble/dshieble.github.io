@@ -23,7 +23,7 @@ The gradient of $$f$$ is a vector which points in the direction of maximum incre
 
 $$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
-There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation iteratively by choosing a starting point $$x_0$$ and iteratively approximating $$x_{t+\alpha} = x_t + \alpha * \frac{dx}{dt} = x_t + \alpha * g(x)$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$. 
+There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation iteratively by choosing a starting point $$x_0$$ and iteratively approximating $$x_{t+\alpha} = x_t + \alpha * \frac{dx}{dt} = x_t + \alpha * g(x_t)$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$. 
 
 Now consider the differential equation $$\frac{dx}{dt} = -\nabla f(x)$$. The steady state of this differential equation (when $$\frac{dx}{dt}=0$$) is at $$x_s$$ such that $$\nabla f(x_s) = 0$$, which must be an extrema of $$f$$. Note that applying Euler's method to this equation yields:
 
