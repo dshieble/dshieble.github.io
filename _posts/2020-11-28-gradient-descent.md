@@ -14,6 +14,7 @@ tags: [Gradient Descent, Differential Equations, Euler's Method]
 
 </script>
 
+#### Gradient Descent
 Gradient descent is a technique for iteratively minimizing a convex function $$f: \mathbb{R}^n \rightarrow \mathbb{R}$$ by repeatedly taking steps along its gradient. We define the gradient of $$f$$ to be the unique function $$\nabla f$$ that satisfies:
 
 $$lim_{p \rightarrow 0} \frac{f(x+p) - f(x) - \nabla f(x)^{T}p}{\|p\|} = 0$$
@@ -22,6 +23,8 @@ The gradient of $$f$$ is a vector which points in the direction of maximum incre
 
 $$x_{t+1} = x_t - \alpha * \nabla f(x_t)$$
 
+
+#### Gradient Descent as Euler's Method
 There is another perspective from which we can derive the gradient descent procedure. Say we have a differential equation of the form $$\frac{dx}{dt} = g(x)$$. We can use Euler's method to solve this equation by choosing a starting point $$x_0$$ and iteratively applying the following approximation for a step size $$\alpha$$ until we reach a steady state $$x_s$$ such that $$g(x_s) \simeq 0$$:
 
 $$x_{t+\alpha} \simeq x_t + \alpha * \frac{dx}{dt} \simeq x_t + \alpha * g(x_t)$$
