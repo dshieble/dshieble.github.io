@@ -16,6 +16,7 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 ### Invited Industry Talks
 
+
 Machine Learning At Twitter ([Super Data Science, 2020](https://www.superdatascience.com/podcast/machine-learning-at-twitter))
 
 Life after Production, a Tale of Technical Debt ([Banana Data Podcast, 2019](https://www.buzzsprout.com/300035/2082846))
@@ -39,6 +40,8 @@ Machine Intelligence for Driver Safety ([Machine Intelligence Summit New York 20
 
 ### Academic Talks
 
-Incremental Monoidal Categories ([Category Theory Octoberfest 2019](https://ct-octoberfest.github.io/), [NYC Category Theory Seminar](http://www.sci.brooklyn.cuny.edu/~noson/CTseminar.html))
+Functorial Manifold Learning and Overlapping Clustering [NYC Category Theory Seminar December 2020](https://www.youtube.com/watch?v=m9uSslcHjTQ)
+
+Incremental Monoidal Categories ([Category Theory Octoberfest 2019](https://ct-octoberfest.github.io/), [NYC Category Theory Seminar November 2019](http://www.sci.brooklyn.cuny.edu/~noson/CTseminar.html))
 
 
