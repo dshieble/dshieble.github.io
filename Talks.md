@@ -40,7 +40,7 @@ Machine Intelligence for Driver Safety ([Machine Intelligence Summit New York 20
 
 ### Academic Talks
 
-Functorial Manifold Learning and Overlapping Clustering [NYC Category Theory Seminar December 2020](https://www.youtube.com/watch?v=m9uSslcHjTQ)
+Functorial Manifold Learning and Overlapping Clustering ([NYC Category Theory Seminar December 2020](https://www.youtube.com/watch?v=m9uSslcHjTQ))
 
 Incremental Monoidal Categories ([Category Theory Octoberfest 2019](https://ct-octoberfest.github.io/), [NYC Category Theory Seminar November 2019](http://www.sci.brooklyn.cuny.edu/~noson/CTseminar.html))
 
