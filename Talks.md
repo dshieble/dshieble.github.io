@@ -17,6 +17,9 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 ### Invited Industry Talks
 
 
+
+Translating PhD Research into ML Applications([Super Data Science, 2021](www.superdatascience.com/451))
+
 Machine Learning At Twitter ([Super Data Science, 2020](https://www.superdatascience.com/podcast/machine-learning-at-twitter))
 
 Life after Production, a Tale of Technical Debt ([Banana Data Podcast, 2019](https://www.buzzsprout.com/300035/2082846))
