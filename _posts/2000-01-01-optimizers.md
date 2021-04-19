@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Characterizing the invariances of iterative optimizers using category theory
+title: Transformation Invariant Continuous Optimization Algorithms
 tags: [Gradient Descent, Differential Equations, Euler's Method]
 ---
 <script>
@@ -89,7 +89,7 @@ For example, the gradient descent continuous optimization algorithm maps $$l: \m
 
 
 
-## Invariant Continuous Optimization Algorithms
+## Transformation Invariant Continuous Optimization Algorithms
 <!-- **QUESTION: We would like to say that invariance cannot improve the "time to steady state" quantity. What is this quantity? Is there a simple way we can describe this? ** -->
 <!-- Gradient Descent is invariant to orthogonal transformations: http://building-babylon.net/2016/10/05/orthogonal-transformations-and-gradient-updates/ -->
 
