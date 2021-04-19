@@ -41,7 +41,7 @@ TODO: Can we show that normalized gradient or Rprop are invariant: https://www.c
 
 
 
-#### Continuous Optimization Algorithms
+## Continuous Optimization Algorithms
 Suppose we have a function $$l: \mathbb{R}^n \rightarrow \mathbb{R}$$ that we want to minimize. A popular algorithm for accomplishing this is gradient descent, which is an iterative algorithm in which we pick a step size $$\alpha$$ and a starting point $$x_0 \in \mathbb{R}^n$$ and repeatedly iterate $$x_{t+\alpha} = x_{t} - \alpha * \nabla l(x_t)$$. If we take the $$lim_{\alpha \rightarrow 0}$$ of this iteration step, we get the differential equation $$\frac{dx}{dt} = -\nabla l(x)$$, which we will refer to as the **continuous limit** of gradient descent. In my [last post](http://danshiebler.com/2020-11-28-gradient-descent/), I demonstrated that we can derive gradient descent as the Euler's method discretization of this differential equation.
 
 Many other iterative optimization algorithms have continuous limits. For example, the continuous limit of Newton's method, in which we iterate $$x_{t+\alpha} = x_{t} - \alpha (\nabla^2 l (x_t))^{-1}\nabla l(x_t)$$, is $$\frac{dx}{dt} = -(\nabla^2 l (x))^{-1}\nabla l(x)$$.
@@ -89,7 +89,7 @@ For example, the gradient descent continuous optimization algorithm maps $$l: \m
 
 
 
-#### Invariant Continuous Optimization Algorithms
+## Invariant Continuous Optimization Algorithms
 <!-- **QUESTION: We would like to say that invariance cannot improve the "time to steady state" quantity. What is this quantity? Is there a simple way we can describe this? ** -->
 <!-- Gradient Descent is invariant to orthogonal transformations: http://building-babylon.net/2016/10/05/orthogonal-transformations-and-gradient-updates/ -->
 
@@ -97,7 +97,7 @@ For example, the gradient descent continuous optimization algorithm maps $$l: \m
 In some situations, we may be able to improve the efficiency of an optimization algorithm by transforming our data first with an invertible function $$f: \mathbb{R}^m \rightarrow \mathbb{R}^n$$. That is, rather than optimize the function $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$, we may be able to reduce the time to convergence by optimizing $$l \circ f: \mathbb{R}^{m} \rightarrow \mathbb{R}$$. However, for many optimization algorithms there are classes of transformations to which they are invariant: applying any such transformation to the data before running the optimization algorithm cannot change the results. Formally, consider the invertible transformation $$f: \mathbb{R}^{m} \rightarrow \mathbb{R}^n$$ and write $$f_{k+1}$$ for the map $$(f \otimes f \otimes f ...): \mathbb{R}^m \times \mathbb{R}^{km} \rightarrow \mathbb{R}^n \times \mathbb{R}^{kn}$$. We will say that a continuous optimization algorithm $$u$$ is invariant to $$f$$ if $$u(l \circ f_{k+1}) = f_{k+1}^{-1} \circ u(l) \circ f_{k+1}$$. We provide some concrete examples below:
 
 
-##### Newton's Method
+### Newton's Method
 Newton's method is invariant to all linear transformations:
 $$\begin{aligned}
  d_{l \circ f}(x) = \\
@@ -109,7 +109,7 @@ f^{-1}d_l(f(x))
 \end{aligned}$$
 
 
-##### Gradient Descent
+### Gradient Descent
 Gradient descent is invariant to orthogonal linear transformations, but not to linear transformations in general. Consider any function of the form $$f(x) = Ax$$ where $$A$$ is an orthogonal matrix. Then since $$A^{T} = A^{-1}$$ we have that:
 
 $$\begin{aligned}
@@ -120,7 +120,7 @@ d_{l \circ f}(x) =
 f^{-1}d_l(f(x))
 \end{aligned}$$
 
-##### Momentum
+### Momentum
 Momentum is also invariant to orthogonal linear transformations, but not to linear transformations in general:
 
 $$\begin{aligned}
@@ -135,7 +135,7 @@ f^{-1}(d_{l}(f(x), f(y)))_y
 
 
 
-##### Adagrad
+### Adagrad
 Adagrad is not invariant to linear transformations due to the fact that it tracks a nonlinear function of past gradients (sum of squares). However, Adagrad is invariant to permutation maps. If $$f(x) = Px$$ is a permutation map then we have:
 
 $$\begin{aligned}
@@ -155,7 +155,7 @@ f^{-1}(d_{l}(f(x), f(y)))_y
 
 
 
-#### Invariance and Euler's Method
+## Invariance and Euler's Method
 
 
 <!-- **TODO: Can we make this work for a placeholder vector** -->
@@ -170,7 +170,7 @@ A^{-1} x_{n+1}$$
 
 
 
-#### Transformation Invariance is Functoriality
+## Transformation Invariance is Functoriality
 
 If we characterize continuous optimization algorithms as maps between two categories, we can demonstrate that their invariance properties are equivalent to their functoriality.
 
@@ -188,7 +188,7 @@ Given a subcategory of $$Fun$$, a continuous optimization algorithm $$u$$ define
 
 
 
-#### References
+## References
 
 * [Characterizing the invariances of learning algorithms using category theory](https://arxiv.org/pdf/1905.02072.pdf)
 * [Notes on Newton's Method](http://users.ece.utexas.edu/~cmcaram/EE381V_2012F/Lecture_6_Scribe_Notes.final.pdf)
