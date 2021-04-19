@@ -65,15 +65,15 @@ y_{t + \alpha} = y_t + \alpha \nabla l(x_t)^2$$
 where the division in the first equality is performed elementwise. The continuous limit of Adagrad is:
 
 $$dx/dt = -\nabla l(x_t) / \sqrt{y_t} \qquad
-dy/dt = \nabla l(x_t)^2)$$
+dy/dt = \nabla l(x_t)^2$$
 
 
 
 
-More generally, if we assume that the dimensionality of the placeholder vector is a multiple of the parameter vector dimensionality we can represent the continuous limit of an iterative optimization algorithm for the objective function $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$ with a map $$d: \mathbb{R}^{n} \times \mathbb{R}^{kn} \rightarrow \mathbb{R}^{kn} \times \mathbb{R}^{p}$$, which we will refer to as a **continuous optimizer**. Intuitively, the function $$d(x,y) = (dx / dt, dy / dt)$$ describes the instantaneous state of the optimization process at a given parameter vector $$x$$ and optional placeholder vector $$y$$. For example, the Newton's method continuous optimizer is $$d(x) = (\nabla^2 l (x))^{-1}\nabla l(x)$$ and the momentum continuous optimizer is $$d((x,y)) = (y, - y - \nabla l(x))$$.
+More generally, if we assume that the dimensionality of the placeholder vector is a multiple of the parameter vector dimensionality we can represent the continuous limit of an iterative optimization algorithm for the objective function $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$ with a map $$d: \mathbb{R}^{n} \times \mathbb{R}^{kn} \rightarrow \mathbb{R}^{kn} \times \mathbb{R}^{kn}$$, which we will refer to as a **continuous optimizer**. Intuitively, the function $$d(x,y) = (dx / dt, dy / dt)$$ describes the instantaneous state of the optimization process at a given parameter vector $$x$$ and optional placeholder vector $$y$$. For example, the Newton's method continuous optimizer is $$d(x) = (\nabla^2 l (x))^{-1}\nabla l(x)$$ and the momentum continuous optimizer is $$d((x,y)) = (y, - y - \nabla l(x))$$.
 
 A **continuous optimization algorithm** is then a dependently typed function
-$$u: (\mathbb{R}^{n} \rightarrow \mathbb{R}) \rightarrow (\mathbb{R}^{n} \times \mathbb{R}^{kn} \rightarrow \mathbb{R}^n \times \mathbb{R}^{kn})$$
+$$u: [n] \rightarrow (\mathbb{R}^{n} \rightarrow \mathbb{R}) \rightarrow (\mathbb{R}^{n} \times \mathbb{R}^{kn} \rightarrow \mathbb{R}^n \times \mathbb{R}^{kn})$$
 that maps smooth objective functions $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$ to continuous optimizers
 $$d_l: \mathbb{R}^{n} \times \mathbb{R}^{kn} \rightarrow \mathbb{R}^{n} \times \mathbb{R}^{kn}$$.
 For example, the gradient descent continuous optimization algorithm maps $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$ to $$-\nabla l: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$$. Note that given a continuous optimization algorithm $$u$$ and an objective $$l$$, we can recover the corresponding discrete optimization algorithm with Euler's method as $$x_{t + \alpha} = x_0 + \alpha u(l)(x_t)$$
