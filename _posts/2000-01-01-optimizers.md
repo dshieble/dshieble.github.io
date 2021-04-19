@@ -164,8 +164,8 @@ In the case that there is no placeholder vector, $$f(x) = Ax$$ is linear and $$u
 $$y_{n+1} =
 y_n + \alpha u(l \circ f)(y_n) =
 y_n + \alpha A^{-1}(u(l)(Ay_n)) =
-A^{-1}(x_n) + \alpha A^{-1}(u(l)(x_n)) =
-A^{-1}(x_{n+1})$$
+A^{-1} x_n + \alpha A^{-1}(u(l)(x_n)) =
+A^{-1} x_{n+1}$$
 
 
 
