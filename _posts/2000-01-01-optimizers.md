@@ -48,25 +48,20 @@ Many other iterative optimization algorithms have continuous limits. For example
 
 
 Some iterative optimization algorithms use placeholder variables to store historical update values or parameter values. For example, in the momentum algorithm we introduce a placeholder variable $$y$$ and iterate:
-\[
-x_{t + \alpha} = x_t + \alpha y_{t} \qquad
-y_{t + \alpha} = y_t - \alpha y_t - \alpha \nabla l(x_t)))
-\]
+$$x_{t + \alpha} = x_t + \alpha y_{t} \qquad
+y_{t + \alpha} = y_t - \alpha y_t - \alpha \nabla l(x_t)))$$
+
 The continuous limit of momentum is:
-\[
-dx/dt = y \qquad
-dy/dt = - y - \nabla l(x)
-\]
+$$dx/dt = y \qquad
+dy/dt = - y - \nabla l(x)$$
+
 Similarly, in the Adagrad algorithm we introduce a placeholder variable $$y$$ and iterate:
-\[
-x_{t + \alpha} = x_t + \frac{\alpha \nabla l(x_t)}{\sqrt{y_t}} \qquad
-y_{t + \alpha} = y_t + \alpha \nabla l(x_t)^2
-\]
+$$x_{t + \alpha} = x_t + \frac{\alpha \nabla l(x_t)}{\sqrt{y_t}} \qquad
+y_{t + \alpha} = y_t + \alpha \nabla l(x_t)^2$$
+
 where the division in the first equality is performed elementwise. The continuous limit of Adagrad is:
-\[
-dx/dt = -\nabla l(x_t) / \sqrt{y_t} \qquad
-dy/dt = \nabla l(x_t)^2)
-\]
+$$dx/dt = -\nabla l(x_t) / \sqrt{y_t} \qquad
+dy/dt = \nabla l(x_t)^2)$$
 
 
 
@@ -100,44 +95,44 @@ In some situations, we may be able to improve the efficiency of an optimization 
 
 ###### Newton's Method
 Newton's method is invariant to all linear transformations:
-\[\begin{aligned}
+$$\begin{aligned}
  d_{l \circ f}(x) = \\
  -(\nabla^{2} (l \circ f)(x))^{-1} \nabla (l \circ f)(x) =\\
 -A^{-1}(\nabla^{2}l(Ax))^{-1} A^{-T}A^{T}\nabla l(Ax) = \\
 -A^{-1}(\nabla^{2}l(Ax))^{-1}\nabla l(Ax) = \\
 -f^{-1}((\nabla^{2}l(f(x)))^{-1} \nabla l(f(x))) =
 f^{-1}d_l(f(x))
-\end{aligned}\]
+\end{aligned}$$
 
 
 ###### Gradient Descent
 Gradient descent is invariant to orthogonal linear transformations, but not to linear transformations in general. Consider any function of the form $$f(x) = Ax$$ where $$A$$ is an orthogonal matrix. Then since $$A^{T} = A^{-1}$$ we have that:
 
-\[\begin{aligned}
+$$\begin{aligned}
 d_{l \circ f}(x) =
 -\nabla (l \circ f)(x) =
 -A^{T} (\nabla l (Ax)) =
 -A^{-1} (\nabla l (Ax)) =
 f^{-1}d_l(f(x))
-\end{aligned}\]
+\end{aligned}$$
 
  ###### Momentum
 Momentum is also invariant to orthogonal linear transformations, but not to linear transformations in general:
-\[\begin{aligned}
+$$\begin{aligned}
 d_{l \circ f}(x, y)_x = y = A^{T}Ay = f^{-1}(d_{l}(f(x), f(y)))_x
 \\
 d_{l \circ f}(x, y)_y =
 y - \nabla (l \circ f)(x)) =
 - A^{-1}Ay - A^{T} \nabla l(Ax)) =
 f^{-1}(d_{l}(f(x), f(y)))_y
-\end{aligned}\]
+\end{aligned}$$
 
 
 
 
 ###### Adagrad
 Adagrad is not invariant to linear transformations due to the fact that it tracks a nonlinear function of past gradients (sum of squares). However, Adagrad is invariant to permutation maps. If $$f(x) = Px$$ is a permutation map then we have:
-\[\begin{aligned}
+$$\begin{aligned}
 d_{l \circ f}(x, y)_x =
 -\nabla (l\circ f)(x) / \sqrt{y} =
 -P^{-1}\left(\nabla l(Px) / \sqrt{Py}\right) =
@@ -148,7 +143,7 @@ d_{l \circ f}(x, y)_y =
 (P^{T}\nabla l(Px))^2 =
 P^{-1}(\nabla l(Px))^2 =
 f^{-1}(d_{l}(f(x), f(y)))_y
-\end{aligned}\]
+\end{aligned}$$
 
 
 
@@ -160,10 +155,10 @@ f^{-1}(d_{l}(f(x), f(y)))_y
 <!-- **TODO: Can we make this work for a placeholder vector** -->
 In the case that there is no placeholder vector, $$f(x) = Ax$$ is linear and $$u$$ is invariant to $$f$$, then the trajectory of the Euler's method discretization of $$u$$ cannot be made to converge faster or better by first applying $$f$$ to the data. That is, consider starting at some point $$x_0 \in \mathbb{R}^n$$ and repeatedly taking Euler steps $$x_{n+1} = x_n + \alpha u(l)(x_n)$$. Now suppose instead that we start at the point $$y_0 = A^{-1}x_0$$ and take Euler steps $$y_{n+1} = y_n + \alpha u(l \circ f)(y_n)$$. By induction we can see that:
 
-\[y_{n+1} =
+$$y_{n+1} =
 y_n + \alpha u(l \circ f)(y_n) =
 A^{-1}(x_n) + \alpha A^{-1}(u(l)(x_n)) =
-A^{-1}(x_{n+1})\]
+A^{-1}(x_{n+1})$$
 
 
 
@@ -365,7 +360,7 @@ d_{l \circ f}(x, y) = =
  = \\
 - A^{T}Ay - A^{T} \nabla l(Ax)) = \\
 f^{-1}(- f(y) -\nabla l(f(x)))) =
-f^{-1}(- g(y) -\nabla l(f(x)))) = f^{-1}(d_l(x, y)_y)\[\begin{aligned}
+f^{-1}(- g(y) -\nabla l(f(x)))) = f^{-1}(d_l(x, y)_y)$$\begin{aligned}
 d_{l \circ f}(x, y) = \\
 (y, - y - \nabla (l \circ f)(x))=
 (y, - y - \nabla (l \circ f)(x)) =\\
@@ -428,11 +423,11 @@ $$(x_{t + \alpha}, y_{t + \alpha}) =
 ,
 )$$.
 
-\[
+$$
 
 
 dx/dt =
-\] -->
+$$ -->
 <!-- However, since these proofs only hold when $$A^{-1} = A^T$$, it is clear that neither gradient descent nor momentum are invariant to linear transformations in general. In contrast, -->
 <!-- -->
 <!-- Given a continuous optimization algorithm, we can characterize its transformation invariance by adding morphisms to $$Base$$ and determining whether naturality is maintained.  -->
