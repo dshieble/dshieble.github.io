@@ -97,7 +97,7 @@ For example, the gradient descent continuous optimization algorithm maps $$l: \m
 In some situations, we may be able to improve the efficiency of an optimization algorithm by transforming our data first with an invertible function $$f: \mathbb{R}^m \rightarrow \mathbb{R}^n$$. That is, rather than optimize the function $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$, we may be able to reduce the time to convergence by optimizing $$l \circ f: \mathbb{R}^{m} \rightarrow \mathbb{R}$$. However, for many optimization algorithms there are classes of transformations to which they are invariant: applying any such transformation to the data before running the optimization algorithm cannot change the results. Formally, consider the invertible transformation $$f: \mathbb{R}^{m} \rightarrow \mathbb{R}^n$$ and write $$f_{k+1}$$ for the map $$(f \otimes f \otimes f ...): \mathbb{R}^m \times \mathbb{R}^{mk} \rightarrow \mathbb{R}^n \times \mathbb{R}^{kn}$$. We will say that a continuous optimization algorithm $$u$$ is invariant to $$f$$ if $$u(l \circ f_{k+1}) = f_{k+1}^{-1} \circ u(l) \circ f_{k+1}$$. We provide some concrete examples below:
 
 
-###### Newton's Method
+#### Newton's Method
 Newton's method is invariant to all linear transformations:
 $$\begin{aligned}
  d_{l \circ f}(x) = \\
@@ -109,7 +109,7 @@ f^{-1}d_l(f(x))
 \end{aligned}$$
 
 
-###### Gradient Descent
+#### Gradient Descent
 Gradient descent is invariant to orthogonal linear transformations, but not to linear transformations in general. Consider any function of the form $$f(x) = Ax$$ where $$A$$ is an orthogonal matrix. Then since $$A^{T} = A^{-1}$$ we have that:
 
 $$\begin{aligned}
@@ -120,7 +120,7 @@ d_{l \circ f}(x) =
 f^{-1}d_l(f(x))
 \end{aligned}$$
 
-###### Momentum
+#### Momentum
 Momentum is also invariant to orthogonal linear transformations, but not to linear transformations in general:
 
 $$\begin{aligned}
@@ -135,7 +135,7 @@ f^{-1}(d_{l}(f(x), f(y)))_y
 
 
 
-###### Adagrad
+#### Adagrad
 Adagrad is not invariant to linear transformations due to the fact that it tracks a nonlinear function of past gradients (sum of squares). However, Adagrad is invariant to permutation maps. If $$f(x) = Px$$ is a permutation map then we have:
 
 $$\begin{aligned}
@@ -155,7 +155,7 @@ f^{-1}(d_{l}(f(x), f(y)))_y
 
 
 
-##### Invariance and Euler's Method
+### Invariance and Euler's Method
 
 
 <!-- **TODO: Can we make this work for a placeholder vector** -->
