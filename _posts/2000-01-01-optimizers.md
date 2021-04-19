@@ -171,6 +171,22 @@ A^{-1}(x_{n+1})$$
 
 
 
+If we characterize continuous optimization algorithms as maps between two categories, we can demonstrate that their invariance properties are equivalent to their functoriality.
+
+In the category $$Fun$$, objects are smooth objective functions $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$ and the morphisms between $$l: \mathbb{R}^{n} \rightarrow \mathbb{R}$$
+and $$l': \mathbb{R}^{m} \rightarrow \mathbb{R}$$ are functions $$f: \mathbb{R}^{m} \rightarrow \mathbb{R}^{n}$$ such that $$l' = l \circ f$$. In the category $$Opt$$, objects are continuous optimizers and the morphisms from $$d: \mathbb{R}^{n} \times \mathbb{R}^{kn} \rightarrow \mathbb{R}^{n} \times \mathbb{R}^{kn}$$ to $$d': \mathbb{R}^{m} \times \mathbb{R}^{km} \rightarrow \mathbb{R}^{m} \times \mathbb{R}^{km}$$ are functions $$f: \mathbb{R}^{m} \rightarrow \mathbb{R}^{n}$$ such that $$d' = f_{k+1}^{-1} \circ d \circ f_{k+1}$$.
+
+Given a subcategory of $$Fun$$, a continuous optimization algorithm $$u$$ defines a functor from that subcategory to $$Opt$$ if $$u$$ is invariant to any morphism $$f$$ in that subcategory. We will call such a functor a **continuous optimization functor**. That is, we can characterize the invariance of an optimization algorithm in terms of the subcategories of $$Fun$$ over which it is functorial. For example:
+
+- $$Fun_I$$ is the subcategory of $$Fun$$ in which morphisms are limited to identities. Any continuous optimization algorithm is a functor from $$Fun_I$$.
+- $$Fun_P$$ is the subcategory of $$Fun$$ in which morphisms are limited to permutations. The Adagrad continuous optimization algorithm is a functor from $$Fun_P$$.
+- $$Fun_O$$ is the subcategory of $$Fun$$ in which morphisms are limited to orthogonal linear maps. Both the gradient descent and momentum continuous optimization algorithms are functors from $$Fun_O$$.
+- $$Fun_L$$ is the subcategory of $$Fun$$ in which morphisms are limited to invertible linear maps. The Newton's method continuous optimization algorithm is a functor from $$Fun_L$$.
+
+
+
+
+
 #### References
 
 * [Characterizing the invariances of learning algorithms using category theory](https://arxiv.org/pdf/1905.02072.pdf)
