@@ -48,18 +48,22 @@ Many other iterative optimization algorithms have continuous limits. For example
 
 
 Some iterative optimization algorithms use placeholder variables to store historical update values or parameter values. For example, in the momentum algorithm we introduce a placeholder variable $$y$$ and iterate:
+
 $$x_{t + \alpha} = x_t + \alpha y_{t} \qquad
 y_{t + \alpha} = y_t - \alpha y_t - \alpha \nabla l(x_t)))$$
 
 The continuous limit of momentum is:
+
 $$dx/dt = y \qquad
 dy/dt = - y - \nabla l(x)$$
 
 Similarly, in the Adagrad algorithm we introduce a placeholder variable $$y$$ and iterate:
+
 $$x_{t + \alpha} = x_t + \frac{\alpha \nabla l(x_t)}{\sqrt{y_t}} \qquad
 y_{t + \alpha} = y_t + \alpha \nabla l(x_t)^2$$
 
 where the division in the first equality is performed elementwise. The continuous limit of Adagrad is:
+
 $$dx/dt = -\nabla l(x_t) / \sqrt{y_t} \qquad
 dy/dt = \nabla l(x_t)^2)$$
 
@@ -116,8 +120,9 @@ d_{l \circ f}(x) =
 f^{-1}d_l(f(x))
 \end{aligned}$$
 
- ###### Momentum
+###### Momentum
 Momentum is also invariant to orthogonal linear transformations, but not to linear transformations in general:
+
 $$\begin{aligned}
 d_{l \circ f}(x, y)_x = y = A^{T}Ay = f^{-1}(d_{l}(f(x), f(y)))_x
 \\
@@ -132,6 +137,7 @@ f^{-1}(d_{l}(f(x), f(y)))_y
 
 ###### Adagrad
 Adagrad is not invariant to linear transformations due to the fact that it tracks a nonlinear function of past gradients (sum of squares). However, Adagrad is invariant to permutation maps. If $$f(x) = Px$$ is a permutation map then we have:
+
 $$\begin{aligned}
 d_{l \circ f}(x, y)_x =
 -\nabla (l\circ f)(x) / \sqrt{y} =
