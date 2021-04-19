@@ -170,6 +170,7 @@ A^{-1}(x_{n+1})$$
 
 
 
+#### Transformation Invariance is Functoriality
 
 If we characterize continuous optimization algorithms as maps between two categories, we can demonstrate that their invariance properties are equivalent to their functoriality.
 
