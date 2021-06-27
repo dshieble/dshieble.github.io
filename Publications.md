@@ -18,6 +18,12 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 ### Papers
 
 
+[Functorial Manifold Learning](https://arxiv.org/abs/2011.07435). Shiebler, D. Applied Category Theory (2021)
+
+[Category Theory in Machine Learning](https://arxiv.org/abs/2106.07032). Shiebler, D., Gavranović, B., & Wilson, P. Applied Category Theory (2021)
+
+[Flattening Multiparameter Hierarchical Clustering Functors](https://arxiv.org/abs/2104.14734). Shiebler, D. Geometric Science of Information (2021)
+
 [Functorial Clustering via Simplicial Complexes](https://openreview.net/pdf?id=ZkDLcXCP5sV). Shiebler, D. NeurIPS Workshop on Topological Data Analysis (2020)
 
 [Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Applied Category Theory (2020)
