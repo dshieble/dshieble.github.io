@@ -13,10 +13,10 @@ subtitle: The Extra Brief Version
   ga('send', 'pageview');
 
 </script>
-Hi, I'm Dan Shiebler. I'm a Staff Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html) in New York. My work focuses on developing systems and models to improve the performance and efficiency of Machine Learning at Twitter. I Tweet [@dshieble](https://twitter.com/dshieble).
+Hi, I'm Dan Shiebler. I live in NYC and lead the Web Ads Machine Learning team at Twitter. Previously, I worked as a Staff Machine Learning Engineer at [Twitter Cortex](https://cortex.twitter.com/en.html), where I focused on developing systems and models to improve the performance and efficiency of Machine Learning at Twitter. I Tweet [@dshieble](https://twitter.com/dshieble).
+
+Before that, I worked as a Senior Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. I've also spent some time doing Computational Vision research with the [Serre Lab](http://serre-lab.clps.brown.edu/) and Neurosurgery research with the [Asaad Lab](https://www.brown.edu/Research/asaad/). My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) and [github](https://github.com/dshieble) are usually somewhat up-to-date.
 
 I'm also a (remote) PhD student at the University of Oxford. My research focuses on applications of Category Theory to Machine Learning. I am jointly advised by [Jeremy Gibbons](https://www.cs.ox.ac.uk/people/jeremy.gibbons/) and [Cezar Ionescu](https://www.th-deg.de/en/Cezar-Ionescu-Fakult%C3%A4t%20Angewandte%20Informatik-Professoren/-innen-1975).
-
-Previously, I worked as a Data Scientist at [TrueMotion](https://gotruemotion.com/) in Boston. Before that, I studied Computer Science and Neuroscience at Brown University. I've also spent some time doing Computational Vision research with the [Serre Lab](http://serre-lab.clps.brown.edu/) and Neurosurgery research with the [Asaad Lab](https://www.brown.edu/Research/asaad/). My [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) and [github](https://github.com/dshieble) are usually somewhat up-to-date.
 
 In my spare time I like to read fantasy novels and non-fiction, play guitar terribly, ride my bicycle, hike, and travel.
