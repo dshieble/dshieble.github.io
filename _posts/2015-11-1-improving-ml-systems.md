@@ -43,14 +43,6 @@ Modifying software architecture and abstractions to support new products is comm
 
 In some situations it may be possible to build a modified version of the new machine learning system that operates within the constraints of the current software abstractions. For example, perhaps the fancy new model can execute in a batch job rather than in realtime. However, it is usually difficult to estimate how much this kind of modified design will handicap model performance. It is quite common for state-of-the-art machine learning systems that are deployed under such a handicap to underperform compared to a simpler system that has optimized for the abstractions of the software system it is running in.
 
-<!-- 
-ML modelers may choose to develop a modified version of their optimal machine learning solution that fits into the current software abstractions. Depending on the problem, this kind of concession may be large 
-
-However, this leads to an unfair comparison. When we compare this 
- -->
-<!-- If we cannot test the machine learning solution in production without making large infrastructure changes, then we cannot determine whether these changes would be worth the time, effort, and incident risk that they would entail.  -->
-
-
 
 #### Distribution mismatch
 
@@ -101,7 +93,7 @@ We can sometimes minimize the impact of feedback loops by deriving training data
 
 ## Adding new features or improving existing features
 
-Next, we will explore some of the unique challenges of machine learning experiments that are based on new features. 
+Next, we will explore some of the unique challenges of experimenting with new features for feature improvements. 
 
 #### Time travel
 #### Online version vs Offline version
@@ -115,25 +107,52 @@ Next, we will explore some of the unique challenges of machine learning experime
 
 
 ## A/B testing
-  - Small traffic affecting model training
-    - Not learning own mistakes
-  - Hidden shared variables
-  - Multiple comparisons
+
+One of the cornerstones to effective machine learning development is A/B testing. In this section we will discuss some of the most common challenges and pitfalls.
+
+
+#### Small traffic affecting model training
+  - Not learning own mistakes
+#### Hidden shared variables
+#### Multiple comparisons
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ML modelers may choose to develop a modified version of their optimal machine learning solution that fits into the current software abstractions. Depending on the problem, this kind of concession may be large 
+
+However, this leads to an unfair comparison. When we compare this 
+ -->
+<!-- If we cannot test the machine learning solution in production without making large infrastructure changes, then we cannot determine whether these changes would be worth the time, effort, and incident risk that they would entail.  -->
+
+
+
+<!-- 
 
 
 
 ## Unknown long-term tradeoffs
+
+Even after a model is successfully launched to production, it is quite common for its performance to erode over time. In this section we will explore how this happend and wha
+
   - Noise resiliency
   - Change responsiveness
 
 
 
 
-
+ -->
 
 <!-- 
 
