@@ -18,6 +18,11 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 ### Papers
 
 
+
+
+[Generalized Optimization: A First Step Towards Category Theoretic Learning Theory](https://arxiv.org/abs/2109.10262). Shiebler, D. Advances in Intelligent Systems and Computing (2021)
+
+
 [Functorial Manifold Learning](https://arxiv.org/abs/2011.07435). Shiebler, D. Applied Category Theory (2021)
 
 [Category Theory in Machine Learning](https://arxiv.org/abs/2106.07032). Shiebler, D., Gavranović, B., & Wilson, P. Applied Category Theory (2021)
