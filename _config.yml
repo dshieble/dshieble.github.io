@@ -169,7 +169,7 @@ prose:
           help: "Check to publish post, uncheck to hide."
 
 gems:
-  - jekyll-paginate
+  - jekyll-paginate # https://jekyllrb.com/docs/pagination/
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
