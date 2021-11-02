@@ -14,7 +14,7 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -50,10 +50,10 @@
   <meta property="og:title" content="Understanding Neural Networks with Layerwise Relevance Propagation and Deep Taylor Series" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2017-04-16-deep-taylor-lrp/" />
+  <meta property="og:url" content="http://localhost:4000/2017-04-16-deep-taylor-lrp/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -63,9 +63,10 @@
   <meta name="twitter:title" content="Understanding Neural Networks with Layerwise Relevance Propagation and Deep Taylor Series" />
   <meta name="twitter:description" content="Deep neural networks are some of the most powerful learning algorithms that have ever been developed. Unfortunately, they are also some of the most complex. The hierarchical non-linear transformations that neural networks apply to data can be nearly impossible to understand. This problem is exacerbated by the non-determinism of neural..." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -95,7 +96,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -109,7 +110,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -120,7 +163,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -203,7 +246,7 @@
 
 <p><img src="/img/relevance_sum.png" alt="relevance sum equation" /></p>
 
-<p>Where <script type="math/tex">f</script> is the neural network forward pass function. For example, in the case where the input to the network is a natural image, we are decomposing the output of the network into the sum of the relevances of the pixels in the input image. In order to perform this decomposition, we begin with the “relevance” being concentrated at the output node in the graph, and then iteratively “propagate” it backwards through the network.</p>
+<p>Where \(f\) is the neural network forward pass function. For example, in the case where the input to the network is a natural image, we are decomposing the output of the network into the sum of the relevances of the pixels in the input image. In order to perform this decomposition, we begin with the “relevance” being concentrated at the output node in the graph, and then iteratively “propagate” it backwards through the network.</p>
 
 <p><img src="/img/LRP_overview.png" alt="LRP overview" /></p>
 
@@ -211,17 +254,17 @@
 
 <p><img src="/img/relevance_propagation.png" alt="picture with relevance pointing at the final layer, then moving back to the first layer" /></p>
 
-<p>When we perform the propagation procedure, we need to determine how to map the relevance back from some neuron <script type="math/tex">n</script> at layer <script type="math/tex">k</script> to the set of neurons <script type="math/tex">n_i</script> at layer <script type="math/tex">k-1</script> who feed into neuron <script type="math/tex">n</script>. That is, we need to define a vector valued function that takes in the relevance <script type="math/tex">R</script> at neuron <script type="math/tex">n</script>, the activation <script type="math/tex">x</script> of neuron <script type="math/tex">n</script>, the activations <script type="math/tex">x_i</script> of the neurons <script type="math/tex">n_i</script> at layer <script type="math/tex">k-1</script>, and the weight matrix <script type="math/tex">w</script> that connects the neurons <script type="math/tex">n_i</script> to <script type="math/tex">n</script>, and outputs the relevance of each neuron <script type="math/tex">n_i</script>. Ideally this function will assign higher weights to neurons that had a larger role in influencing the value of <script type="math/tex">n</script>. The original LRP paper defines a set of constraints from which we can derive a number of different relevance propagation functions, but in this post I’m going to focus on the deep taylor decomposition.</p>
+<p>When we perform the propagation procedure, we need to determine how to map the relevance back from some neuron \(n\) at layer \(k\) to the set of neurons \(n_i\) at layer \(k-1\) who feed into neuron \(n\). That is, we need to define a vector valued function that takes in the relevance \(R\) at neuron \(n\), the activation \(x\) of neuron \(n\), the activations \(x_i\) of the neurons \(n_i\) at layer \(k-1\), and the weight matrix \(w\) that connects the neurons \(n_i\) to \(n\), and outputs the relevance of each neuron \(n_i\). Ideally this function will assign higher weights to neurons that had a larger role in influencing the value of \(n\). The original LRP paper defines a set of constraints from which we can derive a number of different relevance propagation functions, but in this post I’m going to focus on the deep taylor decomposition.</p>
 
 <h2 id="deep-taylor-decomposition">Deep Taylor Decomposition</h2>
 
-<p>Let’s consider the scalar valued forward propagation function that maps from the layer <script type="math/tex">k-1</script> activations <script type="math/tex">x_i</script> to node <script type="math/tex">n</script>’s activation <script type="math/tex">x</script>. The <script type="math/tex">ith</script> partial derivative of this function measures the strength of the relationship between <script type="math/tex">n_i</script>’s activation <script type="math/tex">x_i</script> and <script type="math/tex">n</script>’s activation <script type="math/tex">x</script>. So if we can decompose this function in terms of its partial derivatives, we can use that decomposition to approximate the relevance propagation function. Luckily, we can do exactly this with a Taylor Series.</p>
+<p>Let’s consider the scalar valued forward propagation function that maps from the layer \(k-1\) activations \(x_i\) to node \(n\)’s activation \(x\). The \(i^{th}\) partial derivative of this function measures the strength of the relationship between \(n_i\)’s activation \(x_i\) and \(n\)’s activation \(x\). So if we can decompose this function in terms of its partial derivatives, we can use that decomposition to approximate the relevance propagation function. Luckily, we can do exactly this with a Taylor Series.</p>
 
-<p>Remember that we can use a Taylor series to approximate the value of a function <script type="math/tex">f</script> near a point <script type="math/tex">x_0</script> with:</p>
+<p>Remember that we can use a Taylor series to approximate the value of a function \(f\) near a point \(x_0\) with:</p>
 
 <p><img src="/img/taylor_decomposition.png" alt="Equation for taylor series" /></p>
 
-<p>The closer that <script type="math/tex">x</script> is to <script type="math/tex">x_0</script>, the better the approximation. One clever thing that we can do is set <script type="math/tex">x_0</script> to be a “root point” of the forward propagation function, that is, a point such that <script type="math/tex">f(x_0) = 0</script>. This simplifies the above Taylor expression to:</p>
+<p>The closer that \(x\) is to \(x_0\), the better the approximation. One clever thing that we can do is set \(x_0\) to be a “root point” of the forward propagation function, that is, a point such that \(f(x_0) = 0\). This simplifies the above Taylor expression to:</p>
 
 <p><img src="/img/taylor_decomposition_at_root.png" alt="Equation for taylor series with root point" /></p>
 
@@ -272,7 +315,7 @@
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2017-04-16-deep-taylor-lrp/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017-04-16-deep-taylor-lrp/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -283,7 +326,7 @@
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2017-04-16-deep-taylor-lrp/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2017-04-16-deep-taylor-lrp/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -363,7 +406,7 @@
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -410,5 +453,13 @@
 
 
   
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
+  </script>
   </body>
 </html>

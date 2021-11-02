@@ -14,7 +14,7 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -50,10 +50,10 @@
   <meta property="og:title" content="R and R^2, the relationship between correlation and the coefficient of determination." />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2017-06-25-metrics/" />
+  <meta property="og:url" content="http://localhost:4000/2017-06-25-metrics/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -61,11 +61,12 @@
   <meta name="twitter:site" content="@" />
   <meta name="twitter:creator" content="@" />
   <meta name="twitter:title" content="R and R^2, the relationship between correlation and the coefficient of determination." />
-  <meta name="twitter:description" content="There are 2 closely related quantities in statistics - correlation (often referred to as ) and the coefficient of determination (often referred to as ). Today we’ll explore the nature of the relationship between and , go over some common use cases for each statistic and address some misconceptions. Correlation..." />
+  <meta name="twitter:description" content="There are 2 closely related quantities in statistics - correlation (often referred to as \(R\)) and the coefficient of determination (often referred to as \(R^2\)). Today we’ll explore the nature of the relationship between \(R\) and \(R^2\), go over some common use cases for each statistic and address some misconceptions...." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -95,7 +96,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -109,7 +110,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -120,7 +163,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -176,84 +219,84 @@
 
 </script>
 
-<p>There are 2 closely related quantities in statistics - correlation (often referred to as <script type="math/tex">R</script>) and the coefficient of determination (often referred to as <script type="math/tex">R^2</script>). Today we’ll explore the nature of the relationship between <script type="math/tex">R</script> and <script type="math/tex">R^2</script>, go over some common use cases for each statistic and address some misconceptions.</p>
+<p>There are 2 closely related quantities in statistics - correlation (often referred to as \(R\)) and the coefficient of determination (often referred to as \(R^2\)). Today we’ll explore the nature of the relationship between \(R\) and \(R^2\), go over some common use cases for each statistic and address some misconceptions.</p>
 
 <h2 id="correlation">Correlation</h2>
 
-<p>The correlation of 2 random variables <script type="math/tex">A</script> and <script type="math/tex">B</script> is the strength of the linear relationship between them. If A and B are positively correlated, then the probability of a large value of <script type="math/tex">B</script> increases when we observe a large value of <script type="math/tex">A</script>, and vice versa. If we are observing samples of <script type="math/tex">A</script> and <script type="math/tex">B</script> over time, then we can say that a positive correlation between <script type="math/tex">A</script> and <script type="math/tex">B</script> means that <script type="math/tex">A</script> and <script type="math/tex">B</script> tend to rise and fall together.</p>
+<p>The correlation of 2 random variables \(A\) and \(B\) is the strength of the linear relationship between them. If A and B are positively correlated, then the probability of a large value of \(B\) increases when we observe a large value of \(A\), and vice versa. If we are observing samples of \(A\) and \(B\) over time, then we can say that a positive correlation between \(A\) and \(B\) means that \(A\) and \(B\) tend to rise and fall together.</p>
 
 <p><img src="/img/correlation.png" alt="Correlation" /></p>
 
 <h3 id="covariance-and-correlation">Covariance and Correlation</h3>
 
-<p>In order to understand correlation, we need to discuss covariance. The variance of a random variable <script type="math/tex">A</script> is <script type="math/tex">var(A) = E[(A - E[A])^2]</script>, where <script type="math/tex">E[A]</script> is the expected value of A. The variance is a measure of the spread or dispersion of a random variable around its expected value. Note that variance is not a scale invariant feature - if we have some random variable measured in miles and we convert it to kilometers, then the variance of the random variable will increase.</p>
+<p>In order to understand correlation, we need to discuss covariance. The variance of a random variable \(A\) is \(var(A) = E[(A - E[A])^2]\), where \(E[A]\) is the expected value of A. The variance is a measure of the spread or dispersion of a random variable around its expected value. Note that variance is not a scale invariant feature - if we have some random variable measured in miles and we convert it to kilometers, then the variance of the random variable will increase.</p>
 
-<p>Covariance is the extension of variance to the 2-variable case - it is a measure of the joint variability of 2 random variables. The covariance of <script type="math/tex">A</script> and <script type="math/tex">B</script> is <script type="math/tex">Cov(A,B) = E[(A - E[A])(B - E[B])]</script>. Note that like variance, covariance is not scale invariant. If the variance of <script type="math/tex">A</script> or <script type="math/tex">B</script> increases, then <script type="math/tex">Cov(A,B)</script> increases as well. Since the covariance is the product of the dispersions of <script type="math/tex">A</script> and <script type="math/tex">B</script> from the mean, <script type="math/tex">Cov(A,B)</script> is largest when <script type="math/tex">A</script> and <script type="math/tex">B</script> move together, and is negative when they move opposite from each other. These are the same properties that correlation exhibits, and this is not a coincidence. The correlation of <script type="math/tex">A</script> and <script type="math/tex">B</script> is the covariance of <script type="math/tex">A</script> and <script type="math/tex">B</script> normalized by their variances. That is, <script type="math/tex">Corr(A,B) = Cov(A,B)/\sqrt{var(A)var(B)}</script>.</p>
+<p>Covariance is the extension of variance to the 2-variable case - it is a measure of the joint variability of 2 random variables. The covariance of \(A\) and \(B\) is \(Cov(A,B) = E[(A - E[A])(B - E[B])]\). Note that like variance, covariance is not scale invariant. If the variance of \(A\) or \(B\) increases, then \(Cov(A,B)\) increases as well. Since the covariance is the product of the dispersions of \(A\) and \(B\) from the mean, \(Cov(A,B)\) is largest when \(A\) and \(B\) move together, and is negative when they move opposite from each other. These are the same properties that correlation exhibits, and this is not a coincidence. The correlation of \(A\) and \(B\) is the covariance of \(A\) and \(B\) normalized by their variances. That is, \(Corr(A,B) = Cov(A,B)/\sqrt{var(A)var(B)}\).</p>
 
 <h3 id="correlation-features-and-bugs">Correlation Features and Bugs</h3>
 
 <p>There are a few important features of correlation that we should talk about:</p>
 
 <ul>
-  <li>The correlation between <script type="math/tex">A</script> and <script type="math/tex">B</script> is only a measure of the strength of the linear relationship between <script type="math/tex">A</script> and <script type="math/tex">B</script>. Two random variables can be perfectly related, to the point where one is a deterministic function of the other, but still have zero correlation if that function is non-linear. In the following graph the X and Y variables are clearly dependent, but because their relationship is strongly non-linear, their correlation is close to zero.</li>
+  <li>The correlation between \(A\) and \(B\) is only a measure of the strength of the linear relationship between \(A\) and \(B\). Two random variables can be perfectly related, to the point where one is a deterministic function of the other, but still have zero correlation if that function is non-linear. In the following graph the X and Y variables are clearly dependent, but because their relationship is strongly non-linear, their correlation is close to zero.</li>
 </ul>
 
 <p><img src="/img/parabola.png" alt="Parabola" /></p>
 
 <ul>
-  <li>There is a simple geometric interpretation of correlation. In the following analysis I will assume that <script type="math/tex">A</script> and <script type="math/tex">B</script> have expected value 0 in order to make the math easier, but the results still hold even if this is not the case. Let’s say we take n samples of <script type="math/tex">A</script> and n samples of <script type="math/tex">B</script>, and then form vectors <script type="math/tex">v_{a}</script> and <script type="math/tex">v_{b}</script> from the samples of <script type="math/tex">A</script> and <script type="math/tex">B</script>. The empirical variance of <script type="math/tex">A</script> is then <script type="math/tex">E[(A - E[A])^2] = E[(A)^2] = v_{a} \cdot v_{a} = \Vert v_{a} \Vert ^2</script>. Similarly, the empirical covariance of <script type="math/tex">A</script> and <script type="math/tex">B</script> is <script type="math/tex">E[(A - E[A])(B - E[B])] = E[(A)(B)] = v_{a} \cdot v_{b}</script>.
-Therefore, since (by the definition of dot product) <script type="math/tex">v_{a} \cdot v_{b} = (\Vert v_{a}\Vert)(\Vert v_{b}\Vert)(cos(v_{a}, v_{b}))</script>, the cosine of the angle between <script type="math/tex">v_{a}</script> and <script type="math/tex">v_{b}</script> is equivalent to the correlation of <script type="math/tex">A</script> and <script type="math/tex">B</script>.</li>
+  <li>There is a simple geometric interpretation of correlation. In the following analysis I will assume that \(A\) and \(B\) have expected value 0 in order to make the math easier, but the results still hold even if this is not the case. Let’s say we take n samples of \(A\) and n samples of \(B\), and then form vectors \(v_{a}\) and \(v_{b}\) from the samples of \(A\) and \(B\). The empirical variance of \(A\) is then \(E[(A - E[A])^2] = E[(A)^2] = v_{a} \cdot v_{a} = \Vert v_{a} \Vert ^2\). Similarly, the empirical covariance of \(A\) and \(B\) is \(E[(A - E[A])(B - E[B])] = E[(A)(B)] = v_{a} \cdot v_{b}\).
+Therefore, since (by the definition of dot product) \(v_{a} \cdot v_{b} = (\Vert v_{a}\Vert)(\Vert v_{b}\Vert)(cos(v_{a}, v_{b}))\), the cosine of the angle between \(v_{a}\) and \(v_{b}\) is equivalent to the correlation of \(A\) and \(B\).</li>
 </ul>
 
 <p><img src="/img/vector_angle.png" alt="Angle Between 2 vectors" /></p>
 
-<p>It’s worthwhile to note that this property is useful for reasoning about the bounds of correlation between a set of vectors. If vector <script type="math/tex">A</script> is correlated with vector <script type="math/tex">B</script> and vector <script type="math/tex">B</script> is correlated with another vector <script type="math/tex">C</script>, there are geometric restrictions to the set of possible correlations between <script type="math/tex">A</script> and <script type="math/tex">C</script>.</p>
+<p>It’s worthwhile to note that this property is useful for reasoning about the bounds of correlation between a set of vectors. If vector \(A\) is correlated with vector \(B\) and vector \(B\) is correlated with another vector \(C\), there are geometric restrictions to the set of possible correlations between \(A\) and \(C\).</p>
 
 <ul>
-  <li>Correlation is invariant to scaling and shift. That is, <script type="math/tex">Corr(A,B) = Corr(cA + x, B)</script>. This property is a double edged sword: correlation can detect a relationship between variables on very different scales, but it can be insensitive to changes in the distributions of variables if those changes only affect scale and shift.</li>
+  <li>Correlation is invariant to scaling and shift. That is, \(Corr(A,B) = Corr(cA + x, B)\). This property is a double edged sword: correlation can detect a relationship between variables on very different scales, but it can be insensitive to changes in the distributions of variables if those changes only affect scale and shift.</li>
 </ul>
 
 <h3 id="using-correlation-as-a-performance-metric">Using Correlation as a Performance Metric</h3>
 
-<p>Lets say you are performing a regression task (regression in general, not just linear regression). You have some response variable <script type="math/tex">y</script>, some predictor variables <script type="math/tex">X</script>, and you’re designing a function <script type="math/tex">f</script> such that <script type="math/tex">f(X)</script> approximates <script type="math/tex">y</script>. You want to check how closely <script type="math/tex">f(X)</script> approximates <script type="math/tex">y</script>. Can you use correlation? There are definitely some benefits to this - correlation is on the easy to reason about scale of -1 to 1, and it generally becomes closer to 1 as <script type="math/tex">f(X)</script> looks more like <script type="math/tex">y</script>. There are also some glaring negatives - the scale of <script type="math/tex">f(X)</script> can be wildly different from that of <script type="math/tex">y</script> and correlation can still be large. Lets look at some more useful metrics for evaluating regression performance.</p>
+<p>Lets say you are performing a regression task (regression in general, not just linear regression). You have some response variable \(y\), some predictor variables \(X\), and you’re designing a function \(f\) such that \(f(X)\) approximates \(y\). You want to check how closely \(f(X)\) approximates \(y\). Can you use correlation? There are definitely some benefits to this - correlation is on the easy to reason about scale of -1 to 1, and it generally becomes closer to 1 as \(f(X)\) looks more like \(y\). There are also some glaring negatives - the scale of \(f(X)\) can be wildly different from that of \(y\) and correlation can still be large. Lets look at some more useful metrics for evaluating regression performance.</p>
 
 <h2 id="mean-square-error">Mean Square Error</h2>
 
-<p>The Mean Square Error (MSE) of our regression is <script type="math/tex">(1/n)\sum{(y - f(X))^2}</script>. Does this look familiar? It should - if we have <script type="math/tex">f(X) = E[y]</script> for all <script type="math/tex">X</script>, then this becomes <script type="math/tex">(1/n)\sum{(y - E[y])^2} = E[(y - E[y])^2] = var(y)</script>. So any function <script type="math/tex">f(X)</script> that does better than just predicting the mean should have lower MSE than the variance of <script type="math/tex">y</script>.</p>
+<p>The Mean Square Error (MSE) of our regression is \((1/n)\sum{(y - f(X))^2}\). Does this look familiar? It should - if we have \(f(X) = E[y]\) for all \(X\), then this becomes \((1/n)\sum{(y - E[y])^2} = E[(y - E[y])^2] = var(y)\). So any function \(f(X)\) that does better than just predicting the mean should have lower MSE than the variance of \(y\).</p>
 
-<p>Lets say that we’re trying to estimate the weight of an object, and <script type="math/tex">y</script> is measured in kg. Then the MSE of our regression will be measured in kg^2, which isn’t all that easy to reason about. For this reason we often also look at the Root Mean Square Error (RMSE), defined as the square root of the MSE. The RMSE of our regression is an estimate of how wrong our regression is on average.</p>
+<p>Lets say that we’re trying to estimate the weight of an object, and \(y\) is measured in kg. Then the MSE of our regression will be measured in kg^2, which isn’t all that easy to reason about. For this reason we often also look at the Root Mean Square Error (RMSE), defined as the square root of the MSE. The RMSE of our regression is an estimate of how wrong our regression is on average.</p>
 
 <h2 id="the-coefficient-of-determination">The Coefficient of Determination</h2>
 
-<p>Like everything in statistics, there are a number of problems with MSE and RMSE. For example, their scales depend on the units of <script type="math/tex">y</script>. This means that we can’t easily compare the performance of models across related tasks. For this reason, it seems that we would benefit from defining a unit-invariant metric that scales the MSE by the variance of <script type="math/tex">y</script>. This metric, <script type="math/tex">1 - MSE/var(y)</script>, is the coefficient of determination, <script type="math/tex">R^2</script>.</p>
+<p>Like everything in statistics, there are a number of problems with MSE and RMSE. For example, their scales depend on the units of \(y\). This means that we can’t easily compare the performance of models across related tasks. For this reason, it seems that we would benefit from defining a unit-invariant metric that scales the MSE by the variance of \(y\). This metric, \(1 - MSE/var(y)\), is the coefficient of determination, \(R^2\).</p>
 
-<p>So lets get a sense of the range of <script type="math/tex">R^2</script>. It’s pretty clear that a model that always predicts the mean of <script type="math/tex">y</script> will have an MSE equal to <script type="math/tex">var(y)</script> and an <script type="math/tex">R^2</script> of 0. A model that is worse than the mean-prediction model (such as a model that always predicts a number other than the mean) will have a negative <script type="math/tex">R^2</script>. A model that predicts <script type="math/tex">y</script> perfectly will have an MSE of 0 and an <script type="math/tex">R^2</script> of 1.</p>
+<p>So lets get a sense of the range of \(R^2\). It’s pretty clear that a model that always predicts the mean of \(y\) will have an MSE equal to \(var(y)\) and an \(R^2\) of 0. A model that is worse than the mean-prediction model (such as a model that always predicts a number other than the mean) will have a negative \(R^2\). A model that predicts \(y\) perfectly will have an MSE of 0 and an \(R^2\) of 1.</p>
 
 <h4 id="rsquared">R…squared?</h4>
 
-<p>So what is the relationship between <script type="math/tex">R</script> and <script type="math/tex">R^2</script>? It’s pretty clear that computing the coefficient of determination is not always as simple as squaring the correlation, since <script type="math/tex">R^2</script> can be less than 0. However, there are certain conditions under which the squared correlation is equivalent to the coefficient of determination.</p>
+<p>So what is the relationship between \(R\) and \(R^2\)? It’s pretty clear that computing the coefficient of determination is not always as simple as squaring the correlation, since \(R^2\) can be less than 0. However, there are certain conditions under which the squared correlation is equivalent to the coefficient of determination.</p>
 
-<p>For example, let’s consider the case where we fit a linear regression to some dataset <script type="math/tex">X, y</script> and compute <script type="math/tex">R</script> and <script type="math/tex">R^2</script> between <script type="math/tex">y</script> and the predicted values <script type="math/tex">f(X)</script> (i.e. the training/in-sample <script type="math/tex">R</script> and <script type="math/tex">R^2</script>). In this case there are a few nice properties. First, if we use an intercept term we can guarantee that <script type="math/tex">\bar{f} = \bar{y}</script> (i.e. the means of the predicted values and the true values are equal). Next, we can decompose the sum of the squared errors of <script type="math/tex">y</script> (<script type="math/tex">SS_{tot}</script>, basically <script type="math/tex">(n)(var(y))</script>) into a component that is “explained” by the regression and a component that is “not explained” by the regression. The “explained” component is the sum of the squared deviances of the regression values from the mean (<script type="math/tex">SS_{reg} = (f_i - \bar{y})^2</script>), and the not explained component is the sum of the squared residual values (<script type="math/tex">SS_{res} = (f_i - y_i)^2</script>). Therefore <script type="math/tex">\sum{(y_i - \bar{y})^2} = \sum{(f_i - \bar{y})^2} + \sum{(f_i - y_i)^2}</script> and <script type="math/tex">SS_{tot} = SS_{res} + SS_{reg}</script>. You can check out the proof of this <a href="https://en.wikipedia.org/wiki/Explained_sum_of_squares#Partitioning_in_the_general_ordinary_least_squares_model">here</a>.</p>
+<p>For example, let’s consider the case where we fit a linear regression to some dataset \(X, y\) and compute \(R\) and \(R^2\) between \(y\) and the predicted values \(f(X)\) (i.e. the training/in-sample \(R\) and \(R^2\)). In this case there are a few nice properties. First, if we use an intercept term we can guarantee that \(\bar{f} = \bar{y}\) (i.e. the means of the predicted values and the true values are equal). Next, we can decompose the sum of the squared errors of \(y\) (\(SS_{tot}\), basically \((n)(var(y))\)) into a component that is “explained” by the regression and a component that is “not explained” by the regression. The “explained” component is the sum of the squared deviances of the regression values from the mean (\(SS_{reg} = (f_i - \bar{y})^2\)), and the not explained component is the sum of the squared residual values (\(SS_{res} = (f_i - y_i)^2\)). Therefore \(\sum{(y_i - \bar{y})^2} = \sum{(f_i - \bar{y})^2} + \sum{(f_i - y_i)^2}\) and \(SS_{tot} = SS_{res} + SS_{reg}\). You can check out the proof of this <a href="https://en.wikipedia.org/wiki/Explained_sum_of_squares#Partitioning_in_the_general_ordinary_least_squares_model">here</a>.</p>
 
-<p>So why is this fact useful? Well <script type="math/tex">R^2 = 1 - MSE/var(y) = 1 - SS_{res}/SS_{tot} = 1 - (SS_{tot} - SS_{reg})/SS_{tot} = 1 - 1 + SS_{reg}/SS_{tot} = SS_{reg}/SS_{tot}</script>. Therefore, under these conditions <script type="math/tex">R^2</script> is equal to the ratio of the variance explained by the regression to the total variance (which is a fact you may have heard out of context).</p>
+<p>So why is this fact useful? Well \(R^2 = 1 - MSE/var(y) = 1 - SS_{res}/SS_{tot} = 1 - (SS_{tot} - SS_{reg})/SS_{tot} = 1 - 1 + SS_{reg}/SS_{tot} = SS_{reg}/SS_{tot}\). Therefore, under these conditions \(R^2\) is equal to the ratio of the variance explained by the regression to the total variance (which is a fact you may have heard out of context).</p>
 
 <p>Now we can prove that the square of the correlation coefficient is equivalent to the ratio of explained variance to the total variance. Let’s start with the definition of correlation:</p>
 
-<p><script type="math/tex">R = cov(y, f)/\sqrt{var(y)var(f)} =</script><br />
-<script type="math/tex">\sum{(y_i - \bar{y})(f_i - \bar{y})}/\sqrt{\sum{(y_i - \bar{y})^2}\sum{(f_i - \bar{y})^2}} =</script><br />
-<script type="math/tex">(\sum{(y_i - f_i)(f_i - \bar{y}) + (f_i - \bar{y})}) / \sqrt{\sum{(y_i - \bar{y})^2}\sum{(f_i - \bar{y})^2}} =</script><br />
-<script type="math/tex">\sum{(f_i - \bar{y})^2} / \sqrt{\sum{y_i - \bar{y})^2}\sum{(f_i - \bar{y})^2}} =</script><br />
-<script type="math/tex">\sqrt{\sum{(f_i - \bar{y})^2} / \sum{(y_i - \bar{y})^2}}</script></p>
+<p>\(R = cov(y, f)/\sqrt{var(y)var(f)} =\)<br />
+\(\sum{(y_i - \bar{y})(f_i - \bar{y})}/\sqrt{\sum{(y_i - \bar{y})^2}\sum{(f_i - \bar{y})^2}} =\)<br />
+\((\sum{(y_i - f_i)(f_i - \bar{y}) + (f_i - \bar{y})}) / \sqrt{\sum{(y_i - \bar{y})^2}\sum{(f_i - \bar{y})^2}} =\)<br />
+\(\sum{(f_i - \bar{y})^2} / \sqrt{\sum{y_i - \bar{y})^2}\sum{(f_i - \bar{y})^2}} =\)<br />
+\(\sqrt{\sum{(f_i - \bar{y})^2} / \sum{(y_i - \bar{y})^2}}\)</p>
 
-<p>Which is exactly the square root of <script type="math/tex">SS_{reg}/SS_{tot}</script>. Note that on the third step we use the fact that the sum of the in sample residuals for a linear regression is zero.</p>
+<p>Which is exactly the square root of \(SS_{reg}/SS_{tot}\). Note that on the third step we use the fact that the sum of the in sample residuals for a linear regression is zero.</p>
 
-<p>Let’s take a step back. We’ve shown that when we are comparing the predictions of a linear regression model to the truth values over the training data, then the square of the correlation is equivalent to the coefficient of determination. What about over the test data? Well, in the case where the features are completely uncorrelated with the response values, the linear regression will end up predicting the mean of the training data. If this is different from the mean of the test data, then the <script type="math/tex">R^2</script> over the test data will be negative.</p>
+<p>Let’s take a step back. We’ve shown that when we are comparing the predictions of a linear regression model to the truth values over the training data, then the square of the correlation is equivalent to the coefficient of determination. What about over the test data? Well, in the case where the features are completely uncorrelated with the response values, the linear regression will end up predicting the mean of the training data. If this is different from the mean of the test data, then the \(R^2\) over the test data will be negative.</p>
 
-<p>In fact, the square of the correlation coefficient is generally equal to the coefficient of determination whenever there is no scaling or shifting of <script type="math/tex">f</script> that can improve the fit of <script type="math/tex">f</script> to the data. For this reason the differential between the square of the correlation coefficient and the coefficient of determination is a representation of how poorly scaled or improperly shifted the predictions <script type="math/tex">f</script> are with respect to <script type="math/tex">y</script>.</p>
+<p>In fact, the square of the correlation coefficient is generally equal to the coefficient of determination whenever there is no scaling or shifting of \(f\) that can improve the fit of \(f\) to the data. For this reason the differential between the square of the correlation coefficient and the coefficient of determination is a representation of how poorly scaled or improperly shifted the predictions \(f\) are with respect to \(y\).</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>Both <script type="math/tex">R</script>, MSE/RMSE and <script type="math/tex">R^2</script> are useful metrics in a variety of situations. Generally, <script type="math/tex">R</script> is useful for picking up on the linear relationship between variables, MSE/RMSE are useful for quantifying regression performance and <script type="math/tex">R^2</script> is a convenient rescaling of MSE that is unit invariant. And remember, when somebody quotes an <script type="math/tex">R^2</script> number for you, make sure to ask whether it’s <script type="math/tex">R^2</script> or the square of <script type="math/tex">R</script>.</p>
+<p>Both \(R\), MSE/RMSE and \(R^2\) are useful metrics in a variety of situations. Generally, \(R\) is useful for picking up on the linear relationship between variables, MSE/RMSE are useful for quantifying regression performance and \(R^2\) is a convenient rescaling of MSE that is unit invariant. And remember, when somebody quotes an \(R^2\) number for you, make sure to ask whether it’s \(R^2\) or the square of \(R\).</p>
 
 <!-- 
 
@@ -268,9 +311,9 @@ $$R^2$$ under the conditions of
 
 
 What is the coefficient of determination?
-	- interpretation in a regression setting
-	- relationship to MSE (and reasons to use instead of MSE)
-	- ability to be negative
+  - interpretation in a regression setting
+  - relationship to MSE (and reasons to use instead of MSE)
+  - ability to be negative
 
 When are these 2 things equal? Under what reasonable situations would they not be equal?
 
@@ -285,9 +328,9 @@ Loss functions
 - why isn't accuracy a good loss function?
 
 - criteria on selecting a loss function
-	- differentiability
-	- target performance
-	- assumptions on distribution of output data
+  - differentiability
+  - target performance
+  - assumptions on distribution of output data
 
 - mse (rmse is in the same units as the input variable)
 - cross entropy/logistic loss
@@ -300,7 +343,7 @@ Metrics
 - accuracy -> why it suchs
 - precision versus recall versus roc auc
 - r^2 and other regression metrics?
-	- difference between r^2 and r...squared
+  - difference between r^2 and r...squared
 
 
 
@@ -344,7 +387,7 @@ Metrics
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2017-06-25-metrics/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017-06-25-metrics/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -355,7 +398,7 @@ Metrics
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2017-06-25-metrics/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2017-06-25-metrics/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -372,6 +415,10 @@ Metrics
           <a href="/2017-04-16-deep-taylor-lrp/" data-toggle="tooltip" data-placement="top" title="Understanding Neural Networks with Layerwise Relevance Propagation and Deep Taylor Series">&larr; Previous Post</a>
         </li>
         
+        
+        <li class="next">
+          <a href="/2017-10-29-lying-with-data/" data-toggle="tooltip" data-placement="top" title="Don't trust data too much">Next Post &rarr;</a>
+        </li>
         
       </ul>
 
@@ -431,7 +478,7 @@ Metrics
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -478,5 +525,13 @@ Metrics
 
 
   
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
+  </script>
   </body>
 </html>

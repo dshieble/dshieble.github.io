@@ -14,7 +14,7 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -50,10 +50,10 @@
   <meta property="og:title" content="Computation Theory Part 1 - The Halting Problem" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2016-10-15-halting-problem/" />
+  <meta property="og:url" content="http://localhost:4000/2016-10-15-halting-problem/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -63,9 +63,10 @@
   <meta name="twitter:title" content="Computation Theory Part 1 - The Halting Problem" />
   <meta name="twitter:description" content="When you think about the most important fields of mathematics for a data scientist to know, you’ll almost certainly name calculus, probability/statistics, and linear algebra. These fields form the underpinnings of the most popular data analysis, signal processing and machine learning techniques. But in my experience, I’ve found that there..." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -95,7 +96,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -109,7 +110,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -120,7 +163,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -184,7 +227,7 @@
 
 <h3 id="decidability">Decidability</h3>
 
-<p><a href="https://en.wikipedia.org/wiki/Decidability_(logic)">Decidability</a> is a fancy word, but it expresses a pretty simple idea: if a problem is decidable, then we can write a computer program to solve it. More precisely, say that we have a decision problem <script type="math/tex">D</script> (a yes/no question on some set of inputs). If <script type="math/tex">D</script> is a decidable problem, there exists some algorithm <script type="math/tex">A</script> such that <script type="math/tex">A(x)</script> always produces the answer to <script type="math/tex">D</script> for input <script type="math/tex">x</script>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Decidability_(logic)">Decidability</a> is a fancy word, but it expresses a pretty simple idea: if a problem is decidable, then we can write a computer program to solve it. More precisely, say that we have a decision problem \(D\) (a yes/no question on some set of inputs). If \(D\) is a decidable problem, there exists some algorithm \(A\) such that \(A(x)\) always produces the answer to \(D\) for input \(x\).</p>
 
 <p>This may seem like a pretty “out there” concept. After all, you’ve probably never been writing code and run into an undecidable problem. But as it turns out, some of the most important problems in computer science are undecidable.</p>
 
@@ -202,7 +245,7 @@
 
 <p>Let’s say that the halting problem is decidable. Then we can write this program:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">does_halt</span><span class="p">(</span><span class="n">computer_program</span><span class="p">,</span> <span class="n">input_to_program</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">does_halt</span><span class="p">(</span><span class="n">computer_program</span><span class="p">,</span> <span class="n">input_to_program</span><span class="p">):</span>
     <span class="s">"""
     Args:
         computer_program (function): Any function
@@ -211,41 +254,39 @@
         True if computer_program(input_to_program) terminates and False
         if computer_program(input_to_program) runs forever. 
     """</span>
-    <span class="c">#code code code</span>
-</code></pre>
-</div>
+    <span class="c1">#code code code
+</span></code></pre></div></div>
 
-<p>Let’s say mischievous friend sees our <code class="highlighter-rouge">does_halt</code> program, and he decides to write a program to trick it.</p>
+<p>Let’s say mischievous friend sees our <code class="language-plaintext highlighter-rouge">does_halt</code> program, and he decides to write a program to trick it.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">friend_program</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">friend_program</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="s">"""
     Args:
         f (function): Any function
     """</span>
-    <span class="c">#Run the Halt program to see if f(f) will halt</span>
-    <span class="k">if</span> <span class="n">does_halt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>  <span class="c">#If f(f) will halt, then loop forever</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1">#Run the Halt program to see if f(f) will halt
+</span>    <span class="k">if</span> <span class="n">does_halt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>  <span class="c1">#If f(f) will halt, then loop forever
+</span>        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
             <span class="k">pass</span>
-    <span class="k">else</span><span class="p">:</span> <span class="c">#If f(f) won't halt, then halt</span>
-        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#If f(f) won't halt, then halt
+</span>        <span class="k">return</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Notice that <code class="highlighter-rouge">friend_program</code> is completely written out. If the <code class="highlighter-rouge">does_halt</code> program works, then <code class="highlighter-rouge">friend_program</code> will work.</p>
+<p>Notice that <code class="language-plaintext highlighter-rouge">friend_program</code> is completely written out. If the <code class="language-plaintext highlighter-rouge">does_halt</code> program works, then <code class="language-plaintext highlighter-rouge">friend_program</code> will work.</p>
 
-<p>Now what happens when we run <code class="highlighter-rouge">friend_program(friend_program)</code>? There are two cases:</p>
+<p>Now what happens when we run <code class="language-plaintext highlighter-rouge">friend_program(friend_program)</code>? There are two cases:</p>
 
 <ol>
   <li>
-    <p><code class="highlighter-rouge">friend_program(friend_program)</code> will halt. Then <code class="highlighter-rouge">does_halt(friend_program, friend_program)</code> will return <code class="highlighter-rouge">True</code>. However, because of line 7 in <code class="highlighter-rouge">friend_program</code>, then <code class="highlighter-rouge">friend_program(friend_program)</code> will run forever. So this is a contradiction.</p>
+    <p><code class="language-plaintext highlighter-rouge">friend_program(friend_program)</code> will halt. Then <code class="language-plaintext highlighter-rouge">does_halt(friend_program, friend_program)</code> will return <code class="language-plaintext highlighter-rouge">True</code>. However, because of line 7 in <code class="language-plaintext highlighter-rouge">friend_program</code>, then <code class="language-plaintext highlighter-rouge">friend_program(friend_program)</code> will run forever. So this is a contradiction.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">friend_program(friend_program)</code> will run forever. Then <code class="highlighter-rouge">does_halt(friend_program, friend_program)</code> will return <code class="highlighter-rouge">False</code>. However, because of line 10 in <code class="highlighter-rouge">friend_program</code>, then <code class="highlighter-rouge">friend_program(friend_program)</code> will terminate. So this is a contradiction.</p>
+    <p><code class="language-plaintext highlighter-rouge">friend_program(friend_program)</code> will run forever. Then <code class="language-plaintext highlighter-rouge">does_halt(friend_program, friend_program)</code> will return <code class="language-plaintext highlighter-rouge">False</code>. However, because of line 10 in <code class="language-plaintext highlighter-rouge">friend_program</code>, then <code class="language-plaintext highlighter-rouge">friend_program(friend_program)</code> will terminate. So this is a contradiction.</p>
   </li>
 </ol>
 
-<p>Because we reach a contradiction no matter how we assume <code class="highlighter-rouge">friend_program(friend_program)</code> will behave, <code class="highlighter-rouge">does_halt</code> cannot exist and the halting problem is undecidable.</p>
+<p>Because we reach a contradiction no matter how we assume <code class="language-plaintext highlighter-rouge">friend_program(friend_program)</code> will behave, <code class="language-plaintext highlighter-rouge">does_halt</code> cannot exist and the halting problem is undecidable.</p>
 
 <h3 id="why-does-the-halting-problem-matter">Why does the halting problem matter?</h3>
 
@@ -285,7 +326,7 @@
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2016-10-15-halting-problem/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016-10-15-halting-problem/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -296,7 +337,7 @@
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2016-10-15-halting-problem/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016-10-15-halting-problem/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -376,7 +417,7 @@
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -423,5 +464,13 @@
 
 
   
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
+  </script>
   </body>
 </html>

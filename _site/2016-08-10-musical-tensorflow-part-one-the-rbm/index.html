@@ -14,7 +14,7 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -50,10 +50,10 @@
   <meta property="og:title" content="Musical TensorFlow, Part 1 - How to build an RBM in TensorFlow for making music" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2016-08-10-musical-tensorflow-part-one-the-rbm/" />
+  <meta property="og:url" content="http://localhost:4000/2016-08-10-musical-tensorflow-part-one-the-rbm/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -63,9 +63,10 @@
   <meta name="twitter:title" content="Musical TensorFlow, Part 1 - How to build an RBM in TensorFlow for making music" />
   <meta name="twitter:description" content="Generative models are awesome. TensorFlow is awesome. Music is awesome. In this post, we’re going to use TensorFlow to build a generative model that can create snippets of music. I’m going to assume that you have a pretty good understanding of neural networks and backpropagation and are at least a..." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -95,7 +96,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -109,7 +110,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -120,7 +163,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -184,7 +227,7 @@
 
 <h3 id="generative-models">Generative Models</h3>
 
-<p>Generative Models specify a probability distribution over a dataset of input vectors. For an unsupervised task, we form a model for <script type="math/tex">P(x)</script>, where <script type="math/tex">x</script> is an input vector. For a supervised task, we form a model for <script type="math/tex">P(x \vert y)</script>, where <script type="math/tex">y</script> is the label for <script type="math/tex">x</script>. Like discriminative models, most generative models can be used for classification tasks. To perform classification with a generative model, we leverage the fact that if we know <script type="math/tex">P(X \vert Y)</script> and <script type="math/tex">P(Y)</script>, we can use bayes rule to estimate <script type="math/tex">P(Y \vert X)</script>.</p>
+<p>Generative Models specify a probability distribution over a dataset of input vectors. For an unsupervised task, we form a model for \(P(x)\), where \(x\) is an input vector. For a supervised task, we form a model for \(P(x \vert y)\), where \(y\) is the label for \(x\). Like discriminative models, most generative models can be used for classification tasks. To perform classification with a generative model, we leverage the fact that if we know \(P(X \vert Y)\) and \(P(Y)\), we can use bayes rule to estimate \(P(Y \vert X)\).</p>
 
 <p>Some good resources for learning about generative models include:</p>
 
@@ -221,24 +264,24 @@
 <p>The RBM is a neural network with 2 layers, the visible layer and the hidden layer. Each visible node is connected to each hidden node (and vice versa), but there are no visible-visible or hidden-hidden connections (the RBM is a complete bipartite graph). Since there are only 2 layers, we can fully describe a trained RBM with 3 parameters:</p>
 
 <ul>
-  <li>The weight matrix <script type="math/tex">W</script>:
+  <li>The weight matrix \(W\):
     <ul>
-      <li><script type="math/tex">W</script> has size <script type="math/tex">n_{visible}\ x\ n_{hidden}</script>. <script type="math/tex">W_{ij}</script> is the weight of the connection between visible node <script type="math/tex">i</script> and hidden node <script type="math/tex">j</script>.</li>
+      <li>\(W\) has size \(n_{visible}\ x\ n_{hidden}\). \(W_{ij}\) is the weight of the connection between visible node \(i\) and hidden node \(j\).</li>
     </ul>
   </li>
-  <li>The bias vector <script type="math/tex">bv</script>:
+  <li>The bias vector \(bv\):
     <ul>
-      <li><script type="math/tex">bv</script> is a vector with <script type="math/tex">n_{visible}</script> elements. Element <script type="math/tex">i</script> is the bias for the <script type="math/tex">i^{th}</script> visible node.</li>
+      <li>\(bv\) is a vector with \(n_{visible}\) elements. Element \(i\) is the bias for the \(i^{th}\) visible node.</li>
     </ul>
   </li>
   <li>The bias vector bh:
     <ul>
-      <li><script type="math/tex">bh</script> is a vector with n_hidden elements. Element <script type="math/tex">j</script> is the bias for the <script type="math/tex">j^{th}</script> hidden node.</li>
+      <li>\(bh\) is a vector with n_hidden elements. Element \(j\) is the bias for the \(j^{th}\) hidden node.</li>
     </ul>
   </li>
 </ul>
 
-<p><script type="math/tex">n_{visible}</script> is the number of features in the input vectors. <script type="math/tex">n_{hidden}</script> is the size of the hidden layer.</p>
+<p>\(n_{visible}\) is the number of features in the input vectors. \(n_{hidden}\) is the size of the hidden layer.</p>
 
 <p><img src="/img/RBM.png" alt="In reality RBM is fully connected" /></p>
 
@@ -252,16 +295,16 @@
     <p>Initialize the visible nodes. You can initialize them randomly, or you can set them equal to an input example.</p>
   </li>
   <li>
-    <p>Repeat the following process for <script type="math/tex">k</script> steps, or until convergence:</p>
+    <p>Repeat the following process for \(k\) steps, or until convergence:</p>
     <ol>
       <li>Propagate the values of the visible nodes forward, and then sample the new values of the hidden nodes.
         <ul>
-          <li>That is, randomly set the values of each <script type="math/tex">h_i</script> to be <script type="math/tex">1</script> with probability <script type="math/tex">\sigma (W^{T}v + bh)_i</script>.</li>
+          <li>That is, randomly set the values of each \(h_i\) to be \(1\) with probability \(\sigma (W^{T}v + bh)_i\).</li>
         </ul>
       </li>
       <li>Propagate the values of the hidden nodes back to the visible nodes, and sample the new values of the visible nodes.
         <ul>
-          <li>That is, randomly set the values of each <script type="math/tex">v_i</script> to be 1 with probability <script type="math/tex">\sigma (Wh + bv)_i</script>.</li>
+          <li>That is, randomly set the values of each \(v_i\) to be 1 with probability \(\sigma (Wh + bv)_i\).</li>
         </ul>
       </li>
     </ol>
@@ -276,23 +319,23 @@
 <p>To do that, we use a very simple strategy:</p>
 
 <ul>
-  <li>Initialize the visible nodes with some vector <script type="math/tex">x</script> from our dataset</li>
-  <li>Sample <script type="math/tex">\tilde{x}</script> from the probability distribution by using Gibbs sampling</li>
-  <li>Look at the difference between the <script type="math/tex">\tilde{x}</script> and <script type="math/tex">x</script></li>
+  <li>Initialize the visible nodes with some vector \(x\) from our dataset</li>
+  <li>Sample \(\tilde{x}\) from the probability distribution by using Gibbs sampling</li>
+  <li>Look at the difference between the \(\tilde{x}\) and \(x\)</li>
   <li>Move the weight matrix and bias vectors in a direction that minimizes this difference</li>
 </ul>
 
 <p>The equations are straightforward:</p>
 
-<script type="math/tex; mode=display">W  = W + lr(x^{T}h(x) - \tilde{x}^{T}h(\tilde{x}))\\
+\[W  = W + lr(x^{T}h(x) - \tilde{x}^{T}h(\tilde{x}))\\
 bh = bh + lr(h(x) - h(\tilde{x}))\\
-bv = bv + lr(x - \tilde{x})</script>
+bv = bv + lr(x - \tilde{x})\]
 
 <ul>
-  <li><script type="math/tex">x_t</script> is the inital vector</li>
-  <li><script type="math/tex">\tilde{x}</script> is the sample of x drawn from the probability distribution</li>
-  <li><script type="math/tex">lr</script> is the learning rate</li>
-  <li><script type="math/tex">h</script> is the function that takes in the values of the visible nodes and returns a sample of the hidden nodes (see step 1 of the Gibbs sampling algorithm above)</li>
+  <li>\(x_t\) is the inital vector</li>
+  <li>\(\tilde{x}\) is the sample of x drawn from the probability distribution</li>
+  <li>\(lr\) is the learning rate</li>
+  <li>\(h\) is the function that takes in the values of the visible nodes and returns a sample of the hidden nodes (see step 1 of the Gibbs sampling algorithm above)</li>
 </ul>
 
 <p>This technique is known as Contrastive Divergence. If you want to learn more about CD, you can check out <a href="http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf">this excellent derivation</a>.</p>
@@ -312,8 +355,7 @@ bv = bv + lr(x - \tilde{x})</script>
 
 <p><img src="/img/Matrix.png" alt="The left half encodes note on events, and the right half encodes note off events" /></p>
 
-<p>The first n columns (where n is the number of notes that we want to represent) encode note-on events. The next n columns represent note-off events. So if element <script type="math/tex">M_{ij}</script> is 1 (where <script type="math/tex">% <![CDATA[
-j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <script type="math/tex">j</script> is played. If element <script type="math/tex">M_{i (n+j)}</script> is 1, then at timestep <script type="math/tex">i</script>, note <script type="math/tex">j</script> is released.</p>
+<p>The first n columns (where n is the number of notes that we want to represent) encode note-on events. The next n columns represent note-off events. So if element \(M_{ij}\) is 1 (where \(j&lt; n\)), then at timestep \(i\), note \(j\) is played. If element \(M_{i (n+j)}\) is 1, then at timestep \(i\), note \(j\) is released.</p>
 
 <p>In the above encoding, each timestep is a single training example. If we reshape the matrix to concatenate multiple rows together, then we can represent multiple timesteps in a single data vector.</p>
 
@@ -335,154 +377,153 @@ j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <
 
 <p>For your convenience, all of the code is in <a href="https://github.com/dshieble/Music_RBM">this repository</a>. Just follow the instructions in the README.md.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 <span class="kn">import</span> <span class="nn">msgpack</span>
 <span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="n">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.python.ops</span> <span class="kn">import</span> <span class="n">control_flow_ops</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="c">###################################################</span>
-<span class="c"># In order for this code to work, you need to place this file in the same </span>
-<span class="c"># directory as the midi_manipulation.py file and the Pop_Music_Midi directory</span>
-
+<span class="c1">###################################################
+# In order for this code to work, you need to place this file in the same 
+# directory as the midi_manipulation.py file and the Pop_Music_Midi directory
+</span>
 <span class="kn">import</span> <span class="nn">midi_manipulation</span>
 
 <span class="k">def</span> <span class="nf">get_songs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'{}/*.mid*'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">.</span><span class="n">glob</span><span class="p">(</span><span class="s">'{}/*.mid*'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
     <span class="n">songs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">midi_manipulation</span><span class="o">.</span><span class="n">midiToNoteStateMatrix</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">song</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
-                <span class="n">songs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">song</span><span class="p">)</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">midi_manipulation</span><span class="p">.</span><span class="n">midiToNoteStateMatrix</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">song</span><span class="p">).</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="n">songs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">song</span><span class="p">)</span>
         <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">e</span>           
     <span class="k">return</span> <span class="n">songs</span>
 
-<span class="n">songs</span> <span class="o">=</span> <span class="n">get_songs</span><span class="p">(</span><span class="s">'Pop_Music_Midi'</span><span class="p">)</span> <span class="c">#These songs have already been converted from midi to msgpack</span>
-<span class="k">print</span> <span class="s">"{} songs processed"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">songs</span><span class="p">))</span>
-<span class="c">###################################################</span>
+<span class="n">songs</span> <span class="o">=</span> <span class="n">get_songs</span><span class="p">(</span><span class="s">'Pop_Music_Midi'</span><span class="p">)</span> <span class="c1">#These songs have already been converted from midi to msgpack
+</span><span class="k">print</span> <span class="s">"{} songs processed"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">songs</span><span class="p">))</span>
+<span class="c1">###################################################
+</span>
+<span class="c1">### HyperParameters
+# First, let's take a look at the hyperparameters of our model:
+</span>
+<span class="n">lowest_note</span> <span class="o">=</span> <span class="mi">24</span> <span class="c1">#the index of the lowest note on the piano roll
+</span><span class="n">highest_note</span> <span class="o">=</span> <span class="mi">102</span> <span class="c1">#the index of the highest note on the piano roll
+</span><span class="n">note_range</span> <span class="o">=</span> <span class="n">highest_note</span><span class="o">-</span><span class="n">lowest_note</span> <span class="c1">#the note range
+</span>
+<span class="n">num_timesteps</span>  <span class="o">=</span> <span class="mi">15</span> <span class="c1">#This is the number of timesteps that we will create at a time
+</span><span class="n">n_visible</span>      <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">note_range</span><span class="o">*</span><span class="n">num_timesteps</span> <span class="c1">#This is the size of the visible layer. 
+</span><span class="n">n_hidden</span>       <span class="o">=</span> <span class="mi">50</span> <span class="c1">#This is the size of the hidden layer
+</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#The number of training epochs that we are going to run. For each epoch we go through the entire data set.
+</span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#The number of training examples that we are going to send through the RBM at a time. 
+</span><span class="n">lr</span>         <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">)</span> <span class="c1">#The learning rate of our model
+</span>
+<span class="c1">### Variables:
+# Next, let's look at the variables we're going to use:
+</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">"x"</span><span class="p">)</span> <span class="c1">#The placeholder variable that holds our data
+</span><span class="n">W</span>  <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_visible</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s">"W"</span><span class="p">)</span> <span class="c1">#The weight matrix that stores the edge weights
+</span><span class="n">bh</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">],</span>  <span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"bh"</span><span class="p">))</span> <span class="c1">#The bias vector for the hidden layer
+</span><span class="n">bv</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">],</span>  <span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"bv"</span><span class="p">))</span> <span class="c1">#The bias vector for the visible layer
+</span>
 
-<span class="c">### HyperParameters</span>
-<span class="c"># First, let's take a look at the hyperparameters of our model:</span>
+<span class="c1">#### Helper functions. 
+</span>
+<span class="c1">#This function lets us easily sample from a vector of probabilities
+</span><span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="n">probs</span><span class="p">):</span>
+    <span class="c1">#Takes in a vector of probabilities, and returns a random vector of 0s and 1s sampled from the input vector
+</span>    <span class="k">return</span> <span class="n">tf</span><span class="p">.</span><span class="n">floor</span><span class="p">(</span><span class="n">probs</span> <span class="o">+</span> <span class="n">tf</span><span class="p">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">shape</span><span class="p">(</span><span class="n">probs</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
-<span class="n">lowest_note</span> <span class="o">=</span> <span class="mi">24</span> <span class="c">#the index of the lowest note on the piano roll</span>
-<span class="n">highest_note</span> <span class="o">=</span> <span class="mi">102</span> <span class="c">#the index of the highest note on the piano roll</span>
-<span class="n">note_range</span> <span class="o">=</span> <span class="n">highest_note</span><span class="o">-</span><span class="n">lowest_note</span> <span class="c">#the note range</span>
+<span class="c1">#This function runs the gibbs chain. We will call this function in two places:
+#    - When we define the training update step
+#    - When we sample our music segments from the trained RBM
+</span><span class="k">def</span> <span class="nf">gibbs_sample</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="c1">#Runs a k-step gibbs chain to sample from the probability distribution of the RBM defined by W, bh, bv
+</span>    <span class="k">def</span> <span class="nf">gibbs_step</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">xk</span><span class="p">):</span>
+        <span class="c1">#Runs a single gibbs step. The visible values are initialized to xk
+</span>        <span class="n">hk</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">xk</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> <span class="c1">#Propagate the visible values to sample the hidden values
+</span>        <span class="n">xk</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hk</span><span class="p">,</span> <span class="n">tf</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">W</span><span class="p">))</span> <span class="o">+</span> <span class="n">bv</span><span class="p">))</span> <span class="c1">#Propagate the hidden values to sample the visible values
+</span>        <span class="k">return</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">xk</span>
 
-<span class="n">num_timesteps</span>  <span class="o">=</span> <span class="mi">15</span> <span class="c">#This is the number of timesteps that we will create at a time</span>
-<span class="n">n_visible</span>      <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">note_range</span><span class="o">*</span><span class="n">num_timesteps</span> <span class="c">#This is the size of the visible layer. </span>
-<span class="n">n_hidden</span>       <span class="o">=</span> <span class="mi">50</span> <span class="c">#This is the size of the hidden layer</span>
-
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">200</span> <span class="c">#The number of training epochs that we are going to run. For each epoch we go through the entire data set.</span>
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span> <span class="c">#The number of training examples that we are going to send through the RBM at a time. </span>
-<span class="n">lr</span>         <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="c">#The learning rate of our model</span>
-
-<span class="c">### Variables:</span>
-<span class="c"># Next, let's look at the variables we're going to use:</span>
-
-<span class="n">x</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s">"x"</span><span class="p">)</span> <span class="c">#The placeholder variable that holds our data</span>
-<span class="n">W</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">random_normal</span><span class="p">([</span><span class="n">n_visible</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">],</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s">"W"</span><span class="p">)</span> <span class="c">#The weight matrix that stores the edge weights</span>
-<span class="n">bh</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">],</span>  <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"bh"</span><span class="p">))</span> <span class="c">#The bias vector for the hidden layer</span>
-<span class="n">bv</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">],</span>  <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"bv"</span><span class="p">))</span> <span class="c">#The bias vector for the visible layer</span>
-
-
-<span class="c">#### Helper functions. </span>
-
-<span class="c">#This function lets us easily sample from a vector of probabilities</span>
-<span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="n">probs</span><span class="p">):</span>
-    <span class="c">#Takes in a vector of probabilities, and returns a random vector of 0s and 1s sampled from the input vector</span>
-    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">probs</span> <span class="o">+</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">probs</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-
-<span class="c">#This function runs the gibbs chain. We will call this function in two places:</span>
-<span class="c">#    - When we define the training update step</span>
-<span class="c">#    - When we sample our music segments from the trained RBM</span>
-<span class="k">def</span> <span class="nf">gibbs_sample</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-    <span class="c">#Runs a k-step gibbs chain to sample from the probability distribution of the RBM defined by W, bh, bv</span>
-    <span class="k">def</span> <span class="nf">gibbs_step</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">xk</span><span class="p">):</span>
-        <span class="c">#Runs a single gibbs step. The visible values are initialized to xk</span>
-        <span class="n">hk</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">xk</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> <span class="c">#Propagate the visible values to sample the hidden values</span>
-        <span class="n">xk</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">hk</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">W</span><span class="p">))</span> <span class="o">+</span> <span class="n">bv</span><span class="p">))</span> <span class="c">#Propagate the hidden values to sample the visible values</span>
-        <span class="k">return</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">xk</span>
-
-    <span class="c">#Run gibbs steps for k iterations</span>
-    <span class="n">ct</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c">#counter</span>
-    <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">x_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">control_flow_ops</span><span class="o">.</span><span class="n">While</span><span class="p">(</span><span class="k">lambda</span> <span class="n">count</span><span class="p">,</span> <span class="n">num_iter</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">num_iter</span><span class="p">,</span>
-                                         <span class="n">gibbs_step</span><span class="p">,</span> <span class="p">[</span><span class="n">ct</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">x</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
-    <span class="c">#This is not strictly necessary in this implementation, but if you want to adapt this code to use one of TensorFlow's</span>
-    <span class="c">#optimizers, you need this in order to stop tensorflow from propagating gradients back through the gibbs step</span>
-    <span class="n">x_sample</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stop_gradient</span><span class="p">(</span><span class="n">x_sample</span><span class="p">)</span> 
+    <span class="c1">#Run gibbs steps for k iterations
+</span>    <span class="n">ct</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#counter
+</span>    <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">x_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">control_flow_ops</span><span class="p">.</span><span class="n">While</span><span class="p">(</span><span class="k">lambda</span> <span class="n">count</span><span class="p">,</span> <span class="n">num_iter</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">num_iter</span><span class="p">,</span>
+                                         <span class="n">gibbs_step</span><span class="p">,</span> <span class="p">[</span><span class="n">ct</span><span class="p">,</span> <span class="n">tf</span><span class="p">.</span><span class="n">constant</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">x</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+    <span class="c1">#This is not strictly necessary in this implementation, but if you want to adapt this code to use one of TensorFlow's
+</span>    <span class="c1">#optimizers, you need this in order to stop tensorflow from propagating gradients back through the gibbs step
+</span>    <span class="n">x_sample</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">stop_gradient</span><span class="p">(</span><span class="n">x_sample</span><span class="p">)</span> 
     <span class="k">return</span> <span class="n">x_sample</span>
 
-<span class="c">### Training Update Code</span>
-<span class="c"># Now we implement the contrastive divergence algorithm. First, we get the samples of x and h from the probability distribution</span>
-<span class="c">#The sample of x</span>
-<span class="n">x_sample</span> <span class="o">=</span> <span class="n">gibbs_sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
-<span class="c">#The sample of the hidden nodes, starting from the visible state of x</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> 
-<span class="c">#The sample of the hidden nodes, starting from the visible state of x_sample</span>
-<span class="n">h_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_sample</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> 
+<span class="c1">### Training Update Code
+# Now we implement the contrastive divergence algorithm. First, we get the samples of x and h from the probability distribution
+#The sample of x
+</span><span class="n">x_sample</span> <span class="o">=</span> <span class="n">gibbs_sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+<span class="c1">#The sample of the hidden nodes, starting from the visible state of x
+</span><span class="n">h</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> 
+<span class="c1">#The sample of the hidden nodes, starting from the visible state of x_sample
+</span><span class="n">h_sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_sample</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">bh</span><span class="p">))</span> 
 
-<span class="c">#Next, we update the values of W, bh, and bv, based on the difference between the samples that we drew and the original values</span>
-<span class="n">size_bt</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="n">W_adder</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">h</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x_sample</span><span class="p">),</span> <span class="n">h_sample</span><span class="p">)))</span>
-<span class="n">bv_adder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_sample</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
-<span class="n">bh_adder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h_sample</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
-<span class="c">#When we do sess.run(updt), TensorFlow will run all 3 update steps</span>
-<span class="n">updt</span> <span class="o">=</span> <span class="p">[</span><span class="n">W</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">W_adder</span><span class="p">),</span> <span class="n">bv</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">bv_adder</span><span class="p">),</span> <span class="n">bh</span><span class="o">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">bh_adder</span><span class="p">)]</span>
+<span class="c1">#Next, we update the values of W, bh, and bv, based on the difference between the samples that we drew and the original values
+</span><span class="n">size_bt</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">cast</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tf</span><span class="p">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">W_adder</span>  <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">h</span><span class="p">),</span> <span class="n">tf</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">x_sample</span><span class="p">),</span> <span class="n">h_sample</span><span class="p">)))</span>
+<span class="n">bv_adder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="p">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x_sample</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<span class="n">bh_adder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">mul</span><span class="p">(</span><span class="n">lr</span><span class="o">/</span><span class="n">size_bt</span><span class="p">,</span> <span class="n">tf</span><span class="p">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">h_sample</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">))</span>
+<span class="c1">#When we do sess.run(updt), TensorFlow will run all 3 update steps
+</span><span class="n">updt</span> <span class="o">=</span> <span class="p">[</span><span class="n">W</span><span class="p">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">W_adder</span><span class="p">),</span> <span class="n">bv</span><span class="p">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">bv_adder</span><span class="p">),</span> <span class="n">bh</span><span class="p">.</span><span class="n">assign_add</span><span class="p">(</span><span class="n">bh_adder</span><span class="p">)]</span>
 
 
-<span class="c">### Run the graph!</span>
-<span class="c"># Now it's time to start a session and run the graph! </span>
-
-<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
-    <span class="c">#First, we train the model</span>
-    <span class="c">#initialize the variables of the model</span>
-    <span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">initialize_all_variables</span><span class="p">()</span>
-    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
-    <span class="c">#Run through all of the training data num_epochs times</span>
-    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">)):</span>
+<span class="c1">### Run the graph!
+# Now it's time to start a session and run the graph! 
+</span>
+<span class="k">with</span> <span class="n">tf</span><span class="p">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="c1">#First, we train the model
+</span>    <span class="c1">#initialize the variables of the model
+</span>    <span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">initialize_all_variables</span><span class="p">()</span>
+    <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+    <span class="c1">#Run through all of the training data num_epochs times
+</span>    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">)):</span>
         <span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">songs</span><span class="p">:</span>
-            <span class="c">#The songs are stored in a time x notes format. The size of each song is timesteps_in_song x 2*note_range</span>
-            <span class="c">#Here we reshape the songs so that each training example is a vector with num_timesteps x 2*note_range elements</span>
-            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">song</span><span class="p">)</span>
-            <span class="n">song</span> <span class="o">=</span> <span class="n">song</span><span class="p">[:</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">num_timesteps</span><span class="p">)</span><span class="o">*</span><span class="n">num_timesteps</span><span class="p">]</span>
-            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">song</span><span class="p">,</span> <span class="p">[</span><span class="n">song</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">num_timesteps</span><span class="p">,</span> <span class="n">song</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">num_timesteps</span><span class="p">])</span>
-            <span class="c">#Train the RBM on batch_size examples at a time</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">song</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span> 
+            <span class="c1">#The songs are stored in a time x notes format. The size of each song is timesteps_in_song x 2*note_range
+</span>            <span class="c1">#Here we reshape the songs so that each training example is a vector with num_timesteps x 2*note_range elements
+</span>            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">song</span><span class="p">)</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">song</span><span class="p">[:</span><span class="n">np</span><span class="p">.</span><span class="n">floor</span><span class="p">(</span><span class="n">song</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">num_timesteps</span><span class="p">)</span><span class="o">*</span><span class="n">num_timesteps</span><span class="p">]</span>
+            <span class="n">song</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">song</span><span class="p">,</span> <span class="p">[</span><span class="n">song</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">num_timesteps</span><span class="p">,</span> <span class="n">song</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">num_timesteps</span><span class="p">])</span>
+            <span class="c1">#Train the RBM on batch_size examples at a time
+</span>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">song</span><span class="p">),</span> <span class="n">batch_size</span><span class="p">):</span> 
                 <span class="n">tr_x</span> <span class="o">=</span> <span class="n">song</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">]</span>
-                <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">updt</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">tr_x</span><span class="p">})</span>
+                <span class="n">sess</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">updt</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">tr_x</span><span class="p">})</span>
 
-    <span class="c">#Now the model is fully trained, so let's make some music! </span>
-    <span class="c">#Run a gibbs chain where the visible nodes are initialized to 0</span>
-    <span class="n">sample</span> <span class="o">=</span> <span class="n">gibbs_sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="nb">eval</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">sess</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">))})</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="c1">#Now the model is fully trained, so let's make some music! 
+</span>    <span class="c1">#Run a gibbs chain where the visible nodes are initialized to 0
+</span>    <span class="n">sample</span> <span class="o">=</span> <span class="n">gibbs_sample</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nb">eval</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">sess</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_visible</span><span class="p">))})</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sample</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">,:]):</span>
             <span class="k">continue</span>
-        <span class="c">#Here we reshape the vector to be time x notes, and then save the vector as a midi file</span>
-        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="p">(</span><span class="n">num_timesteps</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">note_range</span><span class="p">))</span>
-        <span class="n">midi_manipulation</span><span class="o">.</span><span class="n">noteStateMatrixToMidi</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="s">"generated_chord_{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-</code></pre>
-</div>
+        <span class="c1">#Here we reshape the vector to be time x notes, and then save the vector as a midi file
+</span>        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="n">i</span><span class="p">,:],</span> <span class="p">(</span><span class="n">num_timesteps</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">note_range</span><span class="p">))</span>
+        <span class="n">midi_manipulation</span><span class="p">.</span><span class="n">noteStateMatrixToMidi</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="s">"generated_chord_{}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</code></pre></div></div>
 
 <h3 id="music-samples">Music Samples</h3>
 
-<p>By altering the <code class="highlighter-rouge">num_timesteps</code> variable in the above code, we can make sequences of music of different lengths. Since each additional timestep increases the dimensionality of the vectors we are inputting to the model, we are limited to sequences of only a few seconds. In my next post, I’ll show how we can adapt this model to generate longer sequences of music.</p>
+<p>By altering the <code class="language-plaintext highlighter-rouge">num_timesteps</code> variable in the above code, we can make sequences of music of different lengths. Since each additional timestep increases the dimensionality of the vectors we are inputting to the model, we are limited to sequences of only a few seconds. In my next post, I’ll show how we can adapt this model to generate longer sequences of music.</p>
 
-<h4 id="timesteps">15 timesteps</h4>
+<h4 id="15-timesteps">15 timesteps</h4>
 <audio src="/audio/15_1.mp3" controls="" preload=""></audio>
 <audio src="/audio/15_2.mp3" controls="" preload=""></audio>
 
-<h4 id="timesteps-1">10 timesteps</h4>
+<h4 id="10-timesteps">10 timesteps</h4>
 <audio src="/audio/10_1.mp3" controls="" preload=""></audio>
 <audio src="/audio/10_2.mp3" controls="" preload=""></audio>
 <audio src="/audio/10_3.mp3" controls="" preload=""></audio>
 <audio src="/audio/10_4.mp3" controls="" preload=""></audio>
 <audio src="/audio/10_5.mp3" controls="" preload=""></audio>
 
-<h4 id="timesteps-2">5 timesteps</h4>
+<h4 id="5-timesteps">5 timesteps</h4>
 <audio src="/audio/5_1.mp3" controls="" preload=""></audio>
 <audio src="/audio/5_2.mp3" controls="" preload=""></audio>
 <audio src="/audio/5_3.mp3" controls="" preload=""></audio>
@@ -517,7 +558,7 @@ j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2016-08-10-musical-tensorflow-part-one-the-rbm/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016-08-10-musical-tensorflow-part-one-the-rbm/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -528,7 +569,7 @@ j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2016-08-10-musical-tensorflow-part-one-the-rbm/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016-08-10-musical-tensorflow-part-one-the-rbm/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -540,6 +581,10 @@ j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <
       
 
       <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2015-11-01-improving-ml-systems/" data-toggle="tooltip" data-placement="top" title="Improving a Machine Learning System">&larr; Previous Post</a>
+        </li>
         
         
         <li class="next">
@@ -604,7 +649,7 @@ j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -651,5 +696,13 @@ j< n %]]></script>), then at timestep <script type="math/tex">i</script>, note <
 
 
   
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
+  </script>
   </body>
 </html>

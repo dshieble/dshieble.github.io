@@ -14,7 +14,7 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -50,10 +50,10 @@
   <meta property="og:title" content="Computation Theory Part 2 - Complexity Classes and NP Completeness" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2016-11-19-np-complete/" />
+  <meta property="og:url" content="http://localhost:4000/2016-11-19-np-complete/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -63,9 +63,10 @@
   <meta name="twitter:title" content="Computation Theory Part 2 - Complexity Classes and NP Completeness" />
   <meta name="twitter:description" content="Welcome to part 2 of the Computation Theory series! In the last post, we discussed decidability and the halting problem. In this post we will talk about complexity classes. Time Complexity If you’re not used to reasoning about algorithms and their complexity, there is an enormous amount of great material..." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -95,7 +96,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -109,7 +110,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -120,7 +163,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -187,39 +230,39 @@
   <li>Sanjay Dasgupta’s <a href="http://www.cse.iitd.ernet.in/~naveen/courses/CSL630/all.pdf">Algorithms</a> is my personal favorite algorithms book. It’s a thin book, but excellent.</li>
 </ul>
 
-<h3 id="the-complexity-class-p">The Complexity Class <script type="math/tex">P</script></h3>
+<h3 id="the-complexity-class-p">The Complexity Class \(P\)</h3>
 
-<p>The concept of polynomial time is very simple - if an algorithm is <script type="math/tex">O(f(n))</script> for some polynomial <script type="math/tex">f(n)</script>, then it is polynomial time. The complexity class <script type="math/tex">P</script> contains all problems for which there exists a polynomial time algorithm to solve that problem.</p>
+<p>The concept of polynomial time is very simple - if an algorithm is \(O(f(n))\) for some polynomial \(f(n)\), then it is polynomial time. The complexity class \(P\) contains all problems for which there exists a polynomial time algorithm to solve that problem.</p>
 
 <h4 id="example-sorting">Example: Sorting</h4>
 
-<p>Consider the problem of sorting a list of numbers. This problem is obviously in <script type="math/tex">P</script>, because there exists algorithms, like selection sort or merge sort, which can sort a list of numbers in <script type="math/tex">O(n^2)</script> or <script type="math/tex">O(nlog(n))</script> time.</p>
+<p>Consider the problem of sorting a list of numbers. This problem is obviously in \(P\), because there exists algorithms, like selection sort or merge sort, which can sort a list of numbers in \(O(n^2)\) or \(O(nlog(n))\) time.</p>
 
-<h3 id="nondeterministic-polynomial-time-and-the-class-np">Nondeterministic Polynomial time and the class <script type="math/tex">NP</script></h3>
+<h3 id="nondeterministic-polynomial-time-and-the-class-np">Nondeterministic Polynomial time and the class \(NP\)</h3>
 
-<p>We say an algorithm is in the class <script type="math/tex">NP</script> if it can be verified in polynomial time. That is, if we can write a program that checks whether a solution to the problem is correct in polynomial time.</p>
+<p>We say an algorithm is in the class \(NP\) if it can be verified in polynomial time. That is, if we can write a program that checks whether a solution to the problem is correct in polynomial time.</p>
 
 <ul>
-  <li>It’s pretty easy to see that Sorting is in <script type="math/tex">NP</script>. We can easily write an algorithm to check that a list is sorted in linear time.</li>
-  <li>Another classic <script type="math/tex">NP</script> problem is the Subset Sum problem. Say you have some set of numbers S (e.g. <script type="math/tex">\{2,4,3\}</script>). For some number <script type="math/tex">n</script>, you need to find a subset <script type="math/tex">s</script> of <script type="math/tex">S</script> such that the elements of <script type="math/tex">s</script> sum to <script type="math/tex">n</script>. Given a subet <script type="math/tex">s</script>, we can just sum the numbers of <script type="math/tex">s</script> in linear time to verify it as a solution.</li>
+  <li>It’s pretty easy to see that Sorting is in \(NP\). We can easily write an algorithm to check that a list is sorted in linear time.</li>
+  <li>Another classic \(NP\) problem is the Subset Sum problem. Say you have some set of numbers S (e.g. \(\{2,4,3\}\)). For some number \(n\), you need to find a subset \(s\) of \(S\) such that the elements of \(s\) sum to \(n\). Given a subet \(s\), we can just sum the numbers of \(s\) in linear time to verify it as a solution.</li>
 </ul>
 
-<p>As it happens, every problem in <script type="math/tex">P</script> is also in <script type="math/tex">NP</script>. If we have an algorithm for solving a problem in polynomial time, we can just run that algorithm to verify a solution (the actual proof of this is a little bit more complex, involving certificates or nondeterministic turing machines, but we’ll leave it at that).</p>
+<p>As it happens, every problem in \(P\) is also in \(NP\). If we have an algorithm for solving a problem in polynomial time, we can just run that algorithm to verify a solution (the actual proof of this is a little bit more complex, involving certificates or nondeterministic turing machines, but we’ll leave it at that).</p>
 
-<p>However, the converse is not necessarily true. Take the Subset Sum problem for example. We showed above that it is in <script type="math/tex">NP</script>, but we don’t know whether or not it is in P (an algorithm that enumerates every subset of <script type="math/tex">S</script> and checks their sums would take exponential time). In order to get a better understanding of the relationship between P and <script type="math/tex">NP</script>, we need to talk about <script type="math/tex">NP</script> Hardness, <script type="math/tex">NP</script> Completeness and polynomial time reductions.</p>
+<p>However, the converse is not necessarily true. Take the Subset Sum problem for example. We showed above that it is in \(NP\), but we don’t know whether or not it is in P (an algorithm that enumerates every subset of \(S\) and checks their sums would take exponential time). In order to get a better understanding of the relationship between P and \(NP\), we need to talk about \(NP\) Hardness, \(NP\) Completeness and polynomial time reductions.</p>
 
-<h3 id="np-hardness--np-completeness"><script type="math/tex">NP</script> Hardness,  <script type="math/tex">NP</script> Completeness</h3>
+<h3 id="np-hardness--np-completeness">\(NP\) Hardness,  \(NP\) Completeness</h3>
 <blockquote>
   <p>Computer Science is the practice of transforming a problem from one that you don’t know how to solve into one that you do</p>
 </blockquote>
 
-<p>Now there’s an interesting structure to <script type="math/tex">NP</script> problems that we haven’t discussed yet. To understand it, we need to first learn about polynomial time reductions.</p>
+<p>Now there’s an interesting structure to \(NP\) problems that we haven’t discussed yet. To understand it, we need to first learn about polynomial time reductions.</p>
 
 <h4 id="polynomial-time-reductions">Polynomial time reductions</h4>
 
-<p>We briefly touched on reductions last time, but to refresh your memory, a reduction from <script type="math/tex">A</script> to <script type="math/tex">B</script> is an algorithm that takes in the solution to problem <script type="math/tex">B</script> and returns a solution to problem <script type="math/tex">A</script>. If we can develop a reduction like this, we say that <script type="math/tex">A</script> <em>reduces</em> to <script type="math/tex">B</script>, or that solving <script type="math/tex">B</script> solves <script type="math/tex">A</script>. If the reduction algorithm runs in polynomial time, then we say it is a polynomial time reduction</p>
+<p>We briefly touched on reductions last time, but to refresh your memory, a reduction from \(A\) to \(B\) is an algorithm that takes in the solution to problem \(B\) and returns a solution to problem \(A\). If we can develop a reduction like this, we say that \(A\) <em>reduces</em> to \(B\), or that solving \(B\) solves \(A\). If the reduction algorithm runs in polynomial time, then we say it is a polynomial time reduction</p>
 
-<p>Notice that if we have a problem <script type="math/tex">A</script>, a polynomial time reduction from <script type="math/tex">A</script> to <script type="math/tex">B</script> and a polynomial time solution for <script type="math/tex">B</script>, then we have a polynomial time solution for <script type="math/tex">A</script>, because the sum of two polynomials is a polynomial.</p>
+<p>Notice that if we have a problem \(A\), a polynomial time reduction from \(A\) to \(B\) and a polynomial time solution for \(B\), then we have a polynomial time solution for \(A\), because the sum of two polynomials is a polynomial.</p>
 
 <p>In code, this would look like this:</p>
 
@@ -232,15 +275,15 @@
   <p>Note that the description above implies that B and A would need to each accept the same input x. This is not necessarily the case - it’s all right for A and B to take inputs in different forms, as long as we can write a polynomial time algorithm that ‘transforms’ the input to A into an input for B.</p>
 </blockquote>
 
-<h4 id="np-hardness"><script type="math/tex">NP</script> Hardness</h4>
+<h4 id="np-hardness">\(NP\) Hardness</h4>
 
-<p>We say that a problem A is <script type="math/tex">NP</script> Hard if every single problem in <script type="math/tex">NP</script> reduces to A in polynomial time. In other words, a problem that is <script type="math/tex">NP</script>-Hard is AT LEAST as hard as any problem in <script type="math/tex">NP</script>.</p>
+<p>We say that a problem A is \(NP\) Hard if every single problem in \(NP\) reduces to A in polynomial time. In other words, a problem that is \(NP\)-Hard is AT LEAST as hard as any problem in \(NP\).</p>
 
-<p>There are a lot of known <script type="math/tex">NP</script> Hard problems, and assuming that you have at least one <script type="math/tex">NP</script> hard problem <script type="math/tex">A</script> <sup id="fnref:footnote"><a href="#fn:footnote" class="footnote">1</a></sup>, it’s not too difficult to show that a new problem is <script type="math/tex">NP</script> hard. All you need to do is demonstrate that <script type="math/tex">A</script> reduces to your new problem <script type="math/tex">B</script> in polynomial time (if <script type="math/tex">A</script> is “easier” than <script type="math/tex">B</script>,  all of the problems in <script type="math/tex">NP</script> must be “easier” than <script type="math/tex">B</script> as well).</p>
+<p>There are a lot of known \(NP\) Hard problems, and assuming that you have at least one \(NP\) hard problem \(A\) <sup id="fnref:footnote" role="doc-noteref"><a href="#fn:footnote" class="footnote" rel="footnote">1</a></sup>, it’s not too difficult to show that a new problem is \(NP\) hard. All you need to do is demonstrate that \(A\) reduces to your new problem \(B\) in polynomial time (if \(A\) is “easier” than \(B\),  all of the problems in \(NP\) must be “easier” than \(B\) as well).</p>
 
 <p>All of this can get kind of confusing. Let’s look at some simple code.</p>
 
-<p>Say that we have a problem <script type="math/tex">C</script> that is in <script type="math/tex">NP</script>, and we have solvers for <script type="math/tex">A</script> and <script type="math/tex">B</script>. Now <script type="math/tex">A</script> is <script type="math/tex">NP</script> hard, so we can write a function like this:</p>
+<p>Say that we have a problem \(C\) that is in \(NP\), and we have solvers for \(A\) and \(B\). Now \(A\) is \(NP\) hard, so we can write a function like this:</p>
 
 <pre><code class="language-[python]">def solution_to_C(x):
   y = solver_for_A(x)
@@ -264,18 +307,18 @@
 
 <h4 id="np-completeness">NP Completeness</h4>
 
-<p>A problem is <script type="math/tex">NP</script> complete if it is in <script type="math/tex">NP</script> and it is <script type="math/tex">NP</script> Hard. There’s something really cool about <script type="math/tex">NP</script> complete problems - each <script type="math/tex">NP</script> complete problem is polynomial time reducible to each other <script type="math/tex">NP</script> complete problem. So if you can solve one <script type="math/tex">NP</script> complete problem in polynomial time, then you can solve every <script type="math/tex">NP</script> problem in polynomial time.</p>
+<p>A problem is \(NP\) complete if it is in \(NP\) and it is \(NP\) Hard. There’s something really cool about \(NP\) complete problems - each \(NP\) complete problem is polynomial time reducible to each other \(NP\) complete problem. So if you can solve one \(NP\) complete problem in polynomial time, then you can solve every \(NP\) problem in polynomial time.</p>
 
-<p>This is incredibly important, and it lies at the heart of the <script type="math/tex">P</script> vs <script type="math/tex">NP</script> question. If somebody, somewhere, figures out a polynomial time algorithm for any <script type="math/tex">NP</script> complete problem, then we can use that algorithm (along with polynomial time reductions) to solve every problem in <script type="math/tex">NP</script>. If that happened, we would know that <script type="math/tex">P=NP</script>. So far, nobody has found such an algorithm or proven that one doesn’t exist.</p>
+<p>This is incredibly important, and it lies at the heart of the \(P\) vs \(NP\) question. If somebody, somewhere, figures out a polynomial time algorithm for any \(NP\) complete problem, then we can use that algorithm (along with polynomial time reductions) to solve every problem in \(NP\). If that happened, we would know that \(P=NP\). So far, nobody has found such an algorithm or proven that one doesn’t exist.</p>
 
 <h3 id="other-resources">Other Resources</h3>
 
-<p>If you liked this post, then you’ll probably love <a href="http://www.cin.ufpe.br/~jjss/Introcuction%20to%20Theory%20of%20computation%20by%20Micheal%20Sipser%20Ist%20Ed..pdf">this book</a>. It’s an excellent resource, and it’s filled with examples of reductions between <script type="math/tex">NP</script>-complete problems</p>
+<p>If you liked this post, then you’ll probably love <a href="http://www.cin.ufpe.br/~jjss/Introcuction%20to%20Theory%20of%20computation%20by%20Micheal%20Sipser%20Ist%20Ed..pdf">this book</a>. It’s an excellent resource, and it’s filled with examples of reductions between \(NP\)-complete problems</p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:footnote">
-      <p>The fundamental <script type="math/tex">NP</script>-Hard/<script type="math/tex">NP</script>-Complete problem is <script type="math/tex">SAT</script>, or boolean satisfiability. The problem is: given some boolean formula <script type="math/tex">B</script>, is there an assignment of values that satisfies <script type="math/tex">B</script>. <a href="https://en.wikipedia.org/wiki/Cook%E2%80%93Levin_theorem">Stephen Cook</a> proved that all <script type="math/tex">NP</script> problems are polynomial-time reducible to <script type="math/tex">SAT</script>. <a href="#fnref:footnote" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:footnote" role="doc-endnote">
+      <p>The fundamental \(NP\)-Hard/\(NP\)-Complete problem is \(SAT\), or boolean satisfiability. The problem is: given some boolean formula \(B\), is there an assignment of values that satisfies \(B\). <a href="https://en.wikipedia.org/wiki/Cook%E2%80%93Levin_theorem">Stephen Cook</a> proved that all \(NP\) problems are polynomial-time reducible to \(SAT\). <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -304,7 +347,7 @@
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2016-11-19-np-complete/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016-11-19-np-complete/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -315,7 +358,7 @@
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2016-11-19-np-complete/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016-11-19-np-complete/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -395,7 +438,7 @@
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -442,5 +485,13 @@
 
 
   
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
+  </script>
   </body>
 </html>

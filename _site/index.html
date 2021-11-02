@@ -16,7 +16,7 @@
   <meta name="description" content="My musings on math and code">
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -52,10 +52,10 @@
   <meta property="og:title" content="Dan Shiebler" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/" />
+  <meta property="og:url" content="http://localhost:4000/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -63,11 +63,12 @@
   <meta name="twitter:site" content="@" />
   <meta name="twitter:creator" content="@" />
   <meta name="twitter:title" content="Dan Shiebler" />
-  <meta name="twitter:description" content="R and R^2, the relationship between correlation and the coefficient of determination. Posted on June 25, 2017 There are 2 closely related quantities in statistics - correlation (often referred to as ) and the coefficient of determination (often referred to as ). Today we’ll explore the nature of the relationship..." />
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {{ post.content | strip_html | xml_escape | truncatewords: 50 }} [Read&amp;nbsp;More] {% if post.tags.size &gt; 0 %} Tags: {% if site.link-tags..." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -82,7 +83,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -97,7 +98,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -111,7 +112,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -122,7 +165,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -180,26 +223,26 @@
 <div class="posts-list">
   
   <article class="post-preview">
-    <a href="/2017-06-25-metrics/">
-	  <h2 class="post-title">R and R^2, the relationship between correlation and the coefficient of determination.</h2>
+    <a href="/2021-10-12-dynamic/">
+	  <h2 class="post-title">Optimizers as Dynamical Systems</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on June 25, 2017
+      Posted on October 12, 2021
     </p>
 
     <div class="post-entry">
-      There are 2 closely related quantities in statistics - correlation (often referred to as ) and the coefficient of determination (often referred to as ). Today we’ll explore the nature of the relationship between and , go over some common use cases for each statistic and address some misconceptions. Correlation...
-	  <a href="/2017-06-25-metrics/" class="post-read-more">[Read&nbsp;More]</a>
+      The ideas in this post were hashed out during a series of discussions between myself and Bruno Gavranović Consider a system for forecasting a time series in \(\mathbb{R}\) based on a vector of features in \(\mathbb{R}^a\). At each time \(t\) this system will use the state of the world (represented...
+	  <a href="/2021-10-12-dynamic/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     
     <div class="blog-tags">
       Tags: 
       
-        Correlation, R, R2, R^2, Coefficient of Determination, Regression, Performance
+        Machine Learning, Category Theory, Lens, Dynamical System, Gradient Descent
       
     </div>
     
@@ -207,26 +250,26 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2017-04-16-deep-taylor-lrp/">
-	  <h2 class="post-title">Understanding Neural Networks with Layerwise Relevance Propagation and Deep Taylor Series</h2>
+    <a href="/2021-07-25-kan/">
+	  <h2 class="post-title">Supervised Clustering With Kan Extensions</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on April 16, 2017
+      Posted on July 25, 2021
     </p>
 
     <div class="post-entry">
-      Deep neural networks are some of the most powerful learning algorithms that have ever been developed. Unfortunately, they are also some of the most complex. The hierarchical non-linear transformations that neural networks apply to data can be nearly impossible to understand. This problem is exacerbated by the non-determinism of neural...
-	  <a href="/2017-04-16-deep-taylor-lrp/" class="post-read-more">[Read&nbsp;More]</a>
+      Clustering algorithms allow us to group points in a dataset together based on some notion of similarity between them. Formally, we can consider a clustering algorithm as mapping a metric space \((X, d_X)\) (representing data) to a partitioning of \(X\). In most applications of clustering the points in the metric...
+	  <a href="/2021-07-25-kan/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     
     <div class="blog-tags">
       Tags: 
       
-        Tensorflow, Layerwise, Relevance, Propagation, Deep, Taylor, Series, Visualization
+        Clustering, Machine Learning, Extrapolation, Kan Extension, Category Theory, Functorial
       
     </div>
     
@@ -234,26 +277,26 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2017-02-12-monty-hall/">
-	  <h2 class="post-title">Exploring Assumptions with Monty Hall and Blue Eyed Islanders</h2>
+    <a href="/2021-04-15-optimizers/">
+	  <h2 class="post-title">Transformation Invariant Continuous Optimization Algorithms</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on February 12, 2017
+      Posted on April 15, 2021
     </p>
 
     <div class="post-entry">
-      Let’s talk about making assumptions. Each time you form an opinion on something, you don’t re-examine each of the beliefs that contributed to that opinion. For example, when you order food at a restaurant, you pick the foods that you think will taste good. You don’t spend hours questioning the...
-	  <a href="/2017-02-12-monty-hall/" class="post-read-more">[Read&nbsp;More]</a>
+      Continuous Optimization Algorithms Suppose we have a function \(l: \mathbb{R}^n \rightarrow \mathbb{R}\) that we want to minimize. A popular algorithm for accomplishing this is gradient descent, which is an iterative algorithm in which we pick a step size \(\alpha\) and a starting point \(x_0 \in \mathbb{R}^n\) and repeatedly iterate \(x_{t+\alpha}...
+	  <a href="/2021-04-15-optimizers/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     
     <div class="blog-tags">
       Tags: 
       
-        Math, Probability, Paradox, Monty Hall, Blue Eyed Islanders
+        Gradient Descent, Differential Equations, Euler's Method
       
     </div>
     
@@ -261,26 +304,26 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2017-01-02-group-theory/">
-	  <h2 class="post-title">An Introduction to Algebraic Groups for CS People</h2>
+    <a href="/2020-11-28-gradient-descent/">
+	  <h2 class="post-title">Gradient Descent Is Euler's Method</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on January 2, 2017
+      Posted on November 28, 2020
     </p>
 
     <div class="post-entry">
-      One of my favorite classes in college was Abstract Algebra. It was my first non-CS non-elementary math class, and I took it because I knew I didn’t want to graduate without having broadened my mathematical horizons beyond CS. As it turned out, Abstract Algebra felt pretty familiar. Many of the...
-	  <a href="/2017-01-02-group-theory/" class="post-read-more">[Read&nbsp;More]</a>
+      Gradient Descent Gradient descent is a technique for iteratively minimizing a convex function \(f: \mathbb{R}^n \rightarrow \mathbb{R}\) by repeatedly taking steps along its gradient. We define the gradient of \(f\) to be the unique function \(\nabla f\) that satisfies: \[lim_{p \rightarrow 0} \frac{f(x+p) - f(x) - \nabla f(x)^{T}p}{\|p\|} = 0\]...
+	  <a href="/2020-11-28-gradient-descent/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     
     <div class="blog-tags">
       Tags: 
       
-        Abstract, Algebra, CS, Theory, Group, Programming
+        Gradient Descent, Differential Equations, Euler's Method
       
     </div>
     
@@ -288,26 +331,26 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2016-11-19-np-complete/">
-	  <h2 class="post-title">Computation Theory Part 2 - Complexity Classes and NP Completeness</h2>
+    <a href="/2020-11-02-mapper-stability/">
+	  <h2 class="post-title">Stability of Mapper Graph Invariants</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on November 19, 2016
+      Posted on November 2, 2020
     </p>
 
     <div class="post-entry">
-      Welcome to part 2 of the Computation Theory series! In the last post, we discussed decidability and the halting problem. In this post we will talk about complexity classes. Time Complexity If you’re not used to reasoning about algorithms and their complexity, there is an enormous amount of great material...
-	  <a href="/2016-11-19-np-complete/" class="post-read-more">[Read&nbsp;More]</a>
+      Introduction The Mapper algorithm is a useful tool for identifying patterns in a large dataset by generating a graph summary. We can describe the Mapper algorithm as constructing a discrete approximation of the Reeb graph: Suppose we have a manifold \(\mathbf{X}\) equipped with a distance metric \(d_{\mathbf{X}}\) (such as a...
+	  <a href="/2020-11-02-mapper-stability/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     
     <div class="blog-tags">
       Tags: 
       
-        CS, Theory, Computation, Polynomial, Time, P, NP
+        Mapper, TDA, Topological Data Analaysis, Machine Learning
       
     </div>
     
@@ -379,7 +422,7 @@
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -425,13 +468,14 @@
 
 
 
+  
   <script>
-  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
-  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
-  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
-  // Insert Twitter Pixel ID and Standard Event data below
-  twq('init','o5592');
-  twq('track','PageView');
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
   </script>
   </body>
 </html>

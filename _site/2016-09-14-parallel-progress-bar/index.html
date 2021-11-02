@@ -14,7 +14,7 @@
   
   
 
-  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - My musings on math and code" href="/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Dan Shiebler - Thoughts on Math and ML" href="/feed.xml" />
 
   
     
@@ -50,10 +50,10 @@
   <meta property="og:title" content="Parallel Progress Bar - An easy way to run parallel jobs in python" />
   <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://dshieble.github.io/2016-09-14-parallel-progress-bar/" />
+  <meta property="og:url" content="http://localhost:4000/2016-09-14-parallel-progress-bar/" />
   
   
-  <meta property="og:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta property="og:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
   <!-- Twitter summary cards -->
@@ -63,9 +63,10 @@
   <meta name="twitter:title" content="Parallel Progress Bar - An easy way to run parallel jobs in python" />
   <meta name="twitter:description" content="In this post I’m going to share a simple method that will turn any list comprehension into a high performance parallel job with a progress bar. tqdm If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life. With just 6 characters, tqdm..." />
   
-  <meta name="twitter:image" content="http://dshieble.github.io/img/DanGood.jpg" />
+  <meta name="twitter:image" content="http://localhost:4000/img/DanGood.jpg" />
   
   
+<script data-ad-client="ca-pub-5902123796191074" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -80,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://dshieble.github.io">Dan Shiebler</a>
+      <a class="navbar-brand" href="http://localhost:4000">Dan Shiebler</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -95,7 +96,7 @@
 
 
 
-<a href="/aboutme">About Me</a>
+<a href="/Publications">Publications</a>
 
           </li>
         
@@ -109,7 +110,49 @@
 
 
 
-<a href="/Invited Talks">Invited Talks</a>
+<a href="/Talks">Talks</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Other Posts">Other Posts</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/Hosted Meetups">Hosted Meetups</a>
+
+          </li>
+        
+        
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
 
           </li>
         
@@ -120,7 +163,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://dshieble.github.io ">
+	    <a href="http://localhost:4000 ">
 	      <img class="avatar-img" src="/img/DanGood.jpg" />
 		</a>
 	  </div>
@@ -182,11 +225,10 @@
 
 <p>If you are a python programmer who hasn’t worked with tqdm before, I’m about to change your life. With just 6 characters, tqdm adds a helpful and non-obstrusive progress bar to any python iterator. Try this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)):</span>
-		<span class="c">#do stuff</span>
-</code></pre>
-</div>
+		<span class="c1">#do stuff
+</span></code></pre></div></div>
 
 <p>You should see a progress bar like this:</p>
 
@@ -200,7 +242,7 @@
 
 <h3 id="putting-them-together">Putting them together</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
 
 <span class="k">def</span> <span class="nf">parallel_process</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">use_kwargs</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">front_num</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
@@ -218,40 +260,39 @@
         Returns:
             [function(array[0]), function(array[1]), ...]
     """</span>
-    <span class="c">#We run the first few iterations serially to catch bugs</span>
-    <span class="k">if</span> <span class="n">front_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="c1">#We run the first few iterations serially to catch bugs
+</span>    <span class="k">if</span> <span class="n">front_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">front</span> <span class="o">=</span> <span class="p">[</span><span class="n">function</span><span class="p">(</span><span class="o">**</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_kwargs</span> <span class="k">else</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[:</span><span class="n">front_num</span><span class="p">]]</span>
-    <span class="c">#If we set n_jobs to 1, just run a list comprehension. This is useful for benchmarking and debugging.</span>
-    <span class="k">if</span> <span class="n">n_jobs</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+    <span class="c1">#If we set n_jobs to 1, just run a list comprehension. This is useful for benchmarking and debugging.
+</span>    <span class="k">if</span> <span class="n">n_jobs</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">front</span> <span class="o">+</span> <span class="p">[</span><span class="n">function</span><span class="p">(</span><span class="o">**</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_kwargs</span> <span class="k">else</span> <span class="n">function</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">front_num</span><span class="p">:])]</span>
-    <span class="c">#Assemble the workers</span>
-    <span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
-        <span class="c">#Pass the elements of array into function</span>
-        <span class="k">if</span> <span class="n">use_kwargs</span><span class="p">:</span>
-            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[</span><span class="n">front_num</span><span class="p">:]]</span>
+    <span class="c1">#Assemble the workers
+</span>    <span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+        <span class="c1">#Pass the elements of array into function
+</span>        <span class="k">if</span> <span class="n">use_kwargs</span><span class="p">:</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="p">.</span><span class="n">submit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="o">**</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[</span><span class="n">front_num</span><span class="p">:]]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[</span><span class="n">front_num</span><span class="p">:]]</span>
+            <span class="n">futures</span> <span class="o">=</span> <span class="p">[</span><span class="n">pool</span><span class="p">.</span><span class="n">submit</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">array</span><span class="p">[</span><span class="n">front_num</span><span class="p">:]]</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s">'total'</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span>
             <span class="s">'unit'</span><span class="p">:</span> <span class="s">'it'</span><span class="p">,</span>
             <span class="s">'unit_scale'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
             <span class="s">'leave'</span><span class="p">:</span> <span class="bp">True</span>
         <span class="p">}</span>
-        <span class="c">#Print out the progress as tasks complete</span>
-        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1">#Print out the progress as tasks complete
+</span>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="k">pass</span>
     <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="c">#Get the results from the futures. </span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">futures</span><span class="p">)):</span>
+    <span class="c1">#Get the results from the futures. 
+</span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">futures</span><span class="p">)):</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">())</span>
+            <span class="n">out</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">future</span><span class="p">.</span><span class="n">result</span><span class="p">())</span>
         <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">front</span> <span class="o">+</span> <span class="n">out</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>The syntax for <code class="highlighter-rouge">parallel_process</code> is identical to the syntax for python’s <code class="highlighter-rouge">map</code> function, but it is more customizable. The most basic use is:</p>
+<p>The syntax for <code class="language-plaintext highlighter-rouge">parallel_process</code> is identical to the syntax for python’s <code class="language-plaintext highlighter-rouge">map</code> function, but it is more customizable. The most basic use is:</p>
 
 <p><img src="/img/basic_progress.png" alt="A basic progress bar" /></p>
 
@@ -283,7 +324,7 @@
 
   <!--- Share on Facebook -->
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http://dshieble.github.io/2016-09-14-parallel-progress-bar/"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016-09-14-parallel-progress-bar/"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
     </a>
@@ -294,7 +335,7 @@
 
   <!--- Share on LinkedIn -->
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://dshieble.github.io/2016-09-14-parallel-progress-bar/"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016-09-14-parallel-progress-bar/"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
     </a>
@@ -374,7 +415,7 @@
         <p class="copyright text-muted">
 		  Dan Shiebler
 		  &nbsp;&bull;&nbsp;
-		  2017
+		  2021
 
 		  
 	    </p>
@@ -421,5 +462,13 @@
 
 
   
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    // Insert Twitter Pixel ID and Standard Event data below
+    twq('init','o5592');
+    twq('track','PageView');
+  </script>
   </body>
 </html>
