@@ -122,6 +122,9 @@ exclude:
   - README.md
   - CNAME
   - Vagrantfile
+  - node_modules
+  - my-app
+  - dev-awesome-tool
 
 # prose.io config
 prose:

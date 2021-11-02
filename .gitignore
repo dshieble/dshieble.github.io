@@ -1,0 +1,6 @@
+Gemfile
+Gemfile.lock
+my-app/node_modules/
+my-app/build/
+dev-awesome-tool/node_modules/
+dev-awesome-tool/build/
