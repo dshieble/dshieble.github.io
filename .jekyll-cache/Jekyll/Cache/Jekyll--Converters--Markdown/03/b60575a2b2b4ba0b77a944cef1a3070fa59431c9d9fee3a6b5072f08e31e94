@@ -1,0 +1,205 @@
+I"�I<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<p>Welcome to part 2 of the Musical TensorFlow series! In <a href="http://danshiebler.com/2016-08-10-musical-tensorflow-part-one-the-rbm">the last post</a>, we built an RBM in TensorFlow for making short pieces of music. Today, we’re going to learn how to compose longer and more complex musical pieces with a more involved model: the RNN-RBM.</p>
+
+<p>To warm you up, here’s an example of music that this network created:</p>
+
+<audio src="/audio/9.mp3" controls="" preload=""></audio>
+
+<h2 id="concepts">Concepts</h2>
+
+<h3 id="the-rnn">The RNN</h3>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network">Recurrent Neural Network</a> is a neural network architecture that can handle sequences of vectors. This makes it perfect for working with temporal data. For example, RNNs are excellent at tasks such as predicting the next word in a sentence or forecasting a time series.</p>
+
+<p>In essence, an RNN is a sequence of neural network units where each unit \(u_t\) takes input from both \(u_{t-1}\) and data vector \(v_t\) and produces an output. Today most Recurrent Neural Networks utilize an architecture called <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">Long Short Term Memory</a> (LSTM), but for simplicity’s sake the RNN-RBM that we’ll make music with today uses a vanilla RNN.</p>
+
+<p>If you haven’t worked with RNN’s before, Andrej Karpathy’s <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">The Unreasonable Effectiveness of Recurrent Neural Networks</a> is a must read. The RNN <a href="http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/">tutorial at wild-ml</a> is great as well.</p>
+
+<h3 id="the-rnn-rbm">The RNN-RBM</h3>
+
+<p>The RNN-RBM was introduced in <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Modeling Temporal Dependencies in High-Dimensional Sequences: Application to Polyphonic Music Generation and Transcription (Boulanger-Lewandowski 2012)</a>. Like the RBM, the RNN-RBM is an unsupervised generative model. This means that the objective of the algorithm is to directly model the probability distribution of an unlabeled data set (in this case, music).</p>
+
+<p>We can think of the RNN-RBM as a series of Restricted Boltzmann Machines whose parameters are determined by an RNN. As a reminder, the RBM is a neural network with 2 layers, the visible layer and the hidden layer. Each visible node is connected to each hidden node (and vice versa), but there are no visible-visible or hidden-hidden connections. The parameters of the RBM are the weight matrix \(W\) and the bias vectors \(bh\) and \(bv\).</p>
+
+<p>The RBM:</p>
+
+<p><img src="/img/RBM.png" alt="A diagram of an RBM. In reality the RBM is fully connected" /></p>
+
+<p>We saw in the last post that an RBM is capable of modeling a complex and high dimensional probability distribution from which we can generate musical notes. In the RNN-RBM, the RNN hidden units communicate information about the chord being played or the mood of the song to the RBMs. This information conditions the RBM probability distributions, so that the network can model the way that notes change over the course of a song.</p>
+
+<h3 id="model-architecture">Model Architecture</h3>
+
+<blockquote>
+  <p>One caveat: The RNN-RBM that I will describe below is not exactly identical to the one described in <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>. I’ve modified the model slightly to produce what I believe to be more pleasant music. All of my changes are superficial however, and the basic architecture of the model remains the same.</p>
+
+  <p>Also, for the rest of this post we will use \(u\) to represent the RNN hidden units, \(h\) to represent the RBM hidden units and \(v\) to represent the visible units (data).</p>
+</blockquote>
+
+<p>The architecture of the RNN-RBM is not tremendously complicated. Each RNN hidden unit is paired with an RBM. RNN hidden unit \(u_t\) takes input from data vector \(v_t\) (the note or notes at time t) as well as from RNN hidden unit \(u_{t-1}\). The outputs of hidden unit \(u_t\) are the parameters of \(RBM_{t+1}\), which takes as input data vector \(v_{t+1}\).</p>
+
+<p><img src="/img/rnnrbm_color.png" alt="The parameters of each RBM are determined by the output of the RNN" /></p>
+
+<p>All of the RBMs share the same weight matrix, and only the hidden and visible bias vectors are determined by the outputs of \(u_t\). With this convention, the role of the RBM weight matrix is to specify a consistent prior on all of the RBM distributions (the general structure of music), and the role of the bias vectors is to communicate temporal information (the current state of the song).</p>
+
+<h3 id="model-parameters">Model Parameters</h3>
+
+<blockquote>
+  <p>Note: Rather than adopt the naming convention from <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>, we use the much more sane naming convention from this <a href="http://deeplearning.net/tutorial/rnnrbm.html">deeplearning tutorial</a>. The image below is also from this tutorial.</p>
+</blockquote>
+
+<p>The parameters of the model are the following:</p>
+
+<ul>
+  <li>\(W\), the weight matrix that is shared by all of the RBMs in the model</li>
+  <li>\(W_{uh}\), the weight matrix that connects the RNN hidden units to the RBM hidden biases</li>
+  <li>\(W_{uv}\), the weight matrix that connects the RNN hidden units to the RBM visible biases</li>
+  <li>\(W_{vu}\), the weight matrix that connects the data vectors to the RNN hidden units</li>
+  <li>\(W_{uu}\), the weight matrix that connects the the RNN hidden units to each other</li>
+  <li>\(b_u\), the bias vector for the RNN hidden unit connections</li>
+  <li>\(b_v\), the bias vector for the RNN hidden unit to RBM visible bias connections. This vector serves as the template for all of the \(b_v^{t}\) vectors</li>
+  <li>\(b_h\), the bias vector for the RNN hidden unit to RBM hidden bias connections. This vector serves as the template for all of the \(b_h^{t}\) vectors</li>
+</ul>
+
+<p><img src="/img/rnnrbm_figure.png" alt="The parameters of the model" /></p>
+
+<h3 id="training">Training</h3>
+<blockquote>
+  <p>Note: Before training the RNN-RBM, it is helpful to initialize \(W\), \(bh\), and \(bv\) by training an RBM on the dataset, according to the procedure specified in the <a href="http://danshiebler.com/2016-08-10-musical-tensorflow-part-one-the-rbm/">previous post</a>.</p>
+</blockquote>
+
+<p>To train the RNN-RBM, we repeat the following procedure:</p>
+
+<ol>
+  <li>In the first step we communicate the RNN’s knowledge about the current state of the song to the RBM. We use the RNN-to-RBM weight and bias matrices and the state of RNN hidden unit \(u_{t-1}\) to determine the bias vectors \(b_{v}^{t}\) and \(b_{h}^{t}\) for \(RBM_t\).
+    <ul>
+      <li>
+\[b_{h}^{t} = b_{h} + u_{t-1}W_{uh}\]
+      </li>
+      <li>
+\[b_{v}^{t} = b_{v} + u_{t-1}W_{uv}\]
+      </li>
+    </ul>
+  </li>
+  <li>In the second step we create a few musical notes with the RBM. We initialize \(RBM_t\) with \(v_{t}\) and perform a single iteration of <a href="http://stats.stackexchange.com/questions/10213/can-someone-explain-gibbs-sampling-in-very-simple-words">Gibbs Sampling</a> to sample \(v_{t}^{*}\) from \(RBM_t\). As a reminder, Gibbs sampling is a procedure for drawing a sample from the probability distribution specified by an RBM. You can see the previous post for a more thorough description of Gibbs sampling.
+    <ul>
+      <li>\(h_i \backsim \sigma (W^{T}v_t + b_{h}^{t})_i\).</li>
+      <li>\(v_{t_{i}}^{*} \backsim \sigma (Wh + b_{v}^{t})_i\).</li>
+    </ul>
+  </li>
+  <li>In the third step we compare the notes that we generated with the actual notes in the song at time \(t\). To do this we compute the <a href="http://www.robots.ox.ac.uk/~ojw/files/NotesOnCD.pdf">contrastive divergence</a> estimation of the negative log likelihood of \(v_t\) with respect to \(RBM_t\). Then, we backpropagate this loss through the network to compute the gradients of the network parameters and update the network weights and biases. In practice, TensorFlow will handle the backpropagation and update steps.
+    <ul>
+      <li>We compute this loss function by taking the difference between the free energies of \(v_t\) and \(v_{t}^{*}\).
+        <ul>
+          <li>
+\[loss = F(v_{t}) - F(v_{t}^{*}) \simeq -log(P(v_t))\]
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>In the fourth step we use the new information to update the RNN’s internal representation of the state of the song. We use \(v_t\), the state of RNN hidden unit \(u_{t-1}\) and the weight and bias matrices of the RNN to determine the state of RNN hidden unit \(u_{t}\). In the below equation, we can substitute \(\sigma\) for other non-linearities, such as \(tanh\).
+    <ul>
+      <li>
+\[u_{t} = \sigma(b_{u} + v_{t}W_{vu} + u_{t-1}W_{uu})\]
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="generation">Generation</h3>
+
+<p>To use the trained network to generate a sequence, we initialize an empty <code class="language-plaintext highlighter-rouge">generated_music</code> array and repeat the same steps as above, with some simple changes. We replace steps 2 and 3 with:</p>
+
+<ul>
+  <li>Initialize the visible state of \(RBM_t\) (with \(v_{t-1}^{*}\) or zeros) and perform \(k\) steps of Gibbs Sampling to generate \(v_{t}^{*}\)</li>
+  <li>Add \(v_{t}^{*}\) to the <code class="language-plaintext highlighter-rouge">generated_music</code> array</li>
+</ul>
+
+<p>We also replace the \(v_{t}\) in the equation in step 4 with \(v_{t}^{*}\).</p>
+
+<h3 id="data-and-music">Data and Music</h3>
+<p>The data format is identical to the data format in the <a href="http://danshiebler.com/2016-08-10-musical-tensorflow-part-one-the-rbm">previous post</a> - that is, midi piano rolls. Below are some piano rolls of human-generated and RNN-RBM generated songs:</p>
+
+<p>A folk song from the Nottingham database:</p>
+
+<p><img src="/img/Nottingham_Piano_Roll.png" alt="An example of a piano roll from the Nottingham database" /></p>
+
+<p>A portion of the song “Fix You” by Coldplay.</p>
+
+<p><img src="/img/Pop_Music_Piano_Roll.png" alt="An example of a piano roll of the song Fix You" /></p>
+
+<p>An RNN-RBM song:</p>
+
+<p><img src="/img/RNN_RBM_Piano_Roll.png" alt="An example of a piano roll from the RNN-RBM" /></p>
+
+<p>Another RNN-RBM song:</p>
+
+<p><img src="/img/RNN_RBM_Piano_Roll_2.png" alt="An example of a piano roll from the RNN-RBM" /></p>
+
+<p>Here is some music that was produced by training the RNN-RBM on a small dataset of pop music midi files.</p>
+
+<audio src="/audio/14.mp3" controls="" preload=""></audio>
+<audio src="/audio/13.mp3" controls="" preload=""></audio>
+<audio src="/audio/12.mp3" controls="" preload=""></audio>
+<audio src="/audio/11.mp3" controls="" preload=""></audio>
+<audio src="/audio/10.mp3" controls="" preload=""></audio>
+<audio src="/audio/9.mp3" controls="" preload=""></audio>
+<audio src="/audio/8.mp3" controls="" preload=""></audio>
+<audio src="/audio/7.mp3" controls="" preload=""></audio>
+<audio src="/audio/6.mp3" controls="" preload=""></audio>
+<audio src="/audio/5.mp3" controls="" preload=""></audio>
+<audio src="/audio/15.mp3" controls="" preload=""></audio>
+
+<p>In <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a>, each RBM only generates one timestep, but I’ve found that allowing each RBM to generate 5 or more timesteps actually produces more interesting music. You can see the specifics in the code below.</p>
+
+<h3 id="code">Code</h3>
+<p>All of the RNN-RBM code is in <a href="https://github.com/dshieble/Music_RNN_RBM">this directory</a>. If you’re not interested in going through the code and just want to make music, you can follow the instructions in the README.md.</p>
+
+<p>Here is what you need to look at if you are interested in understanding and possibly improving on the code:</p>
+
+<ul>
+  <li><a href="https://github.com/dshieble/Music_RNN_RBM/blob/master/weight_initializations.py">weight_initializations.py</a> When you run this file from the command line, it instantiates the parameters of the RNN-RBM and pretrains the RBM parameters by using Contrastive Divergence.</li>
+  <li><a href="https://github.com/dshieble/Music_RNN_RBM/blob/master/RBM.py">RBM.py</a> This file contains all of the logic for building and training the RBMs. This is very similar to the RBM code from the previous post, but it has been refactored to fit into the RNN-RBM model. The <code class="language-plaintext highlighter-rouge">get_cd_update</code> function runs an iteration of contrastive divergence to train the RBM during weight initialization, and the <code class="language-plaintext highlighter-rouge">get_free_energy_cost</code> function computes the loss function during training.</li>
+  <li><a href="https://github.com/dshieble/Music_RNN_RBM/blob/master/rnn_rbm.py">rnn_rbm.py</a> This file contains the logic to build, train, and generate music with the RNN-RBM. The <code class="language-plaintext highlighter-rouge">rnnrbm</code> function returns the parameters of the model and the <code class="language-plaintext highlighter-rouge">generate</code> function, which we call to generate music.</li>
+  <li><a href="https://github.com/dshieble/Music_RNN_RBM/blob/master/rnn_rbm_train.py">rnn_rbm_train.py</a> When you run this file from the command line, it builds an RNN-RBM, sets up logic to compute gradients and update the weights of the model, spins up a TensorFlow session, and runs through the data, training the model.</li>
+  <li><a href="https://github.com/dshieble/Music_RNN_RBM/blob/master/rnn_rbm_generate.py">rnn_rbm_generate.py</a> When you run this file from the command line, it builds an RNN-RBM, spins up a TensorFlow session, loads the weights of the RNN-RBM from the <code class="language-plaintext highlighter-rouge">saved_weights_path</code> that you supply, and generates music in the form of midi files.</li>
+</ul>
+
+<h3 id="extensions">Extensions</h3>
+<p>The basic RNN-RBM can generate music that sounds nice, but it struggles to produce anything with temporal structure beyond a few chords. This motivates some extensions to the model to better capture temporal dependencies. For example, the authors implement <a href="http://www.icml-2011.org/papers/532_icmlpaper.pdf">Hessian-Free optimization</a>, an algorithm for efficiently performing 2nd order optimization. Another tool that is very useful for representing long term dependencies is the <a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/">LSTM</a> cell. It’s reasonable to suspect that converting the RNN cells to LSTM cells would improve the model’s ability to represent longer term patterns in the song or sequence, such as in <a href="http://www.ijcai.org/Proceedings/15/Papers/582.pdf">this paper</a> by Lyu et al.</p>
+
+<p>Another way to increase the modelling power of the algorithm is to replace the RBM with a different model. The authors of <a href="http://www-etud.iro.umontreal.ca/~boulanni/ICML2012.pdf">Boulanger-Lewandowski 2012</a> replace the RBM with a neural autoregressive distribution estimator (<a href="http://homepages.inf.ed.ac.uk/imurray2/pub/11nade/nade.pdf">NADE</a>), which is a similar algorithm that models the data with a tractable distribution. Since the NADE is tractable, it doesn’t suffer from the gradient-approximation errors that contrastive divergence introduces. You can see <a href="http://www-etud.iro.umontreal.ca/~boulanni/icml2012">here</a> that the music generated by the RNN-NADE shows more local structure than the music generated by the RNN-RBM.</p>
+
+<p>We can also replace the RBM with a <a href="https://www.cs.toronto.edu/~hinton/nipstutorial/nipstut3.pdf">Deep Belief Network</a>, which is an unsupervised neural network architecture formed from multiple RBMs stacked on top of one another. Unlike RBMs, DBNs can take advantage of their multiple layers to form hierarchical representations of data. In this later <a href="http://www.academia.edu/16196335/Modeling_Temporal_Dependencies_in_Data_Using_a_DBN-LSTM">paper</a> from Vohra et al, the authors combine DBNs and LSTMs to model high dimensional temporal sequences and generate music that shows more complexity than the music generated by an RNN-RBM.</p>
+
+<h3 id="extensions-1">Extensions</h3>
+
+<p>Thanks for joining me today to talk about making music in TensorFlow! If you enjoyed seeing how neural networks can learn how to be creative, you may enjoy some of these other incredible architecures:</p>
+
+<ul>
+  <li>
+    <p>The <a href="http://arxiv.org/pdf/1508.06576v2.pdf">neural style</a> algorithm is one of the most breathtaking algorithms for computational art ever created. The algorithm repaints a photograph or image in the style of a painting. The algorithm works by training a <a href="http://cs231n.github.io/convolutional-networks/">convolutional neural network</a> to maximize both the generated image’s pixel to pixel coherence with the photograph and the texture similarity of the generated image and the painting.</p>
+
+    <p><img src="/img/neural_images.png" alt="The images from the paper" /></p>
+
+    <p>Here is a <a href="https://github.com/anishathalye/neural-style">TensorFlow implementation</a> and a <a href="https://github.com/jcjohnson/neural-style">torch implementation</a> of the algorithm</p>
+  </li>
+  <li>
+    <p>The <a href="https://arxiv.org/pdf/1502.04623v2.pdf">DRAW</a> neural network is a recurrent neural network architecture for generating images. The network adds a sequencial component to image generation by sliding a virtual “pen” to “draw” an image. You can find an accessible description of the paper <a href="https://github.com/tensorflow/magenta/blob/master/magenta/reviews/draw.md">here</a>.</p>
+  </li>
+  <li>
+    <p>The <a href="https://arxiv.org/pdf/1511.06434v2.pdf">DCGAN</a> architecture is one of the most exciting new neural network architectures. This algorithm involves training 2 “adversarial” neural networks to battle each other. One network generates images, and the other network tries to distinguish the generated images from real images. This architecture has shown incredible success in generating pictures of <a href="https://github.com/Newmu/dcgan_code">bedrooms and faces</a> that look almost real.</p>
+  </li>
+</ul>
+
+:ET

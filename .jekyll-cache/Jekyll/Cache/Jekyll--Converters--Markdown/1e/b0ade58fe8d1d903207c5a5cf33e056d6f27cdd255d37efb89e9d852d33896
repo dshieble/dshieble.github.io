@@ -1,0 +1,118 @@
+I"�+<script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<p>Last week I was at KDD 2018 in London. This was my first time at KDD, and I had the opportunity to present <a href="https://cmi2018.sdsc.edu/wp-content/uploads/2018/08/ShieblerEtAlCMI18_paper_2.pdf">our paper</a> on embeddings at the <a href="https://cmi2018.sdsc.edu/">Common Model Infrastructure</a> workshop. I was really impressed by both the workshops and the main program, and I thought I’d share my thoughts on a few of my favorite presentations from the week.</p>
+
+<h2 id="yee-whye-teh-keynote"><a href="http://www.kdd.org/kdd2018/keynotes/view/yee-whye-teh">Yee Whye Teh Keynote</a></h2>
+
+<p>Yee Whye Teh’s talk was an excellent overview of how meta-learning and “learning-to-learn” algorithms can improve performance in low labeled data domains. He covered a smattering of recent research in this space:</p>
+
+<ul>
+  <li>
+    <p>This <a href="https://arxiv.org/abs/1707.04175">cool strategy</a> for sharing knowledge between multiple reinforcement learning tasks by simultaneously learning a default policy and several task-specific policies. The task-specific policies are guided by a KL-divergence loss to align as closely as possible to the default policy.</p>
+  </li>
+  <li>
+    <p>A <a href="http://www.pnas.org/content/pnas/114/13/3521.full.pdf">nice algorithm</a> for avoiding catastrophic forgetting (the phenomenom where a model erases the knowledge that it learned from one task when trying to complete another task) by enforcing a penalty for forgetting weights that were important for earlier tasks.</p>
+  </li>
+  <li>
+    <p>A <a href="https://arxiv.org/abs/1807.01622">new approach</a> for building probabalistic neural models as alternatives to Gaussian Processes that can perform faster inference and represent highly expressive priors.</p>
+  </li>
+</ul>
+
+<p>When I was listening to Yee Whye Teh’s talk, it struck me that one of the reasons why humans are such effective decision makers is our ability to learn new and complex concepts from extremely little data. For example, if I show a child a single picture of an elephant, they will almost certainly have perfect accuracy in classifying pictures of elephants from then on.</p>
+
+<p>Part of the reason why we can do this is that our perceptual systems are extremely good at feature engineering. We know that the characteristic features of the elephant are the trunk, tusks and size, because we have knowledge of other animals that we’ve formed over our lives. Our understanding of the world isn’t siloed: we can learn how to accomplish new tasks because we already have a good understanding of the sort of strategies that have worked in the past on similar tasks.</p>
+
+<p>Comparatively, if I tried to train a simple CNN to recognize elephants in images, I would need to supply hundreds or thousands of examples. This sort of problem-by-problem approach to understanding different kinds of data and solving different kinds of problems without sharing knowledge or insights is suboptimal and data inefficient. The strategies that Yee Whye Teh discusses in his talk can help us reduce this inefficiency.</p>
+
+<h2 id="chris-ré-applied-data-science-invited-talk"><a href="http://www.kdd.org/kdd2018/applied-data-science-invited-talks/view/christopher-re">Chris Ré Applied Data Science Invited Talk</a></h2>
+
+<p>Chris Ré described how building models for sparsely labeled domains is one of the most challenging parts of modern ML. He also introduced his team’s tool for solving this problem, <a href="https://hazyresearch.github.io/snorkel/">Snorkel</a>.</p>
+
+<p>There were about 100 talks at KDD about some kind of new “automatic machine learning system” that accepts labeled data and generates a trained model or prediction service. I recall this being the case back when I went to NIPS 2016, and it’s probably been the case at every ML conference since then. To me, this is an indication that the problem of ML algorithm development has been mostly reduced to the problems of constructing labeled datasets and measuring performance. Unfortunately these are pretty tough problems, and probably the single largest differentiating factor between domains where ML is successful and those where it is unsuccessful is the amount of labeled data. For natural image recognition and online product recommendation, labeled data is pretty easy to come by. For other problems like motion sensor classification, insurance pricing or disease prediction, labeled data is a natural bottleneck.</p>
+
+<p>In some of these cases, we need to turn to weak supervision to build our dataset. Often this will involve utilizing noisy signals that we suspect are correlated to the true labels. The approach that Chris Re describes involves constructing and aggregating many weak labeling functions to augment and manufacture training datasets, building models for the noise in these labeling functions., and then using these models to train a classifier. This seems like a promising approach, and the results he demonstrated in the talk and on the <a href="https://hazyresearch.github.io/snorkel/">Snorkel page</a> were certainly impressive.</p>
+
+<h2 id="mihajlo-grbovic-and-haibin-cheng-on-embeddings-at-airbnb"><a href="http://www.kdd.org/kdd2018/accepted-papers/view/real-time-personalization-using-embeddings-for-search-ranking-at-airbnb">Mihajlo Grbovic and Haibin Cheng on Embeddings at Airbnb</a></h2>
+
+<p>The folks from Airbnb gave a great talk on their embedding-based approach for search ranking. I had a few major takeaways:</p>
+
+<ul>
+  <li>
+    <p>They used a negative sampling approach to train their embeddings that was reminiscent of Facebook’s <a href="https://arxiv.org/abs/1709.03856">StarSpace</a>, but they describe a few negative mining schemes that seemed pretty interesting. For example, they explicitly select some negatives from the same market as the positive samples. This seems like a pretty simple way to use domain knowledge to get the benefits of traditional hard negative mining in a faster and more stable way.</p>
+  </li>
+  <li>
+    <p>One of the largest challenges in building a system that regularly re-produces embeddings is managing re-training for upstream components that depend on these embeddings. The authors avoid this issue by constructing the upstream models to use cosine distance as a feature rather than the embeddings themselves. This is common practice, but I also feel like this limits the system a bit, since the embeddings themselves likely contain additional information that upstream models may benefit from exploiting.</p>
+  </li>
+  <li>
+    <p>They implemented a “Similarity Exploration Tool” for visualizing which listings are close to each other in the embedding space. In my experience, these kinds of tools are most useful when we use them compare different embeddings side-by-side. This can help us understand how a new method might improve performance or how embedding spaces change over time. They didn’t show us any examples of this sort of exploration in the paper or talk though.</p>
+  </li>
+</ul>
+
+<!-- 
+- cold start - feature based and average based - makes me wonder about folding in 
+ -->
+
+<!--
+
+
+The notion of meta-learning and general intelligence are closely associated with domains that contain small amounts of data. In these situations, we need to apply some sort of domain knowledge. This could be explicit rules, model structure, or weights learned from a different problem. 
+
+The neural process is an approach for combining the inference efficiency of neural networks with the data efficiency and prior-compatibility of gaussian processes. He described a system for parameterizing tasks and models, and then backpropping the test loss to the hyperparameters. This allows us to "learn to learn" new hyperparameters and share parameters across multiple tasks. The major benefit of using a neural process over a gaussian process in this circumstance is that we can use more expressive priors - the weights of the network rather than gaussian structures.
+We can also use a meta-learning approach to multi-task reinforcement learning. In this setup we use a "default policy" that the agent defaults to and is penalized from diverging from. We learn the default policy at the same time as the task-specific policies, which allows for an enormous amount of expressivity. 
+
+
+
+We specify the policies as distributions and use KL divergence to quantify their differences
+In meta-learning, catastrophic forgetting is common - that is, it's difficult to transfer knowledge without either freezing the previously learned parameters or risking having them be erased. We can alternatively use a "pseudo-freezing" approach that penalizes new weights based on how they diverge from the old weights (similar to the "default policy" approach)
+
+
+
+
+
+neural process over a gaussian process in this circumstance is that we can use more expressive priors - the weights of the network rather than gaussian structures.
+We can also use a meta-learning approach to multi-task reinforcement learning. In this setup we use a "default policy" that the agent defaults to and is penalized from diverging from. We learn the default policy at the same time as the task-specific policies, which allows for an enormous amount of expressivity. 
+
+
+In meta-learning, catastrophic forgetting is common - that is, it's difficult to transfer knowledge without either freezing the previously learned parameters or risking having them be erased. We can alternatively use a "pseudo-freezing" approach that penalizes new weights based on how they diverge from the old weights (similar to the "default policy" approach)
+
+
+
+
+training a noise-aware classifier to model this noise.
+
+
+ seems like a promising strategy.
+
+
+
+
+
+In these circumstances, we need to model this noise, and sometimes aggregate multiple methods for generating these kinds of noisy labeled data. 
+
+
+Then, we can model the noise of these datasets and train a noise-aware classifier.
+
+
+
+ systems have an enormous amount of high-qual
+
+
+commoditized  - we have effectively reduced the problem of constructing a Machine Learning model to simply acquiring labeled data
+
+
+
+
+In some cases, pure labeled data is hard to come by, and all we have is weak supervision - noisy signals that we suspect are correlated to the true labels. In these circumstances, we need to model this noise, and sometimes aggregate multiple methods for generating these kinds of noisy labeled data. For example, if we have a few basic rules that we want to use for labeling data, we can apply them together to generate a series of weakly labeled datasets. Then, we can model the noise of these datasets and train a noise-aware classifier. Generally, this involves building generative models of the labeling functions and then comparing them to each other to model their noise.
+
+-->
+
+:ET

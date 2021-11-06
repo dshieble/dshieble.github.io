@@ -1,0 +1,294 @@
+I"�3<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<blockquote>
+  <p>The ideas in this post were hashed out during a series of discussions between myself and <a href="https://www.brunogavranovic.com/">Bruno Gavranović</a></p>
+</blockquote>
+
+<p>Consider a system for forecasting a time series in \(\mathbb{R}\) based on a vector of features in \(\mathbb{R}^a\). At each time \(t\) this system will use the state of the world (represented as a vector in \(\mathbb{R}^a\)) to predict what the value of the time series (a real number) will be at time \(t+1\). At time \(t+1\) the system will receive information about the correct value of the time series at time \(t+1\), represented as a pair \((x_a, y) \in \mathbb{R}^a \times \mathbb{R}\), and will need to predict the value of the time series at time \(t+2\).</p>
+
+<p>One way to build such a system would be to choose a loss function \(l: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\) and use gradient descent to train a model \(f: \mathbb{R}^p \times \mathbb{R}^a \rightarrow \mathbb{R}\) on all of the data before some time \(t\). We could then use that trained model to generate predictions at time \(t+n\). If the time series is not stationary then this may produce poor results for \(t+n\) where \(n\) is large.</p>
+
+<p>Another option would be to continuously update the parameters \(x_p \in \mathbb{R}^p\) of the model \(f: \mathbb{R}^p \times \mathbb{R}^a \rightarrow \mathbb{R}\) as each new sample \((x_a, y) \in \mathbb{R}^a \times \mathbb{R}\) is observed. This is known as online learning.</p>
+
+<p>An example online learning algorithm is stochastic gradient descent, which we can define as follows:</p>
+
+<p>Initialize \(x_p\) randomly, and then as each sample \((x_{a_i}, y_{i})\) arrives set:</p>
+
+\[i \gets mod(i+1, |S|)\\
+  l_{f_i} \gets l(f(x_p, x_{a_i}), y_{i})\\
+  x_p \gets x_p - \alpha \nabla l_{f_i}(x_p)\]
+
+<p>Stochastic gradient descent describes a dynamical system in which a state in \(\mathbb{R}^p\) evolves over time in response to inputs in \(\mathbb{R}^a \times \mathbb{R}\). One of the downsides of stochastic gradient descent is that the update step can be very high variance from \(t\) to \(t+1\), which can slow down convergence. One way to get around this is to use the momentum algorithm, which we define as follows:</p>
+
+<p>Initialize \(x_p, x_p'\) randomly, and then as each sample \((x_{a_i}, y_{i})\) arrives set:</p>
+
+\[l_{f_i} \gets l(f(x_p, x_{a_i}), y_{i})\\
+  x_p \gets x_p + \alpha x'_p \\
+  x'_p \gets (1 - \beta) x'_p - \beta \nabla l(x_p) \\\]
+
+<p>Momentum describes a dynamical system in which a state in \(\mathbb{R}^p \times \mathbb{R}^p\) evolves over time in response to inputs in \(\mathbb{R}^a \times \mathbb{R}\).</p>
+
+<h3 id="lenses-and-dynamical-systems">Lenses and Dynamical Systems</h3>
+
+<p>Optimization algorithms like stochastic gradient descent and momentum describe dynamical systems whose state is the function parameters. In this section we dig deeper into this perspective. In particular, we use <a href="http://davidjaz.com/Papers/DynamicalBook.pdf">David Jaz Myer’s category theoretic formulation of dynamical systems</a> to study how we can recombine simpler optimization algorithms to form a more complex algorithm.</p>
+
+<p>The category theoretic formulation of dynamical systems is based on lenses, which are a tool for representing certain kinds of compositions. We will focus entirely on lenses in the category of sets and functions.</p>
+
+<p>A lens
+\(\left(_{A}^{A'}\right)
+\xrightarrow{(f_g, f_p)}
+\left(_{B}^{B'}\right)\)
+in the category of sets and functions \(\mathbf{Set}\) is a pair \((f_g, f_p)\) of morphisms (functions):</p>
+
+\[f_g : A \rightarrow B
+    \qquad
+    f_p : A \times B' \rightarrow A'
+    \\\]
+
+<p>Lenses are powerful because many computations can be expressed in terms of the combination of multiple lenses. The simplest way to combine lenses is to stack them in parallel. Given the lenses:</p>
+
+\[\left(_{A}^{A'}\right)
+    \xrightarrow{(f_g, f_p)}
+    \left(_{B}^{B'}\right)
+    \\
+    \left(_{C}^{C'}\right)
+    \xrightarrow{(g_g, g_p)}
+    \left(_{D}^{D'}\right)\]
+
+<p>we define their monoidal product to be the lens:</p>
+
+\[\left(_{A \otimes C}^{A' \otimes C'} \right) \xrightarrow{(h_g, h_p)}
+    \left(_{B \otimes D}^{B' \otimes D'}\right)
+    \\
+    h_g = f_g \otimes g_g
+    \\
+    h_p =
+    \langle f_p \circ (\pi_0 \otimes \pi_0)
+    ,
+    (g_p \circ (\pi_1 \otimes \pi_1)\rangle\]
+
+<p>We can also compose lenses directly. Given the lenses:</p>
+
+\[\left(_{A}^{A'}\right)
+    \xrightarrow{(f_g, f_p)}
+    \left(_{B}^{B'}\right)
+    \\
+    \left(_{B}^{B'}\right)
+    \xrightarrow{(g_g, g_p)}
+    \left(_{C}^{C'}\right)\]
+
+<p>we define their composition to be the lens:</p>
+
+\[\left(_{A}^{A'}\right)
+    \xrightarrow{(h_g, h_p)}
+    \left(_{C}^{C'}\right)
+    \\
+    h_g = g_g \circ f_g
+    \\
+    h_p =
+    f_p \circ \langle \pi_0, (g_p \circ ((f_g\circ \pi_0) \otimes \pi_1))\rangle\]
+
+<p>We can now characterize dynamical systems as lenses. A discrete system is a lens \(\left(_{S}^{S}\right)
+\xrightarrow{(f_g, f_p)}
+\left(_{O}^{I}\right)\) or equivalently, a set of states \(S\), a set of inputs \(I\), a set of outputs \(O\), and two functions:</p>
+
+<ul>
+  <li>A get (read) function \(f_g: S \rightarrow O\) that generates an output from a state.</li>
+  <li>A put (update) function \(f_p: S \times I \rightarrow S\) that takes a pair of a state and an input and returns an updated state.</li>
+</ul>
+
+<p>Intuitively, a discrete system represents the stepwise application of the update function \(f_p\), potentially in response to a sequence of inputs. That is, the discrete system \(\left(_{S}^{S}\right)
+\xrightarrow{(f_g, f_p)}
+\left(_{O}^{I}\right)\) describes a dynamical system whose state  \(x_{S_t} \in S\) at time \(t+1\) is described by the equation:</p>
+
+\[x_{S_{t+1}} = x_{S_t} + f_p(x_{S_t}, x_{I_t})
+     \\\]
+
+<p>where \(x_{I_t} \in I\) is the system input at time \(t\).</p>
+
+<h3 id="constructing-momentum-from-stochastic-gradient-descent">Constructing Momentum from Stochastic Gradient Descent</h3>
+
+<p>Given a pair of a loss function \(l: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\) and inference function \(f: \mathbb{R}^p \times \mathbb{R}^a \rightarrow \mathbb{R}\) the stochastic gradient descent dynamical system \(sg\) has the following structure:</p>
+
+\[\left(_{\mathbb{R}^{p}}^{\mathbb{R}^{p}}\right)
+    \xrightarrow{(sg_g, sg_p)}
+    \left(_{\mathbb{R}^p}^{\mathbb{R}^a \times \mathbb{R}}\right)
+    \\
+    sg_g(x_p) = x_p
+    \\
+    sg_p(x_p, (x_a, y)) = -\nabla l(f(x_p, x_a), y)\]
+
+<p>This system iteratively updates its state \(x_p\) each time a new sample \((x_a, y) \in \mathbb{R}^a \times \mathbb{R}\) is observed.</p>
+
+<p>We can also define a dynamical system to represent stochastic momentum. Given a pair of a loss function \(l: \mathbb{R} \times \mathbb{R} \rightarrow \mathbb{R}\) and inference function \(f: \mathbb{R}^p \times \mathbb{R}^a \rightarrow \mathbb{R}\) the momentum dynamical system \(sm\) has the following structure:</p>
+
+\[\left(_{\mathbb{R}^{p} \times \mathbb{R}^{p}}^{\mathbb{R}^p \times \mathbb{R}^{p}}\right)
+  \xrightarrow{(sm_g, sm_p)}
+  \left(_{\mathbb{R}^p}^{\mathbb{R}^a \times \mathbb{R}}\right)
+  \\
+    sm_g((x_p, x'_p)) = x_p
+    \\
+    sm_p((x_p, x'_p), (x_a, y)) = (x'_p, - x'_p -\nabla l(f(x_p, x_a), y))\]
+
+<p>We can construct momentum from the composition and tensor of stochastic gradient descent with some basic lenses. To start, consider the following discrete systems.</p>
+
+<ul>
+  <li>The discrete system \(add\) reads the state directly and uses the sum of the input values as the state update:</li>
+</ul>
+
+\[\left(_{\mathbb{R}^{p}}^{\mathbb{R}^{p}}\right)
+\xrightarrow{(add_g, add_p)}
+\left(_{\mathbb{R}^p}^{\mathbb{R}^p \times \mathbb{R}^p}\right)
+\\
+add_g(x_p) = x_p
+\\
+add_p(x_p, (x'_p,x''_p)) = x'_p+x''_p\]
+
+<ul>
+  <li>The discrete system \(cp\) reads the state directly and uses the current state as the state update:</li>
+</ul>
+
+\[\left(_{\mathbb{R}^{p}}^{\mathbb{R}^{p}}\right)
+\xrightarrow{(cp_g, cp_p)}
+\left(_{\mathbb{R}^p}^{*}\right)
+\\
+cp_g(x_p) = x_p
+\\
+cp_p(x_p, *) = x_p\]
+
+<ul>
+  <li>The discrete system \(sw\) reads the state directly and swaps the positions of the input values to generate the state update:</li>
+</ul>
+
+\[\left(_{\mathbb{R}^p \times \mathbb{R}^p}^{\mathbb{R}^p \times \mathbb{R}^p}\right)
+\xrightarrow{(sw_g, sw_p)}
+\left(_{\mathbb{R}^p \times \mathbb{R}^p}^{\mathbb{R}^p \times \mathbb{R}^p}\right)
+\\
+sw_g(x_p, x'_p) = (x_p, x'_p)
+\\
+sw_p((x_p, x'_p), (x''_p, x'''_p)) = (x'''_p, x''_p)\]
+
+<p>Consider also the following lenses:</p>
+<ul>
+  <li>The lens \(ng\) uses the negated input value as the state update:</li>
+</ul>
+
+\[\left(_{*}^{\mathbb{R}^{p}}\right)
+\xrightarrow{(ng_g, ng_p)}
+\left(_{*}^{\mathbb{R}^p}\right)
+\\
+ng_g(*) = *
+\\
+ng_p(*, x_p) = -x_p\]
+
+<ul>
+  <li>The lens \(srp\) reads the left component of the system state and uses the right component to generate the state update:</li>
+</ul>
+
+\[\left(_{\mathbb{R}^p \times \mathbb{R}^p}^{\mathbb{R}^a \times \mathbb{R} \times \mathbb{R}^{p}}\right)
+\xrightarrow{(srp_g, srp_p)}
+\left(_{\mathbb{R}^p}^{\mathbb{R}^a \times \mathbb{R}}\right)
+\\
+srp_g(x_p, x'_p) = x_p
+\\
+srp_p((x_p, x'_p), (x_a, y)) = (x_a, y, x'_p)\]
+
+<p>We can now construct the momentum dynamical system \(sm\) as the following composition:</p>
+
+\[sm = srp \circ (((sg \times ng) \circ add) \times cp) \circ sw
+    \\\]
+
+<p>Let’s break this down into its component parts to see this more clearly. We can draw the composition:</p>
+
+\[\left(_{\mathbb{R}^{p}}^{\mathbb{R}^{p}}\right)
+  \xrightarrow{
+    (((sg \times ng) \circ add)_g,
+    ((sg \times ng) \circ add)_p)}
+  \left(_{\mathbb{R}^p}^{\mathbb{R}^a \times \mathbb{R} \times \mathbb{R}^{p}}\right)
+  \\\]
+
+<p>where:</p>
+
+\[((sg \times ng) \circ add)_g(x_p) =
+(sg \times ng)_g(add_g(x_p)) =
+(sg \times ng)_g(x_p) =
+x_p 
+\\\]
+
+<p>and:</p>
+
+\[\begin{aligned}
+    ((sg \times ng) \circ add)_p(x_p, (x_a, y, c_p)) = \\
+    add_p(x_p, (sg \times ng)_p(add_g(x_p), (x_a, y, c_p))) = \\
+    add_p(x_p, sg_p(add_g(x_p), (x_a, y)), ng_p(c_p)) = \\
+    add_p(x_p, sg_p(x_p, (x_a, y)), -c_p) = \\
+    add_p(x_p, -\nabla l(f(x_p, x_a), y), -c_p) = \\
+    -c_p - \nabla l(f(x_p, x_a), y)
+   \end{aligned}\]
+
+<p>We can build on this to form:</p>
+
+\[\left(_{\mathbb{R}^{p} \times \mathbb{R}^{p}}^
+       {\mathbb{R}^p \times \mathbb{R}^{p}}\right)
+\xrightarrow{
+  ((((sg \times ng) \circ add)\times cp)_g,
+   (((sg \times ng) \circ add)\times cp)_p)
+}
+\left(_{\mathbb{R}^p \times \mathbb{R}^p}^
+       {\mathbb{R}^a \times \mathbb{R} \times \mathbb{R}^p}\right)
+\\
+    (((g \times ng) \circ add)\times cp)_g(x_p, x'_p) = (x_p,x'_p)
+    \\
+    (((g \times ng) \circ add)\times cp)_p((x_p, x'_p), (x_a, y, c_p))) =
+    (-c_p - \nabla l(f(x_p, x_a), y), x'_p)\]
+
+<p>We can further build on this to form:</p>
+
+\[\left(_{\mathbb{R}^{p} \times \mathbb{R}^{p}}^
+       {\mathbb{R}^p \times \mathbb{R}^{p}}\right)
+\xrightarrow{
+  (((((sg \times ng) \circ add)\times cp) \circ sw)_g,
+   ((((sg \times ng) \circ add)\times cp) \circ sw)_p)
+}
+\left(_{\mathbb{R}^p \times \mathbb{R}^p}^
+       {\mathbb{R}^a \times \mathbb{R} \times \mathbb{R}^p}\right)
+\\
+    ((((sg \times ng) \circ add)\times cp) \circ sw)_g(x_p, x'_p) = (x_p,x'_p)
+    \\
+    ((((sg \times ng) \circ add)\times cp) \circ sw)_p((x_p, x'_p), (x_a, y, c_p))) =
+    (x'_p, -c_p - \nabla l(f(x_p, x_a), y))\]
+
+<p>Putting it all together we have:</p>
+
+\[\left(_{\mathbb{R}^{p} \times \mathbb{R}^{p}}^
+       {\mathbb{R}^p \times \mathbb{R}^{p}}\right)
+\xrightarrow{
+  ((srp \circ ((((sg \times ng) \circ add)\times cp) \circ sw))_g,
+   (srp \circ ((((sg \times ng) \circ add)\times cp) \circ sw))_p)
+}
+\left(_{\mathbb{R}^p}^
+       {\mathbb{R}^a \times \mathbb{R}}\right)
+\\
+    (srp \circ ((((sg \times ng) \circ add)\times cp) \circ sw))_g(x_p, x'_p) =
+    x_p =
+    sm_g((x_p, x'_p))
+\\
+    (srp \circ ((((sg \times ng) \circ add)\times cp) \circ sw))_p((x_p, x'_p), (x_a, y)) =
+    (x'_p, -x'_p - \nabla l(f(x_p, x_a), y)) =
+    sm_p((x_p, x'_p), (x_a, y))\]
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>In this post we explored how we can leverage the composition of dynamical systems to construct complex optimization algorithms from simpler components. In particular, we demonstrated that the momentum optimization algorithms can be constructed from nothing more than stochastic gradient descent and some simple lens operations. It should be simple to extend this strategy to other algorithms like Adagrad and Adam.</p>
+
+<p>Furthermore, we can probably utilize this dynamical systems perspective to reason about the relationship between the optimization process and the data that we feed in from the outside. We can similarly represent the optimization hyperparameters or the configuration of the data generation process as the dynamical system input.</p>
+:ET

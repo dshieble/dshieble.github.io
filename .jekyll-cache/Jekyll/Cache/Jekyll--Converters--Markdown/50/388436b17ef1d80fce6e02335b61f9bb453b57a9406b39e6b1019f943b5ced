@@ -1,0 +1,54 @@
+I"�<script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<p>When I’m building models, I frequently run into situations where I’ve trained multiple models over a few datasets or tasks and I’m curious about how they compare. For instance, it’s clear that if I train two word vector models on random subsets of Wikipedia, the trained models will be “similar” to each other. In contrast, if I train word vectors over a Twitter dataset, the new vectors will be “different” from the Wikipedia-trained vectors.</p>
+
+<p>In order to make it easier to quantify this difference, I wrote <code class="language-plaintext highlighter-rouge">repcomp</code>, a python package for comparing embeddings. <code class="language-plaintext highlighter-rouge">repcomp</code> supports the following embedding comparison approaches:</p>
+
+<ul>
+  <li>Nearest Neighbors: Fetch the nearest neighbor set of each entity according to embedding distances, and compare model A’s neighbor sets to model B’s neighbor sets.</li>
+  <li>Canonical Correlation: Treat embedding components as observations of random variables and compute the canonical correlations between model A and model B.</li>
+  <li>Unit Match: Form a unit-to-unit matching between model A’s embedding components and model B’s embedding components and measure the correlations of the matched units.</li>
+</ul>
+
+<p>You can install repcomp with <code class="language-plaintext highlighter-rouge">pip install repcomp</code></p>
+
+<p>We can use <code class="language-plaintext highlighter-rouge">repcomp</code> to easily compare two word embedding models that have been pre-trained on Twitter and Wikipedia data:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">gensim.downloader</span> <span class="k">as</span> <span class="n">api</span>
+  <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+  <span class="kn">from</span> <span class="nn">repcomp.comparison</span> <span class="kn">import</span> <span class="n">NeighborsComparison</span>
+
+  <span class="c1"># Load word vectors from gensim
+</span>  <span class="n">glove_wiki_50</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">"glove-wiki-gigaword-50"</span><span class="p">)</span>
+  <span class="n">glove_twitter_50</span> <span class="o">=</span> <span class="n">api</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="s">"glove-twitter-50"</span><span class="p">)</span>
+
+  <span class="c1"># Build the embedding matrices over the shared vocabularies
+</span>  <span class="n">shared_vocab</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">glove_wiki_50</span><span class="p">.</span><span class="n">vocab</span><span class="p">.</span><span class="n">keys</span><span class="p">()).</span><span class="n">intersection</span><span class="p">(</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">glove_twitter_50</span><span class="p">.</span><span class="n">vocab</span><span class="p">.</span><span class="n">keys</span><span class="p">()))</span>
+  <span class="n">glove_wiki_50_vectors</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">glove_wiki_50</span><span class="p">.</span><span class="n">get_vector</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">shared_vocab</span><span class="p">])</span>
+  <span class="n">glove_twitter_50_vectors</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">glove_twitter_50</span><span class="p">.</span><span class="n">get_vector</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">shared_vocab</span><span class="p">])</span>
+
+  <span class="c1"># Run the comparison
+</span>  <span class="n">comparator</span> <span class="o">=</span> <span class="n">NeighborsComparison</span><span class="p">()</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"The neighbors similarity between glove-wiki-gigaword-50 and glove-twitter-50 is {}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
+    <span class="n">comparator</span><span class="p">.</span><span class="n">run_comparison</span><span class="p">(</span><span class="n">glove_wiki_50_vectors</span><span class="p">,</span> <span class="n">glove_twitter_50_vectors</span><span class="p">)[</span><span class="s">"similarity"</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p>We can use also use <code class="language-plaintext highlighter-rouge">repcomp</code> to:</p>
+<ul>
+  <li>Quantify the impact of changing a hyperparameter on an embedding model. In <a href="https://github.com/dshieble/RepresentationComparison/tree/master/experiments/Movie_Embedding_Experiment">this notebook</a> we use matrix factorization to train a couple of movie embedding models based on the MovieLens dataset, and then use embedding comparison to see how changing the value of hyperparameters affects the learned embedding spaces.</li>
+  <li>Measure the difference between the representations that different neural network architectures learn. In <a href="https://github.com/dshieble/RepresentationComparison/tree/master/experiments/CNN_Embedding_Experiment">this notebook</a>, we compare the final-layer embeddings for Imagenet-trained VGG16, VGG19, and InceptionV3 models</li>
+</ul>
+
+<p>If you’re interested in contributing to <code class="language-plaintext highlighter-rouge">repcomp</code>, please feel free to open up a Pull Request <a href="https://github.com/dshieble/RepresentationComparison">here</a>!</p>
+
+:ET
