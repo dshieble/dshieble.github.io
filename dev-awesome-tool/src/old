@@ -1,0 +1,234 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+
+import $ from 'jquery';
+import Chart from "react-google-charts";
+
+function getData() {
+	// Fetch data from the backend to plot
+	response = {
+		"DJI": {
+			new Date(2020, 0, 0): 0.5,
+			new Date(2020, 0, 1): 0.6,
+			new Date(2020, 0, 2): 0.7,
+			new Date(2020, 0, 3): 0.8,
+			new Date(2020, 0, 4): 1.0,
+			new Date(2020, 0, 5): 1.2,
+		},
+		"AMD": {
+			new Date(2020, 0, 0): 2.5,
+			new Date(2020, 0, 1): 2.6,
+			new Date(2020, 0, 2): 2.3,
+			new Date(2020, 0, 3): 2.8,
+			new Date(2020, 0, 4): 4.0,
+			new Date(2020, 0, 5): 4.2,
+		}
+	}
+
+}
+
+function Graph(props) {
+  return (
+		<Chart
+		  width={'100%'}
+		  height={'500'}
+		  chartType="Line"
+		  loader={<div>Loading Chart</div>}
+		  data={[
+		    [
+		      { type: 'date', label: 'Day' },
+		      'Average temperature',
+		      'Average hours of daylight',
+		    ],
+		    [new Date(2014, 0), -0.5, 5.7],
+		    [new Date(2014, 1), 0.4, 8.7],
+		    [new Date(2014, 2), 0.5, 12],
+		    [new Date(2014, 3), 2.9, 15.3],
+		    [new Date(2014, 4), 6.3, 18.6],
+		    [new Date(2014, 5), 9, 20.9],
+		    [new Date(2014, 6), 10.6, 19.8],
+		    [new Date(2014, 7), 10.3, 16.6],
+		    [new Date(2014, 8), 7.4, 13.3],
+		    [new Date(2014, 9), 4.4, 9.9],
+		    [new Date(2014, 10), 1.1, 6.6],
+		    [new Date(2014, 11), -0.2, 4.5],
+		  ]}
+		  options={{
+		    chart: {
+		      title:
+		        props.title,
+		    },
+		    width: 900,
+		    height: 500,
+		    series: {
+		      // Gives each series an axis name that matches the Y-axis below.
+		      0: { axis: 'Temps' },
+		      1: { axis: 'Daylight' },
+		    },
+		    axes: {
+		      // Adds labels to each axis; they don't have to match the axis names.
+		      y: {
+		        Temps: { label: 'Temps (Celsius)' },
+		        Daylight: { label: 'Daylight' },
+		      },
+		    },
+		  }}
+		  rootProps={{ 'data-testid': '4' }}
+		/>
+  );
+}
+
+
+
+
+// We can switch the Square component to a function that just renders directly. This still creates a component I believe, just under the hood
+function Button(props) {
+  // the function component just returns the DOM element to render
+  return (
+    // 
+    // Notes on differences between class and function components
+    // (1)
+    //   - There is no "this" required to reference props, since this is just a function
+    // (2)
+    //  - For class component we write onClick={() => this.props.onClick}
+    //  - For function component we write onClick={props.onClick}
+    <button className="button" onClick={props.onClick}>
+       {"Click Here"}
+    </button>
+  );
+}
+
+function Response(props) {
+  // the function component just returns the DOM element to render
+
+  return (
+    <div className="response">{props.response}</div>
+  );
+}
+
+
+class Screen extends React.Component {
+  "use strict"
+
+  constructor(props) {
+    super(props);
+    console.log("Constructor is called")
+    this.state = {response: null, title: null, data: null};
+  }
+
+
+  handleResponse(screen, response) {
+    console.log(screen);
+    console.log(this);
+    console.log("setting state");
+    console.log(response);
+
+    data = getData(response)
+
+    // NOTE: If we write this method to only accept the response argument, then `this` will point at the response object. We need to pass the screen in manually. 
+    screen.setState({ response: response, title: "clicked", data: data });
+    return response;
+  }
+
+  // handleClick() {
+  //   $.getJSON('https://randomuser.me/api/')
+  //     .done((response) => this.handleResponse(this, response));
+  // }
+
+  handleClick() {
+    $.getJSON("https://backend.danshiebler.com/data?start_date=20211101&end_date=20211120")
+      .done((response) => this.handleResponse(this, response));
+  }
+
+  renderGraph() {
+  	const title = this.state.title ? this.state.title : 'not clicked'
+    return <Graph
+        title={title}
+        />;
+  }
+
+  renderButton() {
+    return <Button
+      onClick={() => this.handleClick()}
+      />;
+  }
+
+  renderResponse() {
+    // console.log(this.state.response)
+
+    var response;
+    if (this.state.response) {
+      console.log("defined")
+      const data = this.state.response.data.map(ticker => (
+        // NOTE: We need to wrap these within <li><\li> and add a key because of https://sentry.io/answers/unique-key-prop/
+        <li key={ticker}> 
+        <div>
+          <h1>{ ticker }</h1>
+        </div>
+        </li>
+      ));
+
+      // console.log(persons);
+
+      response = (
+        <div id="layout-content" className="layout-content-wrapper">
+          <div className="panel-list">{ data }</div>
+        </div>
+      );
+
+      // response = JSON.stringify(this.state.response);
+    } else {
+      console.log("not defined")
+      response = null;
+    }
+
+    return <Response
+        response={response}
+        />;
+  }
+
+  render() {
+  	// NOTE: The render method is called each time the state is updated
+    console.log("rendering");
+    return (
+      <div>
+        <div className="graph">
+          {this.renderGraph()}
+        </div>
+        <div className="box">
+          {this.renderButton()}
+        </div>
+        <div className="response-box">
+          {this.renderResponse()}
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+
+
+// class Graph extends React.Component {
+//   "use strict"
+
+//   render() {
+//     console.log("rendering graph");
+//     return (
+
+//       <div>
+
+//       </div>
+//     );
+//   }
+// }
+
+
+// ========================================
+
+ReactDOM.render(
+  <Screen />,
+  document.getElementById('root')
+);
