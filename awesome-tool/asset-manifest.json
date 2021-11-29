@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/awesome-tool/static/css/main.0268ece4.chunk.css",
-    "main.js": "/awesome-tool/static/js/main.db8e55b0.chunk.js",
-    "main.js.map": "/awesome-tool/static/js/main.db8e55b0.chunk.js.map",
+    "main.js": "/awesome-tool/static/js/main.b1402711.chunk.js",
+    "main.js.map": "/awesome-tool/static/js/main.b1402711.chunk.js.map",
     "runtime-main.js": "/awesome-tool/static/js/runtime-main.1da2a4db.js",
     "runtime-main.js.map": "/awesome-tool/static/js/runtime-main.1da2a4db.js.map",
-    "static/js/2.9a2a696b.chunk.js": "/awesome-tool/static/js/2.9a2a696b.chunk.js",
-    "static/js/2.9a2a696b.chunk.js.map": "/awesome-tool/static/js/2.9a2a696b.chunk.js.map",
+    "static/js/2.4b6c0cf4.chunk.js": "/awesome-tool/static/js/2.4b6c0cf4.chunk.js",
+    "static/js/2.4b6c0cf4.chunk.js.map": "/awesome-tool/static/js/2.4b6c0cf4.chunk.js.map",
     "index.html": "/awesome-tool/index.html",
     "static/css/main.0268ece4.chunk.css.map": "/awesome-tool/static/css/main.0268ece4.chunk.css.map",
-    "static/js/2.9a2a696b.chunk.js.LICENSE.txt": "/awesome-tool/static/js/2.9a2a696b.chunk.js.LICENSE.txt"
+    "static/js/2.4b6c0cf4.chunk.js.LICENSE.txt": "/awesome-tool/static/js/2.4b6c0cf4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1da2a4db.js",
-    "static/js/2.9a2a696b.chunk.js",
+    "static/js/2.4b6c0cf4.chunk.js",
     "static/css/main.0268ece4.chunk.css",
-    "static/js/main.db8e55b0.chunk.js"
+    "static/js/main.b1402711.chunk.js"
   ]
 }
