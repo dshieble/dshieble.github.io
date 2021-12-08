@@ -166,18 +166,7 @@ class Screen extends React.Component {
 		// We only need to hit the backend to fetch data if the graph data is none
 		if (!screen.state.graph_data) {
 
-
-			// Start with a get query to get the 
-
-
-			console.log("Pulling data")
 			const request_data = "date=today&label_column=Close";
-
-			// TODO: Change this to get the next weekday after the specified date.
-
-			console.log("request_data")
-			console.log(request_data)
-
 			$.post(
 				PREDICTION_ENDPOINT,
 				request_data,

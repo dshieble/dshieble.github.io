@@ -7,7 +7,7 @@
 
 # Option 2: Test the site end-to-end
 # Run the following command
-cd dev-awesome-tool; npm run deploy; cd ..; bundle exec jekyll serve
+cd dev-awesome-tool; npm run deploy; cd ..; bundle exec jekyll serve --watch
 # > The react components are hosted at http://127.0.0.1:4000/awesome-tool/ or danshiebler.com/awesome-tool
 
 # NOTE: To push to git, run `npm run deploy` before git push to make sure that react changes make it into the push
