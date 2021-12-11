@@ -1,6 +1,6 @@
 ---
 layout: post
-title: One-Hot Encodings vs Aggregate (Counting) Features
+title: Predicting a Quantity with Categorical Features
 tags: [Machine Learning, Machine Learning Systems, ML, Features]
 ---
 <script> 
