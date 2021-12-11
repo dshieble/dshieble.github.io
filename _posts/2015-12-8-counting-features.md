@@ -17,7 +17,8 @@ tags: [Machine Learning, Machine Learning Systems, ML, Features]
 
 ## Introduction
 
-In this post we will explore a few different strategies for solving prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems.
+In this post we will explore a few strategies for solving prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems.
+
 
 As a concrete example, suppose we would like to predict the value of a transaction based on a small set of categorical features $$(f_1, f_2, \cdots, f_n)$$. These could involve things like the identity of the vendor, the time of day, etc. There are many ways that we could represent these features to our model. In this post we will assume that our model is a linear regression for illustrative purposes, but the ideas we discuss are very general.
   
