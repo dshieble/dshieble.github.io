@@ -19,7 +19,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Features]
 
 Many prediction problems can be framed as "given the knowledge that this sample belongs to categories $$A,B,C,\cdots,D$$, predict something about this sample."
 <!-- Today we will explore how to solvsolve prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems. -->
-As a concrete example, suppose we would like to predict the value of a transaction based on a small set of categorical features $$(f_1, f_2, \cdots, f_n)$$. These could involve things like the identity of the vendor, the time of day, etc. There are many ways that we could represent these features to our model. In this post we will assume that our model is a linear regression for illustrative purposes, but the ideas we discuss are very general.
+As a concrete example, suppose we would like to use linear regression to predict the value of a transaction based on a small set of categorical features $$(f_1, f_2, \cdots, f_n)$$. These could involve things like the identity of the vendor, the time of day, etc. There are many ways that we could represent these features.
   
 <!-- This is a general pattern that can be applied to many different machine learning problems.  -->
 
@@ -73,7 +73,7 @@ In constrast, consider the case where our model consumes the features as categor
 
 ## Conclusion
 
-In practice most large machine learning systems consume categorical signals as a combination of one-hot encoded features and running averages. Signals that are unlikely to change too quickly are often best encoded one-hot, whereas realtime responsiveness are ideally represented as running aggregates.
+Although we assume that our model is a linear regression in this post, the ideas we discuss are very general. In practice most large machine learning systems consume categorical signals as a combination of one-hot encoded features and running averages. Signals that are unlikely to change too quickly are often best encoded one-hot, whereas realtime responsiveness are ideally represented as running aggregates.
 
 
 
