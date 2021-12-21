@@ -77,7 +77,7 @@ In constrast, consider the case where our model consumes the features as categor
 
 ## Conclusion
 
-Although we assume that our model is a linear regression in this post, the ideas we discuss are very general. In practice most large machine learning systems consume categorical signals as a combination of one-hot encoded features and running averages. Signals that are unlikely to change too quickly are often best encoded one-hot, whereas realtime responsiveness are ideally represented as running aggregates.
+Although we assume that our model is a linear regression in this post, the ideas we discuss are very general. In practice most large machine learning systems consume categorical signals as a combination of one-hot encoded features and running averages. Signals that are unlikely to change too quickly are often best encoded one-hot, whereas signals for which realtime responsiveness is paramount are ideally represented as running aggregates.
 
 
 
