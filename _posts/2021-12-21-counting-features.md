@@ -17,9 +17,8 @@ tags: [Machine Learning, Machine Learning Systems, ML, Features]
 
 ## Introduction
 
-In this post we will explore a few strategies for solving prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems.
-
-
+One of the most common types of prediction problems are framed as "given the knowledge that this sample belongs to categories $$A,B,C,\cdots,D$$, predict something about this sample."
+<!-- Today we will explore how to solvsolve prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems. -->
 As a concrete example, suppose we would like to predict the value of a transaction based on a small set of categorical features $$(f_1, f_2, \cdots, f_n)$$. These could involve things like the identity of the vendor, the time of day, etc. There are many ways that we could represent these features to our model. In this post we will assume that our model is a linear regression for illustrative purposes, but the ideas we discuss are very general.
   
 <!-- This is a general pattern that can be applied to many different machine learning problems.  -->
@@ -28,7 +27,7 @@ As a concrete example, suppose we would like to predict the value of a transacti
 ## One-Hot Encodings
 
 
-One way that we could design our model to consume these features would be to use a one-hot encoding of each categorical feature. That is, if we have $$n$$ total features such that the $$i$$th feature $$f_i$$ is a categorical feature with $$n_i$$ possible values, then the dimensionality of our total feature vector would be $$\sum_{i=1\cdots n} n_i$$. Each element of this vector would be either $$0$$ or $$1$$ depending on the categories that the sample belongs to, and a total of $$n$$ elements would be $$1$$.
+One way that we could design our model to consume these features would be to use a one-hot encoding of each categorical feature. That is, if we have $$n$$ total features such that the $$i$$th feature $$f_i$$ is a categorical feature with $$n_i$$ possible values, then the dimensionality of our total feature vector would be $$\sum_{i=1\cdots n} n_i$$. Each element of this feature vector would be either $$0$$ or $$1$$ depending on the categories that the sample belongs to, and the sum of the $$n$$ elements in this feature vector would be $$1$$.
 
 Another strategy would be to cross our categorical features before we one-hot encode them. When we cross the categorical features $$f_i, f_j$$ we create a new categorical feature $$f_i-f_j$$ whose value is the tuple of the values of $$f_i$$ and $$f_j$$. This tuple has $$n_i*n_j$$ possible values. In the extreme case we could cross all of our categorical features together to form the simple crossed feature $$f_1-f_2-\cdots-f_n$$. This feature has $$\prod_{i=1\cdots n} n_i$$ possible values, so its one-hot encoding is a vector with $$\prod_{i=1\cdots n} n_i$$ elements.
 
