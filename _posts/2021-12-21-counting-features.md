@@ -27,7 +27,8 @@ As a concrete example, suppose we would like to use linear regression to predict
 ## One-Hot Encodings
 
 
-One way that we could design our model to consume these features would be to use a one-hot encoding of each categorical feature. That is, if we have $$n$$ total features such that the $$i$$th feature $$f_i$$ is a categorical feature with $$n_i$$ possible values, then the dimensionality of our total feature vector would be $$\sum_{i=1\cdots n} n_i$$. Each element of this feature vector would be either $$0$$ or $$1$$ depending on the categories that the sample belongs to, and the sum of the $$n$$ elements in this feature vector would be $$1$$.
+One way that we could design our model to consume these features would be to use a one-hot encoding of each categorical feature. That is, if we have $$n$$ total features such that the $$i$$th feature $$f_i$$ is a categorical feature with $$n_i$$ possible values, then the dimensionality of our total feature vector would be $$\sum_{i=1\cdots n} n_i$$. Each element of this feature vector would be either $$0$$ or $$1$$ depending on the categories that the sample belongs to.
+<!-- , and the sum of all the $$n$$ elements in this feature vector would be $$1$$. -->
 
 Another strategy would be to cross our categorical features before we one-hot encode them. When we cross the categorical features $$f_i, f_j$$ we create a new categorical feature $$f_i-f_j$$ whose value is the tuple of the values of $$f_i$$ and $$f_j$$. This tuple has $$n_i*n_j$$ possible values. In the extreme case we could cross all of our categorical features together to form the simple crossed feature $$f_1-f_2-\cdots-f_n$$. This feature has $$\prod_{i=1\cdots n} n_i$$ possible values, so its one-hot encoding is a vector with $$\prod_{i=1\cdots n} n_i$$ elements.
 
