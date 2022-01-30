@@ -17,10 +17,9 @@ tags: [Machine Learning, Machine Learning Systems, ML, Features]
 
 ## Introduction
 
-In this post we will explore a few strategies for solving prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems.
-
-
-As a concrete example, suppose we would like to predict the value of a transaction based on a small set of categorical features $$(f_1, f_2, \cdots, f_n)$$. These could involve things like the identity of the vendor, the time of day, etc. There are many ways that we could represent these features to our model. In this post we will assume that our model is a linear regression for illustrative purposes, but the ideas we discuss are very general.
+Many prediction problems can be framed as "given the knowledge that this sample belongs to categories $$A,B,C,\cdots,D$$, predict something about this sample."
+<!-- Today we will explore how to solvsolve prediction problems with categorical features. These strategies are quite general and can be applied to both classification and regression problems. -->
+As a concrete example, suppose we would like to use linear regression to predict the value of a transaction based on a small set of categorical features $$(f_1, f_2, \cdots, f_n)$$. These could involve things like the identity of the vendor, the time of day, etc. There are many ways that we could represent these features.
   
 <!-- This is a general pattern that can be applied to many different machine learning problems.  -->
 
@@ -28,11 +27,12 @@ As a concrete example, suppose we would like to predict the value of a transacti
 ## One-Hot Encodings
 
 
-One way that we could design our model to consume these features would be to use a one-hot encoding of each categorical feature. That is, if we have $$n$$ total features such that the $$i$$th feature $$f_i$$ is a categorical feature with $$n_i$$ possible values, then the dimensionality of our total feature vector would be $$\sum_{i=1\cdots n} n_i$$. Each element of this vector would be either $$0$$ or $$1$$ depending on the categories that the sample belongs to, and a total of $$n$$ elements would be $$1$$.
+One way that we could design our model to consume these features would be to use a one-hot encoding of each categorical feature. That is, if we have $$n$$ total features such that the $$i$$th feature $$f_i$$ is a categorical feature with $$n_i$$ possible values, then the dimensionality of our total feature vector would be $$\sum_{i=1\cdots n} n_i$$. Each element of this feature vector would be either $$0$$ or $$1$$ depending on the categories that the sample belongs to.
+<!-- , and the sum of all the $$n$$ elements in this feature vector would be $$1$$. -->
 
-Another strategy would be to cross our categorical features before we one-hot encode them. When we cross the categorical features $$f_i, f_j$$ we create a new categorical feature $$f_i-f_j$$ whose value is the tuple of the values of $$f_i$$ and $$f_j$$. This tuple has $$n_i*n_j$$ possible values. In the extreme case we could cross all of our categorical features together to form the simple crossed feature $$f_1-f_2-\cdots-f_n$$. This feature has $$\prod_{i=1\cdots n} n_i$$ possible values, so its one-hot encoding is a vector with $$\prod_{i=1\cdots n} n_i$$ elements.
+Another strategy would be to cross our categorical features before we one-hot encode them. When we cross the categorical features $$f_i, f_j$$ we create a new categorical feature $$(f_i,f_j)$$ whose value is the tuple of the values of $$f_i$$ and $$f_j$$. This tuple has $$n_i*n_j$$ possible values. In the extreme case we could cross all of our categorical features together to form the single crossed feature $$(f_1,f_2,\cdots,f_n)$$. This feature has $$\prod_{i=1\cdots n} n_i$$ possible values, so its one-hot encoding is a vector with $$\prod_{i=1\cdots n} n_i$$ elements.
 
-To start, assume that there is only a single categorical feature with $$n_0$$ distinct values. In this case the two strategies are identical. For a sample that belongs to category $$j \in [0, 1, \cdots, n_0]$$ the model prediction will simply be $$\theta_j$$. That is, our model functions as simply a lookup table. If the transaction values of the samples in category $$j$$ follow a Gaussian distribution then the value of $$\theta_j$$ that [minimizes our model's mean square error](https://en.wikipedia.org/wiki/Mean_squared_error#:~:text=Examples%5Bedit%5D-,Mean%5Bedit%5D,-Suppose%20we%20have) will be the average transaction value of all samples in category $$j$$
+To start, assume that there is only a single categorical feature with $$n_0$$ distinct values. In this case the two strategies are identical. For a sample that belongs to category $$j \in [0, 1, \cdots, n_0]$$ the model prediction will simply be $$\theta_j$$. That is, our model functions as simply a lookup table. If the transaction values of the samples in category $$j$$ follow a Gaussian distribution then the value of $$\theta_j$$ that [minimizes our model's mean square error](https://en.wikipedia.org/wiki/Mean_squared_error#:~:text=Examples%5Bedit%5D-,Mean%5Bedit%5D,-Suppose%20we%20have) will be the average transaction value of all samples in category $$j$$.
 
 Next, assume that there are $$n$$ categorical features, and the $$i$$th categorical feature has $$n_i$$ distinct values and consider a sample that belongs to categories $$(k_1, k_2, \cdots, k_n)$$. 
 
@@ -62,19 +62,22 @@ However, the less training data that we have, the less likely that we will have 
 
 The infrastructure burden on realtime responsiveness lives in different places for the one-hot features and aggregate features. Fetching and serving features is extremely easy in the one-hot encoding model. For any transaction, the only thing we need to feed to the model are the categories of that transaction. In contrast, the aggregate model expects to be served averages for each of the categories that a transaction belongs to. Serving features to this model requires looking these averages up at request time, and these averages need to be kept updated in order for the model to produce good results. Furthermore, backtesting a new aggregation strategy on old data requires simulating how the aggregation would have been performed up until that data sample was observed, which can be quite complex if the aggregation code and model training code live in different services or are written in different languages.
 
-However, enabling a one-hot model to respond to data distribution shift requires a major infrastructure investment. To see this, suppose that we have already deployed our model to production. Suppose also that one of the categories in our transaction prediction model is the vendor identity, and that one of the vendors in our pool decides to roll out a new line of fancy coffee that substantially increases the average transaction amount. In the case where our model consumes the features as a one-hot encoding, our model will produce incorrect predictions until it is retrained with data that includes the new fancy coffee transactions. That is, in order for our modeling pipeline to respond to data distribution shift we need for the new data samples to reach our database, get transformed into a gradient update, and be applied to our production model. Generally the best way to equip our model to adapt to this kind of distribution shift in realtime is to train the model itself online. That is, derive gradient updates from each new transaction that we observe and apply them to our deployed model on the fly. This kind of online training system can be quite complex to maintain in production. 
 
 ![Realtime training. Figure from draw.io](/img/realtime-training.png)
 
 
-In constrast, consider the case where our model consumes the features as category-stratified aggregates. In this case our model will produce incorrect predictions only until the new fancy coffee transactions are incorporated into the aggregate values that are fed into the model as features. We can get nearly instant adaptation to data distribution shift if our aggregates are engineered to update in near-realtime. This could be done through either realtime re-computation from the backing data store or posting updates to a running average stored in memory. 
+However, enabling a one-hot model to respond to data distribution shift requires a major infrastructure investment. To see this, suppose that we have already deployed our model to production. Suppose also that one of the categories in our transaction prediction model is the vendor identity, and that one of the vendors in our pool decides to roll out a new line of fancy coffee that substantially increases the average transaction amount. In the case where our model consumes the features as a one-hot encoding, our model will produce incorrect predictions until it is retrained with data that includes the new fancy coffee transactions. That is, in order for our modeling pipeline to respond to data distribution shift we need for the new data samples to reach our database, get transformed into a gradient update, and be applied to our production model. Generally the best way to equip our model to adapt to this kind of distribution shift in realtime is to train the model itself online. That is, derive gradient updates from each new transaction that we observe and apply them to our deployed model on the fly. This kind of online training system can be quite complex to maintain in production. 
 
 ![Aggregate updates. Figure from draw.io](/img/aggregate-updates.png)
 
 
+In constrast, consider the case where our model consumes the features as category-stratified aggregates. In this case our model will produce incorrect predictions only until the new fancy coffee transactions are incorporated into the aggregate values that are fed into the model as features. We can get nearly instant adaptation to data distribution shift if our aggregates are engineered to update in near-realtime. This could be done through either realtime re-computation from the backing data store or posting updates to a running average stored in memory. 
+
+
+
 ## Conclusion
 
-In practice most large machine learning systems consume categorical signals as a combination of one-hot encoded features and running averages. Signals that are unlikely to change too quickly are often best encoded one-hot, whereas realtime responsiveness are ideally represented as running aggregates.
+Although we assume that our model is a linear regression in this post, the ideas we discuss are very general. In practice most large machine learning systems consume categorical signals as a combination of one-hot encoded features and running averages. Signals that are unlikely to change too quickly are often best encoded one-hot, whereas signals for which realtime responsiveness is paramount are ideally represented as running aggregates.
 
 
 
