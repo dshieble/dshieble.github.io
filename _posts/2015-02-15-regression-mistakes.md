@@ -21,7 +21,7 @@ Many real world problems can be framed as regression: use a collection of featur
 Some examples include:
 * A system that external users query to estimate the value of their illiquid assets. It is more important that this system to generates reasonably good predictions 99% of the time than that it never makes a massive mistake.
 * A high frequency trading system that estimates the potential return of diferent strategies and executes the optimal strategy automatically. A single massive mistake can bankrupt the trading firm, so it is critical that this never happens. 
-* A recommendation system that predicts the ratings that users would assign to each items, chooses the top N items, and then displays them to the user. The most costly kind of mistake for this system is to fail to place a single high rating item in that top N. It is entirely unimportant if the system consistently predicts that users will assign a much larger/smaller rating than they actually do as long as they are consistent. 
+* A recommendation system that ranks items by their predicted user rating. It is entirely unimportant if the system consistently predicts that users will assign a much larger/smaller rating than they actually do as long as errors are consistent. 
 
 
 There are a few metrics that are quite common to use in practice
@@ -31,7 +31,7 @@ There are a few metrics that are quite common to use in practice
 
 These metrics share a common property: an extremely large mistake can be weighted much more harshly than several somewhat large mistakes or many medium mistakes. This is not always a desirable property. Recall our first example of a system that users query for value estimates. It is quite likely that any user who receives an estimate that they perceive as "obviously wrong" will stop using the system. Once a mistake is past this boundary its magnitude becomes irrelevant. A successful system will therefore minimize the number of users who end up in this bucket, rather than weighting some mistakes in this bucket higher than others. We can capture this kind of mistake dynamics with percentile error metrics like P50 and P95.
 
-For example, the P95 error is the smallest value such that for 95% of pairs $$(X, y)$$ the quantity $$ \vert f(X) - y \vert$$ is smaller than this value. The magnitude of the worst 5% of errors has no impact on the P95 error. Similarly, the p50 error (aka the median error) is useful for tracking performance across many samples in the dataset. Any large improvement to the P50 error usually represents improvements on a large number of samples. Contrast this to MSE or correlation, in which case large improvements can arise from specific examples.
+For example, the P95 error is the smallest value such that for 95% of pairs $$(X, y)$$ the quantity $$ \vert f(X) - y \vert$$ is smaller than this value. The magnitude of the worst 5% of errors has no impact on the P95 error. Similarly, the p50 error (aka the median error) is useful for tracking performance across many samples in the dataset. Any large improvement to the P50 error usually represents improvements on a large number of samples. Contrast this to MSE or correlation, in which case large improvements can arise from improved performance on a small set of examples.
 
 
 
