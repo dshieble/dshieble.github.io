@@ -25,7 +25,7 @@ Some examples include:
 
 
 There are a few metrics that are quite common to use in practice
-* The Mean Square Error $$MSE(\mathbf{X}, \mathbf{y}) = avg (f(X_i) - y_i)^2$$ and its $$[0,1]$$-centered variant [R-Squared](https://danshiebler.com/2017-6-25-metrics) are common. Both weigh large mistakes dramatically larger than small ones, and it is quite common for model f_1 to have a better MSE and R-Squared than model f_2, but to generate worse predictions on 95% of cases.
+* The Mean Square Error $$MSE(\mathbf{X}, \mathbf{y}) = avg (f(X_i) - y_i)^2$$ and its normalized variant [R-Squared](https://danshiebler.com/2017-6-25-metrics) are common. Both weigh large mistakes dramatically larger than small ones, and it is quite common for model f_1 to have a better MSE and R-Squared than model f_2, but to generate worse predictions on 95% of cases.
 * The Mean Absolute Error $$MAE(\mathbf{X}, \mathbf{y}) = avg \vert f(X_i) - y_i \vert$$ is less sensitive to large mistakes than MSE, but still quite sensitive to outliers. MAE behaves similarly to MSE when errors are distributed logarithmically (e.g. ratios or price changes).
 * Pearson correlation $$Corr(\mathbf{X}, \mathbf{y}) = Cov(f(X),y)/\sqrt{var(f(X))var(y)}$$ and its ordinal transformed variant Spearman correlation are on the scale $$[-1,1]$$. Both correlations can be close to $$1$$ even when $$f(X)$$ is a consistent over/underestimate of $$y$$. Spearman correlation can be close to $$1$$ even when the relationship between $$f(X)$$ and $$y$$ is non-linear. 
 
