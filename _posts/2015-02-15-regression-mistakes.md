@@ -16,7 +16,7 @@ tags: [Machine Learning, Regression, ML]
 
 
 
-Many real world problems can be framed as regression: use a collection of features $$X$$ to predict a real-valued quantity $$y$$. However, this framing can obfuscate a very important detail: which kinds of mistakes are most important to avoid? We call this the mistake dynamics of our problem. Many factors can influence the mistake dynamics of a problem, including how the predictions will be used, the configuration of existing systems, and the safeguards that are in place.
+Many real world problems can be framed as regression: use a collection of features $$X$$ to predict a real-valued quantity $$y$$. However, this framing can obfuscate a very important detail: which kinds of mistakes are most important to avoid? Many factors can influence this, including how the predictions will be used, the configuration of existing systems, and the safeguards that are in place.
 
 Some examples include:
 * A system that external users query to estimate the value of their illiquid assets. It is more important that this system to generates reasonably good predictions 99% of the time than that it never makes a massive mistake.
