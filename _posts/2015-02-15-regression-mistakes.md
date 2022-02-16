@@ -28,6 +28,8 @@ This sensitivity to large mistakes is sometimes appropriate. Consider a high fre
 
 However, consider instead a system that external users query for informational purposes (like Zillow's Zestimates). It is more important that this system generates reasonably good predictions 99% of the time than that it never makes a massive mistake. Any user who receives an estimate that they perceive as "obviously wrong" will stop using the system, so once a mistake is past this boundary its magnitude becomes irrelevant. A successful system will therefore minimize the number of users who end up in this bucket, rather than weighting some mistakes in this bucket higher than others. We can capture this kind of mistake dynamics with percentile error metrics like P50 and P95.
 
+![Mistake sensitivity is a spectrum](/img/regression_errors.png)
+
 For example, the P95 error is the smallest value such that for 95% of pairs $$(X_i, y_i)$$ the quantity $$ \vert f(X_i) - y_i \vert$$ is smaller than this value. The magnitude of the worst 5% of errors has no impact on the P95 error. Similarly, the p50 error (aka the median error) is useful for tracking performance across many samples in the dataset. Any large improvement to the P50 error usually represents improvements on a large number of samples. Contrast this to MSE or correlation which can swing even when the prediction only changes on a single sample.
 
 
