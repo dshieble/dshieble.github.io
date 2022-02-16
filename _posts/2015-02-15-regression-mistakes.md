@@ -22,7 +22,7 @@ Despite this variation in objective, most commonly used regression metrics weigh
 * Mean Square Error $$MSE(\mathbf{X}, \mathbf{y}) = avg (f(X_i) - y_i)^2$$ and its normalized variant [R-Squared](https://danshiebler.com/2017-6-25-metrics) weigh large mistakes dramatically larger than small ones, and it is quite common for model $$f_1$$ to have a better MSE and R-Squared than model $$f_2$$, but to generate worse predictions on 95% of cases.
 * Mean Absolute Error $$MAE(\mathbf{X}, \mathbf{y}) = avg \vert f(X_i) - y_i \vert$$ is less sensitive to large mistakes than MSE, but still quite sensitive to outliers. MAE behaves similarly to MSE when errors are distributed logarithmically (e.g. price changes).
 * Pearson correlation $$Corr(\mathbf{X}, \mathbf{y}) = \frac{Cov(f(X),y)}{\sqrt{var(f(X))var(y)}}$$ is similarly sensitive to large mistakes as MSE.
-* Spearman correlation (ordinal transformed Pearson correlation) is very sensitive to certain kinds of large mistakes, such as overestimates on the smallest values of $$y_i$$.
+* Spearman correlation (ordinal transformed Pearson correlation) is very sensitive to certain kinds of large mistakes, such as large overestimates on the smallest values of $$y_i$$.
 
 This sensitivity to large mistakes is sometimes appropriate. Consider a high frequency trading system that estimates the potential return of different strategies and executes the optimal strategy automatically. A single massive mistake can bankrupt the trading firm, so it is critical that this never happens.  
 
