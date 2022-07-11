@@ -46,19 +46,17 @@ The second is concept drift, or changes in P(Y\|X). Both the outage and upstream
 
 ### Managing Concept Drift In Production
 
-An ML model is a reflection of the task we train it to solve. By cleverly introducing noise to the training process we can build models that perform well even during software incidents. We will dig into the best strategies to engineer tasks for robust and resilient models. 
+An ML model is a reflection of the task we train it to solve. By cleverly introducing noise to the training process we can build models that perform well even during software incidents. 
 
-Suppose one of the features that our model expects tracks whether a user attribute matches any of the categories in a configuration file (e.g. phrase matches, list of reserved usernames, list of known events, etc). As users update this file we expect that the joint distribution of this feature and the model label Y will change as well. This kind of gradual concept drift is extremely common.
+Suppose one of the features that our model expects tracks whether a user attribute matches any of the categories in a configuration file (e.g. phrase matches, list of reserved usernames, etc). As users update this file we expect that the joint distribution of this feature and the model label Y will change as well. This kind of gradual concept drift is extremely common.
 
 We want our ML model to "understand" that this distribution might change. We can accomplish this with a simple recipe:
 * Train our model on logged features over a long period of time
 * Automatically retrain and redeploy our model as frequently as possible
 
-By forcing our model to perform well on samples hydrated from both the current logic of this feature and previous iterations of this feature we can build a model that
-<!-- does not expect this feature to have low variance and -->
-is more resilient to data drift. We can evaluate the effectiveness of this technique by monitoring the model's performance over long periods of time on logged predictions. 
+By forcing our model to perform well on samples hydrated from both the current logic of this feature and previous iterations of this feature we can build a model that is more resilient to data drift. We can evaluate the effectiveness of this technique by monitoring the model's performance over long periods of time on logged predictions. 
 
-However, this strategy may not be enough. If no feature outages occur during the time period that we source training samples our model will not perform well when an outage happens. We can force our model to learn this behavior by applying the following transformation to the training dataset:
+However, this strategy may not be enough to handle rare and sudden drift events like feature outages. We can force our model to handle these cases by applying the following transformation to the training dataset:
 * Identify the K features that are at risk of a production outage
 * Copy N samples randomly from the training dataset
 * For each copy replace one or more of the K features with its default value
