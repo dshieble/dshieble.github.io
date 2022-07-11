@@ -39,7 +39,7 @@ Next, suppose an upstream model extracts entities from images or text which our 
 
 Given the modeling task "predict Y given X" there are two distinct types of data distribution drift to be aware of.
 
-The first is covariate drift, or changes in P(X). The main risk of covariate drift is that our data distribution can drift from a region of X where our model performs well to a region where our model performs poorly. When a large new customer is onboarded to an enterprise software product we often see substantial covariate drift. The best way to handle covariate drift is to retrain and relaunch models automatically. 
+The first is covariate drift, or changes in P(X). This can cause samples to move from a region of X where our model performs well to a region where our model performs poorly. We may see covariate drift when a large new customer is onboarded to an enterprise software product. The best way to handle covariate drift is to retrain and relaunch models automatically. 
 
 The second is concept drift, or changes in P(Y\|X). Both the outage and upstream model retraining circumstances described above are instances of concept drift. In the next two sections we will focus on strategies to minimize the impact of this kind of drift
 
