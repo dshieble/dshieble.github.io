@@ -29,7 +29,7 @@ ML systems behave poorly when the production data distribution differs from the 
 For example, suppose our model consumes features that are served by a feature store. Suppose also that the samples in our training dataset are sourced from a period during which this system is fully operational. If this feature store fails under heavy load and begins to return default values we can expect our model to fail as well. 
 
 <!-- upstream model retrains -->
-As another example, suppose an upstream model extracts entities from images or text and that our model consumes these entities as categorical features. Suppose also that this upstream model is kept constant while we train our model. If this model is retrained and swapped in production we can expect our model's performance to degrade. 
+As another example, suppose an upstream model extracts entities from images or text which our model consumes as categorical features. If this upstream model is kept constant while we train our model but retrained and relaunched after our model is in production we can expect our model's performance to degrade. 
 
 A boxer who only learns to punch a bag will fail in the ring, and a ML model that only learns with clean data will fail in production. We need to show our model what it feels like to get punched in the face if we want it to perform well when data distributions drift in production. 
 
@@ -49,7 +49,7 @@ The second is concept drift, or changes in P(Y\|X). Both the outage and upstream
 
 An ML model is a reflection of the task we train it to solve. By cleverly introducing noise to the training process we can build models that perform well even during software incidents. We will dig into the best strategies to engineer tasks for robust and resilient models. 
 
-Suppose one of the features that our model expects tracks whether a user attribute matches any of the categories in a configuration file (e.g. phrase matches, list of reserved usernames, list of known events, etc). Suppose also that users update this configuration file several times a week. As this file updates we expect that the joint distribution of this feature and the model label Y will change as well. This kind of gradual concept drift is extremely common.
+Suppose one of the features that our model expects tracks whether a user attribute matches any of the categories in a configuration file (e.g. phrase matches, list of reserved usernames, list of known events, etc). As users update this file we expect that the joint distribution of this feature and the model label Y will change as well. This kind of gradual concept drift is extremely common.
 
 We want our ML model to "understand" that this distribution might change. We can accomplish this with a simple recipe:
 * Train our model on logged features over a long period of time
