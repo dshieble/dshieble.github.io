@@ -33,7 +33,7 @@ As another example, suppose an upstream model extracts entities from images or t
 
 A boxer who only learns to punch a bag will fail in the ring, and a ML model that only learns with clean data will fail in production. We need to show our model what it feels like to get punched in the face if we want it to perform well when data distributions drift in production. 
 
-![Boxing is dangerous](/img/boxer_painting.jpg)
+![Boxing is dangerous](/img/boxer_painting.png)
 
 
 ## Data Distribution Drift
@@ -42,7 +42,7 @@ Given the modeling task "predict Y given X" there are two distinct types of data
 
 The first is covariate drift, or changes in P(X). The main risk of covariate drift is that our data distribution can drift from a region of X where our model performs well to a region where our model performs poorly. When a large new customer is onboarded to an enterprise software product we often see substantial covariate drift. The best way to handle covariate drift is to retrain and relaunch models automatically. 
 
-The second is concept drift, or changes in P(Y|X). Both the outage and upstream model retraining circumstances described above are instances of concept drift. In the next two sections we will focus on strategies to minimize the impact of this kind of drift
+The second is concept drift, or changes in P(Y\|X). Both the outage and upstream model retraining circumstances described above are instances of concept drift. In the next two sections we will focus on strategies to minimize the impact of this kind of drift
 
 
 ## Training and Testing
