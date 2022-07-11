@@ -19,9 +19,7 @@ A boxer who only learns to punch a bag will fail in the ring, and a ML model tha
 
 ![Boxing is dangerous](/img/boxer_painting.png)
 
-Every software system experiences incidents. Service outages, data pipeline delays, sudden load, and hundreds of other risks threaten uptime and damage the user experience. Mature development teams plan for these incidents and build software that adapts to unexpected changes in system behavior and availability.
 
-Unfortunately, this kind of risk mitigation is notoriously difficult in an ML system. Small changes to model inputs can cause large and unexpected changes to model outputs. Incidents that touch ML systems therefore have a larger blast radius and longer recovery times. This critical vulnerability has slowed the adoption of machine learning technologies in safety critical applications.
 
 
 ## The Problem
@@ -64,6 +62,14 @@ However, this strategy may not be enough to handle rare and sudden drift events 
 
 We can evaluate the effectiveness of this technique by applying the same treatment to the testing dataset and evaluating the model's performance on the corrupted testing samples.
 
+
+## Closing Thoughts
+
+Every software system experiences incidents. Service outages, data pipeline delays, sudden load, and hundreds of other risks threaten uptime and damage the user experience. Mature development teams plan for these incidents and build software that adapts to unexpected changes in system behavior and availability.
+
+Unfortunately, this kind of risk mitigation is notoriously difficult in an ML system. Small changes to model inputs can cause large and unexpected changes to model outputs. Incidents that touch ML systems therefore have a larger blast radius and longer recovery times. This critical vulnerability has slowed the adoption of machine learning technologies in safety critical applications.
+
+In order for machine learning to continue to drive impact in new applications we will need to address this problem directly. I'm looking forward to seeing more research on the development of resilient machine learning techniques.
 
 
 <!-- 
