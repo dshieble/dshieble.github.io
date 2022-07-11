@@ -27,7 +27,7 @@ A boxer who only learns to punch a bag will fail in the ring, and a ML model tha
 ML systems behave poorly when the production data distribution differs from the training data distribution.
 
 <!-- outage -->
-Suppose our model consumes features that are served by a feature store that is usually fully operational. If this feature store suddenly fails under heavy load and begins to return default values we can expect our model to fail as well. 
+Suppose our model consumes features that are served by a feature store that is usually fully operational. If this feature store suddenly fails under heavy load most models will fail as well. 
 
 <!-- upstream model retrains -->
 Next, suppose an upstream model extracts entities from images or text which our model consumes as categorical features. If this upstream model is kept constant while we train our model but retrained and relaunched after our model is in production our model's performance may degrade. 
