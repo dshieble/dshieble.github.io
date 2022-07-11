@@ -14,9 +14,9 @@ tags: [Machine Learning, Resilient, Mistakes]
 
 </script>
 
-Every software system experiences incidents. Service outages, data pipeline delays, sudden load, and hundreds of other risks threaten system uptime and damage the user experience. Mature development teams plan for these incidents and build software that adapts to unexpected changes in system behavior and availability. Teams working on safety critical applications sometimes spend more time mitigating these risks than working on everything else put together.
+Every software system experiences incidents. Service outages, data pipeline delays, sudden load, and hundreds of other risks threaten uptime and damage the user experience. Mature development teams plan for these incidents and build software that adapts to unexpected changes in system behavior and availability.
 
-Unfortunately, this kind of risk mitigation is notoriously difficult in a machine learning system. A small change to model inputs can cause large and unexpected changes to model outputs. As a result, software incidents that touch ML systems tend to have a larger blast radius and longer recovery times. This critical vulnerability has slowed the adoption of machine learning technologies in safety critical applications.
+Unfortunately, this kind of risk mitigation is notoriously difficult in an ML system. Small changes to model inputs can cause large and unexpected changes to model outputs. Incidents that touch ML systems therefore have a larger blast radius and longer recovery times. This critical vulnerability has slowed the adoption of machine learning technologies in safety critical applications.
 
 In order for machine learning to continue to drive impact in new applications we will need to address this problem directly.
 
