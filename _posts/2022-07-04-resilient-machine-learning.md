@@ -29,10 +29,10 @@ Unfortunately, this kind of risk mitigation is notoriously difficult in an ML sy
 ML systems behave poorly when the production data distribution differs from the training data distribution.
 
 <!-- outage -->
-For example, suppose our model consumes features that are served by a feature store. Suppose also that the samples in our training dataset are sourced from a period during which this system is fully operational. If this feature store fails under heavy load and begins to return default values we can expect our model to fail as well. 
+Suppose our model consumes features that are served by a feature store. Suppose also that the samples in our training dataset are sourced from a period during which this system is fully operational. If this feature store fails under heavy load and begins to return default values we can expect our model to fail as well. 
 
 <!-- upstream model retrains -->
-As another example, suppose an upstream model extracts entities from images or text which our model consumes as categorical features. If this upstream model is kept constant while we train our model but retrained and relaunched after our model is in production our model's performance may degrade. 
+Next, suppose an upstream model extracts entities from images or text which our model consumes as categorical features. If this upstream model is kept constant while we train our model but retrained and relaunched after our model is in production our model's performance may degrade. 
 
 
 ## Data Distribution Drift
