@@ -18,8 +18,6 @@ Every software system experiences incidents. Service outages, data pipeline dela
 
 Unfortunately, this kind of risk mitigation is notoriously difficult in an ML system. Small changes to model inputs can cause large and unexpected changes to model outputs. Incidents that touch ML systems therefore have a larger blast radius and longer recovery times. This critical vulnerability has slowed the adoption of machine learning technologies in safety critical applications.
 
-In order for machine learning to continue to drive impact in new applications we will need to address this problem directly.
-
 
 ## The Problem
 
@@ -29,7 +27,7 @@ ML systems behave poorly when the production data distribution differs from the 
 For example, suppose our model consumes features that are served by a feature store. Suppose also that the samples in our training dataset are sourced from a period during which this system is fully operational. If this feature store fails under heavy load and begins to return default values we can expect our model to fail as well. 
 
 <!-- upstream model retrains -->
-As another example, suppose an upstream model extracts entities from images or text which our model consumes as categorical features. If this upstream model is kept constant while we train our model but retrained and relaunched after our model is in production we can expect our model's performance to degrade. 
+As another example, suppose an upstream model extracts entities from images or text which our model consumes as categorical features. If this upstream model is kept constant while we train our model but retrained and relaunched after our model is in production our model's performance may degrade. 
 
 A boxer who only learns to punch a bag will fail in the ring, and a ML model that only learns with clean data will fail in production. We need to show our model what it feels like to get punched in the face if we want it to perform well when data distributions drift in production. 
 
