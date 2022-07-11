@@ -23,7 +23,7 @@ In order for machine learning to continue to drive impact in new applications we
 
 ## The Problem
 
-ML systems behave poorly when the production data distribution differs from the training data distribution. In particular, large shifts or drifts in production that are not seen in training can drive ML systems to make large unexpected errors. 
+ML systems behave poorly when the production data distribution differs from the training data distribution.
 
 <!-- outage -->
 For example, suppose our model consumes features that are served by a feature store. Suppose also that the samples in our training dataset are sourced from a period during which this system is fully operational. If this feature store fails under heavy load and begins to return default values we can expect our model to fail as well. 
