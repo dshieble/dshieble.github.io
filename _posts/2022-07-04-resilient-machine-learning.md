@@ -41,10 +41,10 @@ Given the modeling task "predict Y given X" there are two distinct types of data
 
 The first is covariate drift, or changes in P(X). This can cause samples to move from a region of X where our model performs well to a region where our model performs poorly. We may see covariate drift when a large new customer is onboarded to an enterprise software product. The best way to handle covariate drift is to retrain and relaunch models automatically. 
 
-The second is concept drift, or changes in P(Y\|X). Both the outage and upstream model retraining circumstances described above are instances of concept drift. In the next two sections we will focus on strategies to minimize the impact of this kind of drift
+The second is concept drift, or changes in P(Y\|X). Both the outage and upstream model retraining circumstances described above are instances of concept drift.
 
 
-## Training and Testing
+### Managing Concept Drift In Production
 
 An ML model is a reflection of the task we train it to solve. By cleverly introducing noise to the training process we can build models that perform well even during software incidents. We will dig into the best strategies to engineer tasks for robust and resilient models. 
 
