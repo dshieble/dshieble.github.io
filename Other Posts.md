@@ -17,3 +17,8 @@ subtitle: Blog Posts I've Written on Other Sites
 [Embeddings@Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html), Twitter Engineering Blog, 2018
 
 [Meeting the Dialogue Challenge](https://golem.ph.utexas.edu/category/2019/06/meeting_the_dialogue_challenge.html#more), The n-Category Café, 2019
+
+[Model Understanding with Feature Importance](https://abnormalsecurity.com/blog/model-understanding-with-feature-importance), Abnormal Blog, 2022
+
+[8 Key Differences Between Ineffective and Effective Machine Learning Engineers
+](https://abnormalsecurity.com/blog/ineffective-vs-effective-machine-learning-engineers), Abnormal Blog, 2022

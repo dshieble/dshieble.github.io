@@ -17,6 +17,8 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 ### Invited Industry Talks
 
 
+Productionizing Machine Learning ([Abnormal Engineering Stories](https://abnormalsecurity.com/blog/engineering-stories-productionizing-machine-learning))
+
 Academia, Startups, and Enterprise: A Cross-Analysis of Work and Goals ([ODSC Europe, 2021](https://app.aiplus.training/courses/odsc-europe-2021-talks))
 
 Translating PhD Research into ML Applications([Super Data Science, 2021](www.superdatascience.com/451))
