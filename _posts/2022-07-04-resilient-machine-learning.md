@@ -15,7 +15,7 @@ tags: [Machine Learning, Resilient, Mistakes]
 </script>
 
 
-A boxer who only learns to punch a bag will fail in the ring, and a ML model that only learns with clean data will fail in production. We need to show our model what it feels like to get punched in the face if we want it to perform well when data distributions drift. 
+A boxer who only punches a bag will fail in the ring, and an ML model that only learns with clean data will fail in production. We need to let our model get punched in the face in training if we want it to perform well when distributions drift. 
 
 ![Boxing is dangerous](/img/boxer_painting.png)
 
