@@ -46,7 +46,7 @@ The second is concept drift, or changes in P(Y\|X). Both the outage and upstream
 
 An ML model is a reflection of the task we train it to solve. By cleverly introducing noise to the training process we can build models that perform well even during software incidents. 
 
-Suppose one of the features that our model expects tracks whether a user attribute matches any of the categories in a configuration file (e.g. phrase matches, list of reserved usernames, etc). As users update this file we expect that the joint distribution of this feature and the model label Y will change as well. This kind of gradual concept drift is extremely common.
+Suppose one of the features that our model expects tracks whether an attribute matches any of the categories in a configuration file (e.g. phrase matches, list of reserved usernames, etc). As users update this file we expect that the joint distribution of this feature and the model label Y will change as well. This kind of gradual concept drift is extremely common.
 
 We want our ML model to "understand" that this distribution might change. We can accomplish this with a simple recipe:
 * Train our model on logged features over a long period of time
