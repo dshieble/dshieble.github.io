@@ -33,7 +33,7 @@ As another example, suppose an upstream model extracts entities from images or t
 
 A boxer who only learns to punch a bag will fail in the ring, and a ML model that only learns with clean data will fail in production. We need to show our model what it feels like to get punched in the face if we want it to perform well when data distributions drift in production. 
 
-![Boxing is dangerous](/img/boxer_paining.jpg)
+![Boxing is dangerous](/img/boxer_painting.jpg)
 
 
 ## Data Distribution Drift
