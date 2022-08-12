@@ -46,6 +46,19 @@ Machine Intelligence for Driver Safety ([Machine Intelligence Summit New York 20
 
 ### Academic Talks
 
+
+Kan Extensions for Generalizations ([NYC Category Theory Seminar October 2021](https://www.youtube.com/watch?v=Q4dzDcYfsfA))
+
+
+Generalized Optimization ([Categories and Companions Symposium June 2021](https://www.youtube.com/watch?v=oHetgCx-5lY&list=PLWe3D9XTd7q38yfgRm77hcTIrZFhV3rzH))
+
+
+Category Theory in Machine Learning ([Applied Category Theory 2021](https://youtu.be/1NHBexWYgkU?t=2360))
+
+
+Categorical Stochastic Processes and Likelihood ([Applied Category Theory 2020](https://www.youtube.com/watch?v=OrCo-TJddQA))
+
+
 Functorial Manifold Learning and Overlapping Clustering ([NYC Category Theory Seminar December 2020](https://www.youtube.com/watch?v=m9uSslcHjTQ))
 
 Incremental Monoidal Categories ([Category Theory Octoberfest 2019](https://ct-octoberfest.github.io/), [NYC Category Theory Seminar November 2019](http://www.sci.brooklyn.cuny.edu/~noson/CTseminar.html))
