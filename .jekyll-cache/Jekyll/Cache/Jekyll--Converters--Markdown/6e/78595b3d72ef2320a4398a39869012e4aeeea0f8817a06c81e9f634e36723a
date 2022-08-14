@@ -1,0 +1,134 @@
+I"�<script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<p>A common problem in machine learning is “use this function defined over this small set to generate predictions over that larger set.” Extrapolation, interpolation, statistical inference and forecasting all reduce to this problem. The Kan extension is a powerful tool in category theory that generalizes this notion.</p>
+
+<p>In a <a href="https://arxiv.org/abs/2203.09018">recent paper</a> I explored how we can apply this idea across supervised and unsupervised learning applications. In this paper we cast basic machine learning problems in category theoretic language, apply the Kan extension, translate the result back to machine learning language, and study the behavior of the resulting algorithms.</p>
+
+<h2 id="the-kan-classifiers">The Kan Classifiers</h2>
+
+<p>This blog post dives deeper into the first application described in that paper. There is no category theory required, and you don’t need to read the paper to understand this post.</p>
+
+<p>Suppose we have a set of training samples \(\{(X_1, y_1), (X_2, y_2), \cdots\}\) where each \(X_i\) is a sample from the set \(S\). For example, \(S\) might be \(R^n\) if we have \(n\) continuous features. Now suppose that for some <a href="https://en.wikipedia.org/wiki/Preorder">preorder</a> \(S'\) we derive a transformation \(f: S \rightarrow S'\) such that when \(f(X_i) \leq_{S} f(X_j)\) we tend to see that \(y_i \leq_{S} y_j\).</p>
+
+<p>If we apply this transformation to our training dataset \(\{(f(X_1), y_1), (f(X_2), y_2), \cdots\}\) there are two ways we could use the resulting ordered list to generate a prediction on a new sample \(f(X_j)\).</p>
+<ul>
+  <li>Predict $y_j$ to be the largest label across all training samples which are ordered below this new sample. We call this the left Kan classifier.</li>
+  <li>Predict $y_j$ to be the smallest label across all training samples which are ordered above this new sample. We call this the right Kan classifier.</li>
+</ul>
+
+<p>The left Kan classifier has no false negatives and the right Kan classifier has no false positives on the training dataset.
+ <!--  Lan(b) = sup_{c in C}{K(a') | a' in A, G(a') <=_{B} b}
+  Ran(b) = inf_{c in C}{K(a') | a' in A, b <=_{B} G(a')}
+   --></p>
+
+<h2 id="transformation">Transformation</h2>
+
+<p>In order for the Kan extension to work well we need to learn a transformation \(f: S \rightarrow S'\) of our data such that when \(f(X_i) \leq_{S} f(X_j)\) we tend to see that \(y_i \leq_{S} y_j\). Intuitively, such a transformation will order any collection of points in the feature space as closely as possible to the ordering of those points in the prediction space.</p>
+
+<p>One option is to take advantage of the fact that the left Kan classifier has no false negatives and the right Kan classifier has no false positives on the training dataset. An optimal transformation will therefore minimize the size of the region on which these classifiers disagree.</p>
+
+<p>We can approximate the size of the disagreement region with the ordering loss:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def get_ordering_loss(self, X_true, X_false, training=True):
+  return tf.reduce_sum(tf.math.maximum(0.0, 
+                        tf.math.reduce_max(tf.transpose(self.predict_tf(X_false, training=training)), axis=1) -
+                        tf.math.reduce_min(tf.transpose(self.predict_tf(X_true, training=training)), axis=1)))
+</code></pre></div></div>
+<p>The ordering loss will only be zero when the transformation perfectly orders the data in the training dataset. See Proposition 3.3 in <a href="https://arxiv.org/abs/2203.09018">the paper</a> for more details</p>
+
+<h2 id="ensemble">Ensemble</h2>
+<p>Although transforming our data with an ordering loss can improve the performance of our model, it is not enough in practice. Since the left and right Kan extensions must respectively drive false negatives and false positives to zero, these algorithms are very sensitive to outliers. This is a common theme with algorithms that are derived from category theoretic constructs.</p>
+
+<p>One way to mitigate this issue is to ensemble multiple Kan classifiers together. Explicitly, we can use the Bagging algorithm to repeatedly subsample our data, train a transformation \(f: S \rightarrow S_i'\) on this sample, and fit the left and right Kan classifiers as base models on the transformed data in this sample. We can then take the average prediction of the trained classifiers. Since any particular outlier sample will be dropped from most data subsets we expect the ensemble classifier to perform better in practice.</p>
+
+<p><strong>Training the KanEnsembleClassifier</strong>
+<img src="/img/Kan_Train.drawio.png" alt="Training the KanEnsembleClassifier " /></p>
+
+<p><strong>Predicting with the KanEnsembleClassifier</strong>
+<img src="/img/Kan_Inference.drawio.png" alt="Predicting with the KanEnsembleClassifier " /></p>
+
+<h2 id="experiment">Experiment</h2>
+
+<p>Let’s compare how this KanEnsembleClassifier compares to a scikit-learn RandomForestClassifier on the the Shirt vs T-shirt task from the Fashion MNIST dataset. You can find the code on github <a href="https://github.com/dshieble/Kan_Extensions">here</a>.</p>
+
+<p>We can compare the model performance across different base estimator counts. We see that the KanEnsembleClassifier consistently performs slightly better.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>model</th>
+      <th>n_estimators</th>
+      <th>TP rate</th>
+      <th>TN rate</th>
+      <th>ROC-AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RandomForestClassifier</td>
+      <td>10</td>
+      <td>0.775</td>
+      <td>0.897</td>
+      <td>0.836</td>
+    </tr>
+    <tr>
+      <td>RandomForestClassifier</td>
+      <td>50</td>
+      <td>0.807</td>
+      <td>0.905</td>
+      <td>0.856</td>
+    </tr>
+    <tr>
+      <td>RandomForestClassifier</td>
+      <td>100</td>
+      <td>0.809</td>
+      <td>0.891</td>
+      <td>0.850</td>
+    </tr>
+    <tr>
+      <td>RandomForestClassifier</td>
+      <td>500</td>
+      <td>0.815</td>
+      <td>0.901</td>
+      <td>0.858</td>
+    </tr>
+    <tr>
+      <td>KanEnsembleClassifier</td>
+      <td>10</td>
+      <td>0.817</td>
+      <td>0.911</td>
+      <td>0.864</td>
+    </tr>
+    <tr>
+      <td>KanEnsembleClassifier</td>
+      <td>50</td>
+      <td>0.821</td>
+      <td>0.905</td>
+      <td>0.863</td>
+    </tr>
+    <tr>
+      <td>KanEnsembleClassifier</td>
+      <td>100</td>
+      <td>0.817</td>
+      <td>0.905</td>
+      <td>0.861</td>
+    </tr>
+    <tr>
+      <td>KanEnsembleClassifier</td>
+      <td>500</td>
+      <td>0.821</td>
+      <td>0.909</td>
+      <td>0.865</td>
+    </tr>
+  </tbody>
+</table>
+
+:ET
