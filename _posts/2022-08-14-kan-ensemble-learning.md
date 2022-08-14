@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning with Kan Extensions
+title: An Ensemble of Kan Extensions
 tags: [Machine Learning, Category Theory]
 ---
 <script> 
