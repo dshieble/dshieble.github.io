@@ -16,6 +16,10 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 ### Invited Industry Talks
 
+What Does It Take To Build Resilient ML Systems?
+ ([Scale AI - Transform X](https://exchange.scale.com/home/events/scale-transformx-2022))
+
+
 
 Productionizing Machine Learning ([Abnormal Engineering Stories](https://abnormalsecurity.com/blog/engineering-stories-productionizing-machine-learning))
 
