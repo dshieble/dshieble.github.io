@@ -16,8 +16,7 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 ### Invited Industry Talks
 
-What Does It Take To Build Resilient ML Systems?
- ([Scale AI - Transform X](https://exchange.scale.com/home/events/scale-transformx-2022))
+What Does It Take To Build Resilient ML Systems? ([Scale AI - Transform X](https://exchange.scale.com/home/events/scale-transformx-2022))
 
 
 
@@ -25,7 +24,7 @@ Productionizing Machine Learning ([Abnormal Engineering Stories](https://abnorma
 
 Academia, Startups, and Enterprise: A Cross-Analysis of Work and Goals ([ODSC Europe, 2021](https://app.aiplus.training/courses/odsc-europe-2021-talks))
 
-Translating PhD Research into ML Applications([Super Data Science, 2021](www.superdatascience.com/451))
+Translating PhD Research into ML Applications ([Super Data Science, 2021](www.superdatascience.com/451))
 
 Machine Learning At Twitter ([Super Data Science, 2020](https://www.superdatascience.com/podcast/machine-learning-at-twitter))
 
