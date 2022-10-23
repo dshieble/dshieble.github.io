@@ -15,7 +15,7 @@ subtitle: The Extra Brief Version
 </script>
 Hi, I'm Dan Shiebler. I like math, history podcasts, fantasy novels, riding my bicycle, and traveling. I live in NYC.
 
-Right now I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/). Previously, I managed the Web Ads Machine Learning team at Twitter. Before that I worked as a Staff ML Engineer at [Twitter Cortex](https://cortex.twitter.com/), a Senior Data Scientist at [TrueMotion](https://gotruemotion.com/).
+Right now I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/). Previously, I managed the Web Ads Machine Learning team at Twitter. Before that I worked as a Staff ML Engineer at [Twitter Cortex](https://cortex.twitter.com/) and a Senior Data Scientist at [TrueMotion](https://gotruemotion.com/).
 
 I've also spent some time in Academia. My PhD at the University of Oxford focused on applications of Category Theory to Machine Learning (advised by [Jeremy Gibbons](https://www.cs.ox.ac.uk/people/jeremy.gibbons/) and [Cezar Ionescu](https://www.th-deg.de/en/Cezar-Ionescu-Fakult%C3%A4t%20Angewandte%20Informatik-Professoren/-innen-1975)). Before that I worked as a Computer Vision Researcher at the [Serre Lab](http://serre-lab.clps.brown.edu/).
 
