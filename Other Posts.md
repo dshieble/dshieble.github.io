@@ -15,6 +15,10 @@ subtitle: Blog Posts I've Written on Other Sites
 </script>
 
 
+[How Abnormal Enhanced Its Detection Platform with BERT](https://abnormalsecurity.com/blog/enhanced-detection-platform-bert-large-language-models), Abnormal Engineering Blog, 2022
+
+
+
 [8 Key Differences Between Ineffective and Effective Machine Learning Engineers](https://abnormalsecurity.com/blog/ineffective-vs-effective-machine-learning-engineers), Abnormal Engineering Blog, 2022
 
 [Model Understanding with Feature Importance](https://abnormalsecurity.com/blog/model-understanding-with-feature-importance), Abnormal Engineering Blog, 2022
