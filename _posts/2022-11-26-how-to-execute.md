@@ -24,17 +24,15 @@ An engineer who can execute gets shit done. They crush tickets, pump out designs
 
 Engineering projects are subject to many forces that jeopardize their success. New feature requirements, unexpected complexity, unclear data or experiment results, system failures, team churn, competing priorities, organizational tensions, and an infinite number of similar factors lurk like hyenas on the outskirts of every project. 
 
-![hyenas](/img/hyenas.png)
+![hyenas](/img/launch.png)
 
 A strong executor will cut through this noise to consistently deliver. They are ruthless prioritization machines. They strip each deliverable to its essence and simplify aggressively. They anticipate obstacles like a running back: charting a path, and then bobbing and weaving their way to success. 
 
-![Bobbing and Weaving ](/img/running_back.png)
+![Bobbing and Weaving](/img/running_back.png)
 
 But the true heart of execution is closing the loop. Executors understand that a project is in the most danger between its inception and the production launch of its V0 MVP. Every concurrent refactor and tooling migration presents a massive organizational and technical roadblock that a "not yet launched" system will need to overcome. The longer a project stays in this state, the more such refactors and technical migrations will appear, and the deeper the project will fall behind.
 
 ![Launch, monitor, improve](/img/launch.png)
-
-<!-- *A project is most vulnerable before the first launch* -->
 
 Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary.  Execution is its own ability, distinct from technical acumen. Our field is packed with strong coders with weak execution. Executors know how to choose which corners to cut. The strongest coders sometimes find themselves solving problems that don't matter. 
 
