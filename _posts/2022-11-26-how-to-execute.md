@@ -34,7 +34,7 @@ A strong executor will cut through this noise to consistently deliver. They are 
 
 But the true heart of execution is closing the loop. Executors understand that a project is in the most danger between its inception and the production launch of its V0 MVP. Every concurrent refactor and tooling migration presents a massive organizational and technical roadblock that a "not yet launched" system will need to overcome. The longer a project stays in this state, the more such refactors and technical migrations will appear, and the deeper the project will fall behind.
 
-![Launch, monitor, improve](/img/launch_monitor_improve.png)
+![Launch, monitor, improve](/img/launch.png)
 
 <!-- *A project is most vulnerable before the first launch* -->
 
