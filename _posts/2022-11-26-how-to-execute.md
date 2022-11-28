@@ -24,11 +24,9 @@ An engineer who can execute gets shit done. They crush tickets, pump out designs
 
 Engineering projects are subject to many forces that jeopardize their success. New feature requirements, unexpected complexity, unclear data or experiment results, system failures, team churn, competing priorities, organizational tensions, and an infinite number of similar factors lurk like hyenas on the outskirts of every project. 
 
-
 ![hyenas](/img/hyenas.png)
 
-
-A strong executor will cut through this noise to consistently deliver. They are ruthless prioritization machines that strip away everything to its essence. They anticipate obstacles like a running back: charting a path, and then bobbing and weaving their way to success. 
+A strong executor will cut through this noise to consistently deliver. They are ruthless prioritization machines. They strip each deliverable to its essence and simplify aggressively. They anticipate obstacles like a running back: charting a path, and then bobbing and weaving their way to success. 
 
 ![Bobbing and Weaving ](/img/running_back.png)
 
