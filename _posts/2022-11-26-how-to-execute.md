@@ -24,7 +24,7 @@ An engineer who can execute gets shit done. They crush tickets, pump out designs
 
 Engineering projects are subject to many forces that jeopardize their success. New feature requirements, unexpected complexity, unclear data or experiment results, system failures, team churn, competing priorities, organizational tensions, and an infinite number of similar factors lurk like hyenas on the outskirts of every project. 
 
-![hyenas](/img/launch.png)
+![hyenas](/img/hyenas.png)
 
 A strong executor will cut through this noise to consistently deliver. They are ruthless prioritization machines. They strip each deliverable to its essence and simplify aggressively. They anticipate obstacles like a running back: charting a path, and then bobbing and weaving their way to success. 
 
@@ -34,7 +34,7 @@ But the true heart of execution is closing the loop. Executors understand that a
 
 ![Launch, monitor, improve](/img/launch.png)
 
-Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary.  Execution is its own ability, distinct from technical acumen. Our field is packed with strong coders with weak execution. Executors know how to choose which corners to cut. The strongest coders sometimes find themselves solving problems that don't matter. 
+Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary.  Execution is its own ability, distinct from technical acumen. Executors must know which corners to cut.
 
 Execution is also distinct from technical leadership. The strongest executors do not always know the right systems to build, or how to build them. Similarly, the best technical leaders do not need to be the strongest executors. But any good technical lead must be able to mentor and support the executors on their team.
 
@@ -44,7 +44,7 @@ Engineers who can execute are sought after commodities: the scrappy and determin
 
 Within an organization execution ability is easy to see. Strong executors consistently achieve their goals. As a result, most healthy organizations are naturally set up to reward strong executors. Good engineering leaders point their best executors at the most ambitious, most well formed goals in the organization.
 
-However, execution ability can be harder to see from the outside. Execution ability is almost entirely uncorrelated with status symbols like impressive universities or companies, and technical interviews do not emphasize execution ability.
+However, execution ability can be harder to see from the outside. This skill set is almost entirely uncorrelated with status symbols like impressive universities or companies. Similarly, technical interviews do not emphasize execution ability.
 
 All is not lost however: execution ability is highly correlated with prioritization skills, which is not too difficult to assess in an interview. Good prioritizers often have many examples of situations where they prioritized successfully. An engineering leader who can sniff out this skill will have a major advantage in building a highly successful team. 
 
