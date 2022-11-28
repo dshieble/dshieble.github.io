@@ -45,7 +45,7 @@ Within an organization execution ability is easy to see. Strong executors consis
 
 However, execution ability can be harder to see from the outside. Execution ability is almost entirely uncorrelated with status symbols like impressive universities or companies, and technical interviews do not emphasize execution ability.
 
-All is not lost however: execution ability is highly correlated with prioritization skills, and this is not too difficult to assess in an interview. People who are good at prioritizing often have many examples of situations where they prioritized successfully. An engineering leader who can sniff out this skill will have a major advantage in building a highly successful team. 
+All is not lost however: execution ability is highly correlated with prioritization skills, which is not too difficult to assess in an interview. Good prioritizers often have many examples of situations where they prioritized successfully. An engineering leader who can sniff out this skill will have a major advantage in building a highly successful team. 
 
 
 
