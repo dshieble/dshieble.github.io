@@ -33,15 +33,15 @@ But the true heart of execution is closing the loop. Executors understand that a
 ![Launch, monitor, improve](/img/launch_monitor_improve.png)
 *A project is most vulnerable before the first launch*
 
-Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary.  Execution is its own ability, distinct from technical acumen. Our field is packed with people who are strong coders but weak executors. Executors know how to choose which corners to cut. The strongest coders sometimes find themselves solving problems that don't matter. 
+Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary.  Execution is its own ability, distinct from technical acumen. Our field is packed with strong coders with weak execution. Executors know how to choose which corners to cut. The strongest coders sometimes find themselves solving problems that don't matter. 
 
 Execution is also distinct from technical leadership. The strongest executors do not always know the right systems to build, or how to build them. Similarly, the best technical leaders do not need to be the strongest executors. But any good technical lead must be able to mentor and support the executors on their team.
 
-## Executing on a Team
+## Building an Executing Team
 
 Engineers who can execute are sought after commodities: the scrappy and determined lifeblood of an engineering organization who set the pace for the team. An engineering leader must be able to hire and retain strong executors to build a strong team. 
 
-Within an organization, execution ability is usually very easy to see. A healthy organization will be naturally set up to reward strong executors.
+Within an organization execution ability is easy to see. Strong executors consistently achieve their goals. As a result, most healthy organizations are naturally set up to reward strong executors. Good engineering leaders point their best executors at the most ambitious, most well formed goals in the organization.
 
 However, execution ability can be harder to see from the outside. Execution ability is almost entirely uncorrelated with status symbols like impressive universities or companies, and technical interviews do not emphasize execution ability.
 
