@@ -1,6 +1,6 @@
 ---
 layout: post
-title: What 
+title: How to Execute
 tags: [Software Engineering, Engineering Leadership]
 ---
 <script> 
