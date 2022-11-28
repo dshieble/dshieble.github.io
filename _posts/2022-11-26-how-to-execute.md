@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Execute
+title: What 
 tags: [Software Engineering, Engineering Leadership]
 ---
 <script> 
@@ -20,6 +20,8 @@ One of the hallmarks of a great engineer is the ability to execute.
 
 Simply put, an engineer who can execute is an engineer who gets shit done. They crush tickets, pump out designs, spin up features, answer critical data questions, improve models, and prototype new ideas quicker than their peers.
 
+## How to Execute
+
 Engineering projects are subject to many forces that jeopardize their success. New feature requirements, unexpected complexity, unclear data or experiment results, system failures, team churn, competing priorities, organizational tensions, and an infinite number of similar factors loom on the outskirts of any project. 
 
 A strong executor is a ruthless prioritization machine. They dig into the essence of each project’s motivation, stripping away everything that is not strictly necessary and distilling the system to its core essence. They anticipate obstacles like a running back: charting a path, and then bobbing and weaving their way to success. 
@@ -29,13 +31,19 @@ A strong executor is a ruthless prioritization machine. They dig into the essenc
 
 But the true heart of execution is closing the loop. The riskiest time of a project is between its inception and the production launch of its V0 MVP. Executors understand that projects in this state are maximally exposed to every kind of organization, technical, and personnel risk. Every concurrent refactor and tooling migration presents a massive organizational and technical roadblock that a "not yet launched" system will need to overcome. The longer a project stays in this state, the more such refactors and technical migrations will appear, and the deeper the project will fall behind.
 
+
+![Launch, monitor, improve](/img/launch_monitor_improve.png)
+*A project is most vulnerable before the first launch*
+
+
 Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary. 
+
 
 Execution is its own ability, distinct from technical acumen. Our field is packed with people who are strong coders but weak executors. Executors know how to choose which corners to cut. The strongest coders sometimes find themselves solving problems that don't matter. 
 
 Execution is also distinct from technical leadership. The strongest executors do not always know the right systems to build, or how to build them. Similarly, the best technical leaders do not need to be the strongest executors. But any good technical lead must be able to mentor and support the executors on their team.
 
-## Conclusion
+## Executing on a Team
 
 Engineers who can execute are sought after commodities: the scrappy and determined lifeblood of an engineering organization who set the pace for the team. An engineering leader must be able to hire and retain strong executors to build a strong team. 
 
