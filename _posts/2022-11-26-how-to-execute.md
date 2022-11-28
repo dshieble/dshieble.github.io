@@ -22,7 +22,11 @@ Simply put, an engineer who can execute is an engineer who gets shit done. They 
 
 ## How to Execute
 
-Engineering projects are subject to many forces that jeopardize their success. New feature requirements, unexpected complexity, unclear data or experiment results, system failures, team churn, competing priorities, organizational tensions, and an infinite number of similar factors lurk like hyenas or vultures on the outskirts of every project. 
+Engineering projects are subject to many forces that jeopardize their success. New feature requirements, unexpected complexity, unclear data or experiment results, system failures, team churn, competing priorities, organizational tensions, and an infinite number of similar factors lurk like hyenas on the outskirts of every project. 
+
+
+![hyenas](/img/hyenas.png)
+
 
 A strong executor will cut through this noise to consistently deliver. They are ruthless prioritization machines that strip away everything to its essence. They anticipate obstacles like a running back: charting a path, and then bobbing and weaving their way to success. 
 
