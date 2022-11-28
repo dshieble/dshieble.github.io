@@ -36,7 +36,7 @@ But the true heart of execution is closing the loop. Executors understand that a
 
 ![Launch, monitor, improve](/img/launch_monitor_improve.png)
 
-*A project is most vulnerable before the first launch*
+<!-- *A project is most vulnerable before the first launch* -->
 
 Executors are determined to close the loop quickly. They remain focused through the noise, optimize their time, and cancel meetings when necessary.  Execution is its own ability, distinct from technical acumen. Our field is packed with strong coders with weak execution. Executors know how to choose which corners to cut. The strongest coders sometimes find themselves solving problems that don't matter. 
 
