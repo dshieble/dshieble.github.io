@@ -17,11 +17,11 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 ### Invited Industry Talks
 
 
-Resilient Machine Learning? ([Super Data Science](https://www.superdatascience.com/podcast/resilient-machine-learning))
 
+
+Resilient Machine Learning ([Super Data Science](https://www.superdatascience.com/podcast/resilient-machine-learning), [ODSC West 2022](https://odsc.com/california/aix-west/), [Brown Big AI Seminar](https://lists.cs.brown.edu/sympa/arc/talks/2022-11/msg00006.html))
 
 What Does It Take To Build Resilient ML Systems? ([Scale AI - Transform X](https://exchange.scale.com/home/events/scale-transformx-2022))
-
 
 
 Productionizing Machine Learning ([Abnormal Engineering Stories](https://abnormalsecurity.com/blog/engineering-stories-productionizing-machine-learning))
