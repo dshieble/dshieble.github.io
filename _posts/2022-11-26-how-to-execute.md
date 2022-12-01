@@ -18,7 +18,7 @@ tags: [Software Engineering, Engineering Leadership]
 
 One of the hallmarks of a great engineer is the ability to execute. 
 
-An engineer who can execute gets shit done. They crush tickets, pump out designs, spin up features, answer critical data questions, improve models, and prototype new ideas quicker than their peers.
+An engineer who can execute gets things done. They crush tickets, pump out designs, spin up features, answer critical data questions, improve models, and prototype new ideas quicker than their peers.
 
 ## How to Execute
 
