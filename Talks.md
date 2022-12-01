@@ -16,6 +16,10 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 
 ### Invited Industry Talks
 
+
+Resilient Machine Learning? ([Super Data Science](https://www.superdatascience.com/podcast/resilient-machine-learning))
+
+
 What Does It Take To Build Resilient ML Systems? ([Scale AI - Transform X](https://exchange.scale.com/home/events/scale-transformx-2022))
 
 
