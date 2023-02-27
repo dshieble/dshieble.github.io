@@ -23,7 +23,7 @@ IDEA: Wrong way to build a new featue - talking about pitfalls of adding a featu
 
 ML models are collaboration bottlenecks. 
 
-Suppose your team owns a binary classification model, and you have decided that increasing this model's recall without reducing precision is *very important* for the business. You've put 5-10 engineers on the job. 
+Suppose your team owns a binary classification model, and you have decided that increasing this model's recall without reducing precision is very important for the business. You've put 5-10 engineers on the job. 
 
 
 ## The Problem
