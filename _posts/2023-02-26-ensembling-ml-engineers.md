@@ -44,7 +44,7 @@ We can avoid the problem entirely with a simple trick: run a suite of models in 
 
 First, run each model in the suite to generate a `True` or `False` judgement. Define the final judgement to be `True` if any model predicts `True`. The *unique precision* of any model in the suite is the precision of the set of samples where that model returns `True` and all others return `False`.
 
-![federated models](/img/federated_models..png)
+![federated models](/img/federated_models.png)
 
 It may be tempting to replace this `OR` with a different kind of layer, such as a lightweight ensemble, but this will reintroduce the bottleneck in a new form. The power of the `OR` is its simplicity and interpretablity, which provides a simple blueprint for iterative improvement:
 
