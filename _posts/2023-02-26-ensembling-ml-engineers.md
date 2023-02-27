@@ -30,7 +30,7 @@ Suppose your team owns a binary classification model, and you have decided that 
 
 What should these engineers do? There are many ways to improve a model, including adding new features, modifying the model architecture, changing the training procedure, etc. However, parallelizing this work is challenging. If one engineer works on adding a new feature and another works on modifying the training procedure, there is often no simple way to combine their work.
 
-ML development often includes a notebook stage in which most experimental code that is written is thrown out. This encourages engineers to work in independent branches for long periods of time, which makes collaboration extremely dificult. 
+ML development often includes a notebook stage in which most experimental code that is written is thrown out. This encourages engineers to work in independent branches for long periods of time, which makes collaboration extremely difficult. 
 
 To make things worse, different atoms of ML work are rarely additive. For example, if an engineer would like to experiment with a new feature they may limit their training data to only samples where this new feature is available. Other engineers working on new architectures or training paradigms do not share this restriction, which can create friction when combining work.
 
