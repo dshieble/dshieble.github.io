@@ -15,6 +15,8 @@ subtitle: Blog Posts I've Written on Other Sites
 </script>
 
 
+### Posts I've Written
+
 [How Abnormal Enhanced Its Detection Platform with BERT](https://abnormalsecurity.com/blog/enhanced-detection-platform-bert-large-language-models), Abnormal Engineering Blog, 2022
 
 
@@ -26,3 +28,12 @@ subtitle: Blog Posts I've Written on Other Sites
 [Meeting the Dialogue Challenge](https://golem.ph.utexas.edu/category/2019/06/meeting_the_dialogue_challenge.html#more), The n-Category Café, 2019
 
 [Embeddings@Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html), Twitter Engineering Blog, 2018
+
+
+### Posts I've Been Quoted In
+
+
+[Top Tech Talent Warns on AI's Threat to Human Existence in Open Letter](https://www.darkreading.com/application-security/top-tech-talent-ai-threat-human-existence-open-letter)
+
+
+[Tech luminaries call for a 6-month moratorium on AI, but can they stop it?](https://www.scmagazine.com/news/emerging-technology/tech-luminaries-call-artificial-intelligence-moratorium)
