@@ -36,7 +36,7 @@ Let's explore a concrete example. Consider the problem of classifying transactio
 
 There are at least three relevant perspectives on this data:
 - Human: A human classifying a transaction would need some mechanism to access this data when they make their decision. The human's portal to the data might include text, numbers, graphs, etc. 
-- Traditional ML: An ML model would consume this data in the form of engineered features. These features would likely be in the form of a flat numerical representation of the data.
+- Traditional ML: An ML model would consume this data as a single vector of engineered features.
 - LLMs: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
 
 All three perspectives should emphasize the important characteristics of the data, such as the historical relationship between this user and this product. 
