@@ -26,7 +26,6 @@ LLMs have unique interfaces and limitations which shape the software ecosystems 
 One of the best ways to understand a computer system is to understand its native data format. Computers represent raw data in a binary form, and all computational applications need to pass through this format while transforming data. For example, computations on real numbers pass through computer systems via the transformation of numbers to and from the float format.
 
 The primitive data representation for LLMs is text. These models are trained on the astronomical quantity of text available on the internet, and it is the relationships present in text that form the basis of their understanding of the world. Their weights may be inherently binary, but our only portal to access the representations these weights encode is text.
-> Yes, LLMs are capable of consuming and producing image and sound. But text remains the bridge between these media.
 
 In general, LLMs consume text as input and produce text as output. A software system that uses LLMs in the decision making chain will need to cleverly transform data to text and transform LLM text output to program instructions.
 
@@ -35,13 +34,11 @@ In general, LLMs consume text as input and produce text as output. A software sy
 Let's explore a concrete example. Consider the problem of classifying transactions as fraudulent or safe. For any transaction we may need to pull from a large store of data to make this decision: user activity history, product purchase history, product metadata, transaction context, etc. 
 
 There are at least three relevant perspectives on this data:
-- Human: A human classifying a transaction would need some mechanism to access this data when they make their decision. The human's portal to the data might include text, numbers, graphs, etc. 
+- Human: A human classifying a transaction would need some mechanism to access this data when they make their decision. The human's portal to the data might include text, numbers, graphs, etc. If the human has not received specialized training then this portal must be as self-explanatory as possible.
 - Traditional ML: An ML model would consume this data as a single vector of engineered features.
 - LLMs: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
 
-All three perspectives should emphasize the important characteristics of the data, such as the historical relationship between this user and this product. 
-
-However, this emphasis should be couched differently in the different representations. Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
+All three perspectives should emphasize the important characteristics of the data, such as the historical relationship between this user and this product.  =However, this emphasis should be couched differently in the different representations. Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
 
 
 
@@ -100,6 +97,7 @@ In the next post we will explore some different paradigms for using and optimizi
 
 
 
+<!-- > Yes, LLMs are capable of consuming and producing image and sound. But text remains the bridge between these media. -->
 
 <!-- There are many problems in which we only have <!-- a small amount of data or very noisy labels. --> In these cases LLMs  -->
 
