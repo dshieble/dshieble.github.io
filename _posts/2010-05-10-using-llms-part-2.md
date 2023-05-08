@@ -1,4 +1,4 @@
- ---
+---
 layout: post
 title: Using Large Language Models (Part 2 - Paradigms)
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
