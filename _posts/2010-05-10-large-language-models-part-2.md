@@ -17,7 +17,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 ## Introduction
 
-> This post is part two in a two part series on how to make optimal use of LLMs in a production machine learning system. Find part one [here](https://danshiebler.com/2023-05-08-using-llms-part-1) 
+> This post is part two in a two part series on how to use LLMs in a software system. Find part one [here](https://danshiebler.com/2023-05-08-large-language-models-part-1) 
 
 Generative large language models (LLMs) like ChatGPT have changed the game. Previously impossible problems are now solvable without substantial time investment or labeled data. This has tremendous implications for the future of software develoment, data science, and machine learning engineering.
 
