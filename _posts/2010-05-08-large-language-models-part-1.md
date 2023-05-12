@@ -31,7 +31,7 @@ In general, LLMs consume text as input and produce text as output. A software sy
 
 ![We transform data to and from text when working with LLMs](/img/LLMsText.drawio.png)
 
-Let's say you want to classify transactions as fraudulent or safe. For any transaction we may need to pull from a large store of data to make this decision: user activity history, product purchase history, product metadata, transaction context, etc. 
+Let's say we want to classify transactions as fraudulent or safe using signals like purchase history, product metadata, transaction context, etc. 
 
 There are at least three relevant perspectives on this data:
 - *Human*: A human classifying a transaction would need some mechanism to access this data when they make their decision. The human's portal to the data might include text, numbers, graphs, etc. If the human has not received specialized training then this portal must be as self-explanatory as possible.
