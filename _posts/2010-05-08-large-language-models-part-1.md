@@ -31,9 +31,7 @@ In general, LLMs consume text as input and produce text as output. A software sy
 
 ![We transform data to and from text when working with LLMs](/img/LLMsText.drawio.png)
 
-Let's say we want to classify transactions as fraudulent or safe using signals like purchase history, product metadata, transaction context, etc. 
-
-There are at least three relevant perspectives on this data:
+Let's say we want to classify transactions as fraudulent or safe using signals like purchase history, product metadata, transaction context, etc. We need to present these signals differently depending on who or what is doing the classification:
 - **Human**: A human classifying a transaction would need some mechanism to access this data when they make their decision. The human's portal to the data might include text, numbers, graphs, etc. If the human has not received specialized training then this portal must be as self-explanatory as possible.
 - **Traditional ML**: An ML model would consume this data as a single vector of engineered features. This vector does not need to be self-explanatory: we expect an ML model to learn how to interpret its input features during training.
 - **LLMs**: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
