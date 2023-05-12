@@ -47,12 +47,12 @@ Humans and LLMs have world models that enable them to model the behaviors of cer
 Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
 
 Let's go back to the fraud detection example. Our data model of a particular transaction might be distributed across multiple tables:
-- *Transaction metadata*: transactions timestamp, product id, user id, purchase location, payment method, user agent employed, user IP, etc
+- *Transaction metadata*: transaction timestamp, transaction location, payment method, user IP, etc
 - *User information*: name, location, list of recent purchases, etc
 - *Product information*: product type, product description, list of recent sales, etc
 - *Seller information*: location, fraud history, list of other products, etc
 
-We can represent a single transaction with one row from each of these four tables. We can also derive some engineered features from this raw data. For example, the number of times that this user has purchased other products from this seller can be extracted by comparing this seller's list of products with this user's list of previous purchases.
+We can represent a single transaction with one row from each of these four tables, plus some engineered features. For example, the number of times that this user has purchased other products from this seller can be extracted by comparing this seller's list of products with this user's list of previous purchases.
 
 The simplest textual representation of these features would be a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
