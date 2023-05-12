@@ -29,7 +29,33 @@ LLMs are costly and capricious, but extremely powerful.
 
 ## Paradigms
 
-There are many ways to solve the same problem with large language models. 
+<!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
+ -->
+
+Let's say you want to use an LLM to summarize everything that the president of the United States has done in the last month. There are a number of big decisions we need to make when designing this system.
+
+First, where is the raw information going to come from? Any LLM trained more than a month ago will not have this information stored in its weights. A google search may be sufficient, but there may be news APIs that would surface higher quality information. 
+
+Next, how will we extract the raw information from these sources? Our strategy here lies on a spectrum. At one end is to do everything by hand: manually construct queries to the search or news APIs and manually pass these results back to the LLM.
+
+On the other end of the spectrum is to use an LLM-powered agent that autonomously identifies the queries it needs from the "write a summary..." 
+
+ construct the API query and passes the results back into the LLM before generating the final result. 
+
+ Another option is to build an autonomous LLM-powered agent that can construct the API query and passes the results back into the LLM before generating the final result. 
+
+Finally, how will we present this raw information to the LLM
+
+You can't just prompt ChatGPT with this: this is not information that ChatGPT has stored in its weights. We need to provide this information to the LLM in one way or another.
+
+- Where does the raw information come from? 
+- How do we source the raw information
+- How do we present this information to the LLM?
+- 
+
+
+
+Option is to use an LLM agent to solve the problem end-to-end. 
 
 
 
