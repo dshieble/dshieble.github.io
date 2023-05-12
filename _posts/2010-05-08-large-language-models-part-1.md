@@ -58,6 +58,7 @@ We do not have this luxury when using a zero shot LLM (or a human labeler). The 
 <description 1>: <value 1>
 <description 2>: <value 2>
 ...
+<description N>: <value N>
 ```
 
 
