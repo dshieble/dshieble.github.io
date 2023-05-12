@@ -23,9 +23,9 @@ LLMs have unique interfaces and limitations which shape the software ecosystems 
 
 ## Text - The New Lingua Franca
 
-One of the best ways to understand a computer system is to understand its native data format. Computers represent raw data in a binary form, and all computational applications need to pass through this format while transforming data. For example, computations on real numbers pass through computer systems via the transformation of numbers to and from the float format.
+In order to understand a system we need to study how it represents information. Computers represent raw data in a binary form, and computer operations pass through this format while transforming data. For example, computing with real numbers requires transforming the numbers to binary (perhaps via floating point), performing the computation, and then reinterpreting the binary result as real numbers.
 
-The primitive data representation for LLMs is text. These models are trained on the astronomical quantity of text available on the internet, and it is the relationships present in text that form the basis of their understanding of the world. Their weights may be inherently binary, but our only portal to access the representations these weights encode is text.
+LLMs represent information through text. Their world model is derived from the entities and relationships present in their text training corpus. Their weights may be numerical, but our primary portal to access the representations these weights encode is text.
 
 In general, LLMs consume text as input and produce text as output. A software system that uses LLMs in the decision making chain will need to cleverly transform data to text and transform LLM text output to program instructions.
 
