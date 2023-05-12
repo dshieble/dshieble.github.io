@@ -36,7 +36,7 @@ Let's say we want to classify transactions as fraudulent or safe using signals l
 - **Traditional ML**: An ML model would consume this data as a single vector of engineered features. This vector does not need to be self-explanatory: we expect an ML model to learn how to interpret its input features during training.
 - **LLMs**: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
 
-All three presentations should emphasize the important characteristics of the data, such as the historical relationship between this user and this product. However, this emphasis should be couched differently in the different representations. 
+All three presentations should emphasize the important characteristics of the data. However, this emphasis should be couched differently in the different representations. 
 
 Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
 
