@@ -49,11 +49,7 @@ Let's go back to the fraud detection example. Our data model of a particular tra
 - **Seller**: location, fraud history, list of other products sold, etc
 
 
-Given a single transaction we would go through the following steps to derive the relevant signals:
-- Query the Transaction table to get the transaction row
-- Query the User, Product, Seller tables with the user id, product id, seller id from the transaction row
-- Concatenate the four rows together into a single row of raw features
-- Add engineered features to this row. For example, one engineered feature might be the number of times that this user has purchased other products from this seller. We can derive this from the raw data by comparing this seller's list of products with this user's list of previous purchases.
+Given a single transaction we would go through the following steps to derive the relevant signals. First, we query the Transaction table to get the Transaction row. Next, we extract the user id, product id, seller id from this row and use these to query the User, Product, and Seller tables. We then concatenate these four rows together into a single row of raw features. Finally, we use the data in this row to engineer some additional features: such as whether this user has previously bought from this seller.
 
 The simplest textual representation of these features would then be a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
