@@ -51,7 +51,7 @@ Let's go back to the fraud detection example. Our data model of a particular tra
 
 Given a single transaction we would go through the following steps to derive the relevant signals. First, we query the Transaction table to get the Transaction row. Next, we extract the user id, product id, and seller id from this row and use these to query the User, Product, and Seller tables. We then concatenate these four rows together into a single row of raw features. Finally, we use the data in this row to engineer additional features like "has this user bought from this seller before?"
 
-The simplest textual representation of these features would then be a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
+The simplest text representation of these features is a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
 We do not have this luxury when using a zero shot LLM (or a human labeler). The significance of each signal must be self-evident from the way that it is presented in the text. For example, we could write a brief description of each column and each derived feature and represent the data in a format like:
 ```
@@ -64,7 +64,7 @@ We do not have this luxury when using a zero shot LLM (or a human labeler). The 
 
 ### Numbers
 
-Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLM training data does not have a very high density of large number arithemetic, and deep neural networks may propagate errors in large scale symbolic computations.
+Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLM training data does not have a very high density of large number arithmetic, and deep neural networks may propagate errors in large scale symbolic computations.
 
 As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect certain types of traditional machine learning models (like deep neural networks) to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
 
