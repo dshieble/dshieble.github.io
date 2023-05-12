@@ -23,8 +23,13 @@ Generative large language models (LLMs) like ChatGPT have changed the game. Prev
 
 LLMs have unique interfaces and limitations which shape the software ecosystems around them. In this series we explore how to make optimal use of these models as components of a software system.
 
+When arge language model requires
+
+LLMs are costly and capricious, but extremely powerful. 
 
 ## Paradigms
+
+There are many ways to solve the same problem with large language models. 
 
 
 
@@ -42,55 +47,12 @@ Balancing
 
 ## Conclusion
 
-Humans understand language. We produce a lot of it, about a lot of different things, in a lot of different ways. We use language to understand and communicate with the world around us.
-
-LLMs tap into the text data that we leave behind to form a world model that mimics ours. This text data contains artifacts of human reasoning. By transforming a problem to a text representation LLMs can parrot this reasoning - even without labeled training examples. This is a completely different way of solving problems than the strategy employed by traditional ML models, and can be superior when we only have a small amount of data or very noisy labels.
-
-In the next post we will explore some different paradigms for using and optimizing LLMs.
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- There are many problems in which we only have <!-- a small amount of data or very noisy labels. --> In these cases LLMs  -->
-
-
- <!-- there may be a large gap between the performance of a trained human labeler and a traditional ML model. In these cases transforming the data to text and passing it to an LLM may be the most powerful strategy. -->
-
-
-
-
-<!-- The field of prompt engineering has sprung up around the careful construction of text commands that elicit desired behavior from LLMs. -->
-
-
-<!-- There are many different kinds of prompt engineering, but one of the most interesting is what we might call the "ML translation". Given an ML problem with a set of well engineering features -->
-
-
-<!-- One of the most striking things when working with LLMs is the realization that their primitive understanding of the world is text.
-
-They consume this text as 
-
-
-The float representation enables computer systems to use this binary representation to operate on real numbers.
-
-
-Computers understand data in terms 
- -->
 
 
 
