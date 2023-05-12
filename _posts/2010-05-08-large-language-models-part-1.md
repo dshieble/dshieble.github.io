@@ -68,9 +68,9 @@ Large language models are notoriously bad at understanding very large or very sm
 
 As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect a traditional deep neural network to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
 
-We can solve this problem by connecting an LLM-powered agent to a calculator (like ChatGPT's WolframAlpha plugin). However, this can add a substantial amount of complexity.
+We can mitigate this by connecting an LLM-powered agent to a calculator (like ChatGPT's WolframAlpha plugin). However, this adds a substantial amount of complexity.
 
-Another way around this problem is to replace raw numbers or computed values with descriptive text like small/medium/large or comparative figures like "twice as large as the median value". This can work well, but be quite time intensive to design for a large number of features.
+Another way around this problem is to replace raw numbers or computed values with descriptive text like small/medium/large or comparative figures like "twice as large as the median value". This can work well, but is quite time intensive to design for a large number of features.
 
 ## Conclusion
 
