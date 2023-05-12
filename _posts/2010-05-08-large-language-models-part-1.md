@@ -36,8 +36,6 @@ Let's say we want to classify transactions as fraudulent or safe using signals l
 - **Traditional ML**: An ML model would consume this data as a single vector of engineered features. This vector does not need to be self-explanatory: we expect an ML model to learn how to interpret its input features during training.
 - **LLMs**: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
 
-All three presentations should emphasize the important characteristics of the data. However, this emphasis should be couched differently in the different representations. 
-
 Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
 
 
@@ -45,10 +43,10 @@ Humans and LLMs have world models that enable them to model the behaviors of cer
 Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
 
 Let's go back to the fraud detection example. Our data model of a particular transaction might be distributed across multiple tables:
-- **Transaction metadata**: transaction timestamp, transaction location, payment method, user IP, etc
-- **User information**: name, location, list of recent purchases, etc
-- **Product information**: product type, product description, list of recent sales, etc
-- **Seller information**: location, fraud history, list of other products, etc
+- **Transaction**: transaction timestamp, transaction location, payment method, user IP, etc
+- **User**: name, location, list of recent purchases, etc
+- **Product**: product type, product description, list of recent sales, etc
+- **Seller**: location, fraud history, list of other products sold, etc
 
 We can represent a single transaction with one row from each of these four tables, plus some engineered features. For example, one engineered feature might be the number of times that this user has purchased other products from this seller. We can derive this from the raw data by comparing this seller's list of products with this user's list of previous purchases.
 
