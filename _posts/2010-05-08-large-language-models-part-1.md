@@ -66,7 +66,7 @@ We do not have this luxury when using a zero shot LLM (or a human labeler). The 
 
 #### Numbers
 
-Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLM training data does not have a very high density of large number arithemetic, and deep neural network may propagate errors when working with very large or very small numbers.
+Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLM training data does not have a very high density of large number arithemetic, and deep neural networks may propagate errors when working with very large or very small numbers.
 
 As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect certain types of traditional machine learning models (like deep neural networks) to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
 

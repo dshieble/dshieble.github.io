@@ -27,6 +27,7 @@ LLMs have unique interfaces and limitations which shape the software ecosystems 
 
 ## Paradigms
 
+Costs
 Context window management
 Tool expectations
 Implicit Agents vs Explicit Agents
