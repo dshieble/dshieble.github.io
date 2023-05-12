@@ -66,7 +66,7 @@ We do not have this luxury when using a zero shot LLM (or a human labeler). The 
 
 Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLMs do not see much large number arithmetic in their training data, and deep neural networks may propagate errors in large scale symbolic computations.
 
-As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect certain types of traditional machine learning models (like deep neural networks) to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
+As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect a traditional deep neural network to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
 
 We can solve this problem by connecting an LLM-powered agent to a calculator (like ChatGPT's WolframAlpha plugin). However, this can add a substantial amount of complexity.
 
