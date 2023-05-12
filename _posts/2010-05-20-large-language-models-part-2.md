@@ -15,17 +15,18 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 </script>
 
 
-## Introduction
-
 > This post is part two in a two part series on how to use LLMs in a software system. Find part one [here](https://danshiebler.com/2023-05-08-large-language-models-part-1) 
+
+## Introduction
 
 Generative large language models (LLMs) like ChatGPT have changed the game. Previously impossible problems are now solvable without substantial time investment or labeled data. This has tremendous implications for the future of software develoment, data science, and machine learning engineering.
 
 LLMs have unique interfaces and limitations which shape the software ecosystems around them. In this series we explore how to make optimal use of these models as components of a software system.
 
 
-
 ## Paradigms
+
+
 
 Costs
 Context window management
