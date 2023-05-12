@@ -38,20 +38,21 @@ There are at least three relevant perspectives on this data:
 - *Traditional ML*: An ML model would consume this data as a single vector of engineered features. This vector does not need to be self-explanatory: we expect an ML model to learn how to interpret its input features during training.
 - *LLMs*: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
 
-All three perspectives should emphasize the important characteristics of the data, such as the historical relationship between this user and this product.  =However, this emphasis should be couched differently in the different representations. Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
+All three perspectives should emphasize the important characteristics of the data, such as the historical relationship between this user and this product. However, this emphasis should be couched differently in the different representations. 
 
+Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
 
 
 #### Tabular Data
-Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLMs. 
+Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
 
-Let's go back to the fraud detection example. Our data model of a particular transactions might be distributed across multiple tables:
-- Transaction metadata: transactions timestamp, product id, user id, purchase location, payment method, user agent employed, user IP, etc
-- User information: name, location, summaries of previous purchases, etc
-- Product information: product type, product description, summaries of previous sales, etc
-- Seller information: location, fraud history, summaries of other products sold, etc
+Let's go back to the fraud detection example. Our data model of a particular transaction might be distributed across multiple tables:
+- *Transaction metadata*: transactions timestamp, product id, user id, purchase location, payment method, user agent employed, user IP, etc
+- *User information*: name, location, list of recent purchases, etc
+- *Product information*: product type, product description, list of recent sales, etc
+- *Seller information*: location, fraud history, list of other products, etc
 
-For simplicity let's assume that the historical transactions associated with a user/product/seller are already adequately summarized in the user/product/seller tables. In this case we can represent a single transaction with one row from each of these four tables. We can also derive some engineered features from this raw data. For example, the number of times that this user has purchased other products from this seller can be extracted from the summaries of previous purchases associated with this user.
+We can represent a single transaction with one row from each of these four tables. We can also derive some engineered features from this raw data. For example, the number of times that this user has purchased other products from this seller can be extracted by comparing this seller's list of products with this user's list of previous purchases.
 
 The simplest textual representation of these features would be a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
@@ -95,6 +96,7 @@ In the next post we will explore some different paradigms for using and optimizi
 
 
 
+<!-- For simplicity let's assume that the historical transactions associated with a user/product/seller are already adequately summarized in the user/product/seller tables. In this case  -->
 
 
 <!-- > Yes, LLMs are capable of consuming and producing image and sound. But text remains the bridge between these media. -->
