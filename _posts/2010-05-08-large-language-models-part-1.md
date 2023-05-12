@@ -36,12 +36,12 @@ Let's say we want to classify transactions as fraudulent or safe using signals l
 - **Traditional ML**: An ML model would consume this data as a single vector of engineered features. This vector does not need to be self-explanatory: we expect an ML model to learn how to interpret its input features during training.
 - **LLMs**: An LLM would consume the data as text. We can think of this text representation as a domain transformation of the data from its native format to the text format that the LLM was pretrained on. The text representation should be interpretable without outside context.
 
-All three perspectives should emphasize the important characteristics of the data, such as the historical relationship between this user and this product. However, this emphasis should be couched differently in the different representations. 
+All three presentations should emphasize the important characteristics of the data, such as the historical relationship between this user and this product. However, this emphasis should be couched differently in the different representations. 
 
 Humans and LLMs have world models that enable them to model the behaviors of certain kinds of data without additional context. In the case of LLMs this world model is formed by scanning enormous amounts of text data. Human-friendly and LLM-friendly representations of data present information in ways that are aligned with these world models. In contrast, the traditional ML-friendly representation does not attempt to benefit from any familiarity with other representations of data. 
 
 
-#### Tabular Data
+### Tabular Data
 Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
 
 Let's go back to the fraud detection example. Our data model of a particular transaction might be distributed across multiple tables:
@@ -62,7 +62,7 @@ We do not have this luxury when using a zero shot LLM (or a human labeler). The 
 ```
 
 
-#### Numbers
+### Numbers
 
 Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLM training data does not have a very high density of large number arithemetic, and deep neural networks may propagate errors when working with very large or very small numbers.
 
