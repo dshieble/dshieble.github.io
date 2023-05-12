@@ -43,14 +43,19 @@ Humans and LLMs have world models that enable them to model the behaviors of cer
 Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
 
 Let's go back to the fraud detection example. Our data model of a particular transaction might be distributed across multiple tables:
-- **Transaction**: transaction timestamp, transaction location, payment method, user IP, etc
+- **Transaction**: user id, product id, seller id, transaction timestamp, transaction location, payment method, user IP, etc
 - **User**: name, location, list of recent purchases, etc
 - **Product**: product type, product description, list of recent sales, etc
 - **Seller**: location, fraud history, list of other products sold, etc
 
-We can represent a single transaction with one row from each of these four tables, plus some engineered features. For example, one engineered feature might be the number of times that this user has purchased other products from this seller. We can derive this from the raw data by comparing this seller's list of products with this user's list of previous purchases.
 
-The simplest textual representation of these features would be a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
+Given a single transaction we would go through the following steps to derive the relevant signals:
+- Query the Transaction table to get the transaction row
+- Query the User, Product, Seller tables with the user id, product id, seller id from the transaction row
+- Concatenate the four rows together into a single row of raw features
+- Add engineered features to this row. For example, one engineered feature might be the number of times that this user has purchased other products from this seller. We can derive this from the raw data by comparing this seller's list of products with this user's list of previous purchases.
+
+The simplest textual representation of these features would then be a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
 We do not have this luxury when using a zero shot LLM (or a human labeler). The significance of each signal must be self-evident from the way that it is presented in the text. For example, we could write a brief description of each column and each derived feature and represent the data in a format like:
 ```
