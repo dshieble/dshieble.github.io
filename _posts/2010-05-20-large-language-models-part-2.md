@@ -21,18 +21,19 @@ Powerful. Costly. Capricious. Software that uses LLMs requires specialized desig
 
 ## Agents
 
-<!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
- -->
-
 Let's say you want to use a Q/A system that allows an LLM to respond to queries like "what has the president of the United States done in the last month?". Any LLM trained more than a month ago will not have this information stored in its weights, so we need to get this information from somewhere else: perhaps a news article or web search API. There are a number of ways we can design the interface between the LLM and this API.
 
 At one end of the spectrum is to do everything by hand: write the relevant queries to the search API, append the result to the original question, and use the composite text as the LLM prompt.
 
+![One pass](/img/LLMOnePass.png)
+
 On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the original prompt, passes these queries to the search APIs, passes the results back to the LLM, and repeats this process until the LLM produces a final answer. This strategy requires a module to parse the LLM response into either a search query or a final result.
+
+![End to end agent](/img/LLMEndtoEndAgent.png)
 
 Between these extremes is a hybrid approach in which we first prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary. 
 
-![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
+![Hybrid](/img/LLMHybrid.png)
 
 This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit advanced behavior.
 
@@ -80,7 +81,8 @@ Balancing
 
 
 
-
+<!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
+ -->
 <!-- One component that distinguishes the End-to-End Agent architecture from the other two architectures is the LLM Output Manager. In this architecture the LLM output itself controls whether the software system simply returns the output or makes a call to the search API and then re-runs the LLM.
  -->
  
