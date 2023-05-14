@@ -36,10 +36,9 @@ Between these extremes is a hybrid approach in which we first prompt the LLM to 
 
 <!-- One component that distinguishes the End-to-End Agent architecture from the other two architectures is the LLM Output Manager. In this architecture the LLM output itself controls whether the software system simply returns the output or makes a call to the search API and then re-runs the LLM.
  -->
-This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit advanced behavior. For example, the End-to-End Agent system may sequentially issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
+This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit advanced behavior.
 
-The hybrid approach gives the LLM control over the search query but does not require the LLM to make the decision of when it has collected e
-
+The One Pass LLM relies entirely on human input to structure the information that the LLM uses. The hybrid approach gives the LLM control over one search query but does not enable the LLM to request additional information. The End-to-End Agent system can sequentially issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
 
 Choosing a spot on this spectrum requires the following considerations
 - How different do we expect the optimal search patterns to be?
