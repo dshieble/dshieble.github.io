@@ -42,25 +42,42 @@ This spectrum captures the degree to which the software system cedes ownership o
 The One Pass LLM relies entirely on human input to structure the information that the LLM uses. The hybrid approach gives the LLM control over one search query but does not enable the LLM to request additional information. The End-to-End Agent system can sequentially issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
 
 Choosing a spot on this spectrum requires a number of considerations. For example, the One Pass LLM is probably sufficient to support different queries over the same corpus of data. If we expect each query to require different underlying data then giving the LLM control over the query logic can reduce the complexity required.
-- **LLM Power** Systems like the End-to-End Agent ask the LLM to remember context across multiple executions and balance multiple input and output formats. Less powerful (cheaper) LLMs can struggle to do this effectively.  
 
-
-Similarly, more
-
-- How different do we expect the optimal search patterns to be?
-- How much do we trust the LLM to avoid getting stuck in loops?
-- How complex is the search API?
-
+Furthermore, End-to-End Agent designs ask the LLM to remember context across multiple executions and balance multiple input and output formats. Less powerful (cheaper) LLMs can struggle to do this effectively. In addition, these designs often involve a large number of LLM executions per query, which can be quite expensive. The One Pass LLM is substantially cheaper.
 
 ## Context Windows
 
+We often want to provide our LLM with more data than could fit in its context window. We can manage this in a number of different ways. 
 
-Context window management
+One popular strategy is to use a vector database. We break the data into small chunks, represent each chunk with a text embedding, and store the chunks in a database. When we query our LLM at inference time we append the chunks whose text embeddings are most similar to the query embedding to the prompt. 
+
+Another strategy is to design a search API for the data and apply the End-to-End Agent strategy from the previous section. This approach cedes a bit more control to the LLM, but might surface more relevant data. 
+
+
+## Conclusion
+
+Designing software involves striking a delicate balance between various attributes and considerations. Engineers must carefully weigh factors such as simplicity, speed, cost, and effectiveness, as they make design choices. Each design represents a different point on the tradeoff spectrum.
+
+These design patterns are just a small glimpse into the strategies that engineers will explore as LLMs continue to permeate the software ecosystem. As LLMs become more prevalent, engineers will have the opportunity to explore numerous similar patterns, adapting and refining them to suit specific contexts and requirements. This ongoing exploration and adaptation of design patterns will contribute to the continued evolution and optimization of LLM integration in software systems.
+
+
+<!-- 
+
+As LLMs spread to different kinds of software systems, engineers will need to strike a balance between the system capabilities, cost considerations, and the strengths and limitations of LLMs.
+ -->
+
+<!-- 
+specialized design patterns and thoughtful decision-making, developers can harness the power of LLMs while building robust and efficient software systems.
+
+ -->
 
 
 
-Option is to use an LLM agent to solve the problem end-to-end. 
 
+
+
+
+<!-- 
 
 
 Costs
@@ -71,16 +88,7 @@ Balancing
 
 
 ## Context Windows
-
-
-
-## Conclusion
-
-
-
-
-
-
+ -->
 
 
 <!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
