@@ -28,9 +28,9 @@ Let's say you want to use a Q/A system that allows an LLM to respond to queries 
 
 At one end of the spectrum is to do everything by hand: write the relevant queries to the search API, append the result to the original question, and use the composite text as the LLM prompt.
 
-On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the "write a summary..." prompt, passes these queries to the search APIs, and then passes the results back to the LLM. This strategy requires an LLM Output Manager that interprets the results of the LLM execution to decide whether to treat the output as a query and re-run the chain, or to return the LLM output as the final result.
+On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the original prompt, passes these queries to the search APIs, passes the results back to the LLM, and repeats this process until the LLM produces a final answer. This strategy requires a module to parse the LLM response into either a search query or a final result.
 
-Between these extremes is a hybrid approach in which we first prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary.
+Between these extremes is a hybrid approach in which we first prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary. This approach gives the LLM control over the search query but does not allow the LLM to issue multiple queries.
 
 ![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
 
