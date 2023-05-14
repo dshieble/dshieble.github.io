@@ -32,15 +32,26 @@ LLMs are costly and capricious, but extremely powerful.
 <!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
  -->
 
-Let's say you want to use an LLM to summarize everything that the president of the United States has done in the last month. There are a number of big decisions we need to make when designing this system.
+Let's say you want to use a Q/A system that allows an LLM to respond to queries like "what has the president of the United States done in the last month?". Any LLM trained more than a month ago will not have this information stored in its weights, so we need to incorporate a search API. There are a number of ways we can design the interface between the LLM and this API.
 
-First, where is the raw information going to come from? Any LLM trained more than a month ago will not have this information stored in its weights. A google search may be sufficient, but there may be news APIs that would surface higher quality information. 
+At one end of the spectrum is to do everything by hand: write the relevant queries to the search API and write an LLM prompt that includes these results appended to the original question.
 
-Next, how will we extract the raw information from these sources? Our strategy here lies on a spectrum. At one end is to do everything by hand: manually construct queries to the search or news APIs and manually pass these results back to the LLM.
+On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the "write a summary..." prompt, passes these queries to the search APIs, and then passes the results back to the LLM. This strategy requires an LLM Output Manager that interprets the results of the LLM execution to decide whether to treat the output as a query and re-run the chain, or to return the LLM output as the final result.
 
-On the other end of the spectrum is to use an LLM-powered agent that autonomously identifies the queries it needs from the "write a summary..." 
+Between these extremes is a hybrid approach in which we first manually prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary.
 
- construct the API query and passes the results back into the LLM before generating the final result. 
+![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
+
+
+In this case we don't need an LLM Output Manager, since the software system that
+
+
+ prompts from the initial "write a summary..." prompt: first one that instructs the LLM to
+
+We can see all three of these options in the following graphic
+
+
+
 
  Another option is to build an autonomous LLM-powered agent that can construct the API query and passes the results back into the LLM before generating the final result. 
 
