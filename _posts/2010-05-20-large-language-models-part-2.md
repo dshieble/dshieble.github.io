@@ -34,13 +34,16 @@ Between these extremes is a hybrid approach in which we first prompt the LLM to 
 
 ![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
 
-<!-- One component that distinguishes the End-to-End Agent architecture from the other two architectures is the LLM Output Manager. In this architecture the LLM output itself controls whether the software system simply returns the output or makes a call to the search API and then re-runs the LLM.
- -->
 This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit advanced behavior.
 
 The One Pass LLM relies entirely on human input to structure the information that the LLM uses. The hybrid approach gives the LLM control over one search query but does not enable the LLM to request additional information. The End-to-End Agent system can sequentially issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
 
-Choosing a spot on this spectrum requires the following considerations
+Choosing a spot on this spectrum requires a number of considerations. For example, the One Pass LLM is probably sufficient to support different queries over the same corpus of data. If we expect each query to require different underlying data then giving the LLM control over the query logic can reduce the complexity required.
+- **LLM Power** Systems like the End-to-End Agent ask the LLM to remember context across multiple executions and balance multiple input and output formats. Less powerful (cheaper) LLMs can struggle to do this effectively.  
+
+
+Similarly, more
+
 - How different do we expect the optimal search patterns to be?
 - How much do we trust the LLM to avoid getting stuck in loops?
 - How complex is the search API?
@@ -78,7 +81,9 @@ Balancing
 
 
 
-
+<!-- One component that distinguishes the End-to-End Agent architecture from the other two architectures is the LLM Output Manager. In this architecture the LLM output itself controls whether the software system simply returns the output or makes a call to the search API and then re-runs the LLM.
+ -->
+ 
 
 
 
