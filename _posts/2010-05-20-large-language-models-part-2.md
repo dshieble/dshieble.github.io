@@ -30,11 +30,15 @@ At one end of the spectrum is to do everything by hand: write the relevant queri
 
 On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the "write a summary..." prompt, passes these queries to the search APIs, and then passes the results back to the LLM. This strategy requires an LLM Output Manager that interprets the results of the LLM execution to decide whether to treat the output as a query and re-run the chain, or to return the LLM output as the final result.
 
-Between these extremes is a hybrid approach in which we first manually prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary.
+Between these extremes is a hybrid approach in which we first prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary.
 
 ![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
 
 One component that distinguishes the End-to-End Agent architecture from the other two architectures is the LLM Output Manager. In this architecture the LLM output itself controls whether the software system simply returns the output or makes a call to the search API and then re-runs the LLM.
+
+This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit advanced behavior. For example, the End-to-End agent can issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
+
+
 
 
  prompts from the initial "write a summary..." prompt: first one that instructs the LLM to
