@@ -17,9 +17,9 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 > This post is part two in a two part series on how to use LLMs in a software system. Find part one [here](https://danshiebler.com/2023-05-12-large-language-models-part-1) 
 
-Although LLMs are extremely powerful, they are also costly and capricious. Building software with LLMs requires specialized designs to minimize these weaknesses. In this post we explore some design patterns for software that utilizes LLMs.
+Powerful. Costly. Capricious. Software that uses LLMs requires specialized design patterns to emphasize their strengths and minimize their weaknesses. In this post we explore some design patterns for software that utilizes LLMs.
 
-## Paradigms
+## Agents
 
 <!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
  -->
@@ -38,26 +38,16 @@ One component that distinguishes the End-to-End Agent architecture from the othe
 
 This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit advanced behavior. For example, the End-to-End agent can issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
 
+Choosing a spot on this spectrum requires the following considerations
+- How different do we expect the optimal search patterns to be?
+- How much do we trust the LLM to avoid getting stuck in loops?
+- How complex is the search API?
 
 
-
- prompts from the initial "write a summary..." prompt: first one that instructs the LLM to
-
-We can see all three of these options in the following graphic
+## Context Windows
 
 
-
-
- Another option is to build an autonomous LLM-powered agent that can construct the API query and passes the results back into the LLM before generating the final result. 
-
-Finally, how will we present this raw information to the LLM
-
-You can't just prompt ChatGPT with this: this is not information that ChatGPT has stored in its weights. We need to provide this information to the LLM in one way or another.
-
-- Where does the raw information come from? 
-- How do we source the raw information
-- How do we present this information to the LLM?
-- 
+Context window management
 
 
 
@@ -66,7 +56,6 @@ Option is to use an LLM agent to solve the problem end-to-end.
 
 
 Costs
-Context window management
 Tool expectations
 Implicit Agents vs Explicit Agents
 	- how much logic to offload to the model?
