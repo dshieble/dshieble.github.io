@@ -24,9 +24,9 @@ Powerful. Costly. Capricious. Software that uses LLMs requires specialized desig
 <!-- One of the first things that jumps out when using large language models to solve problems is how many design decisions we need to make. 
  -->
 
-Let's say you want to use a Q/A system that allows an LLM to respond to queries like "what has the president of the United States done in the last month?". Any LLM trained more than a month ago will not have this information stored in its weights, so we need to incorporate a search API. There are a number of ways we can design the interface between the LLM and this API.
+Let's say you want to use a Q/A system that allows an LLM to respond to queries like "what has the president of the United States done in the last month?". Any LLM trained more than a month ago will not have this information stored in its weights, so we need to get this information from somewhere else: perhaps a news article or web search API. There are a number of ways we can design the interface between the LLM and this API.
 
-At one end of the spectrum is to do everything by hand: write the relevant queries to the search API and write an LLM prompt that includes these results appended to the original question.
+At one end of the spectrum is to do everything by hand: write the relevant queries to the search API, append the result to the original question, and use the composite text as the LLM prompt.
 
 On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the "write a summary..." prompt, passes these queries to the search APIs, and then passes the results back to the LLM. This strategy requires an LLM Output Manager that interprets the results of the LLM execution to decide whether to treat the output as a query and re-run the chain, or to return the LLM output as the final result.
 
