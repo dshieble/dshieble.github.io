@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Large Language Models (Part 2 - Paradigms)
+title: Using Large Language Models (Part 2 - LLM Design Patterns)
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
@@ -17,7 +17,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 > This post is part two in a two part series on how to use LLMs in a software system. Find part one [here](https://danshiebler.com/2023-05-12-large-language-models-part-1) 
 
-Powerful. Costly. Capricious. Software that uses LLMs requires specialized design patterns to emphasize their strengths and minimize their weaknesses. In this post we explore some design patterns for software that utilizes LLMs.
+Powerful. Costly. Capricious. Software that uses LLMs requires specialized design patterns to emphasize their strengths and minimize their weaknesses. In this post we explore these patterns through examples.
 
 ## Agents
 
