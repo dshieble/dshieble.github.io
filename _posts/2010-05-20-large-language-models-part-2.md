@@ -42,8 +42,7 @@ Between these extremes is a hybrid approach in which we first manually prompt th
 
 ![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
 
-
-In this case we don't need an LLM Output Manager, since the software system that
+One component that distinguishes the End-to-End Agent architecture from the other two architectures is the LLM Output Manager. In this architecture the LLM output itself controls whether the software system simply returns the output or makes a call to the search API and then re-runs the LLM.
 
 
  prompts from the initial "write a summary..." prompt: first one that instructs the LLM to
