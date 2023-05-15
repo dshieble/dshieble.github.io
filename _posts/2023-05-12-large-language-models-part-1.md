@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beyond Natural Language: Using LLMs to Solve your Problems
+title: Beyond Natural Language - Using LLMs to Solve your Problems
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
