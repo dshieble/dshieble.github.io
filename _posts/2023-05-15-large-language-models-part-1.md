@@ -59,6 +59,28 @@ We do not have this luxury when using a zero shot LLM (or a human labeler). The 
 <description N>: <value N>
 ```
 
+For example, suppose we pass the following prompt to ChatGPT:
+```
+You are a fraud expert evaluating whether the following transaction data is fraudulent. Please encode your response as json in the following format
+{
+	judgement: <either FRAUD or SAFE>,
+	reasoning: <a 10-20 word description of why you made this judgement>
+}
+---- BEGIN TRANSACTION DATA ----
+What is the product type?: Luxury Goods
+When was this user's account created?: 5 minutes before the transaction
+How many purchases has this user made?: 10
+How many purchases in this product type has this user made?: 10
+Is this user using a VPN?: Yes
+---- END TRANSACTION DATA ----
+```
+ChatGPT's response is
+```
+{
+"judgement": "FRAUD",
+"reasoning": "High-risk indicators: new account, high number of purchases in a short time, VPN usage."
+}
+```
 
 ### Numbers
 
