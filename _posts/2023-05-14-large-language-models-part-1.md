@@ -92,6 +92,7 @@ We can mitigate this by connecting an LLM-powered agent to a calculator (like Ch
 
 Another way around this problem is to replace raw numbers or computed values with descriptive text like small/medium/large or comparative figures like "twice as large as the median value". This can work well, but is quite time intensive to design for a large number of features.
 
+
 ## Conclusion
 
 Humans understand language. We produce a lot of it, about a lot of different things, in a lot of different ways. We use language to understand and communicate with the world around us.
