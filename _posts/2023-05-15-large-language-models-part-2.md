@@ -51,7 +51,7 @@ Also, the more control we cede to LLMs, the larger the aperture for prompt injec
 
 We often want to provide our LLM with more data than could fit in its context window. We can manage this in a number of different ways. 
 
-One popular strategy is to use a vector database. We break the data into small chunks, represent each chunk with a text embedding, and store the chunks in a database. When we prompt our LLM we first generate an embedding for the prompt and append the chunks with the most similar embeddings to the prompt. 
+One popular strategy is to use semantic search. We break the data into small chunks, represent each chunk with a text embedding, and store the chunks in a vector database. When we prompt our LLM we generate an embedding for the prompt, search the vector DB for the chunks with the most similar embeddings, and append these chunks to the prompt. 
 
 Another strategy is to design a search API for the data and apply the End-to-End Agent strategy from the previous section. This approach cedes a bit more control to the LLM, but might surface more relevant data. 
 
