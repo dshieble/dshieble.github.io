@@ -23,7 +23,7 @@ Powerful. Costly. Capricious. LLM-powered software must be carefully designed to
 
 Let's say you want to build an LLM-powered question/answer system that supports queries like "what has the president of the United States done in the last month?". Any LLM trained more than a month ago will not have this information stored in its weights, so we need to get this information from somewhere else: perhaps a news article or web search API. There are a number of ways we can design the interface between the LLM and this API.
 
-At one end of the spectrum is to do everything by hand: write the relevant queries to the search API, append the result to the original question, and use the composite text as the LLM prompt.
+At one end of the spectrum is to do everything by hand: write the relevant queries to the search API, append the result to the original question, use the composite text as the LLM prompt, and execute the LLM in one pass.
 
 ![One pass](/img/LLMOnePass.png)
 
