@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using Large Language Models (Part 1 - Text Representations)
+title: Beyond Natural Language: Using LLMs to Solve your Problems
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
