@@ -17,7 +17,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 > This post is part two in a two part series on how to use LLMs in a software system. Find part one [here](https://danshiebler.com/2023-05-12-large-language-models-part-1) 
 
-Powerful. Costly. Capricious. LLM-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we will explore a few LLM design patterns.
+Powerful. Costly. Capricious. Large language model (LLM)-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we will explore a few LLM design patterns.
 
 ## Agents
 

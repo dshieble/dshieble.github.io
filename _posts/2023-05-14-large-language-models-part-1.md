@@ -18,6 +18,39 @@ Generative large language models (LLMs) like ChatGPT have changed the game. Prev
 
 LLMs have unique interfaces and limitations which shape the software ecosystems around them. In this series we explore how to make optimal use of these models as components of a software system.
 
+Throughout this post we will anchor to a motivating example: fraud detection. Payment processing systems need to identify which transactions are fraudulent. To do this they evaluate the contextual information surrounding each transaction.
+<!-- 
+ Solving fraud detection with LLMs 
+
+Fraud detection is not inherently a natural language problem, but in this post we will demonstrate we can apply LLMs to solve it.  
+ -->
+
+## What is a Generative Large Language Model?
+
+A generative large language models (LLM) is an massive neural network model that accepts a string of text and returns a logical continuation or completion of that text.
+
+The most powerful and useful modern generative large language models, like ChatGPT, are optimized to follow instructions. This allows them to return structured strings (like json) that other software systems can consume. 
+
+For example, such a model could accept a string like:
+```
+Convert the following text to iambic pentameter.
+
+Jersey Shore is an American reality television series that ran on MTV from December 3, 2009, to December 20, 2012. The series follows the lives of eight housemates at a vacation home in Seaside Heights, New Jersey, on the Jersey Shore in seasons one, three, five, and six; South Beach, Florida, in season two; and Florence, Italy, in season four.
+
+Format your output in json as:
+{
+	original: <the input text>,
+	iambic: <the iambic pentameter text>
+}
+```
+and output the string:
+```
+{
+"original": "Jersey Shore is an American reality television series that ran on MTV from December 3, 2009, to December 20, 2012. The series follows the lives of eight housemates at a vacation home in Seaside Heights, New Jersey, on the Jersey Shore in seasons one, three, five, and six; South Beach, Florida, in season two; and Florence, Italy, in season four.",
+"iambic": "Jersey Shore, an American TV show's run,\nFrom 2009 to 2012, on MTV,\nThe lives of eight housemates, one by one,\nAt a beach house, they lived most happily.\nSeaside Heights, New Jersey, seasons prime,\nOne, three, five, and six, their joy did thrive,\nSouth Beach, Florida, in season two's time,\nAnd Florence, Italy, for season four's drive."
+}
+```
+
 
 ## Text - The New Lingua Franca
 
@@ -40,7 +73,7 @@ Humans and LLMs have world models that enable them to model the behaviors of cer
 ### Tabular Data
 Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
 
-Let's go back to the fraud detection example. Our data model of a particular transaction might be distributed across multiple tables:
+In the fraud detection example our data model of a particular transaction might be distributed across multiple tables:
 - **Transaction**: user id, product id, seller id, transaction timestamp, transaction location, payment method, user IP, etc
 - **User**: name, location, list of recent purchases, etc
 - **Product**: product type, product description, list of recent sales, etc
