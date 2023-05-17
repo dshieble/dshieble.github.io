@@ -47,10 +47,9 @@ and output the string:
 }
 ```
 
-
 ## Text - The New Lingua Franca
 
-In order to understand a system we need to study how it represents information. Computers represent raw data in a binary form, and computer operations pass through this format while transforming data. For example, computing with real numbers requires transforming the numbers to binary (perhaps via floating point), performing the computation, and then reinterpreting the binary result as real numbers.
+In order to understand a system we need to study how it represents information. Computers represent raw data in a binary form, and computer operations pass through this format while transforming data. For example, computing with real numbers requires transforming the numbers to binary (perhaps via floating point), performing the computation, and then reinterpreting the binary result as real numbers. Understanding this helps us understand why computers produce incorrect results for certain real number computations.
 
 LLMs represent information through text. Their world model is derived from the entities and relationships present in their text training corpus. Their weights may be numerical, but our primary portal to access the representations these weights encode is text.
 
