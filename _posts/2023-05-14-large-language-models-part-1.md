@@ -14,9 +14,11 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 </script>
 
 
-Generative large language models (LLMs) like ChatGPT have changed the game. Problems that previously required massive amounts of labeled data to solve are now accessible to everyone. This has tremendous implications for the future of software develoment, data science, and machine learning engineering.
+> This post is part one in a two part series on how to use LLMs in a software system. Find part two [here](https://danshiebler.com/2023-05-15-large-language-models-part-2) 
 
-In this post we explore how to solve complex real world problems with LLMs. We anchor to a motivating example of fraud detection. 
+Generative large language models (LLMs) will revolutionize the way we approach complex problems. Many companies no longer need to acquire vast amounts of custom labeled data to train specialized AI systems: LLMs make generalized problem-solving capabilities accessible to all. The implications for software development, data science, and machine learning engineering are profound.
+
+In this post, we delve into the art of leveraging LLMs to tackle real-world challenges. To illustrate their capabilities, we focus on the motivating example of fraud detection. 
 
 Payment processors classify transactions as fraudulent or safe using tabular or numeric signals like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required training human reviewers or using thousands or even millions of example transactions. We will explore how to present these signals to an LLM and transform this problem to one that an LLM can solve.
 
@@ -67,7 +69,7 @@ Humans and LLMs have world models that enable them to model the behaviors of cer
 
 
 ### Tabular Data
-Most software systems represent data in a tabular format. We should therefore take a moment to describe how we could represent tabular data to an LLM.
+Most software systems represent data in a tabular format. Let's take a moment to look at how we could present tabular data to an LLM.
 
 In the fraud detection example our data model of a particular transaction might be distributed across multiple tables:
 - **Transaction**: user id, product id, seller id, transaction timestamp, transaction location, payment method, user IP, etc
@@ -75,8 +77,7 @@ In the fraud detection example our data model of a particular transaction might 
 - **Product**: product type, product description, list of recent sales, etc
 - **Seller**: location, fraud history, list of other products sold, etc
 
-
-Given a single transaction we would go through the following steps to derive the relevant signals. First, we query the Transaction table to get the Transaction row. Next, we extract the user id, product id, and seller id from this row and use these to query the User, Product, and Seller tables. We then concatenate these four rows together into a single row of raw features. Finally, we use the data in this row to engineer additional features like "has this user bought from this seller before?"
+Given a single transaction we would go through the following steps to construct the relevant signals. First, we query the Transaction table to get the Transaction row. Next, we extract the user id, product id, and seller id from this row and use these to query the User, Product, and Seller tables. We then concatenate these four rows together into a single row of raw features. Finally, we use the data in this row to engineer additional features like "has this user bought from this seller before?"
 
 The simplest text representation of these features is a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
@@ -139,6 +140,8 @@ Humans understand language. We produce a lot of it, about a lot of different thi
 
 LLMs tap into the text data that we leave behind to form a world model that mimics ours. This text data contains artifacts of human reasoning. By transforming a problem to a text representation LLMs can parrot this reasoning - even without labeled training examples. This is a completely different way of solving problems than the strategy employed by traditional ML models, and can be superior when we only have a small amount of data or very noisy labels.
 
-In the next post we will explore some different paradigms for using and optimizing LLMs.
+In the [next post](https://danshiebler.com/2023-05-15-large-language-models-part-2) we explore some different paradigms for using and optimizing LLMs.
+
+
 
 
