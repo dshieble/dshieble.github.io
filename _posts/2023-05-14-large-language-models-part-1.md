@@ -23,7 +23,7 @@ Throughout this post we will anchor to a motivating example: fraud detection. Pa
 
 ## What is a Generative Large Language Model?
 
-A generative large language models (LLM) is an massive neural network model that accepts a string of text and returns a logical continuation or completion of that text.
+A generative large language models (LLM) is a massive neural network that accepts a string of text and returns a logical continuation or completion of that text.
 
 The most powerful and useful modern generative large language models, like ChatGPT, are optimized to follow instructions. This allows them to return structured strings (like json) that other software systems can consume. 
 
