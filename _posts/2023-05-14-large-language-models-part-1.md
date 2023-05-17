@@ -81,7 +81,7 @@ Given a single transaction we would go through the following steps to construct 
 
 The simplest text representation of these features is a comma-separated concatenation of the four rows and the additional engineered features. This kind of context-free representation would work fine for a traditional ML model, which will learn the significance of each signal during training. 
 
-We do not have this luxury when using a zero shot LLM (or a human labeler). The significance of each signal must be self-evident from the way that it is presented in the text. For example, we could write a brief description of each column and each derived feature and represent the data in a format like:
+However, a zero shot LLM won't see training data, so the significance of each signal must be self-evident. We could write a brief description of each column and derived feature and represent the data in a format like:
 ```
 <description 1>: <value 1>
 <description 2>: <value 2>
@@ -117,8 +117,7 @@ ChatGPT's response is
 Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLMs do not see much large number arithmetic in their training data, and deep neural networks may propagate errors in large scale symbolic computations.
 
 As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect a traditional deep neural network to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
-
-We can mitigate this by connecting an LLM-powered agent to a calculator like ChatGPT's WolframAlpha plugin. See [this post](https://writings.stephenwolfram.com/2023/03/chatgpt-gets-its-wolfram-superpowers/) for more details. However, this can add a substantial amount of complexity.
+> We can mitigate this by connecting an LLM-powered agent to a calculator like ChatGPT's WolframAlpha plugin. See [this post](https://writings.stephenwolfram.com/2023/03/chatgpt-gets-its-wolfram-superpowers/) for more details. However, this can add a substantial amount of complexity.
 
 Another way around this problem is to replace raw numbers or computed values with descriptive text like small/medium/large or comparative figures like "twice as large as the median value". This can work well, but is quite time intensive to design for a large number of features.
 
