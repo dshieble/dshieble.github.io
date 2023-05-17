@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beyond Natural Language - Using LLMs to Solve your Problems
+title: Using LLMs to Solve your Problems
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
@@ -20,7 +20,9 @@ Generative large language models (LLMs) will revolutionize the way we approach c
 
 In this post, we delve into the art of leveraging LLMs to tackle real-world challenges. To illustrate their capabilities, we focus on the motivating example of fraud detection. 
 
-Payment processors classify transactions as fraudulent or safe using tabular or numeric signals like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required training human reviewers or using thousands or even millions of example transactions. We will explore how to present these signals to an LLM and transform this problem to one that an LLM can solve.
+Payment processors classify transactions as fraudulent or safe using tabular or numeric signals like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required training human reviewers or using thousands or even millions of example transactions. We will explore how to solve this problem with an LLM by cleverly presenting the relevant signals.
+
+<!-- We will explore how to present these signals to an LLM and transform this problem to one that an LLM can solve. -->
 
 
 
@@ -117,9 +119,8 @@ ChatGPT's response is
 Large language models are notoriously bad at understanding very large or very small numbers. This is due to limitations in their training data and architecture. Most LLMs do not see much large number arithmetic in their training data, and deep neural networks may propagate errors in large scale symbolic computations.
 
 As a result we need to be cautious when passing numerical features to LLMs. For example, although we might expect a traditional deep neural network to recognize that the ratio of two features is predictive, an LLM may struggle to draw this conclusion.
-> We can mitigate this by connecting an LLM-powered agent to a calculator like ChatGPT's WolframAlpha plugin. See [this post](https://writings.stephenwolfram.com/2023/03/chatgpt-gets-its-wolfram-superpowers/) for more details. However, this can add a substantial amount of complexity.
 
-Another way around this problem is to replace raw numbers or computed values with descriptive text like small/medium/large or comparative figures like "twice as large as the median value". This can work well, but is quite time intensive to design for a large number of features.
+One way around this problem is to replace raw numbers or computed values with descriptive text like small/medium/large or comparative figures like "twice as large as the median value". This can work well, but is quite time intensive to design for a large number of features.
 
 For example, rather than a text encoding like:
 ```
