@@ -16,11 +16,11 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 Generative large language models (LLMs) like ChatGPT have changed the game. Problems that previously required massive amounts of labeled data to solve are now accessible to everyone. This has tremendous implications for the future of software develoment, data science, and machine learning engineering.
 
-Throughout this post we will anchor to a motivating example: fraud detection. Payment processors classify transactions as fraudulent or safe using signals like purchase history, product metadata, transaction context, etc. Solving this kind of problem with an LLM requires optimally presenting this context to the model.
+In this post we explore how to solve complex real world problems with LLMs. We anchor to a motivating example of fraud detection. 
+
+Payment processors classify transactions as fraudulent or safe using tabular or numeric signals like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required training human reviewers or using thousands or even millions of example transactions. We will explore how to present these signals to an LLM and transform this problem to one that an LLM can solve.
 
 
-<!-- LLMs have unique willinterfaces and limitations which shape the software ecosystems around them. We  explore these through a motivating example of fraud detection. 
- -->
 
 ## What is a Generative Large Language Model?
 
