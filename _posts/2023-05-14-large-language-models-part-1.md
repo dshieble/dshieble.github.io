@@ -20,7 +20,8 @@ Generative large language models (LLMs) will revolutionize the way we approach c
 
 In this post, we delve into the art of leveraging LLMs to tackle real-world challenges. To illustrate their capabilities, we focus on the motivating example of fraud detection. 
 
-Payment processors classify transactions as fraudulent or safe using tabular or numeric signals like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required training a specialized model with thousands or even millions of example transactions [(example)](https://aws.amazon.com/solutions/implementations/fraud-detection-using-machine-learning/). We will explore how to solve this with a zero shot LLM by cleverly presenting the relevant signals.
+
+Payment fraud costs society billions of dollars every year [(source)](https://www.statista.com/statistics/958997/fraud-loss-usa-by-payment-method/). Payment processors attempt to catch fraud in the act by scanning transactions for indicators of fraud. This is a classification problem: each transaction is classified as fraudulent or safe based on signals derived from tabular data like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required training a specialized model with thousands or even millions of example transactions [(example)](https://aws.amazon.com/solutions/implementations/fraud-detection-using-machine-learning/). We will explore how to solve this with a zero shot LLM by cleverly presenting the relevant signals.
 
 
 
