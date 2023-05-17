@@ -14,7 +14,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 </script>
 
 
-Generative large language models (LLMs) will revolutionize the way we approach complex problems. Many companies no longer need to acquire vast amounts of custom labeled data to train specialized AI systems: LLMs make generalized problem-solving capabilities accessible to all. The implications for software development, data science, and machine learning engineering are profound.
+Generative large language models (LLMs) like ChatGPT will revolutionize the way we approach complex problems. Many companies no longer need to acquire vast amounts of custom labeled data to train specialized AI systems: LLMs make generalized problem-solving capabilities accessible to all. The implications for software development, data science, and machine learning engineering are profound.
 
 In this post, we delve into the art of leveraging LLMs to tackle real-world challenges. To illustrate their capabilities, we focus on the motivating example of fraud detection. 
 
