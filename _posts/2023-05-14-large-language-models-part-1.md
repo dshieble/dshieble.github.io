@@ -14,8 +14,6 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 </script>
 
 
-> This post is part one in a two part series on how to use LLMs in a software system. Find part two [here](https://danshiebler.com/2023-05-15-large-language-models-part-2) 
-
 Generative large language models (LLMs) will revolutionize the way we approach complex problems. Many companies no longer need to acquire vast amounts of custom labeled data to train specialized AI systems: LLMs make generalized problem-solving capabilities accessible to all. The implications for software development, data science, and machine learning engineering are profound.
 
 In this post, we delve into the art of leveraging LLMs to tackle real-world challenges. To illustrate their capabilities, we focus on the motivating example of fraud detection. 
@@ -139,7 +137,7 @@ Humans understand language. We produce a lot of it, about a lot of different thi
 
 LLMs tap into the text data that we leave behind to form a world model that mimics ours. This text data contains artifacts of human reasoning. By transforming a problem to a text representation LLMs can parrot this reasoning - even without labeled training examples. This is a completely different way of solving problems than the strategy employed by traditional ML models, and can be superior when we only have a small amount of data or very noisy labels.
 
-In the [next post](https://danshiebler.com/2023-05-15-large-language-models-part-2) we explore some different paradigms for using and optimizing LLMs.
+If you liked this post and would like to learn more, check out [my next post](https://danshiebler.com/2023-05-15-large-language-models-part-2) to  explore some different paradigms for using and optimizing large language models.
 
 
 
