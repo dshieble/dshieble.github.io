@@ -18,12 +18,8 @@ Generative large language models (LLMs) like ChatGPT have changed the game. Prob
 
 LLMs have unique interfaces and limitations which shape the software ecosystems around them. In this series we explore how to make optimal use of these models as components of a software system.
 
-Throughout this post we will anchor to a motivating example: fraud detection. Payment processing systems need to identify which transactions are fraudulent. To do this they evaluate the contextual information surrounding each transaction.
-<!-- 
- Solving fraud detection with LLMs 
+Throughout this post we will anchor to a motivating example: fraud detection. Payment processing systems need to identify which transactions are fraudulent. To do this they evaluate the contextual information surrounding each transaction. Fraud detection is not inherently a natural language problem, and solving fraud detection with LLMs requires presenting this context to the LLM in a way that it can understand. 
 
-Fraud detection is not inherently a natural language problem, but in this post we will demonstrate we can apply LLMs to solve it.  
- -->
 
 ## What is a Generative Large Language Model?
 
