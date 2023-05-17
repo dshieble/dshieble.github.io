@@ -56,7 +56,7 @@ LLMs represent information through text. Their world model is derived from the e
 
 In general, LLMs consume text as input and produce text as output. A software system that uses LLMs in the decision making chain will need to cleverly transform data to text and transform LLM text output to program instructions.
 
-![We transform data to and from text when working with LLMs](/img/LLMsTextSketch.drawio.png)
+![We transform data to and from text when working with LLMs](/img/LLMsTextSketch-Textification.drawio.png)
 
 Let's say we want to classify a transaction as fraudulent or safe using signals like purchase history, product metadata, transaction context, etc. We need to present these signals differently depending on who or what is doing the classification:
 - **Human**: A human classifying a transaction would need some mechanism to access this data when they make their decision. The human's portal to the data might include text, numbers, graphs, etc. If the human has not received specialized training then this portal must be as self-explanatory as possible.
