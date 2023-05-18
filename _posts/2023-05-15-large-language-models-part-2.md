@@ -17,7 +17,15 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 TODO: Make this intro more captivating and sprinkle in more content
 
 
-Powerful. Costly. Capricious. Large language model (LLM)-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we explore a few LLM design patterns. 
+Powerful. Costly. Capricious. 
+
+
+Generative large language models (LLMs) like ChatGPT have extraordinary problem solving abilities. However, they are also extremely difficult to use in software. Their native text input/output format 
+
+
+
+
+ Large language model (LLM)-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we explore a few LLM design patterns. 
 
 These patterns
 
@@ -69,6 +77,35 @@ Choosing a spot on this spectrum requires a number of considerations. For exampl
 Furthermore, an End-to-End Agent must track context across multiple executions and balance multiple input and output formats. Less powerful (cheaper) LLMs can struggle to do this effectively. In addition, these designs often involve a large number of LLM executions per query, which can be quite expensive. The One Pass and Hybrid LLMs are substantially cheaper.
 
 Also, the more control we cede to LLMs, the larger the aperture for prompt injection. This [article](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/) explores design patterns that minimize prompt injection risk.
+
+
+## Error Handling
+
+Systems that consume LLMs often expect the output to be formatted in a certain way, such as json. However, LLMs make no guarantees on their output format and may produce incorrectly formatted outputs in a number of ways.
+
+The most common failure is to simply miss the formatting specification: for example, returning a value directly without wrapping it as a json. 
+```
+User: Who is a better rapper, Gandalf or Dumbledore? Return your result in the json format {"result": <result>}
+Agent: I don't know who is the better rapper
+```
+As another example of the same failure case:
+```
+User: What is 13+22? Return your result in the json format {"result": <result>}
+Agent: 35
+```
+
+Another failure is to include the data in the correct format as part of the response, but also return other text (such as an explanation) outside of the correctly formatted data.
+```
+User: What is 13+22? Return your result in the json format {"result": <result>}
+Agent: {"result": 35} 13+22 is 35 because 1+2=3 and 3+2=5
+```
+
+There are three main ways to handle these failures:
+- **Fail Gracefully**: This approach is a good default. However, this is not always feasible. 
+- **Attempt to Salvage the Result**: In this approach, we try to convert the LLM response to the correct format. This can work well in cases where the LLM appends unnecessary data to an otherwise correct response. However, this can be very error prone. 
+- **Pass the Error to the LLM**: In this approach, we return the error to the LLM directly and ask it to regenerate its response. This is the most autonomous result, but it can lead to chains where an LLM fails in the same way many times in a row, burning money in the process. 
+
+In most cases adding a line like `return your output in the following json format: ...` to the prompt and praying is an LLM engineer's best option. This approach is obviously not foolproof, so any system that consumes LLM output must be prepared for unexpected responses. 
 
 ## Context Windows
 
