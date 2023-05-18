@@ -20,7 +20,7 @@ In this post, we delve into the art of leveraging LLMs to solve real-world probl
 
 Payment fraud costs society [billions of dollars every year](https://www.statista.com/statistics/958997/fraud-loss-usa-by-payment-method/). Payment processors attempt to catch fraud in the act by scanning transactions for suspicious indicators. This is a classification problem: each transaction is classified as fraudulent or safe based on signals derived from data like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required [training a specialized model with thousands or even millions of example transactions](https://aws.amazon.com/solutions/implementations/fraud-detection-using-machine-learning/).
 
-Large language models can democratize this problem solving process. However, transforming this problem into one that a large language model can understand requires diving deep into how these models understand the world. Let's explore how we could solve this with a large language model and little to no training data.
+Large language models can make this problem accessible to organizations without massive corpori of labeled data. However, transforming this problem into one that a large language model can understand requires diving deep into how these models understand the world. Let's explore how we could solve this with a large language model and little to no training data.
 
 
 ## What is a Generative Large Language Model?
