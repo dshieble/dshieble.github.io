@@ -36,7 +36,7 @@ One example is [tools](https://docs.langchain.com/docs/components/agents/tool) a
 
 ![LLM using a calculator](/img/LLMsTextSketch-Calculator.drawio.png)
 
-
+Tools can stitch LLMs and software modules to form autonomous AI agents. This is extremely powerful, but also very complex. In the next section we explore a few agent design patterns.
 
 ## Agents
 
@@ -45,6 +45,9 @@ Let's say you want to build an LLM-powered question/answer system that supports 
 At one end of the spectrum is to do everything by hand: write the relevant queries to the search API, append the result to the original question, use the composite text as the LLM prompt, and execute the LLM in one pass.
 
 ![One pass](/img/LLMOnePass.png)
+
+This approach is simple, but not tremendously powerful. 
+
 
 On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the original prompt, passes these queries to the search APIs, passes the results back to the LLM, and repeats this process until the LLM produces a final answer. This strategy requires a module to parse the LLM response into either a search query or a final result.
 
