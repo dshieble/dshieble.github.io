@@ -31,7 +31,7 @@ In this post we will explore a few LLM design patterns and discuss how to choose
 
 As we discussed in the [last post](https://danshiebler.com/2023-05-12-large-language-models-part-1), large language models consume text and produce text. This is not tremendously useful on its own: the most exciting applications emerge from software that interprets LLM text outputs to trigger downstream effects. 
 
-One example is [tools](https://docs.langchain.com/docs/components/agents/tool) also called [plugins](https://openai.com/blog/chatgpt-plugins). A tool consists of four parts:
+One example is [tools](https://docs.langchain.com/docs/components/agents/tool) (also called [plugins](https://openai.com/blog/chatgpt-plugins)). A tool consists of four parts:
 - A function that does something the LLM cannot do itself: browse the web, search a database, run code, call a public API, use a calculator, etc
 - A parser that converts the raw LLM string output into a specific set of inputs to this function
 - A serializer that converts the function output to text that is returned to the LLM
