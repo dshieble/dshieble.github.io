@@ -18,14 +18,14 @@ Generative large language models (LLMs) like ChatGPT will revolutionize the way 
 
 In this post, we delve into the art of leveraging LLMs to solve real-world problems. To illustrate their capabilities, we focus on the motivating example of fraud detection. 
 
-Payment fraud costs society [billions of dollars every year](https://www.statista.com/statistics/958997/fraud-loss-usa-by-payment-method/). Payment processors attempt to catch fraud in the act by scanning transactions for suspicious indicators. This is a classification problem: each transaction is classified as fraudulent or safe based on signals derived from data like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required [training a specialized model with thousands or even millions of example transactions](https://aws.amazon.com/solutions/implementations/fraud-detection-using-machine-learning/). Let's explore how we can solve this with a large language model and little to no training data.
+Payment fraud costs society [billions of dollars every year](https://www.statista.com/statistics/958997/fraud-loss-usa-by-payment-method/). Payment processors attempt to catch fraud in the act by scanning transactions for suspicious indicators. This is a classification problem: each transaction is classified as fraudulent or safe based on signals derived from data like purchase history, product metadata, transaction context, etc. Historically, solving this kind of problem required [training a specialized model with thousands or even millions of example transactions](https://aws.amazon.com/solutions/implementations/fraud-detection-using-machine-learning/). Let's explore how we could solve this with a large language model and little to no training data.
 
 
 ## What is a Generative Large Language Model?
 
 A generative large language models (LLM) is a massive neural network that accepts a string of text and returns a logical continuation or completion of that text.
 
-The most powerful and useful modern generative large language models, like ChatGPT, are optimized to follow instructions. This allows them to return structured strings (like json) that other software systems can consume. 
+The most powerful and useful modern generative large language models, like ChatGPT, are optimized to follow instructions. This allows them to return structured strings (like json) that other software systems can consume. They are trained on enormous amounts of text data, which gives them the ability to follow very complex instructions. 
 
 For example, such a model could accept a string like:
 ```
@@ -46,6 +46,7 @@ and output the string:
 "iambic": "Jersey Shore, an American TV show's run,\nFrom 2009 to 2012, on MTV,\nThe lives of eight housemates, one by one,\nAt a beach house, they lived most happily.\nSeaside Heights, New Jersey, seasons prime,\nOne, three, five, and six, their joy did thrive,\nSouth Beach, Florida, in season two's time,\nAnd Florence, Italy, for season four's drive."
 }
 ```
+
 
 ## Text is King
 
