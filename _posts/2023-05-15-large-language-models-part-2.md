@@ -106,7 +106,7 @@ Less powerful LLMs are more likely to produce incorrectly formatted responses, a
 
 ## Managing Context Windows
 
-We often want to provide our LLM with more data than could fit in its context window. We can manage this in a number of different ways. 
+LLMs can only accept a fixed number of tokens at a time. This is known as their context window. We often want to provide our LLM with more data than could fit in its context window. We can manage this in a number of different ways. 
 
 One popular strategy is to use semantic search. We break the data into small chunks, represent each chunk with a text embedding, and store the chunks in a vector database. When we prompt our LLM we generate an embedding for the prompt, search the vector DB for the chunks with the most similar embeddings, and append these chunks to the prompt. 
 
