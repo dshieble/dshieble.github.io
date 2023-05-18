@@ -27,7 +27,7 @@ To construct such a system we must decide how to plumb data to the LLM, frame th
 In this post we will explore a few LLM design patterns and discuss how to choose between them.
 
 
-## Tools
+## What are Tools?
 
 As we discussed in the [last post](https://danshiebler.com/2023-05-12-large-language-models-part-1), large language models consume text and produce text. This is not tremendously useful on its own: the most exciting applications emerge from software that interprets LLM text outputs to trigger downstream effects. 
 
@@ -42,7 +42,7 @@ One example is [tools](https://docs.langchain.com/docs/components/agents/tool) (
 
 Tools can stitch LLMs and software modules to form autonomous AI agents. This is extremely powerful, but also very complex. In the next section we explore a few agent design patterns.
 
-## Agents
+## Designing Agents
 
 Let's say you want to build an LLM-powered question/answer system that supports queries like "what has the president of the United States done in the last month?". Any LLM trained more than a month ago will not have this information stored in its weights, so we need to get this information from somewhere else: perhaps a news article or web search API. There are a number of ways we can design the interface between the LLM and this API.
 
@@ -75,7 +75,7 @@ Furthermore, an End-to-End Agent must track context across multiple executions a
 Also, the more control we cede to LLMs, the larger the aperture for prompt injection. This [article](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/) explores design patterns that minimize prompt injection risk.
 
 
-## Error Handling
+## Dealing with Mistakes
 
 Systems that consume LLMs often expect the output to be formatted in a certain way, such as json. However, LLMs provide no guarantees on the format of the text they output. In most cases adding a line like `return your output in the following json format: ...` to the prompt and praying is an LLM engineer's best option. This approach is obviously not foolproof, so any system that consumes LLM output must be prepared for unexpected responses. 
 
@@ -104,7 +104,7 @@ There are three main ways to handle these failures:
 Less powerful LLMs are more likely to produce incorrectly formatted responses, and therefore require more hands-on error handling.  Overly large and complex prompts can also confuse even the most powerful LLMs into generating badly formatted responses.
 
 
-## Context Windows
+## Managing Context Windows
 
 We often want to provide our LLM with more data than could fit in its context window. We can manage this in a number of different ways. 
 
