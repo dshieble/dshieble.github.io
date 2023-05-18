@@ -14,22 +14,18 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 </script>
 
-TODO: Make this intro more captivating and sprinkle in more content
+
+> If you aren't too familiar with large language models or how we can use them to solve problems, check out [this post](https://danshiebler.com/2023-05-12-large-language-models-part-1).
 
 
-Powerful. Costly. Capricious. 
+Generative large language models (LLMs) like ChatGPT possess extraordinary problem-solving abilities. However, they are difficult to use. 
 
+One key challenge lies in their cost and latency. These models often operate at a much slower pace and incur higher costs compared to traditional software solutions. Response times in the scale of seconds, rather than milliseconds, are not uncommon. Additionally, LLMs exhibit capricious behavior, where slight variations in inputs can yield wildly different results. This unpredictability necessitates the implementation of intricate error handling mechanisms due to the lack of a guaranteed output structure. LLM-powered software must be carefully designed to emphasize the strengths and minimize the weaknesses of these tools.
 
-Generative large language models (LLMs) like ChatGPT have extraordinary problem solving abilities. However, they are also extremely difficult to use in software. Their native text input/output format 
+To construct such a system we must decide how to pass data to the LLM, frame the data within the prompt, and interpret the LLM's response. Each of these decisions demands careful consideration of the LLM's realistic capabilities and the specific requirements of the software system. 
 
+In this post we will explore a few LLM design patterns and discuss how to choose between them.
 
-
-
- Large language model (LLM)-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we explore a few LLM design patterns. 
-
-These patterns
-
-If you aren't too familiar with large language models or how we can use them to solve problems, check out [this post](https://danshiebler.com/2023-05-12-large-language-models-part-1).
 
 ## Tools
 
@@ -81,9 +77,9 @@ Also, the more control we cede to LLMs, the larger the aperture for prompt injec
 
 ## Error Handling
 
-Systems that consume LLMs often expect the output to be formatted in a certain way, such as json. However, LLMs make no guarantees on their output format and may produce incorrectly formatted outputs in a number of ways.
+Systems that consume LLMs often expect the output to be formatted in a certain way, such as json. However, LLMs provide no guarantees on the format of the text they output. In most cases adding a line like `return your output in the following json format: ...` to the prompt and praying is an LLM engineer's best option. This approach is obviously not foolproof, so any system that consumes LLM output must be prepared for unexpected responses. 
 
-The most common failure is to simply miss the formatting specification: for example, returning a value directly without wrapping it as a json. 
+LLMs may produce incorrectly formatted outputs in a number of ways. The most common failure is to simply miss the formatting specification: for example, returning a value directly without wrapping it as a json. 
 ```
 User: Who is a better rapper, Gandalf or Dumbledore? Return your result in the json format {"result": <result>}
 Agent: I don't know who is the better rapper
@@ -101,11 +97,12 @@ Agent: {"result": 35} 13+22 is 35 because 1+2=3 and 3+2=5
 ```
 
 There are three main ways to handle these failures:
-- **Fail Gracefully**: This approach is a good default. However, this is not always feasible. 
+- **Fail Gracefully**: This approach is a good default, especially when there are reasonable things that the system can do even when the LLM response is missing.
 - **Attempt to Salvage the Result**: In this approach, we try to convert the LLM response to the correct format. This can work well in cases where the LLM appends unnecessary data to an otherwise correct response. However, this can be very error prone. 
 - **Pass the Error to the LLM**: In this approach, we return the error to the LLM directly and ask it to regenerate its response. This is the most autonomous result, but it can lead to chains where an LLM fails in the same way many times in a row, burning money in the process. 
 
-In most cases adding a line like `return your output in the following json format: ...` to the prompt and praying is an LLM engineer's best option. This approach is obviously not foolproof, so any system that consumes LLM output must be prepared for unexpected responses. 
+Less powerful LLMs are more likely to produce incorrectly formatted responses, and therefore require more hands-on error handling.  Overly large and complex prompts can also confuse even the most powerful LLMs into generating badly formatted responses.
+
 
 ## Context Windows
 
