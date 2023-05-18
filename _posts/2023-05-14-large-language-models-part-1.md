@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using LLMs to Solve your Problems
+title: Using Large Language Models to Solve your Problems
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
