@@ -117,5 +117,5 @@ Less powerful LLMs are more likely to produce incorrectly formatted responses, a
 
 Designing software involves striking a delicate balance between various attributes and considerations. Engineers weigh factors such as simplicity, speed, cost, and effectiveness as they make design choices. Each design represents a different point on the tradeoff spectrum.
 
-These design patterns are just a small glimpse into the strategies that engineers will explore as LLMs permeate throughout the software ecosystem. As LLMs become more prevalent and new contexts and requirements arise, engineers will design and develop new patterns to use them.
+These design patterns are just a small glimpse into the strategies that engineers will explore as LLMs permeate throughout the software ecosystem. As new use cases for LLMs arise, engineers will design and develop new patterns to use them.
 
