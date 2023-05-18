@@ -22,7 +22,7 @@ Generative large language models (LLMs) like ChatGPT possess extraordinary probl
 
 One key challenge lies in their cost and latency. These models often operate at a much slower pace and incur higher costs compared to traditional software solutions. Response times in the scale of seconds, rather than milliseconds, are not uncommon. Additionally, LLMs exhibit capricious behavior, where slight variations in inputs can yield wildly different results. Their output structure is not guaranteed, which necessitates intricate error handling mechanisms. LLM-powered software must be carefully designed to emphasize the strengths and minimize the weaknesses of these tools.
 
-To construct such a system we must decide how to pass data to the LLM, frame the data within the prompt, and interpret the LLM's response. Each of these decisions demands careful consideration of the LLM's realistic capabilities and the specific requirements of the software system. 
+To construct such a system we must decide how to plumb data to the LLM, frame the data within the prompt, and interpret the LLM's response. Each of these decisions demands careful consideration of the LLM's realistic capabilities and the specific requirements of the software system. 
 
 In this post we will explore a few LLM design patterns and discuss how to choose between them.
 
