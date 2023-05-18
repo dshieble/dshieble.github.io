@@ -27,7 +27,7 @@ Large language models can make this problem accessible to organizations without 
 
 A generative large language models (LLM) is a massive neural network that accepts a string of text and returns a logical continuation or completion of that text.
 
-The most powerful and useful modern generative large language models, like ChatGPT, are optimized to follow instructions. This allows them to return structured strings (like json) that other software systems can consume. They are trained on enormous amounts of text data, which gives them the ability to solve very complex problems. 
+The most powerful and useful modern generative large language models, like ChatGPT, are optimized to follow instructions. This allows them to return structured strings (like json) that other software systems can consume. They are trained on enormous amounts of text data, which gives them the ability to follow very complex instructions. 
 
 For example, such a model could accept a string like:
 ```
