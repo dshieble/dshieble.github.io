@@ -64,7 +64,7 @@ Between these extremes is a hybrid approach in which we first prompt the LLM to 
 
 This spectrum captures the degree to which the software system cedes ownership of the control flow to the LLM. Ceding more control to the LLM can allow the system to exhibit more advanced behavior.
 
-![Three options for LLMs](/img/LLMsTextSketch-Agents.drawio.png)
+![Three options for LLMs](/img/LLMsTextSketch-Spectrum.drawio.png)
 
 The One Pass LLM relies entirely on human input to structure the information that the LLM uses. The hybrid approach gives the LLM control over one search query but does not enable the LLM to request additional information. The End-to-End Agent system can sequentially issue multiple search queries of increasing refinement as it sees and interprets the results of earlier search queries. 
 
