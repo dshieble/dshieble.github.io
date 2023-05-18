@@ -14,10 +14,29 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 </script>
 
+TODO: Make this intro more captivating and sprinkle in more content
 
-Powerful. Costly. Capricious. Large language model (LLM)-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we will explore a few LLM design patterns.
+
+Powerful. Costly. Capricious. Large language model (LLM)-powered software must be carefully designed to emphasize their strengths and minimize their weaknesses. In this post we explore a few LLM design patterns. 
+
+These patterns
 
 If you aren't too familiar with large language models or how we can use them to solve problems, check out [this post](https://danshiebler.com/2023-05-12-large-language-models-part-1).
+
+## Tools
+
+As we discussed in the [last post](https://danshiebler.com/2023-05-12-large-language-models-part-1), large language models consume text and produce text. This is not tremendously useful on its own: the most exciting applications emerge from software that interprets LLM text outputs to trigger downstream effects. 
+
+One example is [tools](https://docs.langchain.com/docs/components/agents/tool) also called [plugins](https://openai.com/blog/chatgpt-plugins). A tool consists of four parts:
+- A function that does something the LLM cannot do itself: browse the web, search a database, run code, call a public API, use a calculator, etc
+- A parser that converts the raw LLM string output into a specific set of inputs to this function
+- A serializer that converts the function output to text that is returned to the LLM
+- A text description of how to use the tool. This is included in the LLM prompt.
+
+
+![LLM using a calculator](/img/LLMsTextSketch-Calculator.drawio.png)
+
+
 
 ## Agents
 
@@ -30,6 +49,7 @@ At one end of the spectrum is to do everything by hand: write the relevant queri
 On the other end of the spectrum is an end-to-end LLM-powered agent that autonomously identifies the queries it needs from the original prompt, passes these queries to the search APIs, passes the results back to the LLM, and repeats this process until the LLM produces a final answer. This strategy requires a module to parse the LLM response into either a search query or a final result.
 
 ![End to end agent](/img/LLMEndtoEndAgent.png)
+
 
 Between these extremes is a hybrid approach in which we first prompt the LLM to construct a query that will find the information it needs to complete the summary, manually run the query, and pass the query results back to an LLM in another prompt that asks it to write the summary. 
 
