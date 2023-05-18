@@ -20,7 +20,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 Generative large language models (LLMs) like ChatGPT possess extraordinary problem-solving abilities. However, they are difficult to use. 
 
-One key challenge lies in their cost and latency. These models often operate at a much slower pace and incur higher costs compared to traditional software solutions. Response times in the scale of seconds, rather than milliseconds, are not uncommon. Additionally, LLMs exhibit capricious behavior, where slight variations in inputs can yield wildly different results. This unpredictability necessitates the implementation of intricate error handling mechanisms due to the lack of a guaranteed output structure. LLM-powered software must be carefully designed to emphasize the strengths and minimize the weaknesses of these tools.
+One key challenge lies in their cost and latency. These models often operate at a much slower pace and incur higher costs compared to traditional software solutions. Response times in the scale of seconds, rather than milliseconds, are not uncommon. Additionally, LLMs exhibit capricious behavior, where slight variations in inputs can yield wildly different results. Their output structure is not guaranteed, which necessitates intricate error handling mechanisms. LLM-powered software must be carefully designed to emphasize the strengths and minimize the weaknesses of these tools.
 
 To construct such a system we must decide how to pass data to the LLM, frame the data within the prompt, and interpret the LLM's response. Each of these decisions demands careful consideration of the LLM's realistic capabilities and the specific requirements of the software system. 
 
