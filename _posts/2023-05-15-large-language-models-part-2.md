@@ -77,22 +77,22 @@ Also, the more control we cede to LLMs, the larger the aperture for prompt injec
 
 ## Dealing with Mistakes
 
-Systems that consume LLMs often expect the output to be formatted in a certain way, such as json. However, LLMs provide no guarantees on the format of the text they output. In most cases adding a line like `return your output in the following json format: ...` to the prompt and praying is an LLM engineer's best option. This approach is obviously not foolproof, so any system that consumes LLM output must be prepared for unexpected responses. 
+Systems that consume LLMs often expect the output to be formatted in a certain way, such as JSON. However, LLMs provide no guarantees on the format of the text they output. In most cases adding a line like `return your output in the following JSON format: ...` to the prompt and praying is an LLM engineer's best option. This approach is obviously not foolproof, so any system that consumes LLM output must be prepared for unexpected responses. 
 
-LLMs may produce incorrectly formatted outputs in a number of ways. The most common failure is to simply miss the formatting specification: for example, returning a value directly without wrapping it as a json. 
+LLMs may produce incorrectly formatted outputs in a number of ways. The most common failure is to simply miss the formatting specification: for example, returning a value directly without wrapping it as a JSON. 
 ```
-User: Who is a better rapper, Gandalf or Dumbledore? Return your result in the json format {"result": <result>}
+User: Who is a better rapper, Gandalf or Dumbledore? Return your result in the JSON format {"result": <result>}
 Agent: I don't know who is the better rapper
 ```
 As another example of the same failure case:
 ```
-User: What is 13+22? Return your result in the json format {"result": <result>}
+User: What is 13+22? Return your result in the JSON format {"result": <result>}
 Agent: 35
 ```
 
 Another failure is to include the data in the correct format as part of the response, but also return other text (such as an explanation) outside of the correctly formatted data.
 ```
-User: What is 13+22? Return your result in the json format {"result": <result>}
+User: What is 13+22? Return your result in the JSON format {"result": <result>}
 Agent: {"result": 35} 13+22 is 35 because 1+2=3 and 3+2=5
 ```
 
