@@ -72,7 +72,7 @@ Choosing a spot on this spectrum requires a number of considerations. For exampl
 
 Furthermore, an End-to-End Agent must track context across multiple executions and balance multiple input and output formats. Less powerful (cheaper) LLMs can struggle to do this effectively. In addition, these designs often involve a large number of LLM executions per query, which can be quite expensive. The One Pass and Hybrid LLMs are substantially cheaper.
 
-Also, the more control we cede to LLMs, the larger the aperture for prompt injection. This [article](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/) explores design patterns that minimize prompt injection risk.
+Also, the more control we cede to LLMs, the larger the aperture for prompt injection. See [this article](https://simonwillison.net/2023/Apr/14/worst-that-can-happen/) for more details on prompt injection and [this article](https://simonwillison.net/2023/Apr/25/dual-llm-pattern/) for a description of strategies that minimize prompt injection risk.
 
 
 ## Dealing with Mistakes
