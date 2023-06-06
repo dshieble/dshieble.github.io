@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Design Patterns for LLM-Powered Software
+title: Taming the Wild Genius of Large Language Models
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
@@ -15,32 +15,26 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 </script>
 
 
-> If you aren't too familiar with large language models or how we can use them to solve problems, check out [this post](https://danshiebler.com/2023-05-12-large-language-models-part-1).
 
+Unleashing the untamed brilliance of generative large language models (LLMs) like ChatGPT can be both exhilarating and challenging. These wild geniuses demonstrate exceptional problem-solving abilities, but their genius comes at a price.
 
-Generative large language models (LLMs) like ChatGPT possess extraordinary problem-solving abilities. However, they are difficult to use. 
+One formidable challenge lies in the cost and latency associated with these models. Compared to traditional software solutions, LLMs can operate at a slower pace, incurring higher costs along the way. Instead of near-instantaneous responses measured in milliseconds, LLMs may require seconds to generate a reply. Moreover, their behavior can be unpredictable, as minor alterations to inputs can yield vastly different outcomes. The structure of their output is not guaranteed, necessitating meticulous error handling mechanisms. Balancing the raw power of LLMs with their idiosyncrasies is crucial when designing software that harnesses their potential.
 
-One key challenge lies in their cost and latency. These models often operate at a much slower pace and incur higher costs compared to traditional software solutions. Response times in the scale of seconds, rather than milliseconds, are not uncommon. Additionally, LLMs exhibit capricious behavior, where slight variations in inputs can yield wildly different results. Their output structure is not guaranteed, which necessitates intricate error handling mechanisms. LLM-powered software must be carefully designed to emphasize the strengths and minimize the weaknesses of these tools.
+To truly harness the capabilities of these extraordinary systems, we must carefully consider how we input data, frame our prompts, and interpret their responses. Each decision demands a deep understanding of the LLM's untamed capabilities and the specific requirements of the software at hand.
 
-To construct such a system we must decide how to plumb data to the LLM, frame the data within the prompt, and interpret the LLM's response. Each of these decisions demands careful consideration of the LLM's realistic capabilities and the specific requirements of the software system. 
-
-In this post we will explore a few LLM design patterns and discuss how to choose between them.
-
+Within this post, we will delve into various LLM design patterns, exploring how to channel their untamed brilliance and select the most suitable approach for your needs.
 
 ## What are Tools?
 
-As we discussed in the [last post](https://danshiebler.com/2023-05-12-large-language-models-part-1), large language models consume text and produce text. This is not tremendously useful on its own: the most exciting applications emerge from software that interprets LLM text outputs to trigger downstream effects. 
+The most exciting kinds of AI software interpret LLM text outputs to trigger downstream effects. 
 
-One example is [tools](https://docs.langchain.com/docs/components/agents/tool) (also called [plugins](https://openai.com/blog/chatgpt-plugins)). A tool consists of four parts:
+One example, [Tools](https://docs.langchain.com/docs/components/agents/tool) enable the creation of autonomous AI agents. This consists of four parts:
 - A function that does something the LLM cannot do itself: browse the web, search a database, run code, call a public API, use a calculator, etc
 - A parser that converts the raw LLM string output into a specific set of inputs to this function
 - A serializer that converts the function output to text that is returned to the LLM
 - A text description of how to use the tool. This is included in the LLM prompt.
 
-
-![LLM using a calculator](/img/LLMsTextSketch-Calculator.drawio.png)
-
-Tools can stitch LLMs and software modules to form autonomous AI agents. This is extremely powerful, but also very complex. In the next section we explore a few agent design patterns.
+In the following section we explore a few design patterns for building these agents.
 
 ## Designing Agents
 
