@@ -24,8 +24,6 @@ Resilient Machine Learning ([Super Data Science](https://www.superdatascience.co
 What Does It Take To Build Resilient ML Systems? ([Scale AI - Transform X](https://exchange.scale.com/home/events/scale-transformx-2022))
 
 
-Productionizing Machine Learning ([Abnormal Engineering Stories](https://abnormalsecurity.com/blog/engineering-stories-productionizing-machine-learning))
-
 Academia, Startups, and Enterprise: A Cross-Analysis of Work and Goals ([ODSC Europe, 2021](https://app.aiplus.training/courses/odsc-europe-2021-talks))
 
 Translating PhD Research into ML Applications ([Super Data Science, 2021](www.superdatascience.com/451))

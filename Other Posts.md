@@ -17,6 +17,13 @@ subtitle: Blog Posts I've Written on Other Sites
 
 ### Posts I've Written
 
+
+
+[Generative AI Enables Threat Actors to Create More (and More Sophisticated) Email Attacks](https://abnormalsecurity.com/blog/generative-ai-chatgpt-enables-threat-actors-more-attacks), Abnormal Product Blog, 2023
+
+[An Abnormal Approach to Machine Learning: Feature Systems and Language Models](https://abnormalsecurity.com/blog/machine-learning-feature-systems-models), Abnormal Product Blog, 2023
+
+
 [How Abnormal Enhanced Its Detection Platform with BERT](https://abnormalsecurity.com/blog/enhanced-detection-platform-bert-large-language-models), Abnormal Engineering Blog, 2022
 
 

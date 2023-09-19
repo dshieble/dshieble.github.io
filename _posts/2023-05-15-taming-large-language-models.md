@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Taming the Wild Genius of Large Language Models
+title: Taming Large Language Models
 tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
 ---
 <script> 
@@ -16,7 +16,7 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 
 
-Unleashing the untamed brilliance of generative large language models (LLMs) like ChatGPT can be both exhilarating and challenging. These wild geniuses demonstrate exceptional problem-solving abilities, but their genius comes at a price.
+Taming generative large language models (LLMs) like ChatGPT is exhilarating and challenging. These wild beasts demonstrate exceptional problem-solving abilities, but their genius comes at a price.
 
 One formidable challenge lies in the cost and latency associated with these models. Compared to traditional software solutions, LLMs can operate at a slower pace, incurring higher costs along the way. Instead of near-instantaneous responses measured in milliseconds, LLMs may require seconds to generate a reply. Moreover, their behavior can be unpredictable, as minor alterations to inputs can yield vastly different outcomes. The structure of their output is not guaranteed, necessitating meticulous error handling mechanisms. Balancing the raw power of LLMs with their idiosyncrasies is crucial when designing software that harnesses their potential.
 
