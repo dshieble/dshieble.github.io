@@ -13,9 +13,10 @@ subtitle: The Extra Brief Version
   ga('send', 'pageview');
 
 </script>
+
 Hi, I'm Dan Shiebler. I like math, history podcasts, fantasy novels, riding my bicycle, and traveling. I live in NYC.
 
-Today I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/). I lead our team of 40+ detection engineers to build AI systems that fight cybercrime. We use a combination of foundational data engineering and advanced ML to detect and remediate cyberattacks. Our technology protects many of the world's largest companies.
+Today I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/). I lead our team of 40+ detection engineers building AI systems that fight cybercrime.  We deploy probabilistic models over realtime aggregates, neural network/tree-based classifiers over tabular data, and large language models (LLMs) over raw data. Our system is the world’s most advanced messaging cyberattack detection system. We protect many of the world's largest companies.
 
 Previously, I managed the Web Ads Machine Learning team at Twitter. Before that I worked as a Staff ML Engineer at [Twitter Cortex](https://cortex.twitter.com/) and a Senior Data Scientist at [TrueMotion](https://gotruemotion.com/).
 

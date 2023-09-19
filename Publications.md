@@ -22,7 +22,6 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 ](https://arxiv.org/abs/2203.09018). Shiebler, D. (TBD))
 
 
-
 [Generalized Optimization: A First Step Towards Category Theoretic Learning Theory](https://arxiv.org/abs/2109.10262). Shiebler, D. Advances in Intelligent Systems and Computing (2021)
 
 
