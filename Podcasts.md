@@ -15,6 +15,10 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 </script>
 
 
+
+Resilient Machine Learning ([Super Data Science](https://www.superdatascience.com/podcast/resilient-machine-learning))
+
+
 How to Thrive in the AI Era ([Culture of Code](https://www.youtube.com/watch?v=1ug25IiulGA))
 
 
@@ -26,6 +30,11 @@ Leading an ML Team ([Vision to Venture](https://visiontoventure.squarespace.com/
 
 Productionizing Machine Learning ([Abnormal Engineering Stories](https://abnormalsecurity.com/blog/engineering-stories-productionizing-machine-learning))
 
+Translating PhD Research into ML Applications ([Super Data Science](https://www.superdatascience.com/podcast/translating-phd-research-into-ml-applications))
+
+
 
 Life after Production, a Tale of Technical Debt ([Banana Data Podcast, 2019](https://www.buzzsprout.com/300035/2082846))
 
+
+Machine Learning at Twitter ([Super Data Science](https://www.superdatascience.com/podcast/machine-learning-at-twitter))

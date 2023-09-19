@@ -17,7 +17,11 @@ subtitle: Some Talks that I've Given at Conferences and Other Places
 ### Invited Industry Talks
 
 
+The Growing Threat: Trends and Challenges in Cybersecurity ([CogX 2023](https://www.cogxfestival.com/))
 
+Protecting Your Organization Against the Dark Side of AI ([SecureWorld 2023](https://www.secureworld.io/resources/chatgpt-exposed-protecting-your-organization-against))
+
+Optimizing Machine Learning Teams ([Machine Learning Week Las Vegas 2023](https://www.predictiveanalyticsworld.com/machinelearningweek/agenda-details/#session110872))
 
 Resilient Machine Learning ([Super Data Science](https://www.superdatascience.com/podcast/resilient-machine-learning), [ODSC West 2022](https://odsc.com/california/aix-west/), [Brown Big AI Seminar](https://lists.cs.brown.edu/sympa/arc/talks/2022-11/msg00006.html))
 
