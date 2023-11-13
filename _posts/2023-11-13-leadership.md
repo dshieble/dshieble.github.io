@@ -13,7 +13,7 @@ tags: [Engineering, Leadership, Management]
   ga('send', 'pageview');
 
 </script>
-I've spent a lot of time leading large and small data-focused engineering teams over the last decade. Through this experince I've developed some opinions about what good leadership looks like. My central leadership tenets are:
+I've spent a lot of time leading large and small engineering teams over the last decade. Through this experince I've developed some opinions about what good leadership looks like. My central leadership tenets are:
 - Set a Strategy
 - Do Row-Level Inspection
 - Set Clear Expectations
