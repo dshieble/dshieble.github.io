@@ -13,15 +13,13 @@ tags: [Engineering, Leadership, Management]
   ga('send', 'pageview');
 
 </script>
-
-I've spent enough time leading large and small engineering teams over the last decade that I've developed some opinions about how to do it. 
-
-My general approach breaks down as follows:
+I've spent a lot of leading large and small data-focused engineering teams over the last decade. Through this experince I've developed some opinions about what good leadership looks like. My central leadership tenets are:
 - Set a Strategy
 - Do Row-Level Inspection
 - Set Clear Expectations
 - Give Frequent Feedback
 - Let Builders Build
+
 
 
 ## Set a Strategy
