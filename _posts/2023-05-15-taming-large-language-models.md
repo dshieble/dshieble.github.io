@@ -18,9 +18,9 @@ tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GP
 
 Generative large language models (LLMs) like ChatGPT are like wild beasts. They are powerful but difficult to tame.
 
-One formidable challenge lies in the cost and latency associated with these models. Compared to traditional software solutions, LLMs can operate at a slower pace, incurring higher costs along the way. Instead of near-instantaneous responses measured in milliseconds, LLMs may require seconds to generate a reply. Moreover, their behavior can be unpredictable, as minor alterations to inputs can yield vastly different outcomes. The structure of their output is not guaranteed, necessitating meticulous error handling mechanisms. Balancing the raw power of LLMs with their idiosyncrasies is crucial when designing software that harnesses their potential.
+One formidable challenge lies in the cost and latency associated with these models. Compared to traditional software solutions, LLMs can operate at a slower pace, incurring higher costs along the way. Instead of near-instantaneous responses measured in milliseconds, LLMs may require seconds to generate a reply. Moreover, their behavior can be unpredictable, as minor alterations to inputs can yield vastly different outcomes. The structure of their output is not guaranteed, necessitating meticulous error handling mechanisms.
 
-To truly harness their capabilities, we must carefully consider how we input data, frame our prompts, and interpret their responses. Each decision demands a deep understanding of the LLM's untamed capabilities and the specific requirements of the software at hand.
+Balancing the raw power of LLMs with their idiosyncrasies is crucial when designing software that harnesses their potential. We must carefully consider how we input data, frame our prompts, and interpret their responses. Each decision demands a deep understanding of the LLM's capabilities and the specific requirements of the software at hand.
 
 Within this post, we will delve into various LLM design patterns, exploring how to channel their untamed brilliance and select the most suitable approach for your needs.
 
