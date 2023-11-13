@@ -38,7 +38,7 @@ If your goal can be measured with a metric, set up a weekly team meeting to revi
 ## Row-Level Inspection
 As a leader you need to maintain a broad focus. If your team is large enough you may do little to no individual contributor (IC) work. This is expected, but carries substantial risk.
 
-Your data holds secrets that it will only surrender to row level inspection. Tracking your team's performance through aggregate topline metrics is necessary but not sufficient. You must be familiar with the actual queries to generate these topline metrics, how these metrics change when you start to poke around the queries, and what eccentricities in your data cause those changes. This will enable your to construct an anti-fragile perspective on your team's performance, which will let you make better decisions and set an example of excellence for your team. Few other activities are as high leverage for an engineering leader.
+Your data holds secrets that it will only surrender to row level inspection. Tracking your team's performance through aggregate topline metrics is necessary but not sufficient. You must be familiar with the actual queries to generate these topline metrics, how these metrics change when you start to poke around the queries, and what eccentricities in your data cause those changes. This will enable you to construct an anti-fragile perspective on your team's performance, which will let you make better decisions and set an example of excellence for your team. Few other activities are as high leverage for an engineering leader.
 
 The larger your team becomes, the more important it will be for you to carve out time for row level inspection. Your intuition will erode the farther away you sit from your data's reality. 
 
