@@ -31,7 +31,7 @@ You also need to decide the path you will take to achieve these goals. There are
 
 Figure out what progress along this path looks like and monitor it closely. Define inspection processes to track this progress with your team. Every member of your team should understand the path to success and how they are tracking along it.
 
-The best kind of goals are measurable. Set up a weekly team meeting to review all of your team's topline metrics. Coach your team to respond quickly when deviations occur.
+The best kind of goals are measurable. Take the time to define robust topline metrics that capture success. Set up a weekly team meeting to review these metrics, and coach your team to respond quickly when deviations occur.
 
 ## Row-Level Inspection
 As a leader you need to maintain a broad focus. If your team is large enough you may do little to no individual contributor (IC) work. This is expected, but carries substantial risk.
