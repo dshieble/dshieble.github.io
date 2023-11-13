@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Taming Large Language Models
-tags: [Machine Learning, Machine Learning Systems, ML, Large Language Models, GPT]
+title: Good Engineering Leadership
+tags: [Engineering, Leadership, Management]
 ---
 <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
