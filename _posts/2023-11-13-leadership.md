@@ -45,7 +45,7 @@ The larger your team becomes, the more important it will be for you to carve out
 
 In any team there are a large number of problems that need to be solved. As the leader you will have the broadest perspective on what these problems are and who is best equipped to handle them. Identify directly responsible individuals (DRIs) for each problem and set clear expectations with them. 
 
-These expectations should be expressed as outcomes, not actions. As the leader you are necessarily a step removed from the details of individual workstreams. Outcomes-based expectations empower your team to make their own decisions on how to achieve their goals.
+These expectations should be expressed as outcomes, not actions. As the leader you are necessarily a step removed from the details of individual workstreams. Outcomes-based expectations empower your team to make their own decisions on how to achieve their goals. This becomes increasingly important when you are leading large or very senior teams.
 
 
 ## Frequent Feedback
