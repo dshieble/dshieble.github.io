@@ -25,13 +25,9 @@ I've spent a lot of time leading large and small engineering teams over the last
 ## Set a Strategy
 A strategy is a clear, prioritized set of goals and a path to achieve them.
 
-These goals are your representation of success. It's worth spending time on them. You need to know what success looks like if you want to be successful.
+These goals are your representation of success. It's worth spending time on them and writing them down. You - and your team - need to know what success looks like if you want to be successful.
 
 You also need to decide the path you will take to achieve these goals. There are often many viable paths, but it's important to pick only one and communicate it to your team. If your team members are pulling in different directions then you'll never reach your objective.
-
-Figure out what progress along this path looks like and monitor it closely. Define inspection processes to track this progress with your team. Every member of your team should understand the path to success and how they are tracking along it.
-
-The best kind of goals are measurable. Take the time to define robust topline metrics that capture success. Set up a weekly team meeting to review these metrics, and coach your team to respond quickly to metric changes.
 
 ## Row-Level Inspection
 As a leader you need to maintain a broad focus. If your team is large enough you may do little to no individual contributor (IC) work. This is expected, but carries substantial risk.
@@ -51,11 +47,11 @@ These expectations should be expressed as outcomes, not actions. As the leader y
 ## Frequent Feedback
 Your team should grow and mature under your leadership. The best way to make this happen is to deliver frequent feedback. Good feedback is clear, actionable, and example-driven. If a team member's behavior or performance during an event (meeting, project, conversation, etc) inspires you to deliver feedback, you should give this feedback as close to the event as possible. This will reinforce the message and makes it stickier to the recipient.
 
-As a rule of thumb, positive feedback is best given publically and negative feedback is best given privately. But this varies from person to person. Some people can be a bit uncomfortable with receiving public positive feedback. It is up to you to learn this about your team.
+As a rule of thumb, positive feedback is best given publically and negative feedback is best given privately. But this varies from person to person. Some people are uncomfortable with any public feedback. It is up to you to learn this about your team.
 
-It is also important to budget substantial time for multi-part written feedback every quarter or half. This can have a huge positive impact on your team members' careers, and you want to put time and thought into it. 
+Budget substantial time for multi-part written feedback every quarter or half. This can have a huge positive impact on your team members' careers, and you want to put time and thought into it. 
 
-You should also aim to establish a team culture of feedback giving. This will help smooth interactions, strengthen team relationships, and reduce new team member onboarding time. One way to do this is to use feedback - simply recognize and reward good feedback delivery. 
+Establish a team culture of feedback giving. This will smooth interactions, strengthen team relationships, and reduce new team member onboarding time. One way to do this is to use feedback - simply recognize and reward good feedback delivery. 
 
 Culture is built on the back of frequent feedback. Don't hesitate to deploy it liberally.
 
