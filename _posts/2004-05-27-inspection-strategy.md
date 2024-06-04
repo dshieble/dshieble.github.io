@@ -43,9 +43,9 @@ This breaks into two critical responsibilities:
 
 *Define Success Criteria*
 
-Success criteria should be written down before the engineers start the design. Sucess criteria should be minimal but comprehensive. It should not be possible to achieve these goals and still fail, but any solution that misses a single criteria must be a failure. 
+Success criteria should be minimal, comprehensive, and written. It should not be possible to achieve these goals and still fail, but any solution that misses a single goal must be a failure. 
 
-It's often helpful to write non-goals alongside success criteria. For example, a non-goal of the "reduce customer onboarding exceptions" workstream above might be "reduce customer onboarding exceptions that don't require Tier 2 support".
+It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream above might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
 *Inspect the Design*
 
