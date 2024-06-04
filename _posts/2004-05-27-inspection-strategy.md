@@ -45,7 +45,7 @@ This breaks into two critical responsibilities:
 
 Success criteria should be minimal, comprehensive, and written. It should not be possible to achieve these goals and still fail, but any solution that misses a single goal must be a failure. 
 
-It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream above might be "reduce customer onboarding exceptions that don't require Tier 2 support".
+It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
 *Inspect the Design*
 
@@ -63,11 +63,15 @@ A critical part of technical inspection is signing off on key technical decision
 
 Unfortunately data is hard. 
 
-The most common type of pitfall is underspecification. The answer to a simple-seeming question like "are customers more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen. See [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for more anecdotes of how slightly different approaches to the same question can produce contradictory answers. Technical inspection requires understanding whether the chosen question specification is the right one in the context of the relevant business decision. 
+The most common pitfall is underspecification. The answer to a simple-seeming question like "are customers more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen (see [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for several examples).
+
+Generally only one specification of a question is actually relevant to a business decision. Inspection requires understanding this relevant specification and identifying cases of underspecification or misspecification in an analysis.
+ <!-- Technical inspection requires understanding whether the chosen question specification is the right one in the context of the relevant business decision. -->
+
 
 Another common pitfall is data "gotchas". For example, perhaps the primary dataset that stores ads displayed to users is de-duplicated by ad campaign. An analysis that uses this dataset to count the number of ads that a user sees in a day will be an undercount - jeopardizing the correctness of the analysis. Technical inspection requires identifying these gotchas and routing analyses away from them.
 
-Inspection requires breaking down the key decisions in the analysis and assumptions that underlie the conclusion analysis. This presents a path to increasing confidence - if we can demonstrate the same conclusion using a different set of assumptions (and ideally a different set of data), we can dramatically increase our confidence.
+There is one particularly powerful strategy to improve critical analyses. First, break down the key decisions and assumptions. Then demonstrate the same conclusion using a different set of assumptions - and ideally a different set of data. This approach can reduce risk and dramatically increase our confidence in a conclusion.
 
 ## Balance
 
