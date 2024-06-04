@@ -80,7 +80,7 @@ A culture of technical inspection is a culture of accountability. Every engineer
 
 But the best leaders are not zealots. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. 
 
-Adding structure to technical inspection helps build this trust. Frequent design reviews and substantial leadership time commitment adds predictability and forces alignment.
+Adding structure to technical inspection helps build this trust. Frequent design reviews with substantial leadership time commitment adds predictability and forces alignment.
 
 Ultimately a balanced and trust-forward approach to technical inspection produces the best results. 
 
