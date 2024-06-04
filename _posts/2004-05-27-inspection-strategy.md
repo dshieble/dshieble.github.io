@@ -58,14 +58,15 @@ However, design inspections are generally a terrible place to micromanage detail
 
 ## Data and Decisions
 
-A critical part of technical inspection is signing off on key technical decisions - many of which are informed by data.
+<!-- A critical part of technical inspection is signing off on key technical decisions -  -->
 <!-- Business leaders generally treat data that confirms their hypotheses as gospel. Ownership of analytical correctness generally lies with the engineers and data scientists running the analyses. -->
 
-Unfortunately data is hard. 
+
+Many key technical decisions are informed by data. Unfortunately data is hard. 
 
 The most common pitfall is underspecification. The answer to a simple-seeming question like "are customers more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen (see [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for several examples).
 
-Generally only one specification of a question is actually relevant to a business decision. Inspection requires understanding this relevant specification and identifying cases of underspecification or misspecification in an analysis.
+Generally only one specification of a question is actually relevant to a business decision. The decision of whether to increase the number of ads that a user sees on the front page requires data on the impact of front page ads on user churn - not just ads in general. Inspection requires understanding this relevant specification and identifying cases of underspecification or misspecification in an analysis.
  <!-- Technical inspection requires understanding whether the chosen question specification is the right one in the context of the relevant business decision. -->
 
 
