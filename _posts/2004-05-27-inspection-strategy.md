@@ -37,7 +37,7 @@ Engineering organizations have a small number of key decision makers - sometimes
 
 ![Venn Diagram](/img/venn-diagram.png)
 
-These individuals own technical inspection - owning and inspecting plans and decisions to ensure that they are aligned with business needs and technical reality. 
+These individuals drive technical inspection - owning and inspecting plans and decisions to ensure alignment with business needs and technical reality. 
 
 This breaks into two critical responsibilities:
 
