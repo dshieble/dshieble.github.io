@@ -78,7 +78,7 @@ There is one particularly powerful strategy to improve critical analyses. First,
 
 A culture of technical inspection is a culture of accountability. Every engineering leader should feel personally responsible for every technical decision that their team makes.
 
-But the best leaders are not zealots. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leader will embrace a solution that is unfamiliar to them but correct. 
+But the best leaders are not zealots. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. 
 
 Adding structure to technical inspection helps build this trust. Frequent design reviews and substantial leadership time commitment adds predictability and forces alignment.
 
