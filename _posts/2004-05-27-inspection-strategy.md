@@ -49,10 +49,10 @@ It's often helpful to write non-goals alongside success criteria. For example, a
 *Inspect the Design*
 There is no substitute for personally convincing yourself that a technical design meets the success criteria that you have written. 
 
-It's impossible to write a good success criteria without having some idea of what shape the solution might take, so this is usually a good place to start the inspection. This generally looks something like:
+It's impossible to write a good success criteria without having some idea of what shape the solution might take, so this is usually a good place to start. This generally looks something like:
 > The obvious fix is just to do X, but this has the obvious downside of Y. If this design proposes X, does it describe how we will handle Y? If this design doesn't propose X, does it describe how we will get the benefits of X in a different way? 
 
-However, design inspections are generally a terrible place to micromanage details. Success criteria should be prescriptive and tops down, but solutions should be as bottoms up as possible. 
+However, design inspections are generally a terrible place to micromanage details. Success criteria should be prescriptive and tops down, but solutions must be bottoms up. Overly prescriptive tops down solutions subvert the unique context that only an engineer with their hands on the keyboard will have.
 
 ## Data and Decisions
 
