@@ -14,18 +14,9 @@ tags: [Engineering, Leadership, Architecture, Management]
 
 </script>
 
+The CEO of FooBar inc needs to increase company margins.
 
-Engineering leaders in tech companies have a tough job.
-
-Strategic execution on product direction is bottlenecked by engineering. Shifting business and product strategies require engineering organizations to constantly evolve their roadmaps and execution plans - while staying within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
-
-![Venn Diagram](/img/venn-diagram.png)
-
-<!-- Engineering leaders are responsible for charting a course towards this optimal point. This is quite difficult - large (>30 people) engineering organizations devolve into games of telephone quickly.  -->
-
-Large organizations can develop games of telephone that effectively freeze these decisions for months or years. Only systems of high bandwidth communication break these barriers and enable nimble decision making.
-
-Let's say the CEO of FooBar inc needs to increase company margins. The CTO and engineering leadership team might put together a very sound plan to accomplish this. First the objective to "increase company margins" is decomposed into a collection of eng-level goals like "reduce tier 2 support hours". Each of these eng-level goals decompose into org-level goals like "enable a self-service setup flow", which decompose into team-level goals like "reduce customer ingestion exceptions".
+The CTO and engineering leadership team might put together a sound plan. First the objective to "increase company margins" is decomposed into a collection of eng-level goals like "reduce tier 2 support hours". Each of these eng-level goals decompose into org-level goals like "enable a self-service setup flow", which decompose into team-level goals like "reduce customer ingestion exceptions".
 
 ![Company margins project breakdown](/img/company-margins-project-breakdown.png)
 
@@ -37,7 +28,11 @@ But perhaps the specific exceptions triggered by this flaky service dependency a
 
 ## Technical Inspection
 
-Engineering organizations have a small number of key decision makers - sometimes engineering managers, sometimes tech leads - with the right business and technical context to reconcile the business goals and technical reality. These individuals own technical inspection - owning and inspecting plans and decisions to ensure that they are aligned with business needs and technical reality. 
+Engineering organizations have a small number of key decision makers - sometimes engineering managers, sometimes tech leads - with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
+
+![Venn Diagram](/img/venn-diagram.png)
+
+These individuals own technical inspection - owning and inspecting plans and decisions to ensure that they are aligned with business needs and technical reality. 
 
 This breaks into two critical responsibilities:
 
@@ -76,6 +71,23 @@ But the best leaders are not zealots. Technical inspection must be applied from 
 Adding structure to technical inspection helps build this trust. Frequent design reviews and substantial leadership time commitment adds predictability and forces alignment.
 
 Ultimately a balanced and trust-forward approach to technical inspection produces the best results. 
+
+
+
+
+
+<!-- 
+Engineering leaders have a tough job.
+
+In tech companies, strategic execution on product direction is bottlenecked by engineering. Shifting business and product strategies require engineering organizations to constantly evolve their roadmaps and execution plans - while staying within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
+
+![Venn Diagram](/img/venn-diagram.png)
+
+<!-- Engineering leaders are responsible for charting a course towards this optimal point. This is quite difficult - large (>30 people) engineering organizations devolve into games of telephone quickly.  -->
+<!-- 
+Large organizations can develop games of telephone that effectively freeze these decisions for months or years. Only systems of high bandwidth communication break these barriers and enable nimble decision making.
+ -->
+
 
 
 

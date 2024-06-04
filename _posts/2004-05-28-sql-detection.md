@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rule Engine
+title: Detection Rules (with LLMs)
 tags: [Classification, Machine Learning, Artificial Intelligence]
 ---
 <script> 
