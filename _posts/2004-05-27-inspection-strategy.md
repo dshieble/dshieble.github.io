@@ -16,7 +16,7 @@ tags: [Engineering, Leadership, Architecture, Management]
 
 The CEO of FooBar inc needs to increase company margins.
 
-The CTO and engineering leadership team might put together a sound plan. First the objective to "increase company margins" is decomposed into a collection of eng-level goals like "reduce tier 2 support hours". Each of these eng-level goals decompose into org-level goals like "enable a self-service setup flow", which decompose into team-level goals like "reduce customer ingestion exceptions".
+Engineering leadership might put together a sound plan. First the objective to "increase company margins" is decomposed into a collection of eng-level goals like "reduce tier 2 support hours". Each of these eng-level goals decompose into org-level goals like "enable a self-service setup flow", which decompose into team-level goals like "reduce customer ingestion exceptions".
 
 ![Company margins project breakdown](/img/company-margins-project-breakdown.png)
 
