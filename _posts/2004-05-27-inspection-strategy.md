@@ -42,11 +42,13 @@ These individuals drive technical inspection - owning and inspecting plans and d
 This breaks into two critical responsibilities:
 
 *Define Success Criteria*
+
 Success criteria should be written down before the engineers start the design. Sucess criteria should be minimal but comprehensive. It should not be possible to achieve these goals and still fail, but any solution that misses a single criteria must be a failure. 
 
 It's often helpful to write non-goals alongside success criteria. For example, a non-goal of the "reduce customer onboarding exceptions" workstream above might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
 *Inspect the Design*
+
 There is no substitute for personally convincing yourself that a technical design meets the success criteria that you have written. 
 
 It's impossible to write a good success criteria without having some idea of what shape the solution might take, so this is usually a good place to start. This generally looks something like:
