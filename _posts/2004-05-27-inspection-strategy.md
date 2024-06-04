@@ -16,15 +16,15 @@ tags: [Engineering, Leadership, Architecture, Management]
 
 The CEO needs to increase company margins. He turns to the engineering leadership team to help.
 
-Engineering leadership puts together a sound plan. First the objective to "increase company margins" is decomposed into a collection of eng-level goals like "reduce Tier 2 support hours". Each of these eng-level goals decompose into org-level goals like "enable a self-service setup flow", which decompose into team-level goals like "reduce customer ingestion exceptions".
+Engineering leadership puts together a sound plan. First the objective to "Increase Company Margins" is decomposed into a collection of eng-level goals like "Reduce Tier 2 Support Hours". Each of these eng-level goals decompose into org-level goals like "Reduce Customer Onboarding Tier 2 Support Escalations", which decompose into team-level goals like "Reduce Customer Onboarding Exceptions".
 
 ![Company margins project breakdown](/img/company-margins-project-breakdown.png)
 
 At the surface it may seem like the problem is nearly solved. Each engineering team just needs to achieve their individual goals, and the solutions will roll up into the org level goals. But the true work of engineering leadership has just begun.
 
-The engineer tasked with reducing customer ingestion exceptions is unlikely to understand the relationship of this workstream with company margins - they may or may not even know what Tier 2 support is. The great game of corporate telephone can easily send them down the wrong road. For example, suppose the engineer reviews recent customer ingestion exceptions, identifies a flaky service dependency as a common root cause, and then writes a design to remove the dependency. This will likely read as a solid plan to someone reviewing the design at a surface level.
+The engineer tasked with reducing customer onboarding exceptions is unlikely to understand the relationship of this workstream with company margins - they may or may not even know what Tier 2 support is. The great game of corporate telephone can easily send them down the wrong road. For example, suppose the engineer reviews recent customer onboarding exceptions, identifies a flaky service dependency as a common root cause, and then writes a design to remove the dependency. This will likely read as a solid plan to someone reviewing the design at a surface level.
 
-But perhaps the specific exceptions triggered by this flaky service dependency are not actually blockers to a self service setup flow! The engineer's plan is therefore entirely sideways to the key business goal. 
+But perhaps the specific exceptions triggered by this flaky service dependency do not require Tier 2 support to resolve! Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal. 
 
 ## Technical Inspection
 
