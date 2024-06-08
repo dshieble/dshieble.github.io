@@ -14,6 +14,9 @@ tags: [Engineering, Leadership, Architecture, Management]
 
 </script>
 
+
+#### The Problem
+
 The CEO needs to increase company margins. He turns to the engineering leadership team to help.
 
 Engineering leadership puts together a sound plan. First the objective to "Increase Company Margins" is decomposed into a collection of eng-level goals like "Reduce Tier 2 Support Hours". Each of these eng-level goals decompose into org-level goals like "Reduce Customer Onboarding Tier 2 Support Escalations", which decompose into team-level goals like "Reduce Customer Onboarding Exceptions".
@@ -34,43 +37,44 @@ Although each leader in the chain decomposed their problem nicely, the end resul
 
 
 
-
-#### Technical Inspection
+#### The Solution
 
 Engineering organizations have a small number of key decision makers - sometimes engineering managers, sometimes tech leads - with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
 
 ![Venn Diagram](/img/venn-diagram.png)
 
-These individuals drive technical inspection - owning and inspecting plans and decisions to ensure alignment with business needs and technical reality. 
+These leaders are the only individuals capable of technical inspection - owning and inspecting plans and decisions to ensure alignment with business needs and technical reality. 
 
-This breaks into two critical responsibilities:
+This is the cornerstone of effective technical execution. The difference between a seemingly well-scoped project landing on time or an order of magnitude over budget can depend on whether the right engineering leaders have taken the time to deeply inspect critical plans, decisions, and designs. 
 
-*Define Success Criteria*
-
-Success criteria should be
+First, the leader needs to define an initial set of success criteria. These should be
 * Comprehensive - It should not be possible to achieve these goals and still fail
-* Minimal - Any solution that misses a single goal must be a failure
+* Minimal - The success criteria should focus on what needs to be achieved, not the details of how it will be achieved
 * Written - There needs to be a single source of truth
 * Falsifiable - The success criteria must be concrete and ideally measurable
 
 It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
-*Inspect the Design*
+Next, the leader needs to inspect the critical decisions, designs, and plans to achieve these success criteria. This can't be an exercise in micromanagement. The leader has the responsibility to harness, not stifle, the unique context held by the engineer with their hands on the keyboard. Success criteria should be somewhat prescriptive and tops down, but solutions must be bottoms up.
 
-There is no substitute for personally convincing yourself that a technical design meets the success criteria that you have written. 
+When executed correctly this inspection can unveil cracks and inconsistencies in the initial set of success criteria. For example, the leader who derived the objective of "Reduce Customer Onboarding Exceptions" from "Reduce Customer Onboarding Tier 2 Support Escalations" may not have been aware that only certain customer onboarding exceptions trigger Tier 2 support cases. These kinds of critical details may only reveal themselves after hours of poring over logs. At its best technical inspection can be an iterative process of setting success criteria, inspecting solutions, and increasing the specificity of the success criteria. 
 
-It's impossible to write a good success criteria without having some idea of what shape the solution might take, so this is usually a good place to start. This generally looks something like:
-> The obvious fix is just to do X, but this has the obvious downside of Y. If this design proposes X, does it describe how we will handle Y? If this design doesn't propose X, does it describe how we will get the benefits of X in a different way? 
-
-However, design inspections are generally a terrible place to micromanage details. Success criteria should be prescriptive and tops down, but solutions must be bottoms up. Overly prescriptive tops down solutions subvert the unique context that only an engineer with their hands on the keyboard will have.
-
-
-
-#### Accountability and Trust
-
-A culture of technical inspection is a culture of accountability. Every engineering leader should feel personally responsible for every technical decision that their team makes.
+Zooming back out, a culture of technical inspection is a culture of accountability. Every engineering leader should feel personally responsible for every technical decision that their team makes.
 
 But the best leaders are not zealots. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. Accountability built on trust ultimately leads to faster execution and a healthier organization. 
+
+
+
+
+
+<!-- A useful trick for good design reviews
+
+It's impossible to write a good success criteria without having some idea of what shape the solution might take, so this is usually a good place to start. This generally looks something like:
+> The obvious fix is just to do X, but this has the obvious downside of Y. If this design proposes X, does it describe how we will handle Y? If this design doesn't propose X, does it describe how we will get the benefits of X in a different way?  -->
+
+
+<!-- . Success criteria should be prescriptive and tops down, but solutions must be bottoms up. Overly prescriptive tops down solutions subvert the unique context that only an engineer with their hands on the keyboard will have. -->
+
 
 <!-- Adding structure to technical inspection helps build this trust. Frequent design reviews with substantial leadership time commitment adds predictability, forces alignment.
 
