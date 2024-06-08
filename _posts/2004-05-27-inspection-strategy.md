@@ -14,9 +14,6 @@ tags: [Engineering, Leadership, Architecture, Management]
 
 </script>
 
-
-#### The Problem
-
 The CEO needs to increase company margins. He turns to the engineering leadership team to help.
 
 Engineering leadership puts together a sound plan. First the objective to "Increase Company Margins" is decomposed into a collection of eng-level goals like "Reduce Tier 2 Support Hours". Each of these eng-level goals decompose into org-level goals like "Reduce Customer Onboarding Tier 2 Support Escalations", which decompose into team-level goals like "Reduce Customer Onboarding Exceptions".
@@ -34,10 +31,6 @@ But perhaps the specific exceptions triggered by this flaky service dependency d
 Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal.
 
 Although each leader in the chain decomposed their problem nicely, the end result was failure. How can engineering leaders reach across the org chart and prevent this?
-
-
-
-#### The Solution
 
 Engineering organizations have a small number of key decision makers - sometimes engineering managers, sometimes tech leads - with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
 
