@@ -33,7 +33,7 @@ But perhaps the specific exceptions triggered by this flaky service dependency d
 
 Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal.
 
-Although each leader in the chain decomposed their problem nicely, the end result was bad. How can engineering leaders reach across the org chart and prevent this?
+Although each leader in the chain decomposed their problem nicely, the end result was failure. How can engineering leaders reach across the org chart and prevent this?
 
 
 
