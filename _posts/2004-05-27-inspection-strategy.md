@@ -48,10 +48,10 @@ These leaders are the only individuals capable of technical inspection - owning 
 This is the cornerstone of effective technical execution. The difference between a seemingly well-scoped project landing on time or an order of magnitude over budget can depend on whether the right engineering leaders have taken the time to deeply inspect critical plans, decisions, and designs. 
 
 First, the leader needs to define an initial set of success criteria. These should be
-* Comprehensive - It should not be possible to achieve these goals and still fail
-* Minimal - The success criteria should focus on what needs to be achieved, not the details of how it will be achieved
-* Written - There needs to be a single source of truth
-* Falsifiable - The success criteria must be concrete and ideally measurable
+* *Comprehensive* - It should not be possible to achieve these goals and still fail
+* *Minimal* - The success criteria should focus on what needs to be achieved, not the details of how it will be achieved
+* *Written* - There needs to be a single source of truth
+* *Falsifiable* - The success criteria must be concrete and ideally measurable
 
 It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
