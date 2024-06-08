@@ -28,10 +28,14 @@ But perhaps the specific exceptions triggered by this flaky service dependency d
 
 ![Tier 2 support required breakdown](/img/tier2-support-required-breakdown.png)
 
+Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal.
 
-Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal. 
+Although each leader in the chain decomposed their problem nicely, the end result was bad. How can engineering leaders reach across the org chart and prevent this?
 
-## Technical Inspection
+
+
+
+#### Technical Inspection
 
 Engineering organizations have a small number of key decision makers - sometimes engineering managers, sometimes tech leads - with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
 
@@ -43,7 +47,11 @@ This breaks into two critical responsibilities:
 
 *Define Success Criteria*
 
-Success criteria should be minimal, comprehensive, and written. It should not be possible to achieve these goals and still fail, but any solution that misses a single goal must be a failure. 
+Success criteria should be
+* Comprehensive - It should not be possible to achieve these goals and still fail
+* Minimal - Any solution that misses a single goal must be a failure
+* Written - There needs to be a single source of truth
+* Falsifiable - The success criteria must be concrete and ideally measurable
 
 It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
@@ -56,34 +64,18 @@ It's impossible to write a good success criteria without having some idea of wha
 
 However, design inspections are generally a terrible place to micromanage details. Success criteria should be prescriptive and tops down, but solutions must be bottoms up. Overly prescriptive tops down solutions subvert the unique context that only an engineer with their hands on the keyboard will have.
 
-## Data and Decisions
-
-<!-- A critical part of technical inspection is signing off on key technical decisions -  -->
-<!-- Business leaders generally treat data that confirms their hypotheses as gospel. Ownership of analytical correctness generally lies with the engineers and data scientists running the analyses. -->
 
 
-Many key technical decisions are informed by data. Unfortunately data is hard. 
-
-The most common pitfall is underspecification. The answer to a simple-seeming question like "are customers more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen (see [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for several examples).
-
-Generally only one specification of a question is actually relevant to a business decision. The decision of whether to increase the number of ads that a user sees on the front page requires data on the impact of front page ads on user churn - not just ads in general. Inspection requires understanding this relevant specification and identifying cases of underspecification or misspecification in an analysis.
- <!-- Technical inspection requires understanding whether the chosen question specification is the right one in the context of the relevant business decision. -->
-
-
-Another common pitfall is data "gotchas". For example, perhaps the primary dataset that stores ads displayed to users is de-duplicated by ad campaign. An analysis that uses this dataset to count the number of ads that a user sees in a day will be an undercount - jeopardizing the correctness of the analysis. Technical inspection requires identifying these gotchas and routing analyses away from them.
-
-There is one particularly powerful strategy to improve critical analyses. First, break down the key decisions and assumptions. Then demonstrate the same conclusion using a different set of assumptions - and ideally a different set of data. This approach can reduce risk and dramatically increase our confidence in a conclusion.
-
-## Balance
+#### Accountability and Trust
 
 A culture of technical inspection is a culture of accountability. Every engineering leader should feel personally responsible for every technical decision that their team makes.
 
-But the best leaders are not zealots. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. 
+But the best leaders are not zealots. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. Accountability built on trust ultimately leads to faster execution and a healthier organization. 
 
-Adding structure to technical inspection helps build this trust. Frequent design reviews with substantial leadership time commitment adds predictability and forces alignment.
+<!-- Adding structure to technical inspection helps build this trust. Frequent design reviews with substantial leadership time commitment adds predictability, forces alignment.
 
 Ultimately a balanced and trust-forward approach to technical inspection produces the best results. 
-
+ -->
 
 
 
