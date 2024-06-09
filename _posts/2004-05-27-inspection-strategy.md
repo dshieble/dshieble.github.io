@@ -34,12 +34,15 @@ But perhaps the specific exceptions triggered by this flaky service dependency d
 
 Executing this plan - which might take multiple months to implement, test and deploy - means needlessly ballooning the budget and extending the timeline of a critical business initiative. Although each leader in the chain decomposed their problem nicely, the end result was failure. How can we prevent this?
 
+
+<!-- These leaders may be the only with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'. -->
+
+
 The key miss is that the success criteria of "Reduce Customer Onboarding Exceptions" was fundamentally underspecified. The leader who derived this may not have known only certain customer onboarding exceptions trigger Tier 2 support cases - this is the kind of critical detail that may be invisible to anyone who does not look at log data every week. 
 
+To solve this we need to establish a feedback loop between high level objectives, low level specifications, and technical details. This requires an extremely high degree of accountability from a small number of key decision makers - sometimes engineering managers, sometimes tech leads - who own high level objectives and feel personal responsibility for every technical decision that their team makes to achieve them.
 
-To achieve this we need to establish a feedback loop between high level objectives, low level specifications, and technical details. This requires an extremely high degree of accountability from a small number of key decision makers - sometimes engineering managers, sometimes tech leads - who own high level objectives and feel personal responsibility for every technical decision that their team makes to achieve them.
-
-This is the cornerstone of effective technical execution. The difference between a seemingly well-scoped project landing on time or an order of magnitude over budget can depend on whether the right engineering leaders have taken the time to deeply inspect critical plans, decisions, and designs. 
+This is the cornerstone of effective technical execution. The difference between a seemingly well-scoped project landing on time or an order of magnitude over budget can depend on whether engineering leaders with the right business and technical context have taken the time to deeply inspect critical plans, decisions, and designs. 
 
 So what exactly do these leaders need to do?
 
@@ -60,8 +63,9 @@ The key ingredients of effective inspection are accountability and trust. The le
 
 
 
-<!-- Our ultimate goal is to derive a plan that sits within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
+<!-- The 'technologically sound', 'business optimal', and 'operationally feasible'.
 
+These leaders may be the only with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
 ![Venn Diagram](/img/venn-diagram.png) -->
 
 <!-- to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'. -->
