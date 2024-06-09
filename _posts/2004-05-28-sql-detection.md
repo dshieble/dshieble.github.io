@@ -29,7 +29,12 @@ This is tough in practice. Interpretability tends to be paramount (people want t
 
 For these reasons most organizations operating a detection engine use rules as a baseline for detection. An example fraud detection rule might be:
 ```
-(address_verification_fails = true AND previous_fraud_count > 0) OR (cvc_verification_fails = true)
+(
+  address_verification_fails = true
+  AND previous_fraud_count > 0
+) OR (
+  cvc_verification_fails = true
+)
 ```
 A rule like this one will never be as effective as an ML model that consumes large numbers of features, but its interpretability and editability make it a useful baseline. Organizations generally express rules like this one through a simple rule engine. For example, Stripe Radar provides a [simple platform](https://docs.stripe.com/radar/rules) for customers to implement their own fraud detection rules.
 
