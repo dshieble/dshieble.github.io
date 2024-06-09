@@ -22,7 +22,7 @@ This problem - identify a small number of bad events in a sea of good events - i
 Detection is a subcategory of classification, so one approach to solve a detection problem is to extract a bunch of features from events and throw a ML model trained on "bad" vs "good" at the problem. This is tough in practice. Interpretability tends to be paramount (people want to know why their payment was bounced), labels can be expensive to acquire and balance (especially since good events can be extremely diverse and many orders of magnitude more common than bad events), and the core problem is adversarial (malicious actors change up their techniques whenever they stop working).
 
 For these reasons most organizations operating a detection engine use rules as a detection baseline. An example payment fraud detection rule might be:
-> ```
+```
 (
   address_verification_fails = true
   AND previous_fraud_count > 0
@@ -46,44 +46,33 @@ Breaking this down, we need to replace human judgements with LLM judgements in t
 2. Given a description of the table, a query, a sample of good rows fetched by that query and a sample of bad rows fetched by that query, modify the query so that all bad rows remain detected and as many good rows as possible are filtered out.
 
 One simple way to solve task 1 is to use a prompt like the following:
-> ```
-You are a fraud detection agent reviewing payments for evidence of fraud. 
-
-Here is how you spot fraud in a payment:
-<detailed instructions, perhaps from internal documents used by human fraud detection agents>
-
-Here are some examples of previous fraudulent payments:
-<examples of previous fraudulent payments>
-
-Here are some examples of previous legitimate payments:
-<examples of previous legitimate payments>
-
-Please inspect the following payment:
-<description of the payment, presented as close as possible to what a human reviewer would see>
-
+> You are a fraud detection agent reviewing payments for evidence of fraud.  
+Here is how you spot fraud in a payment:  
+<detailed instructions, perhaps from internal documents used by human fraud detection agents>  
+Here are some examples of previous fraudulent payments:  
+<examples of previous fraudulent payments>  
+Here are some examples of previous legitimate payments:  
+<examples of previous legitimate payments>  
+Please inspect the following payment:  
+<description of the payment, presented as close as possible to what a human reviewer would see>  
 Is this payment fraudulent?
-```
+
 
 The performance of this prompt will likely by bottlenecked by how well the payment features are described to the model. More complex solutions to task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
 
 We can also solve task 2 with a simple LLM prompt
-> ```
-You are a fraud detection agent writing a fraud detection rule.
-
-Here is the rule you have written so far:
-<description of the rule>
-
-This rule correctly flags the following fraudulent payments:
-<detailed description of the fraudulent payments and all signals associated with them>
-
-This rule incorrectly flags the following legitimate payments:
-<detailed description of the legitimate payments and all signals associated with them>
-
-Here are the other features that are available in your rule writing engine
-<descriptions of the other features that are not currently used by the rule>
-
+> You are a fraud detection agent writing a fraud detection rule.  
+Here is the rule you have written so far:  
+<description of the rule>  
+This rule correctly flags the following fraudulent payments:  
+<detailed description of the fraudulent payments and all signals associated with them>  
+This rule incorrectly flags the following legitimate payments:  
+<detailed description of the legitimate payments and all signals associated with them>  
+Here are the other features that are available in your rule writing engine  
+<descriptions of the other features that are not currently used by the rule>  
 How would you edit this rule to continue flagging these fraudulent payments and no longer flag these legitimate payments?
-```
+
+
 
 A better task 1 LLM labeling agent will generally improve the final SQL rule. However, in high noise domains with high human mislabel rates the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
 
