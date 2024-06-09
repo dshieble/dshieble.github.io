@@ -58,7 +58,7 @@ Please inspect the following payment:
 Is this payment fraudulent?
 
 
-The performance of this prompt will likely by bottlenecked by how well the payment is described to the model. Critically, any information about the payment that a human labeler can access should be included in the prompt to achieve the best performance. More complex solutions to Task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
+The performance of this prompt will likely by bottlenecked by how well the payment is described to the model. Any information about the payment that a human labeler might use to judge whether the payment is bad should be included in the prompt. More complex solutions to Task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
 
 That said, while a better LLM labeling agent will improve the final rule, in high noise domains the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
 
