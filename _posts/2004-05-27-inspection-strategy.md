@@ -34,7 +34,7 @@ But perhaps the specific exceptions triggered by this flaky service dependency d
 
 Executing this plan - which might take multiple months to implement, test and deploy - means needlessly ballooning the budget and extending the timeline of a critical business initiative.
 
-<!-- Although each leader in the chain decomposed their problem nicely, the end result was failure. How can engineering leaders reach across the org chart and prevent this? -->
+Although each leader in the chain decomposed their problem nicely, the end result was failure. How can we prevent this?
 
 The key miss is that the success criteria of "Reduce Customer Onboarding Exceptions" was fundamentally underspecified. The leader who derived this may not have known only certain customer onboarding exceptions trigger Tier 2 support cases - this is the kind of critical detail that only a small number of engineers may know.
 
@@ -43,13 +43,6 @@ Our ultimate goal is to derive a plan that sits within the thin intersection of 
 ![Venn Diagram](/img/venn-diagram.png)
 
 To achieve this we need to establish a feedback loop between high level objectives, low level specifications, and technical details. This requires an extremely high degree of accountability from a small number of key decision makers - sometimes engineering managers, sometimes tech leads - who own high level objectives and feel personal responsibility for every technical decision that their team makes to achieve them.
-
-<!-- to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'. -->
-
-<!-- 
-These leaders are the only individuals capable of technical inspection - owning and inspecting plans and decisions to ensure alignment with business needs and technical reality. 
-
- -->
 
 This is the cornerstone of effective technical execution. The difference between a seemingly well-scoped project landing on time or an order of magnitude over budget can depend on whether the right engineering leaders have taken the time to deeply inspect critical plans, decisions, and designs. 
 
@@ -70,6 +63,15 @@ When executed correctly this inspection can unveil cracks and inconsistencies in
 
 The key ingredients of effective inspection are accountability and trust. The leader must feel personally responsible for their team's decisions, but not be a zealot. Technical inspection must be applied from a position of two-way trust. Leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. Accountability built on trust ultimately leads to faster execution and a healthier organization. 
 
+
+
+
+<!-- to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'. -->
+
+<!-- 
+These leaders are the only individuals capable of technical inspection - owning and inspecting plans and decisions to ensure alignment with business needs and technical reality. 
+
+ -->
 
 <!-- 
 
