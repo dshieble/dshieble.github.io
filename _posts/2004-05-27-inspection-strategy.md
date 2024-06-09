@@ -38,9 +38,6 @@ Although each leader in the chain decomposed their problem nicely, the end resul
 
 The key miss is that the success criteria of "Reduce Customer Onboarding Exceptions" was fundamentally underspecified. The leader who derived this may not have known only certain customer onboarding exceptions trigger Tier 2 support cases - this is the kind of critical detail that may be invisible to anyone who does not look at log data every week. 
 
-Our ultimate goal is to derive a plan that sits within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
-
-![Venn Diagram](/img/venn-diagram.png)
 
 To achieve this we need to establish a feedback loop between high level objectives, low level specifications, and technical details. This requires an extremely high degree of accountability from a small number of key decision makers - sometimes engineering managers, sometimes tech leads - who own high level objectives and feel personal responsibility for every technical decision that their team makes to achieve them.
 
@@ -65,6 +62,9 @@ The key ingredients of effective inspection are accountability and trust. The le
 
 
 
+<!-- Our ultimate goal is to derive a plan that sits within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
+
+![Venn Diagram](/img/venn-diagram.png) -->
 
 <!-- to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'. -->
 
