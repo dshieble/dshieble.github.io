@@ -60,7 +60,7 @@ Is this payment fraudulent?
 
 The performance of this prompt will likely by bottlenecked by how well the payment features are described to the model. More complex solutions to task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
 
-That said, while a better LLM labeling agent will improve the final rule, in high noise domains with high human mislabel rates the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
+That said, while a better LLM labeling agent will improve the final rule, in high noise domains the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
 
 
 We can also solve task 2 with a simple LLM prompt
