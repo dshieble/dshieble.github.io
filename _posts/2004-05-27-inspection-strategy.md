@@ -46,7 +46,7 @@ This is the cornerstone of effective technical execution. The difference between
 
 So what exactly do these leaders need to do?
 
-First, the leader needs to define an initial set of success criteria. These should be:
+The first step is to define an initial set of success criteria. These should be:
 * *Comprehensive* - It should not be possible to achieve these goals and still fail
 * *Minimal* - The success criteria should focus on what needs to be achieved, not the details of how it will be achieved
 * *Written* - There needs to be a single source of truth
@@ -54,7 +54,7 @@ First, the leader needs to define an initial set of success criteria. These shou
 
 It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream might be "reduce customer onboarding exceptions that don't require Tier 2 support".
 
-Next, the leader needs to inspect the critical decisions, designs, and plans to achieve these success criteria. This can't be an exercise in micromanagement. The leader has the responsibility to harness, not stifle, the unique context held by the engineer with their hands on the keyboard. Success criteria should be somewhat prescriptive and tops down, but solutions must be bottoms up.
+Next, the leader needs to inspect the critical decisions, designs, and plans to achieve these success criteria. This can't be an exercise in micromanagement. Leaders have the responsibility to harness, not stifle, the unique context held by the engineer with their hands on the keyboard. Success criteria should be somewhat prescriptive and tops down, but solutions must be bottoms up.
 
 When executed correctly this inspection can unveil cracks and inconsistencies in the initial set of success criteria. A critical detail - like the fact that only certain customer onboarding exceptions trigger Tier 2 support cases - may only reveal themselves after hours of poring over logs. At its best technical inspection is an iterative process of setting success criteria, inspecting solutions, and increasing the specificity of the success criteria. 
 
