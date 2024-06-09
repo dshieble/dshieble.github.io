@@ -36,23 +36,23 @@ In this post we'll explore a dead simple approach to building interpretable dete
 ## SQL-Based Detection 
 
 Suppose we have a system that processes events and writes them as rows in a table, where the columns in the table are the signals or observations associated with each event. We can therefore express simple detection algorithms as a SQL WHERE block like:
-`SELECT * FROM <TABLE> WHERE <SQL logic that characterizes the algorithm>`
+```SELECT * FROM <TABLE> WHERE <SQL logic that characterizes the algorithm>```
 
 In our payment processor example each row will be a transaction, columns might be signals like the dollar value of the transaction, the fraud history of the payer, the address verification status, the payer zip code, etc. An example algorithm expressed in SQL might be something like:
-`(address_verification_fails = true AND previous_fraud_count > 0) OR (cvc_verification_fails = true)`
+```(address_verification_fails = true AND previous_fraud_count > 0) OR (cvc_verification_fails = true)```
 
 SQL is extremely expressive, and we can use this to build some quite sophisticated decision rules without sacrificing end-to-end interpretability and editability. For example, we can express any decision tree in SQL with logic like:
-`(colA > thresh A AND colB > thresh B) OR (colA <= threshA AND colC > thresh C)`
+```(colA > thresh A AND colB > thresh B) OR (colA <= threshA AND colC > thresh C)```
 
 <diagram of decision tree>
 
 And we can express any linear decision classifier in SQL with logic like:
-`(coeffA * colA + coeffB * colB) > thresh`
+```(coeffA * colA + coeffB * colB) > thresh```
 
 SQL's simplicity and universality are major advantages - many domain experts - and all good LLMs - know the syntax, and execution is simple enough to prevent footguns. 
 
 SQL is also nicely decomposable. Teams can develop detection algorithms independently and run them side-by-side connected by SQL OR statements in the WHERE block. Specifically this looks like:
-`SELECT * FROM <TABLE> WHERE (<logic for first algorithm> OR <logic for second algorithm> OR ...)`
+```SELECT * FROM <TABLE> WHERE (<logic for first algorithm> OR <logic for second algorithm> OR ...)```
 
 This makes it much easier to scale teams through decomposition.
 
