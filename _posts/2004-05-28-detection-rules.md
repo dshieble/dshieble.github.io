@@ -65,11 +65,11 @@ We can also solve task 2 with a simple LLM prompt
 Here is the rule you have written so far:  
 <description of the rule>  
 This rule correctly flags the following fraudulent payments:  
-<detailed description of the fraudulent payments and all signals associated with them>  
+<detailed description of the fraudulent payments>  
 This rule incorrectly flags the following legitimate payments:  
-<detailed description of the legitimate payments and all signals associated with them>  
-Here are the other features that are available in your rule writing engine  
-<descriptions of the other features that are not currently used by the rule>  
+<detailed description of the legitimate payments>  
+Here is the set of all signals that are available in your rule writing engine:
+<descriptions of all signals and how to use them in the rule writing engine>  
 How would you edit this rule to continue flagging these fraudulent payments and no longer flag these legitimate payments?
 
 
