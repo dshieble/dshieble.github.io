@@ -39,7 +39,7 @@ There is a simple human-in-the-loop algorithm that analysts can follow to write 
 * Identify if there are additional predicates that will stop some of the good stuff from getting picked up without stopping the bad stuff from getting picked up
 * Add these predicates to the query and repeat
 
-When we squint this human-in-the-loop algorithm doesn't look too different from training an ML model - the rule evolves in an iterative fashion as human provided labels identify incorrect judgements. This raises the question - can we automate this process by replacing the human-in-the-loop components with LLMs?
+This human-in-the-loop algorithm doesn't look too different from an ML model training algorithm - the rule evolves in an iterative fashion as human provided labels identify incorrect judgements. This raises the question - can we automate this process by replacing the human-in-the-loop components with LLMs?
 
 Breaking this down, we need to replace human judgements with LLM judgements in two tasks:
 1. Given a sample that the rule flagged, label it as "good" or "bad"
