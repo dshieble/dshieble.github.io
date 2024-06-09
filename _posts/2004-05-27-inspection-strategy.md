@@ -32,9 +32,7 @@ But perhaps the specific exceptions triggered by this flaky service dependency d
 
 <!-- TODO: Talk more about what exactly happens in this case -->
 
-Executing this plan - which might take multiple months to implement, test and deploy - means needlessly ballooning the budget and extending the timeline of a critical business initiative.
-
-Although each leader in the chain decomposed their problem nicely, the end result was failure. How can we prevent this?
+Executing this plan - which might take multiple months to implement, test and deploy - means needlessly ballooning the budget and extending the timeline of a critical business initiative. Although each leader in the chain decomposed their problem nicely, the end result was failure. How can we prevent this?
 
 The key miss is that the success criteria of "Reduce Customer Onboarding Exceptions" was fundamentally underspecified. The leader who derived this may not have known only certain customer onboarding exceptions trigger Tier 2 support cases - this is the kind of critical detail that may be invisible to anyone who does not look at log data every week. 
 
