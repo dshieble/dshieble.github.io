@@ -14,6 +14,8 @@ tags: [Engineering, Leadership, Architecture, Management]
 
 </script>
 
+<!-- TODO: Maybe start with a primer on the goals of the post -->
+
 The CEO needs to increase company margins. He turns to the engineering leadership team to help.
 
 Engineering leadership puts together a sound plan. First the objective to "Increase Company Margins" is decomposed into a collection of eng-level goals like "Reduce Tier 2 Support Hours". Each of these eng-level goals decompose into division-level goals like "Reduce Customer Onboarding Tier 2 Support Escalations", which decompose into team-level goals like "Reduce Customer Onboarding Exceptions".
@@ -24,19 +26,68 @@ At the surface it may seem like the problem is nearly solved. Each engineering t
 
 The engineer tasked with reducing customer onboarding exceptions is unlikely to understand the relationship of this workstream with company margins - they may or may not even know what Tier 2 support is. The great game of corporate telephone can easily send them down the wrong road. For example, suppose the engineer reviews recent customer onboarding exceptions, identifies a flaky service dependency as a common root cause, and then writes a design to remove the dependency. This will likely read as a solid plan to someone reviewing the design at a surface level.
 
-But perhaps the specific exceptions triggered by this flaky service dependency do not require Tier 2 support to resolve!
+But perhaps the specific exceptions triggered by this flaky service dependency do not require Tier 2 support to resolve! Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal. 
 
 ![Tier 2 support required breakdown](/img/tier2-support-required-breakdown.png)
 
-Then fixing these exceptions is not required to remove Tier 2 support, and the engineer's plan is sideways to the key business goal.
+<!-- TODO: Talk more about what exactly happens in this case -->
+
+Executing this plan - which might take multiple months to implement, test and deploy - means needlessly ballooning the budget and extending the timeline of a critical business initiative. 
+
+This is a natural outcome of tops-down 
+
+
+
 
 Although each leader in the chain decomposed their problem nicely, the end result was failure. How can engineering leaders reach across the org chart and prevent this?
+
+
+
+
+
+
+
+
+TODO: this is where we need to put in a note about accountability so this flows cleanly into what the company needs to do better to prevent this
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Engineering organizations have a small number of key decision makers - sometimes engineering managers, sometimes tech leads - with the right business and technical context to keep plans within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
 
 ![Venn Diagram](/img/venn-diagram.png)
 
 These leaders are the only individuals capable of technical inspection - owning and inspecting plans and decisions to ensure alignment with business needs and technical reality. 
+
+
+
+
+So what exactly do these leaders need to be held accountable for? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 This is the cornerstone of effective technical execution. The difference between a seemingly well-scoped project landing on time or an order of magnitude over budget can depend on whether the right engineering leaders have taken the time to deeply inspect critical plans, decisions, and designs. 
 
