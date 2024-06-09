@@ -47,14 +47,14 @@ Breaking this down, we need to replace human judgements with LLM judgements in t
 
 One simple way to solve Task 1 is to use a prompt like the following:
 > You are a fraud detection agent reviewing payments for evidence of fraud.  
-Here is how you spot fraud in a payment:  
-`detailed instructions, perhaps from internal documents used by human fraud detection agents`  
+Here are detailed instructions on how you spot fraud in a payment:  
+...  
 Here are some examples of previous fraudulent payments:  
-`examples of previous fraudulent payments`  
+...  
 Here are some examples of previous legitimate payments:  
-`examples of previous legitimate payments`  
+...  
 Please inspect the following payment:  
-`description of the payment, presented as close as possible to what a human reviewer would see`  
+...  
 Is this payment fraudulent?
 
 
@@ -66,13 +66,13 @@ That said, while a better LLM labeling agent will improve the final rule, in hig
 We can also solve Task 2 with a simple LLM prompt
 > You are a fraud detection agent writing a fraud detection rule.  
 Here is the rule you have written so far:  
-`description of the rule`  
+...  
 This rule correctly flags the following fraudulent payments:  
-`detailed description of the fraudulent payments`  
+...  
 This rule incorrectly flags the following legitimate payments:  
-`detailed description of the legitimate payments`  
-Here is the set of all signals that are available in your rule writing engine:
-`descriptions of all signals and how to use them in the rule writing engine`  
+...  
+Here is the set of all signals that are available in your rule writing engine and a description of how to use them:
+...  
 How would you edit this rule to continue flagging these fraudulent payments and no longer flag these legitimate payments?
 
 
