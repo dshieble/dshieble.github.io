@@ -30,7 +30,7 @@ For these reasons most organizations operating a detection engine use rules as a
   cvc_verification_fails = true
 )
 ```
-Organizations generally express these kinds of rules through a rule engine like [Stripe Radar](https://docs.stripe.com/radar/rules). A rule like this one will never be as effective as an ML model that consumes large numbers of features, but its interpretability and editability make it a useful baseline. 
+Organizations generally express these kinds of rules through a rule engine like [Stripe Radar](https://docs.stripe.com/radar/rules). These kinds of rules have a lower performance ceiling than an end-to-end ML model, but their interpretability and editability make them useful baselines. 
 
 There is a simple human-in-the-loop algorithm that analysts can follow to write good detection rules
 * Come up with a theory for a broad heuristic that will spot a bunch of bad stuff
