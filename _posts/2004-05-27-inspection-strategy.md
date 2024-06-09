@@ -36,7 +36,7 @@ Executing this plan - which might take multiple months to implement, test and de
 
 Although each leader in the chain decomposed their problem nicely, the end result was failure. How can we prevent this?
 
-The key miss is that the success criteria of "Reduce Customer Onboarding Exceptions" was fundamentally underspecified. The leader who derived this may not have known only certain customer onboarding exceptions trigger Tier 2 support cases - this is the kind of critical detail that only a small number of engineers may know.
+The key miss is that the success criteria of "Reduce Customer Onboarding Exceptions" was fundamentally underspecified. The leader who derived this may not have known only certain customer onboarding exceptions trigger Tier 2 support cases - this is the kind of critical detail that may be invisible to anyone who does not look at log data every week. 
 
 Our ultimate goal is to derive a plan that sits within the thin intersection of 'technologically sound', 'business optimal', and 'operationally feasible'.
 
