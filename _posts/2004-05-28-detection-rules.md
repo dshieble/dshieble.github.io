@@ -22,7 +22,7 @@ This problem - identify a small number of bad events in a sea of good events - i
 Detection is a subcategory of classification, so one approach to solve a detection problem is to extract a bunch of features from events and throw a ML model trained on "bad" vs "good" at the problem. This is tough in practice. Interpretability tends to be paramount (people want to know why their payment was bounced), labels can be expensive to acquire and balance (especially since good events can be extremely diverse and many orders of magnitude more common than bad events), and the core problem is adversarial (malicious actors change up their techniques whenever they stop working).
 
 For these reasons most organizations operating a detection engine use rules as a detection baseline. An example payment fraud detection rule might be:
-```
+> ```
 (
   address_verification_fails = true
   AND previous_fraud_count > 0
@@ -43,10 +43,10 @@ This human-in-the-loop algorithm doesn't look too different from an ML model tra
 
 Breaking this down, we need to replace human judgements with LLM judgements in two tasks:
 1. Given a sample that the rule flagged, label it as "good" or "bad"
-2. Given a description of the table, a query, a sample of good rows fetched by that query and a sample of bad rows fetched by that query, modify the query so that all bad rows remain detected and as many good rows as possible are filtered out
+2. Given a description of the table, a query, a sample of good rows fetched by that query and a sample of bad rows fetched by that query, modify the query so that all bad rows remain detected and as many good rows as possible are filtered out.
 
 One simple way to solve task 1 is to use a prompt like the following:
-```
+> ```
 You are a fraud detection agent reviewing payments for evidence of fraud. 
 
 Here is how you spot fraud in a payment:
@@ -67,7 +67,7 @@ Is this payment fraudulent?
 The performance of this prompt will likely by bottlenecked by how well the payment features are described to the model. More complex solutions to task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
 
 We can also solve task 2 with a simple LLM prompt
-```
+> ```
 You are a fraud detection agent writing a fraud detection rule.
 
 Here is the rule you have written so far:
