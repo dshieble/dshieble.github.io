@@ -15,47 +15,17 @@ tags: [Classification, Machine Learning, Artificial Intelligence]
 </script>
 
 
-<!-- 
-
-
-
-
-
-
-
-TODO: Reframe this post to be about LLM-based rule generation
-
-
-
-
-
-
-
-
-
- -->
-
-
-
-
-
-
-
-
-
-
-
 Suppose you are a payment processor handling thousands or millions of payments every day. Some small number of the payments that you process are bound to be fraudulent. How can you spot them?
 
-This problem - identify a small number of bad events in a sea of good events - is known as detection. This shows up in many domains outside of fraud
-* Identify fraud events among safe events
+This problem - identify a small number of bad events in a sea of good events - is known as detection. This shows up in many domains outside of fraud:
+* Identify fraudulent payments among legitimate payments
 * Identify phishing emails among safe emails
 * Identify abusive or illegal posts among safe posts on a social media platform
 * etc
 
 Detection is a subcategory of classification, so one approach to solve detection problems is to extract a bunch of features from events and throw a ML model trained on "bad" vs "good" at the problem. 
 
-This is to be tough in practice. Interpretability tends to be paramount (people want to know why their payment was bounced), labels can be expensive to acquire and balance (especially since good events can be extremely diverse and many orders of magnitude more common than bad events), and the core problem is adversarial (malicious actors change up their techniques whenever they stop working).
+This is tough in practice. Interpretability tends to be paramount (people want to know why their payment was bounced), labels can be expensive to acquire and balance (especially since good events can be extremely diverse and many orders of magnitude more common than bad events), and the core problem is adversarial (malicious actors change up their techniques whenever they stop working).
 
 For these reasons most organizations operating a detection engine use rules as a baseline for detection. An example fraud detection rule might be:
 ```
@@ -98,8 +68,6 @@ Is this payment fraudulent?
 The performance of this prompt will likely by bottlenecked by how well the payment features are described to the model. More complex solutions to task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
 
 We can also solve task 2 with a simple LLM prompt
-<!-- TODO: Talk about how this prompt needs a description of what the columns mean -->
-
 ```
 You are a fraud detection agent writing a fraud detection rule.
 
