@@ -14,13 +14,15 @@ tags: [Engineering, Leadership, Data Science]
 
 </script>
 
-Many key technical decisions are informed by data. Unfortunately data is hard. 
+<!-- Many key technical decisions are informed by data. Unfortunately data is hard.  -->
 
-The most common pitfall is underspecification. The answer to a simple-seeming question like "are users more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen.
+Data is crucial to accurate technical decision making. But sloppy data can lend false confidence to bad decisions. Understanding a few common pitfalls can help leaders make better decisions from data.
+
+The most common pitfall is underspecification. The answer to a simple-seeming question like "are users more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen. Generally only one specification of a question is actually relevant to a business decision. For example, the decision of whether to increase the number of ads that a user sees on the front page requires data on the impact of front page ads on user churn - not just ads in general. We can get to the right specification by adding clarifications to each question until this ambiguity disappears. 
+
 
 <!-- (see [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for several examples). -->
 
-Generally only one specification of a question is actually relevant to a business decision. The decision of whether to increase the number of ads that a user sees on the front page requires data on the impact of front page ads on user churn - not just ads in general. Inspection requires understanding this relevant specification and identifying cases of underspecification or misspecification in an analysis.
 
 Another common pitfall is data "gotchas". For example, perhaps the primary dataset that stores ads displayed to users is de-duplicated by ad campaign. An analysis that uses this dataset to count the number of ads that a user sees in a day will be an undercount - jeopardizing the correctness of the analysis. Making the right decisions requires identifying these gotchas and routing analyses away from them.
 
