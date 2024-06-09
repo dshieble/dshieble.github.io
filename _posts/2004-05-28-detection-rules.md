@@ -60,6 +60,9 @@ Is this payment fraudulent?
 
 The performance of this prompt will likely by bottlenecked by how well the payment features are described to the model. More complex solutions to task 1 might involve finetuning the LLM on labeled data or breaking the problem into subproblems handled by separate agents. 
 
+That said, while a better LLM labeling agent will improve the final rule, in high noise domains with high human mislabel rates the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
+
+
 We can also solve task 2 with a simple LLM prompt
 > You are a fraud detection agent writing a fraud detection rule.  
 Here is the rule you have written so far:  
@@ -74,7 +77,6 @@ How would you edit this rule to continue flagging these fraudulent payments and 
 
 
 
-A better task 1 LLM labeling agent will generally improve the final SQL rule. However, in high noise domains with high human mislabel rates the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
 
 This approach can substantially cut down on the human effort required to operate a rule-based detection engine without requiring endless streams of human labeled data or sacrificing the simplicity, interpretability and editability of the detection logic.
 
