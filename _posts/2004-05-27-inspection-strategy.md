@@ -46,7 +46,7 @@ This is the cornerstone of effective technical execution. The difference between
 
 So what exactly do these leaders need to do?
 
-First, the leader needs to define an initial set of success criteria. These should be
+First, the leader needs to define an initial set of success criteria. These should be:
 * *Comprehensive* - It should not be possible to achieve these goals and still fail
 * *Minimal* - The success criteria should focus on what needs to be achieved, not the details of how it will be achieved
 * *Written* - There needs to be a single source of truth
