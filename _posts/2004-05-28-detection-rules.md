@@ -62,7 +62,7 @@ The performance of this prompt will likely by bottlenecked by how well the payme
 That said, while a better LLM labeling agent will improve the final rule, in high noise domains the resulting algorithm may actually have higher accuracy than the LLM labeling agent itself. Forcing the algorithm to be expressed as a simple rule (rather than the black magic voodoo going on inside of the LLM) enables [Occam's Razor](https://en.wikipedia.org/wiki/Occam%27s_razor) to work its magic. 
 
 
-We can also solve Task 2 by writing a prompt like the following alongside a parser to pipe the output back into the rule engine:
+We can solve Task 2 by writing a prompt like the following alongside a parser to pipe the output back into the rule engine:
 > You are a fraud detection agent writing a fraud detection rule.  
 Here is the set of all signals that are available in your rule writing engine:  
 ...  
