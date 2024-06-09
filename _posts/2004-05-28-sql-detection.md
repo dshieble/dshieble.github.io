@@ -17,17 +17,11 @@ tags: [Classification, Machine Learning, Artificial Intelligence]
 
 Suppose you are a payment processor handling thousands or millions of payments every day. Some small number of the payments that you process are bound to be fraudulent. How can you spot them?
 
-This problem - identify a small number of bad events in a sea of good events - is known as detection. This shows up in many domains outside of fraud:
-* Identify fraudulent payments among legitimate payments
-* Identify phishing emails among safe emails
-* Identify abusive or illegal posts among safe posts on a social media platform
-* etc
+This problem - identify a small number of bad events in a sea of good events - is known as detection. This shows up in many domains: fraudulent payments, phishing emails, illegal social media posts, etc.
 
-Detection is a subcategory of classification, so one approach to solve detection problems is to extract a bunch of features from events and throw a ML model trained on "bad" vs "good" at the problem. 
+Detection is a subcategory of classification, so one approach to solve a detection problem is to extract a bunch of features from events and throw a ML model trained on "bad" vs "good" at the problem. This is tough in practice. Interpretability tends to be paramount (people want to know why their payment was bounced), labels can be expensive to acquire and balance (especially since good events can be extremely diverse and many orders of magnitude more common than bad events), and the core problem is adversarial (malicious actors change up their techniques whenever they stop working).
 
-This is tough in practice. Interpretability tends to be paramount (people want to know why their payment was bounced), labels can be expensive to acquire and balance (especially since good events can be extremely diverse and many orders of magnitude more common than bad events), and the core problem is adversarial (malicious actors change up their techniques whenever they stop working).
-
-For these reasons most organizations operating a detection engine use rules as a baseline for detection. An example fraud detection rule might be:
+For these reasons most organizations operating a detection engine use rules as a detection baseline. An example payment fraud detection rule might be:
 ```
 (
   address_verification_fails = true
@@ -36,7 +30,7 @@ For these reasons most organizations operating a detection engine use rules as a
   cvc_verification_fails = true
 )
 ```
-A rule like this one will never be as effective as an ML model that consumes large numbers of features, but its interpretability and editability make it a useful baseline. Organizations generally express rules like this one through a simple rule engine. For example, Stripe Radar provides a [simple platform](https://docs.stripe.com/radar/rules) for customers to implement their own fraud detection rules.
+Organizations generally express these kinds of rules through a rule engine like [Stripe Radar](https://docs.stripe.com/radar/rules). A rule like this one will never be as effective as an ML model that consumes large numbers of features, but its interpretability and editability make it a useful baseline. 
 
 There is a simple human-in-the-loop algorithm that analysts can follow to write good detection rules
 * Come up with a theory for a broad heuristic that will spot a bunch of bad stuff
