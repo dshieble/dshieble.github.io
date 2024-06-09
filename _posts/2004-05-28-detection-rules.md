@@ -74,8 +74,10 @@ This rule correctly flags the following fraudulent payments:
 ...  
 This rule incorrectly flags the following legitimate payments:  
 ...  
-How would you edit this rule to continue flagging these fraudulent payments and no longer flag these legitimate payments? Please express your output in the following format:  
+You can edit this rule by generating an output in the following format:  
 ...  
+Please edit this rule to continue flagging these fraudulent payments and no longer flag these legitimate payments.
+
 
 This approach can substantially cut down on the human effort required to operate a rule-based detection engine without sacrificing the simplicity, interpretability and editability of the detection logic.
 
