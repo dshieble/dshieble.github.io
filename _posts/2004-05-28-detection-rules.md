@@ -36,7 +36,7 @@ There is a simple human-in-the-loop algorithm that analysts can follow to write 
 ![First come up with a theory for a broad heuristic that will spot a bunch of bad stuff. Then implement this heuristic in the rule engine and run the query. Then label the samples that the rule flagged as "good" or "bad". Then identify if there are additional predicates that will stop some of the good stuff from getting picked up without stopping the bad stuff from getting picked up. Then add these predicates to the query and repeat](/img/rule_writing_feedback_loop.png)
 
 
-This human-in-the-loop algorithm doesn't look too different from an ML model training algorithm - the rule evolves in an iterative fashion as human provided labels identify incorrect judgements. This raises the question - can we automate this process by replacing the human-in-the-loop components with LLMs?
+This human-in-the-loop algorithm doesn't look too different from an ML model training algorithm - the rule evolves in an iterative fashion as human provided labels identify incorrect judgements. This raises the question - can we automate this process by replacing the human-in-the-loop components with an LLM?
 
 Breaking this down, we need to replace human judgements with LLM judgements in two tasks:
 * *Task 1*: Given a sample that the rule flagged, label it as "good" or "bad"
