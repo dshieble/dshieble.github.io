@@ -32,14 +32,8 @@ For these reasons most organizations operating a detection engine use rules as a
 ```
 Organizations generally express these kinds of rules through a rule engine like [Stripe Radar](https://docs.stripe.com/radar/rules). These kinds of rules have a lower performance ceiling than an end-to-end ML model, but their interpretability and editability make them useful baselines. 
 
-There is a simple human-in-the-loop algorithm that analysts can follow to write good detection rules
-* Come up with a theory for a broad heuristic that will spot a bunch of bad stuff
-* Implement this heuristic in the rule engine and run the query
-* Label the samples that the rule flagged as "good" or "bad"
-* Identify if there are additional predicates that will stop some of the good stuff from getting picked up without stopping the bad stuff from getting picked up
-* Add these predicates to the query and repeat
-
-![Rule writing feedback loop](/img/rule_writing_feedback_loop.png)
+There is a simple human-in-the-loop algorithm that analysts can follow to write good detection rules.
+![First come up with a theory for a broad heuristic that will spot a bunch of bad stuff. Then implement this heuristic in the rule engine and run the query. Then label the samples that the rule flagged as "good" or "bad". Then identify if there are additional predicates that will stop some of the good stuff from getting picked up without stopping the bad stuff from getting picked up. Then add these predicates to the query and repeat](/img/rule_writing_feedback_loop.png)
 
 
 This human-in-the-loop algorithm doesn't look too different from an ML model training algorithm - the rule evolves in an iterative fashion as human provided labels identify incorrect judgements. This raises the question - can we automate this process by replacing the human-in-the-loop components with LLMs?
