@@ -16,11 +16,13 @@ tags: [Engineering, Leadership, Data Science]
 
 <!-- Many key technical decisions are informed by data. Unfortunately data is hard.  -->
 
-Sloppy analytics can lend false confidence to bad decisions. Understanding a few common pitfalls can help leaders make better decisions from data.
+Sloppy analytics can lend false confidence to bad decisions. Leaders who understand a few common pitfalls can make better decisions from data.
 
 The most common pitfall is underspecification. The answer to a simple-seeming question like "are users more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen. Generally only one specification of a question is actually relevant to a business decision.
 
-For example, a team deciding whether to increase the number of ads that a user sees on the front page should refine the question from "see more than 3 ads" to "see more than 3 front page ads" to get the right answer for their business problem. We can get to the right specification by adding clarifications to each question until this ambiguity disappears. 
+For example, a team deciding whether to increase the number of ads that a user sees on the front page should refine the question from "see more than 3 ads" to "see more than 3 front page ads" to get the right answer for their business problem. We can get to the right specification by adding clarifications to each question until this ambiguity disappears.
+
+It's often infeasible to get an answer to the maximally specified question. For example, perhaps the only dataset of user ad impressions that is available does not stratify by display location. However, simply understanding the gap between the question that we have an answer to (...see more than 3 ads...) and the question that we want an answer to (...see more than 3 front page ads...) helps us correctly calibrate our decision making confidence
 
 <!-- (see [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for several examples). -->
 
