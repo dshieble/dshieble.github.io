@@ -59,7 +59,7 @@ Next, the leader needs to inspect the critical decisions, designs, and plans to 
 When executed correctly this inspection can unveil cracks and inconsistencies in the initial set of success criteria. A critical detail - like the fact that only certain customer onboarding exceptions trigger Tier 2 support cases - may only reveal themselves after hours of poring over logs. At its best technical inspection is an iterative process of setting success criteria, inspecting solutions, and increasing the specificity of the success criteria. 
 
 
-The key ingredients of effective inspection are accountability - the leader must feel personally responsible for their team's decisions - and trust. This trust should flow in two directions - leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. Accountability built on trust ultimately leads to faster execution and a healthier organization. 
+The key ingredients of effective inspection are accountability and trust. The leader must feel personally responsible for their team's decisions, but not be a zealot. Trust should flow in two directions - leaders must trust that their engineers will make the right decisions with the right context, and engineers must trust that their leaders will embrace a solution that is unfamiliar to them but correct. Accountability built on trust ultimately leads to faster execution and a healthier organization. 
 
 
 
