@@ -46,7 +46,7 @@ This human-in-the-loop algorithm doesn't look too different from an ML model tra
 
 Breaking this down, we need to replace human judgements with LLM judgements in two tasks:
 * *Task 1*: Given a sample that the rule flagged, label it as "good" or "bad"
-* *Task 2*: Given a description of the table, a query, a sample of good rows fetched by that query and a sample of bad rows fetched by that query, modify the query so that all bad rows remain detected and as many good rows as possible are filtered out.
+* *Task 2*: Given documentation for the rule engine, a sample rule, a set of good samples flagged by that rule and a set of bad samples flagged by that rule, modify the rule so that all bad samples remain detected and as many good samples as possible are filtered out.
 
 One simple way to solve Task 1 is to use a prompt like the following:
 > You are a fraud detection agent reviewing payments for evidence of fraud.  
