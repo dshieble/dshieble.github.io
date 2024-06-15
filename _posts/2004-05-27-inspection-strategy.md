@@ -22,7 +22,7 @@ Engineering leadership puts together a sound plan. First the objective to "Incre
 
 ![Company margins project breakdown](/img/company-margins-project-breakdown.png)
 
-At the surface it may seem like the problem is nearly solved. Each engineering team just needs to achieve their individual goals, and the solutions will roll up into the org level goals. But the work of engineering leadership has just begun.
+At the surface it may seem like the path forward is clear. Each engineering team just needs to achieve their individual goals, and the solutions will roll up into the org level goals. But the work of engineering leadership has just begun.
 
 The engineer tasked with reducing customer onboarding exceptions is unlikely to understand the relationship of this workstream with company margins - they may or may not even know what Tier 2 support is. The great game of corporate telephone can easily send them down the wrong road. For example, suppose the engineer reviews recent customer onboarding exceptions, identifies a flaky service dependency as a common root cause, and then writes a design to remove the dependency. This will likely read as a solid plan to someone reviewing the design at a surface level.
 
