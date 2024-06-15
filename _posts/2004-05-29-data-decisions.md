@@ -20,11 +20,9 @@ Sloppy analytics can lend false confidence to bad decisions. Understanding a few
 
 The most common pitfall is underspecification. The answer to a simple-seeming question like "are users more likely to churn if they see more than 3 ads on their first day" can quickly switch between "yes" and "no" depending on which of several plausible sounding definitions of "churn" or "see more than 3 ads" are chosen. Generally only one specification of a question is actually relevant to a business decision.
 
-For example, a team deciding whether to increase the number of ads that a user sees on the front page needs to define "see more than 3 ads" as "see more than 3 front page ads" to get the right answer for their business problem. We can get to the right specification by adding clarifications to each question until this ambiguity disappears. 
-
+For example, a team deciding whether to increase the number of ads that a user sees on the front page should refine the question from "see more than 3 ads" to "see more than 3 front page ads" to get the right answer for their business problem. We can get to the right specification by adding clarifications to each question until this ambiguity disappears. 
 
 <!-- (see [this article](https://danshiebler.com/2017-10-29-lying-with-data/) for several examples). -->
-
 
 Another common pitfall is data "gotchas". For example, perhaps the primary dataset that stores ads displayed to users is de-duplicated by ad campaign. An analysis that uses this dataset to count the number of ads that a user sees in a day will be an undercount - jeopardizing the correctness of the analysis. Making the right decisions requires identifying these gotchas and routing analyses away from them.
 
