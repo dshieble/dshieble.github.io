@@ -52,7 +52,7 @@ The first step is to define an initial set of success criteria. These should be:
 * *Written* - There needs to be a single source of truth
 * *Falsifiable* - The success criteria must be concrete and ideally measurable
 
-It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "reduce customer onboarding exceptions" workstream might be "reduce customer onboarding exceptions that don't require Tier 2 support".
+It's often helpful to write non-goals alongside success criteria. For example, a non-goal for the "Reduce Customer Onboarding Exceptions" workstream might be "Reduce Customer Onboarding Exceptions That Don't Require Tier 2 Support".
 
 Next, the leader needs to inspect the critical decisions, designs, and plans to achieve these success criteria. This can't be an exercise in micromanagement. Leaders have the responsibility to harness, not stifle, the unique context held by the engineer with their hands on the keyboard. Success criteria should be somewhat prescriptive and tops down, but solutions must be bottoms up.
 
