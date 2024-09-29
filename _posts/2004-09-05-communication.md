@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Better Asynchronous Communication
+title: Better Asynchronous Written Communication
 tags: [Communication, Leadership]
 ---
 <script> 
@@ -14,7 +14,7 @@ tags: [Communication, Leadership]
 
 </script>
 
-Async written communication is eating the world. A growing percentage of critical ideas, discussions and decisions are mediated through platforms like Email, Slack, and Docs. How can we ensure this communication is effective?
+Asynchronous written communication is eating the world. A growing percentage of critical ideas, discussions and decisions are mediated through platforms like Email, Slack, and Docs. How can we ensure this communication is effective?
 
 Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must hold written communication to a much higher bar of specificity to achieve the same level of effectiveness. 
 
