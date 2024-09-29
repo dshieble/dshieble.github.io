@@ -14,13 +14,15 @@ tags: [Communication, Leadership]
 
 </script>
 
-Asynchronous written communication is eating the world. A growing percentage of critical ideas, discussions and decisions are mediated through platforms like Email, Slack, and Docs. How can we ensure this communication is effective?
+Asynchronous written communication is eating the world. Critical ideas, discussions and decisions are increasing mediated through platforms like Email, Slack, and Docs. How can we ensure this communication is effective?
 
 Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must hold written communication to a much higher bar of specificity to achieve the same level of effectiveness. 
 
-For example, suppose that last Tuesday Bob said X to you and Sara. If you send Sara an email that says 
+For example, suppose that last Tuesday Bob said X to you and Sara. If you send Sara an email that says:
+
 > I think Bob might have been wrong, and the opposite is true instead
-then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob that you were not a part of and she doesn't know which of his many opinions you are referring to. She is much more likely to understand an email along the lines of:
+
+Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob that you were not a part of and she doesn't know which of his many opinions you are referring to. She is much more likely to understand an email along the lines of:
 
 > I think Bob might have been wrong when he said X to us last Tuesday in the ABC meeting, and Y is true instead
 
