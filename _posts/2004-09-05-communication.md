@@ -16,7 +16,7 @@ tags: [Communication, Leadership]
 
 Asynchronous written communication is eating the world. Critical ideas, discussions and decisions are increasingly mediated through platforms like Email, Slack, and Docs. How can we ensure this communication is effective?
 
-Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must hold written communication to a much higher bar of specificity to achieve the same level of effectiveness. 
+Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must increase the level of specificity in our written communication to be reliably understood.
 
 For example, suppose that last Tuesday Bob said X to you and Sara. If you send Sara an email that says:
 
