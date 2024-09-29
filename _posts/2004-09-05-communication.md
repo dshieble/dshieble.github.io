@@ -19,13 +19,10 @@ Async written communication is eating the world. A growing percentage of critica
 Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must hold written communication to a much higher bar of specificity to achieve the same level of effectiveness. 
 
 For example, suppose that last Tuesday Bob said X to you and Sara. If you send Sara an email that says 
-```
-I think Bob might have been wrong, and the opposite is true instead
-```
+> I think Bob might have been wrong, and the opposite is true instead
 then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob that you were not a part of and she doesn't know which of his many opinions you are referring to. She is much more likely to understand an email along the lines of:
-```
-I think Bob might have been wrong when he said X to us last Tuesday in the ABC meeting, and Y is true instead
-```
+
+> I think Bob might have been wrong when he said X to us last Tuesday in the ABC meeting, and Y is true instead
 
 Both messages have the same meaning, but the latter is far harder to misinterpret. The original message left implicit both the subject (what Bob said) and the conclusion (that the opposite of what Bob said, Y, is what we should conclude). The second message made both of these explicit instead.  
 
