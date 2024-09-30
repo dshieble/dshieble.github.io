@@ -22,7 +22,7 @@ For example, suppose that last Tuesday Bob said X to you and Sara. If you send S
 
 > I think Bob might have been wrong, and the opposite is true instead
 
-Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob that you were not a part of and she doesn't know which of his many opinions you are referring to. She is much more likely to understand an email along the lines of:
+Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob and she doesn't know which of his many opinions you are referring to. She is much more likely to understand an email along the lines of:
 
 > I think Bob might have been wrong when he said X to us last Tuesday in the ABC meeting, and the opposite, Y, is true instead
 
