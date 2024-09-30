@@ -14,7 +14,7 @@ tags: [Communication, Leadership]
 
 </script>
 
-Asynchronous communication through tools like Email, Slack, and Docs, has become central to how teams work. But how do we ensure clarity when we can't rely on real-time feedback?
+Asynchronous communication through tools like Email, Slack, and Docs has become central to how teams work. But how do we ensure clarity when we can't rely on real-time feedback?
 
 Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must increase the specificity of our written communication to be reliably understood.
 
