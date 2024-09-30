@@ -14,7 +14,7 @@ tags: [Communication, Leadership]
 
 </script>
 
-Asynchronous written communication is eating the world. Critical ideas, discussions and decisions are increasingly mediated through platforms like Email, Slack, and Docs - often between individuals who do not share a native language. How can we ensure this communication is effective?
+Asynchronous written communication is eating the world - especially for teams that rely on tools like Email, Slack, and Docs for critical discussions and decisions. But how do we ensure clarity when we can't rely on real-time feedback like facial expressions or tone of voice?”
 
 In written communication, ambiguity can quickly derail a conversation. Without body language or tone of voice to clarify intent, even small misunderstandings can lead to project delays or confusion. We must increase the specificity of our written communication to be reliably understood.
 
