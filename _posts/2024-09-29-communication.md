@@ -14,11 +14,11 @@ tags: [Communication, Leadership]
 
 </script>
 
-Asynchronous written communication is eating the world. Critical ideas, discussions and decisions are increasingly mediated through platforms like Email, Slack, and Docs. How can we ensure this communication is effective?
+Asynchronous written communication is eating the world. Critical ideas, discussions and decisions are increasingly mediated through platforms like Email, Slack, and Docs - often between individuals who do not share a native language. How can we ensure this communication is effective?
 
-Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must increase the specificity of our written communication to be reliably understood.
+In written communication, ambiguity can quickly derail a conversation. Without body language or tone of voice to clarify intent, even small misunderstandings can lead to project delays or confusion. We must increase the specificity of our written communication to be reliably understood.
 
-For example, suppose that last Tuesday Bob said X to you and Sara. If you send Sara a message that says:
+For example, suppose that last Tuesday Bob suggested to you and Sara that the team increase the timeout threshold in a critical API call. If you send Sara a message that says:
 
 > I think Bob might have been wrong. We should do the opposite.
 
