@@ -18,11 +18,11 @@ Asynchronous communication through tools like Email, Slack, and Docs has become 
 
 Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must increase the specificity of our written communication to be reliably understood.
 
-For example, suppose that last week Bob suggested to you and Sara that the team increase the timeout threshold in a critical API call. If you send Sara a message that says:
+For example, suppose that last week Bob suggested to you and Sara that the team increase the timeout threshold in a critical API call. Suppose you send Sara a message that says:
 
 > I think Bob might have been wrong. We should do the opposite.
 
-Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob and she doesn't know which of the many things Bob has said that you are referring to. Furthermore, perhaps Sara and you have different conceptions of what it means to do the "opposite" of increasing the timeout threshold.
+It is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob and she doesn't know which of the many things Bob has said that you are referring to. Furthermore, perhaps Sara and you have different conceptions of what it means to do the "opposite" of increasing the timeout threshold.
 
 Sara is much more likely to understand a message along the lines of:
 
