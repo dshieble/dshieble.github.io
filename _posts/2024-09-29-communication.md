@@ -22,7 +22,7 @@ For example, suppose that last Tuesday Bob suggested to you and Sara that the te
 
 > I think Bob might have been wrong. We should do the opposite.
 
-Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob and she doesn't know which of the many things Bob has said that you are referring to. Furthermore, perhaps Sara and you have different conceptions of which conclusion is the "opposite" of what Bob said.
+Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had several conversations with Bob and she doesn't know which of the many things Bob has said that you are referring to. Furthermore, perhaps Sara and you have different conceptions of what it means to do the "opposite" of increasing the timeout threshold.
 
 Sara is much more likely to understand a message along the lines of:
 
