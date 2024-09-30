@@ -26,8 +26,8 @@ Then it is quite possible that Sara will misunderstand you. Perhaps Sara has had
 
 Sara is much more likely to understand a message along the lines of:
 
-> I think Bob might have been wrong when he said X to us, and the opposite, Y, is true instead
+> I think Bob might have been wrong when he suggested increasing the timeout threshold, and we should decrease it instead
 
-Both messages have the same meaning, but the latter is far harder to misinterpret. By explicitly specifying Bob's opinion X and the conclusion Y, the second message closes the primary ambiguities that could have led to Sara's confusion.
+Both messages have the same meaning, but the latter is far harder to misinterpret. By explicitly specifying Bob's opinion (we should increase the timeout threshold) and the conclusion (we should decrease the timeout threshold), the second message closes the primary ambiguities that could have led to Sara's confusion.
 
 By increasing the specificity of our async written communication we can significantly improve its understandability.
