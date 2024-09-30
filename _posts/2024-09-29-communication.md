@@ -14,11 +14,11 @@ tags: [Communication, Leadership]
 
 </script>
 
-Asynchronous written communication is eating the world - especially for teams that rely on tools like Email, Slack, and Docs for critical discussions and decisions. But how do we ensure clarity when we can't rely on real-time feedback like facial expressions or tone of voice?”
+Asynchronous communication, through tools like Email, Slack, and Docs, has become central to how teams work. But without the nuances of real-time feedback, ambiguity in these communications can lead to confusion and project delays.
 
 In written communication, ambiguity can quickly derail a conversation. Without body language or tone of voice to clarify intent, even small misunderstandings can lead to project delays or confusion. We must increase the specificity of our written communication to be reliably understood.
 
-For example, suppose that last Tuesday Bob suggested to you and Sara that the team increase the timeout threshold in a critical API call. If you send Sara a message that says:
+For example, suppose that last week Bob suggested to you and Sara that the team increase the timeout threshold in a critical API call. If you send Sara a message that says:
 
 > I think Bob might have been wrong. We should do the opposite.
 
