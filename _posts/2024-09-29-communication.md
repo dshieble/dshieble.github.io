@@ -14,9 +14,9 @@ tags: [Communication, Leadership]
 
 </script>
 
-Asynchronous communication, through tools like Email, Slack, and Docs, has become central to how teams work. But without the nuances of real-time feedback, ambiguity in these communications can lead to confusion and project delays.
+Asynchronous communication, through tools like Email, Slack, and Docs, has become central to how teams work. But how do we ensure clarity when we can't rely on real-time feedback?
 
-In written communication, ambiguity can quickly derail a conversation. Without body language or tone of voice to clarify intent, even small misunderstandings can lead to project delays or confusion. We must increase the specificity of our written communication to be reliably understood.
+Words and sentences can vary widely in meaning, and the bedrock of effective communication is shared context. In a conversation context can be transferred through facial expressions and body language - this is not possible in written communication. We must increase the specificity of our written communication to be reliably understood.
 
 For example, suppose that last week Bob suggested to you and Sara that the team increase the timeout threshold in a critical API call. If you send Sara a message that says:
 
