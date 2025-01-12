@@ -1,5 +1,120 @@
 
 
+<!-- 
+
+
+The real insight here isn't that AI will replace your work for you. 
+
+Perhaps a typical engineer working on an established system will spend 10% of their time working on tasks that AI tools can complete instantly.
+
+
+
+Certain projects become simpler. Businesses that realize this will find themselves with dramatically better internal tools soon. 
+
+
+The real unlock isn't that the tool completed the core task for me - I still had to optimize the system myself - but the AI protected me from 
+
+It sure would be nice to have X, but I have to context switch to get it 
+
+The real mindset shift isn't 
+
+
+I think a lot of developers
+
+
+
+If you're working on software, and you wish you had a test or utility that enabled X but building it would require context switching or familiarizing yourself with new APIs - you've hit on a place where AI will help you. 
+
+
+
+
+
+AI tools improve developer quality of life. The noisier things, the things that require context
+
+
+The marquee example is standalone utilities - including scripts, GUIs, and data transformation functions. 
+
+
+
+
+Examples include
+- Standalone utilities, including scripts, GUIs
+- Building integration tests from code and sample data
+- 
+
+
+
+
+
+
+
+
+Point 2 - the way to change is to do more of the things that were previously hard but are now easy 
+
+
+
+
+
+
+
+
+
+
+
+
+Large codebases are hard
+
+Perhaps we will get there
+
+I've personally found the impact of AI development on my workflow to be quality-of-life
+
+
+There are certain kinds of workflows that AI development tools make dramatically easier
+- building small utilities
+- 
+
+
+
+
+
+
+
+
+Modalities of AI
+- autocomplete
+- chat and investigation
+- composition
+
+Making the Most of AI
+- Docs, Tests, Tools
+- Generating tests, especially integration tests that require lots of upfront data generation
+- Scripts, cli tools, and GUIs are easier to generate than ever
+- Use the right kinds of types (datetimes, dataclasses instead of dictionaries, etc)
+
+Tips
+- Generate tests at the same time as code
+- Context window management is critical, organize code to place relevant context as close together as possible
+- Decisions should be as context-independent as possible
+
+
+
+
+
+
+
+
+Software engineering is changing.
+
+From autocomplete tocode composiion
+
+to prompt-to-app
+From copilot to cursor to codeium, AI developer tooling is on the rise.
+
+
+ -->
+
+
+
 
 <!-- 
 

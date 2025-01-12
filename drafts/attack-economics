@@ -1,0 +1,21 @@
+---
+layout: post
+title: Better Asynchronous Written Communication
+tags: [Software Engineering, AI]
+---
+<script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+- Cybersecurity is an economic game
+- Defenders need to spend less money than they will lose by getting attacked
+- Attackers need to spend less money than the attack will cost them
+
+example in antivirus EDR - lots of heavy processing options that are high efficacy but expensive https://blog.deeb.ch/posts/how-edr-works/?utm_source=substack&utm_medium=email#av-emulation 
