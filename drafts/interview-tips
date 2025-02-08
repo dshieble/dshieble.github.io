@@ -1,0 +1,71 @@
+---
+layout: post
+title: Interview Tips
+tags: [Software Engineering, AI]
+---
+<script> 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82391879-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+It's 2:30pm, time for that interview. So much for getting anything done today - this meeting is going to last an hour, and then I've got that team leadership meeting at 4:15. Too bad the candidate didn't cancel.
+
+Okay where's the zoom invite...and which role was this for again? Ah okay got it, let me pull up the interview rubric.
+
+This candidate is taking a really long time to introduce themselves. I didn't need to hear about every project they worked on. At this rate we're not going to be able to finish the question. 
+
+Okay, we're still stuck on part two of the question. This candidate has been really confidentally talking about totally irrelevant things for the last 7 minutes. I don't know when they are going to stop, and it feel rude to interrupt them. 
+
+Okay, the are 6 more parts to this question and only 9 minutes left. The candidate might know the material, but there's no way they will be able to demonstrate it all in the time we have left. Probably better to just ask them if they have any questions for us now so we can wrap this up. Maybe I'll get a few minutes back that way.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Scope of this post:
+- Interviews for experienced technical roles
+- Especially ML Engineering, but this is mostly applicable to any technical role
+
+
+The Interviewer Perspective
+- Key personas
+  - The hiring manager
+    - They want the role to get filled ASAP
+    - They generally make the final decision (unless something is broken, such as a micromanaging higher up or impending reorg) 
+    - They will generally defer to technical interviewers who give a strong no
+  - The close teammate in the same role
+    - They want someone who they can count on
+    - They may or may not be incentivized to get the role filled depending on the role and the company
+    - They will generally ask questions that are role-relevant
+  - The trusted interviewer
+    - They are somewhat uninvested in the outcome and will be the least biased
+    - They will be the most mechanical, and will generally hold candidates most closely to a rubric
+
+- The Rubric
+  - The interviewer is likely looking at a document describing what scores to give you based on what you say
+  - If the interviewer doesn't hear you say something, they will often ask follow up questions to give you the chance to say it
+
+
+Key Tips:
+- Brevity is key, never speak for more than 120 seconds in a row (and less than 60 is ideal). This lets you avoid the worst case scenario where the interviewer is looking for something specific and you are talking about something else - both annoying them and preventing yourself from getting credit for what you actually know
+- If you know something well, don't jump into adding lots of irrelevant details immediately. Instead tell the interviewer that you could talk about the topic in much more detail and move on unless they prod you to do so.
+- Listen carefully to the interviewer, they are probably trying to get you to say something that they can give you points for
+
+
