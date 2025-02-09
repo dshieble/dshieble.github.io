@@ -15,6 +15,8 @@ subtitle: Some Apps I've Built
 </script>
 
 
+[Youtube Downloader](https://github.com/dshieble/youtube_downloader) - A tool to download short segments of Youtube videos as mp4 files.
+
 [Text Guard](https://text-guard.com/) - An SMS-based utility that enables users to identify if a suspicious text message is a scam.
 
 [Playwright XSS Scanner](https://github.com/dshieble/playwright_xss_scanner) - A high-precision XSS vulnerability scanner that uses Playwright to execute alert() payloads directly in the browser context rather than relying on payload reflection detection.
