@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Featured Media
-subtitle: Featured Media and Podcasts
+title: Recordings
+subtitle: Recordings and Podcasts
 ---
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
