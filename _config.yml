@@ -24,10 +24,9 @@ description: Thoughts on Math and ML
 # List of links in the navigation bar
 navbar-links:
   Publications: "Publications"
-  Talks: "Talks"
+  Featured Media: "Featured Media"
   Other Posts: "Other Posts"
   About Me: "aboutme"
-  Podcasts: "Podcasts"
 
   # Resources:
   #   - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"

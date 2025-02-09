@@ -15,9 +15,7 @@ subtitle: Blog Posts I've Written on Other Sites
 </script>
 
 
-### Posts I've Written
-
-
+[Misclassification Adaptation in Cyberattack Detection](https://abnormalsecurity.com/blog/misclassification-adaptation-in-cyberattack-detection), Abnormal Engineering Blog, 2025
 
 [Generative AI Enables Threat Actors to Create More (and More Sophisticated) Email Attacks](https://abnormalsecurity.com/blog/generative-ai-chatgpt-enables-threat-actors-more-attacks), Abnormal Product Blog, 2023
 
@@ -25,7 +23,6 @@ subtitle: Blog Posts I've Written on Other Sites
 
 
 [How Abnormal Enhanced Its Detection Platform with BERT](https://abnormalsecurity.com/blog/enhanced-detection-platform-bert-large-language-models), Abnormal Engineering Blog, 2022
-
 
 
 [8 Key Differences Between Ineffective and Effective Machine Learning Engineers](https://abnormalsecurity.com/blog/ineffective-vs-effective-machine-learning-engineers), Abnormal Engineering Blog, 2022
@@ -36,11 +33,3 @@ subtitle: Blog Posts I've Written on Other Sites
 
 [Embeddings@Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html), Twitter Engineering Blog, 2018
 
-
-### Posts I've Been Quoted In
-
-
-[Top Tech Talent Warns on AI's Threat to Human Existence in Open Letter](https://www.darkreading.com/application-security/top-tech-talent-ai-threat-human-existence-open-letter)
-
-
-[Tech luminaries call for a 6-month moratorium on AI, but can they stop it?](https://www.scmagazine.com/news/emerging-technology/tech-luminaries-call-artificial-intelligence-moratorium)

@@ -18,12 +18,11 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 ### Papers
 
 
-[Kan Extensions in Data Science and Machine Learning
-](https://arxiv.org/abs/2203.09018). Shiebler, D. (TBD))
+[Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). Shiebler, D. (2022)
 
+[Kan Extensions in Data Science and Machine Learning](https://arxiv.org/abs/2203.09018). Shiebler, D. (2022)
 
 [Generalized Optimization: A First Step Towards Category Theoretic Learning Theory](https://arxiv.org/abs/2109.10262). Shiebler, D. Advances in Intelligent Systems and Computing (2021)
-
 
 [Functorial Manifold Learning](https://arxiv.org/abs/2011.07435). Shiebler, D. Applied Category Theory (2021)
 
@@ -37,8 +36,7 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 [Tuning Word2vec for Large Scale Recommendation Systems](https://dl.acm.org/doi/abs/10.1145/3383313.3418486). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
 
-[Lessons Learned Addressing Dataset Bias in Model-Based
-Candidate Generation at Twitter](https://irsworkshop.github.io/2020/publications/paper_2_%20Virani_Twitter.pdf). Virani, A., Baxter, J., Shiebler, D., Gautier, P., Verma, S., Xia, Y., Sharma, A., Binnani, S., Chen, L., Yu, C. KDD Workshop on Industrial Recommendation Systems (2020)
+[Lessons Learned Addressing Dataset Bias in Model-Based Candidate Generation at Twitter](https://irsworkshop.github.io/2020/publications/paper_2_%20Virani_Twitter.pdf). Virani, A., Baxter, J., Shiebler, D., Gautier, P., Verma, S., Xia, Y., Sharma, A., Binnani, S., Chen, L., Yu, C. KDD Workshop on Industrial Recommendation Systems (2020)
 
 [Developments in AI and Machine Learning for Neuroimaging](https://link.springer.com/chapter/10.1007/978-3-030-50402-1_18). O’Sullivan, S., Jean-Quartier, F., Jean-Quartier, C., Holzinger, A., Shiebler, D., Moon, P., Angione, C. Artificial Intelligence and Machine Learning for Digital Pathology - LNCS 12090 (2020)
 
@@ -60,6 +58,12 @@ Beta Shift and Decision Conflict. Shiebler, D. Brown University Neuroscience Sc.
 
 
 ### Patents
+
+
+[Systems and methods for sensor-based vehicle crash prediction, detection, and reconstruction](https://patents.google.com/patent/US11220258B2/en). Cordova, B., Vaisman, E., &  Shiebler, D. (U.S. 11,220,258)
+
+
+[Method and system for accident detection using contextual data](https://patents.google.com/patent/US10930090B2/en). B Cordova, R Finegold, D Shiebler, E Vaisman (U.S. 10,930,090)
 
 [Systems and Methods for Detecting and Assessing Distracted Drivers](https://patents.google.com/patent/US20170105098A1/en). Cordova, B., Finegold, R., Shiebler, D., & Farrell, K. (U.S. 2017/0105098 A1)
 
