@@ -20,7 +20,7 @@ Today I work as the Head of Machine Learning at [Abnormal Security](https://abno
 
 Before joining Abnormal Security, I worked at Twitter — first as a Staff ML Engineer on the Cortex team, where I built Twitter’s core vector search and entity embedding capabilities, and later as the Engineering Manager for the web ads ML team, which powered Twitter’s $1B+ ARR web ads product.
 
-Prior to Twitter, I was a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M acquisition.
+Prior to Twitter I was a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M acquisition.
 
 I hold a DPhil (PhD) from the University of Oxford, where I used category theory to develop novel perspectives on vector embeddings, clustering, and optimization algorithms. I was advised by [Jeremy Gibbons](https://www.cs.ox.ac.uk/people/jeremy.gibbons/) and my thesis title was [Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). I also hold Bachelor’s degrees in Neuroscience and Computer Science from Brown University.
 
