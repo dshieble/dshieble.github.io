@@ -24,4 +24,7 @@ Prior to Twitter I was a Senior Data Scientist at TrueMotion, where I designed m
 
 I hold a DPhil (PhD) from the University of Oxford, where I used category theory to develop novel perspectives on vector embeddings, clustering, and optimization algorithms. I was advised by [Jeremy Gibbons](https://www.cs.ox.ac.uk/people/jeremy.gibbons/) and my thesis title was [Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). I also hold Bachelor’s degrees in Neuroscience and Computer Science from Brown University.
 
-You can reach me on [linkedin](https://www.linkedin.com/in/dan-shiebler-10219b42/) or follow me on [github](https://github.com/dshieble).
+You can find me on:
+- [LinkedIn](https://www.linkedin.com/in/dan-shiebler-10219b42/)
+- [GitHub](https://github.com/dshieble)
+- [Google Scholar](https://scholar.google.com/citations?user=J1nlG6EAAAAJ&hl=en)
