@@ -14,8 +14,6 @@ tags: [Cybersecurity, Detection, Engineering]
 
 </script>
 
-# Developing a Detection Mindset in Cybersecurity and Fraud Prevention
-
 When building systems to detect cyberattacks or fraud, technical expertise alone isn’t enough. Success hinges on adopting a *detection mindset*—a way of thinking that prioritizes skepticism, rapid iteration, and rigorous validation. A detection mindset ensures that detection engineers and data scientists remain vigilant, adaptive, and results-driven in their approach. Here’s what it means in practice.
 
 ## Always Be Suspicious of Your Data
