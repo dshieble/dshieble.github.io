@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Getting Value from AI Developer Tools
-tags: [Software Engineering, AI]
+title: The Detection Mindset
+tags: [Cybersecurity, Detection, Engineering]
 ---
 <script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
