@@ -18,7 +18,7 @@ Ever had a complex Python function you wanted to quickly host as an API? Managin
 
 - **Docker**: to manage and install dependencies
 - **AWS Parameter Store**: to securely handle secrets
-- **AWS Lambda: for scalable**, serverless function hosting
+- **AWS Lambda**: for scalable, serverless function hosting
 
 This approach is powerful and flexible, but manually configuring Dockerfiles, IAM roles, and permissions repeatedly can be tedious - and the pattern is a bit too generic to encode with tools like terraform.
 
