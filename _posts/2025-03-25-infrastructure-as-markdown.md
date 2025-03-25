@@ -22,7 +22,7 @@ Ever had a complex Python function you wanted to quickly host as an API? Managin
 
 This approach is powerful and flexible, but manually configuring Dockerfiles, IAM roles, and permissions repeatedly can be tedious - and the pattern is a bit too generic to encode with tools like terraform.
 
-Enter vibe coding. I wrote a detailed markdown file documenting this exact process—clearly enough that even a junior engineer could follow (you can find it [here](https://github.com/dshieble/method_to_lambda_prompt/blob/main/guidelines.md). Now, whenever I need to deploy a new Python function to Lambda, I simply hand Cursor this markdown file along with the Python function and let it 🧑‍🍳.
+Enter vibe coding. I wrote a detailed markdown file documenting this exact process—clearly enough that even a junior engineer could follow (you can find it [here](https://github.com/dshieble/method_to_lambda_prompt/blob/main/guidelines.md)). Now, whenever I need to deploy a new Python function to Lambda, I simply hand Cursor this markdown file along with the Python function and let it 🧑‍🍳.
 
 ## What's Going on Here?
 
@@ -32,9 +32,5 @@ We're exploring a new approach: Infrastructure as Markdown. Unlike traditional i
 
 This markdown-based approach, leveraging AI tools, represents a shift from traditional DevOps. It simplifies infrastructure management, making it accessible to those who might not be deeply versed in cloud infrastructure tools. If markdown documentation becomes a form of executable infrastructure, clarity in writing could soon surpass traditional scripting or configuration languages in importance.
 
-This approach is still pretty limited today - infrastructure deployment is particularly nitpicky in exactly the ways that agentic coding tools hate. 
-
-While the markdown approach currently excels with simpler scenarios, ongoing advancements in AI may expand its capabilities.
-
-Markdown as infrastructure—it's intriguing, practical for simple setups, and hints at a new way of thinking about DevOps.
+This approach is still pretty limited today. Large infrastructure configurations tend to consist of the huge overly structured files that tend to confuse modern AI coding tools. But make no mistake - this is the future.
 
