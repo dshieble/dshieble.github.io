@@ -22,7 +22,7 @@ Ever had a complex Python function you wanted to quickly host as an API? Managin
 
 This approach is powerful and flexible, but manually configuring Dockerfiles, IAM roles, and permissions repeatedly can be tedious - and the pattern is a bit too generic to encode with tools like terraform.
 
-Enter AI coding tools. I recently created a detailed markdown file documenting this exact process—clearly enough that even a junior engineer could follow. Now, whenever I need to deploy a new Python function to Lambda, I simply hand Cursor this markdown file along with the Python function. The AI takes care of the rest.
+Enter vibe coding. I recently created a detailed markdown file documenting this exact process—clearly enough that even a junior engineer could follow. Now, whenever I need to deploy a new Python function to Lambda, I simply hand Cursor this markdown file along with the Python function. The AI takes care of the rest.
 
 ## What's Going on Here?
 
