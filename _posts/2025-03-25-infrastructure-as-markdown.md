@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Infrastructure as ... Markdown?
+title: Infrastructure as Markdown?
 tags: [AI, Software Engineering]
 ---
 <script> 
