@@ -32,6 +32,8 @@ We're exploring a new approach: Infrastructure as Markdown. Unlike traditional i
 
 This markdown-based approach, leveraging AI tools, represents a shift from traditional DevOps. It simplifies infrastructure management, making it accessible to those who might not be deeply versed in cloud infrastructure tools. If markdown documentation becomes a form of executable infrastructure, clarity in writing could soon surpass traditional scripting or configuration languages in importance.
 
+This approach is still pretty limited today - infrastructure deployment is particularly nitpicky in exactly the ways that agentic coding tools hate. 
+
 While the markdown approach currently excels with simpler scenarios, ongoing advancements in AI may expand its capabilities.
 
 Markdown as infrastructure—it's intriguing, practical for simple setups, and hints at a new way of thinking about DevOps.
