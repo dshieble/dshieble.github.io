@@ -22,7 +22,7 @@ Ever had a complex Python function you wanted to quickly host as an API? Managin
 
 This approach is powerful and flexible, but manually configuring Dockerfiles, IAM roles, and permissions repeatedly can be tedious - and the pattern is a bit too generic to encode with tools like terraform.
 
-Enter vibe coding. I wrote a detailed markdown file documenting this exact process—clearly enough that even a junior engineer could follow (you can find it [here](https://github.com/dshieble/method_to_lambda_prompt/blob/main/guidelines.md)). Now, whenever I need to deploy a new Python function to Lambda, I simply hand Cursor this markdown file along with the Python function and let it 🧑‍🍳.
+Enter vibe coding. I wrote a detailed markdown file documenting this exact process—clearly enough that a junior engineer could follow (you can find it [here](https://github.com/dshieble/method_to_lambda_prompt/blob/main/guidelines.md)). Now, whenever I need to deploy a new Python function to Lambda, I simply hand Cursor this markdown file along with the Python function and let it 🧑‍🍳.
 
 ## What's Going on Here?
 
@@ -30,7 +30,7 @@ We're exploring a new approach: Infrastructure as Markdown. Unlike traditional i
 
 ## Speculating on the Future
 
-This AI+markdown-based approach is a shift from traditional DevOps. At the cost of allowing things to sometimes go off the rails (and they do!) this dramatically simplifies infrastructure management, making it accessible to those who might not be deeply versed in cloud infrastructure tools. If markdown documentation becomes a form of executable infrastructure, clarity in writing could soon surpass traditional scripting or configuration languages in importance.
+This AI+markdown-based approach is a shift from traditional DevOps. At the cost of allowing things to sometimes go off the rails (and they do!) this dramatically simplifies infrastructure management, making it accessible to those who might not be deeply versed in cloud infrastructure tools.
 
 This approach is still pretty limited today. Large infrastructure configurations tend to consist of the huge overly structured files that befuddle modern AI coding tools. But make no mistake - this is the future.
 
