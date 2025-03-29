@@ -23,5 +23,5 @@ subtitle: Some Apps I've Built
 
 [IPScore](https://ipscore.info) - A lightweight utility to check an IP address against blocklists.
 
-[ZeroPhishing](https://zero-phishing.com) - An LLM-based system to identify if a url is a phishing page.
+[ZeroPhishing](https://url.zero-phishing.com) - An LLM-based system to identify if a url is a phishing page.
 
