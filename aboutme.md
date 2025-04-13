@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-subtitle: The Extra Brief Version
+subtitle: Professional Biography
 ---
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -14,15 +14,15 @@ subtitle: The Extra Brief Version
 
 </script>
 
-Hi, I'm Dan Shiebler. I like math, history podcasts, fantasy novels, riding my bicycle, and traveling. I live in NYC.
+Hi, I'm Dan Shiebler. I like math, programming, history, nature, art and travel. I live in NYC.
 
-Today I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/), where I lead a team of 50+ engineers and data scientists building the world’s most advanced messaging cyberattack detection system.
+Today I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/), where I lead a team of 50+ ML engineers, software engineers and data scientists building the world’s most advanced AI-powered cyberattack detection system.
 
-Before joining Abnormal Security, I worked at Twitter — first as a Staff ML Engineer on the Cortex team, where I built Twitter’s core vector search and entity embedding capabilities, and later as the Engineering Manager for the web ads ML team, which powered Twitter’s $1B+ ARR web ads product.
+I previously worked at Twitter — first as a Staff ML Engineer on the Cortex team, where I built Twitter’s core embedding and vector search capabilities, and later as the Engineering Manager for the web ads ML team, which powered Twitter’s $1B+ ARR web ads product. My team launched a series of product and model improvements that drove a 10% increase in Twitter revenue.
 
-Prior to Twitter I was a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M acquisition.
+While working full time at Twitter I started and completed a PhD (DPhil) at the University of Oxford. My research introduced novel perspectives on unsupervised learning and optimization algorithms. 
 
-I hold a DPhil (PhD) from the University of Oxford, where I used category theory to develop novel perspectives on vector embeddings, clustering, and optimization algorithms. I was advised by [Jeremy Gibbons](https://www.cs.ox.ac.uk/people/jeremy.gibbons/) and my thesis title was [Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). I also hold Bachelor’s degrees in Neuroscience and Computer Science from Brown University.
+Earlier in my career I worked as a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M acquisition.
 
 You can find me on:
 - [LinkedIn](https://www.linkedin.com/in/dan-shiebler-10219b42/)
