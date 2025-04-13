@@ -87,3 +87,26 @@ FastTweets: Measuring Embedding Quality for Highly Variable Text Data. Rabhi, S.
 [Large-scale discovery of visual features for object recognition](https://docs.lib.purdue.edu/modvis/2017/session02/4/). Linsley, D., Eberhardt, S., Shiebler, D., & Serre, T. Computational and Mathematical Models in Vision (2017)
 
 [More Feedback, Less Depth: Approximating Human Vision with Deep Networks](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxtbGluaTIwMTZuaXBzfGd4OjUwYjk3YzdmMjdlNGVlM2E). Eberhardt, S., Cader, J., Linsley, D., Barhomi, Y., Shiebler, D., & Serre, T. NIPS Workshop on Representation Learning in Artificial and Biological Neural Networks (2016)
+
+
+### Other Blog Posts 
+
+
+[Misclassification Adaptation in Cyberattack Detection](https://abnormalsecurity.com/blog/misclassification-adaptation-in-cyberattack-detection), Abnormal Engineering Blog, 2025
+
+[Generative AI Enables Threat Actors to Create More (and More Sophisticated) Email Attacks](https://abnormalsecurity.com/blog/generative-ai-chatgpt-enables-threat-actors-more-attacks), Abnormal Product Blog, 2023
+
+[An Abnormal Approach to Machine Learning: Feature Systems and Language Models](https://abnormalsecurity.com/blog/machine-learning-feature-systems-models), Abnormal Product Blog, 2023
+
+
+[How Abnormal Enhanced Its Detection Platform with BERT](https://abnormalsecurity.com/blog/enhanced-detection-platform-bert-large-language-models), Abnormal Engineering Blog, 2022
+
+
+[8 Key Differences Between Ineffective and Effective Machine Learning Engineers](https://abnormalsecurity.com/blog/ineffective-vs-effective-machine-learning-engineers), Abnormal Engineering Blog, 2022
+
+[Model Understanding with Feature Importance](https://abnormalsecurity.com/blog/model-understanding-with-feature-importance), Abnormal Engineering Blog, 2022
+
+[Meeting the Dialogue Challenge](https://golem.ph.utexas.edu/category/2019/06/meeting_the_dialogue_challenge.html#more), The n-Category Café, 2019
+
+[Embeddings@Twitter](https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html), Twitter Engineering Blog, 2018
+
