@@ -18,7 +18,7 @@ Hi, I'm Dan Shiebler. I like math, programming, history, nature, art and travel.
 
 Today I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/), where I lead a team of 50+ ML engineers, software engineers and data scientists building the world’s most advanced AI-powered cyberattack detection system.
 
-I previously worked at Twitter — first as a Staff ML Engineer on the Cortex team, where I built Twitter’s core embedding and vector search capabilities, and later as the Engineering Manager for the web ads ML team, which powered Twitter’s $1B+ ARR web ads product. My team launched a series of product and model improvements that drove a 10% increase in Twitter revenue.
+Before Abnormal I spent almost 5 years working at Twitter — first as a Staff ML Engineer on the Cortex team, where we built Twitter’s core embedding and vector search capabilities, and later as the Engineering Manager for the web ads ML team, where we launched ML model improvements that drove a $100M+ increase in Twitter revenue.
 
 While working full time at Twitter I started and completed a PhD (DPhil) at the University of Oxford. My research introduced novel perspectives on unsupervised learning and optimization algorithms. 
 
