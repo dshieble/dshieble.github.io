@@ -16,13 +16,13 @@ subtitle: Professional Biography
 
 Hi, I'm Dan Shiebler. I like math, programming, history, nature, art and travel. I live in NYC.
 
-Today I work as the Head of Machine Learning at [Abnormal Security](https://abnormalsecurity.com/), where I lead a team of 50+ ML engineers, software engineers and data scientists building the world’s most advanced AI-powered cyberattack detection system.
+Today I work as the Head of Machine Learning at [Abnormal AI](https://abnormal.ai), where I lead a team of 50+ ML engineers, software engineers and data scientists building the world’s most advanced AI-powered cyberattack detection system.
 
 Before Abnormal I spent almost 5 years working at Twitter — first as a Staff ML Engineer on the Cortex team, where we built Twitter’s core embedding and vector search capabilities, and later as the Engineering Manager for the web ads ML team, where we launched ML model improvements that drove a $100M+ increase in Twitter revenue.
 
-While working full time at Twitter I started and completed a PhD (DPhil) at the University of Oxford. My research introduced novel perspectives on unsupervised learning and optimization algorithms. 
+While working full time at Twitter I started and completed a PhD (DPhil) at the University of Oxford. My research introduced novel perspectives on unsupervised learning and optimization algorithms. You can find my dissertation [here](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15).
 
-Earlier in my career I worked as a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M acquisition.
+Earlier in my career I worked as a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M+ acquisition.
 
 You can find me on:
 - [LinkedIn](https://www.linkedin.com/in/dan-shiebler-10219b42/)
