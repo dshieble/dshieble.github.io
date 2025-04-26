@@ -24,6 +24,8 @@ While working full time at Twitter I started and completed a PhD (DPhil) at the 
 
 Earlier in my career I worked as a Senior Data Scientist at TrueMotion, where I designed many of the patented sensor data analytics algorithms that contributed to TrueMotion’s $650M+ acquisition.
 
+I completed Bachelors degrees with honors in Neuroscience and Computer Science at Brown University.
+
 You can find me on:
 - [LinkedIn](https://www.linkedin.com/in/dan-shiebler-10219b42/)
 - [GitHub](https://github.com/dshieble)
