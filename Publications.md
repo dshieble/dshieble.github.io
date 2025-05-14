@@ -17,14 +17,22 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 ### Papers
 
+[Learning what and where to attend with humans in the loop](https://openreview.net/forum?id=BJgLg3R9KQ). Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T. ICLR (2018)
 
-[Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). Shiebler, D. (2022)
+[Making Machine Learning Easy with Embeddings](https://mlsys.org/Conferences/doc/2018/115.pdf). Shiebler, D., & Tayal, A. MLSys (2018)
+
+[Tuning Word2vec for Large Scale Recommendation Systems](https://dl.acm.org/doi/abs/10.1145/3383313.3418486). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
+
+[Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Compositionality (2021)
+
+
+[Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). Shiebler, D. (2022). PhD Dissertation at the University of Oxford
+
+[Functorial Manifold Learning](https://arxiv.org/abs/2011.07435). Shiebler, D. Applied Category Theory (2021)
 
 [Kan Extensions in Data Science and Machine Learning](https://arxiv.org/abs/2203.09018). Shiebler, D. (2022)
 
 [Generalized Optimization: A First Step Towards Category Theoretic Learning Theory](https://arxiv.org/abs/2109.10262). Shiebler, D. Advances in Intelligent Systems and Computing (2021)
-
-[Functorial Manifold Learning](https://arxiv.org/abs/2011.07435). Shiebler, D. Applied Category Theory (2021)
 
 [Category Theory in Machine Learning](https://arxiv.org/abs/2106.07032). Shiebler, D., Gavranović, B., & Wilson, P. Applied Category Theory (2021)
 
@@ -32,9 +40,6 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 [Functorial Clustering via Simplicial Complexes](https://openreview.net/pdf?id=ZkDLcXCP5sV). Shiebler, D. NeurIPS Workshop on Topological Data Analysis (2020)
 
-[Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Applied Category Theory (2020)
-
-[Tuning Word2vec for Large Scale Recommendation Systems](https://dl.acm.org/doi/abs/10.1145/3383313.3418486). Chamberlain, B., Rossi, E., Shiebler, D., Sedhain, S., Bronstein, M. RecSys (2020)
 
 [Lessons Learned Addressing Dataset Bias in Model-Based Candidate Generation at Twitter](https://irsworkshop.github.io/2020/publications/paper_2_%20Virani_Twitter.pdf). Virani, A., Baxter, J., Shiebler, D., Gautier, P., Verma, S., Xia, Y., Sharma, A., Binnani, S., Chen, L., Yu, C. KDD Workshop on Industrial Recommendation Systems (2020)
 
@@ -42,7 +47,6 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 [Incremental Monoidal Grammars](https://arxiv.org/abs/2001.02296). Shiebler, D., Toumi, A., Sadrzadeh, M. SYCO (2019)
 
-[Learning what and where to attend with humans in the loop](https://openreview.net/forum?id=BJgLg3R9KQ). Linsley, D., Shiebler, D., Eberhardt, S., & Serre, T. ICLR (2018)
 
 [A Correlation Maximization Approach for Cross Domain Co-Embeddings](https://arxiv.org/abs/1809.03497). Shiebler, D. arVix (2018)
 
@@ -50,7 +54,6 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 
 [Fighting Redundancy and Model Decay with Embeddings](https://arxiv.org/abs/1809.07703). Shiebler, D., Belli, L., Baxter, J., Xiong, H., & Tayal, A.  KDD Workshop on Common Model Infrastructure (2018)
 
-[Making Machine Learning Easy with Embeddings](https://mlsys.org/Conferences/doc/2018/115.pdf). Shiebler, D., & Tayal, A. MLSys, formally SysML (2018)
 
 [A Dichotomy of Visual Relations](https://www2.securecms.com/CCNeuro/docs-0/5928ea9668ed3f69508a256a.pdf). Kim, J., Ricci, M., Shiebler, D., & Serre, T. Computational Cognitive Neuroscience (2017)
 
