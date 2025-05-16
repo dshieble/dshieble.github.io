@@ -26,7 +26,7 @@ subtitle: A Selection of Papers and Patents I've Co-Authored
 [Categorical Stochastic Processes and Likelihood](https://arxiv.org/abs/2005.04735). Shiebler, D. Compositionality (2021)
 
 
-[Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). Shiebler, D. (2022). PhD Dissertation at the University of Oxford
+[Compositionality and Functorial Invariants in Machine Learning](https://ora.ox.ac.uk/objects/uuid:ec72e338-d95e-4bd6-9412-7ac76b7ddc15). Shiebler, D. PhD Dissertation at the University of Oxford (2022)
 
 [Functorial Manifold Learning](https://arxiv.org/abs/2011.07435). Shiebler, D. Applied Category Theory (2021)
 
