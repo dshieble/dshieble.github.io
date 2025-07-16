@@ -18,7 +18,7 @@ Hi, I'm Dan Shiebler. I like math, programming, history, nature, art and travel.
 
 I'm currently building something new at the intersection of AI and cybersecurity.
 
-I previously served as the Head of Machine Learning at [Abnormal AI](https://abnormal.ai), where I held the overall responsibility for detection efficacy and oversaw all AI/ML initiatives as the company scaled to $300M ARR.
+I previously served as the Head of Machine Learning at [Abnormal AI](https://abnormal.ai), where I held the overall responsibility for detection efficacy and oversaw AI/ML initiatives. The company's revenue grew almost 20x during my 3.5 year tenure. 
 
 Before Abnormal I spent almost 5 years working at Twitter — first as a Staff ML Engineer on the Cortex team, where we built Twitter’s core embedding and vector search capabilities, and later as the Engineering Manager for the web ads ML team, where we launched ML model improvements that drove a $100M+ increase in Twitter revenue.
 
