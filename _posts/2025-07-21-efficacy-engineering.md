@@ -46,7 +46,7 @@ Efficacy engineers trace the relationship from input to output, understand the f
 
 The beating heart of efficacy engineering is an evaluation pipeline. A good evaluation pipeline allows you to:
 
-- *Detect regressions*
+- Detect regressions
 - Benchmark improvements
 - Guide iterative development
 
