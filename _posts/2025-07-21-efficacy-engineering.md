@@ -14,8 +14,6 @@ tags: [Software Engineering, Machine Learning, AI, Data Science]
 
 </script>
 
-# What Is Efficacy Engineering?
-
 Every system has properties that define its usefulness. We talk about **efficiency** when we care about speed and resource usage. We talk about **stability** when we care about consistency under load. We talk about **usability** when we care about how easy it is for a human to interact with the system.
 
 But what about **efficacy**?
