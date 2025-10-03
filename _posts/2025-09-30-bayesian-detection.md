@@ -44,9 +44,7 @@ Analysts are already doing a form of **Bayesian updating**: starting with a low 
 ## Bayesian Reasoning in Plain English
 
 1. **Start with a prior belief**: Real incidents are rare, so `P(attack)` is low.
-
 2. **Weight evidence by how surprising it is**: If a signal like `login from NordVPN` is rare in benign conditions but common in real attacks, it’s a strong clue.
-
 3. **Combine multiple pieces of evidence**: Bayesian networks only connect clues when they’re dependent. This avoids double-counting correlated signals like *Impossible Travel* and *New Device*.
 
 
@@ -57,16 +55,12 @@ A **Bayesian network (BN)** is a directed graph of variables (signals or outcome
 
 1. **Pick the outcome**
    Example: *Account Compromise*.
-
 2. **List your key signals**
    6–10 strong indicators you already track: *Impossible Travel, MFA Disabled, New Device, Privileged Action, Critical Asset Access*.
-
 3. **Draw arrows for dependencies**
    Example: `Impossible Travel → New Device`, `MFA Disabled → Account Compromise`.
-
 4. **Assign probabilities**
    Use incident history, baselines, or expert judgment. Imperfect numbers are fine - the network learns as you validate cases.
-
 5. **Update with evidence**
    As new alerts fire, the BN computes `P(attack | signals)` and explains which clues had the most impact.
 
