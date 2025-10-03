@@ -1,0 +1,1 @@
+- there are multiple dimensions by which we would want to rank an alert (entity sensitivity, probability of dangerous behavior, severity of the behavior, etc) and we need to consolidate them into a single number
