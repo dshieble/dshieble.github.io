@@ -15,9 +15,7 @@ tags: [Detection, Security, Statistics]
 </script>
 
 
-*No generative AI here - just good old-fashioned statistics, packaged for practice.*
-
-Modern SOCs are drowning in alerts. False positives waste analyst time, while subtle attack chains slip through because signals appear isolated.
+*No generative AI here - just good old-fashioned statistics.*
 
 This post introduces **Bayesian networks**: visual models that connect the clues you see to the threats you care about. Instead of drowning in isolated alerts, a Bayesian network lets your SOC update its belief about an attack as new evidence arrives. We’ll minimize heavy math and focus on **how to learn, build, and use Bayesian Networks in practice.**
 
@@ -74,9 +72,13 @@ A **Bayesian network (BN)** is a directed graph of variables (signals or outcome
 
 
 
-## Example Implementation
+## Example
 
-Here's a simple example to model an account compromise
+Here's a simple example network:
+
+![account compromise](/img/account_compromise_bn.png)
+
+And here it is in Python
 
 ```python
 from pgmpy.models import DiscreteBayesianNetwork
