@@ -16,7 +16,7 @@ subtitle: Professional Biography
 
 Hi, I'm Dan Shiebler. I like math, programming, history, nature, art and travel. I live in NYC.
 
-I'm currently building something new at the intersection of AI and cybersecurity.
+Today I am the Co-Founder/CTO of [Artemis](https://artemissecurity.com/).
 
 I previously served as the Head of Machine Learning at [Abnormal AI](https://abnormal.ai), where I held the overall responsibility for detection efficacy and oversaw AI/ML initiatives. The company's revenue grew almost 20x during my 3.5 year tenure. Abnormal AI was most recently valued at $5.1 billion.
 
