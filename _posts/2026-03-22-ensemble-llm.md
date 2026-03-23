@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Bayesian Attack Detection for Smarter SOCs
+title: Agents That Disagree: Adversarial Multi-Agent Architecture for AI-Driven Detection and Investigation
 tags: [Detection, Security, Statistics]
 ---
 <script> 
