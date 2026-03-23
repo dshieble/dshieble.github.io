@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Agents That Disagree: Adversarial Multi-Agent Architecture for AI-Driven Detection and Investigation
+title: Agents That Disagree - Adversarial Multi-Agent Architecture for AI-Driven Detection and Investigation
 tags: [Detection, Security, Statistics]
 ---
 <script> 
